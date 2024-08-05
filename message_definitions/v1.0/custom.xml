@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<mavlink>
+  <!-- MAVLink standard messages -->
+  <include>minimal.xml</include>
+  <dialect>0</dialect>
+
+  <enums>
+    <!-- Custom Enums -->
+    <enum name="RX_STATUS">
+      <description>These values define the status of the receiver.</description>
+      <entry value="0x00" name="POWER_OFF">
+        <description>Power off</description>
+      </entry>
+      <entry value="0x01" name="POWER_ON">
+        <description>Power on</description>
+      </entry>
+      <entry value="0x02" name="POWER_ON_LOW_BATT">
+        <description>Power on with low battery</description>
+      </entry>
+      <entry value="0x03" name="POWER_ON_ERROR_COMMS">
+        <description>Power on with communication error</description>
+      </entry>
+    </enum>
+
+    <enum name="STAGE_STATES">
+      <description>These values define the stage states of the system.</description>
+      <entry value="0x00" name="STAGE_1_OFF_STAGE_2_OFF">
+        <description>Stage 1 off, Stage 2 off</description>
+      </entry>
+      <entry value="0x01" name="STAGE_1_ON_STAGE_2_OFF">
+        <description>Stage 1 on, Stage 2 off</description>
+      </entry>
+      <entry value="0x02" name="STAGE_1_OFF_STAGE_2_ON">
+        <description>Stage 1 off, Stage 2 on</description>
+      </entry>
+      <entry value="0x03" name="STAGE_1_ON_STAGE_2_ON">
+        <description>Stage 1 on, Stage 2 on</description>
+      </entry>
+    </enum>
+
+    <enum name="SAVE_STATE">
+      <description>These values define the save states of the system.</description>
+      <entry value="0x00" name="SAVE_FALSE">
+        <description>Save false</description>
+      </entry>
+      <entry value="0x01" name="SAVE_PB_ON">
+        <description>Save push button on</description>
+      </entry>
+      <entry value="0x02" name="SAVE_ACQ">
+        <description>Save acquisition</description>
+      </entry>
+      <entry value="0x03" name="SAVE_2_SD">
+        <description>Save to SD card</description>
+      </entry>
+    </enum>
+
+    <enum name="SIGNAL_SAT">
+      <description>These values define the boolean states.</description>
+      <entry value="0x00" name="SAT_FALSE">
+        <description>False</description>
+      </entry>
+      <entry value="0x01" name="SAT_TRUE">
+        <description>True</description>
+      </entry>
+    </enum>
+
+    <enum name="SIGNAL_DET">
+      <description>These values define the boolean states.</description>
+      <entry value="0x00" name="DET_FALSE">
+        <description>False</description>
+      </entry>
+      <entry value="0x01" name="DET_TRUE">
+        <description>True</description>
+      </entry>
+    </enum>
+
+    <enum name="RX_RESET">
+      <description>These values define the boolean states.</description>
+      <entry value="0x00" name="RESET_FALSE">
+        <description>False</description>
+      </entry>
+      <entry value="0x01" name="RESET_TRUE">
+        <description>True</description>
+      </entry>
+    </enum>
+  </enums>
+
+  <messages>
+    <!-- Custom Message -->
+    <message id="200" name="IVAQ_RX_PARAMS">
+      <description>IVAQ Rx Current Parameters</description>
+      <field type="uint8_t" name="rx_status" enum="RX_STATUS">Ivaq Rx Status</field>
+      <field type="uint8_t" name="rx_stg_states" enum="STAGE_STATES">Ivaq Rx Stage States</field>
+      <field type="uint8_t" name="rx_save_opt" enum="SAVE_STATE">Ivaq Rx Save State</field>
+      <field type="uint8_t" name="rx_saturation_flag" enum="SIGNAL_SAT">Ivaq Rx Saturation flag</field>
+    </message>
+
+    <message id="201" name="IVAQ_RX_SIGNAL">
+    <description>IVAQ Rx Signal</description>
+      <field type="uint32_t" name="rx_time_signal_ms">Ivaq Rx Signal Time tag</field>
+      <field type="uint8_t" name="rx_signal_det" enum="SIGNAL_DET">Ivaq Rx Signal Detection flag</field>
+      <field type="float" name="rx_signal_max">Ivaq Rx Signal value</field>
+    </message>
+
+    <message id="202" name="IVAQ_RX_SET_PARAMS">
+      <description>IVAQ Rx Target Parameters</description>
+      <field type="uint8_t" name="rx_set_reset" enum="RX_RESET">Ivaq Rx Set Reset</field>
+      <field type="uint8_t" name="rx_set_stg_states" enum="STAGE_STATES">Ivaq Rx Set Stage States</field>
+      <field type="uint8_t" name="rx_set_save_opt" enum="SAVE_STATE">Ivaq Rx Save State</field>
+    </message>
+  </messages>
+</mavlink>
