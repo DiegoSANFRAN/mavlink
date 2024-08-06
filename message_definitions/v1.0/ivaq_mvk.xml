@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<mavlink>
+  <!-- MAVLink standard messages -->
+  <include>common.xml</include> <!-- common.xml for Python & minimal.xml for C -->
+  <dialect>100</dialect>
+
+  <enums>
+    <!-- Custom Enums -->
+    <enum name="MVK_RX_STATUS">
+      <description>These values define the status of the receiver.</description>
+      <entry value="0x00" name="MVK_POWER_OFF">
+        <description>Power off</description>
+      </entry>
+      <entry value="0x01" name="MVK_POWER_ON">
+        <description>Power on</description>
+      </entry>
+      <entry value="0x02" name="MVK_POWER_ON_LOW_BATT">
+        <description>Power on with low battery</description>
+      </entry>
+      <entry value="0x03" name="MVK_POWER_ON_ERROR_COMMS">
+        <description>Power on with communication error</description>
+      </entry>
+    </enum>
+
+    <enum name="MVK_STAGE_STATES">
+      <description>These values define the stage states of the system.</description>
+      <entry value="0x00" name="MVK_STAGE_1_OFF_STAGE_2_OFF">
+        <description>Stage 1 off, Stage 2 off</description>
+      </entry>
+      <entry value="0x01" name="MVK_STAGE_1_ON_STAGE_2_OFF">
+        <description>Stage 1 on, Stage 2 off</description>
+      </entry>
+      <entry value="0x02" name="MVK_STAGE_1_OFF_STAGE_2_ON">
+        <description>Stage 1 off, Stage 2 on</description>
+      </entry>
+      <entry value="0x03" name="MVK_STAGE_1_ON_STAGE_2_ON">
+        <description>Stage 1 on, Stage 2 on</description>
+      </entry>
+    </enum>
+
+    <enum name="MVK_SAVE_STATE">
+      <description>These values define the save states of the system.</description>
+      <entry value="0x00" name="MVK_SAVE_FALSE">
+        <description>Save false</description>
+      </entry>
+      <entry value="0x01" name="MVK_SAVE_PB_ON">
+        <description>Save push button on</description>
+      </entry>
+      <entry value="0x02" name="MVK_SAVE_ACQ">
+        <description>Save acquisition</description>
+      </entry>
+      <entry value="0x03" name="MVK_SAVE_2_SD">
+        <description>Save to SD card</description>
+      </entry>
+    </enum>
+
+    <enum name="MVK_SIGNAL_SAT">
+      <description>These values define the boolean states.</description>
+      <entry value="0x00" name="MVK_SAT_FALSE">
+        <description>False</description>
+      </entry>
+      <entry value="0x01" name="MVK_SAT_TRUE">
+        <description>True</description>
+      </entry>
+    </enum>
+
+    <enum name="MVK_SIGNAL_DET">
+      <description>These values define the boolean states.</description>
+      <entry value="0x00" name="MVK_DET_FALSE">
+        <description>False</description>
+      </entry>
+      <entry value="0x01" name="MVK_DET_TRUE">
+        <description>True</description>
+      </entry>
+    </enum>
+
+    <enum name="MVK_RX_RESET">
+      <description>These values define the boolean states.</description>
+      <entry value="0x00" name="MVK_RESET_FALSE">
+        <description>False</description>
+      </entry>
+      <entry value="0x01" name="MVK_RESET_TRUE">
+        <description>True</description>
+      </entry>
+    </enum>
+  </enums>
+
+  <messages>
+    <!-- Custom Message -->
+
+    <!-- SYSTEM TIME commented for Python libraries generation as it is already in the common.xml -->
+
+    <!-- <message id="2" name="SYSTEM_TIME">
+      <description>The system time is the time of the master clock, typically the computer clock of the main onboard computer.</description>
+      <field type="uint64_t" name="time_unix_usec" units="us">Timestamp (UNIX epoch time).</field>
+      <field type="uint32_t" name="time_boot_ms" units="ms">Timestamp (time since system boot).</field>
+    </message> -->
+
+    <message id="200" name="IVAQ_RX_PARAMS">
+      <description>IVAQ Rx Current Parameters</description>
+      <field type="uint8_t" name="rx_status" enum="MVK_RX_STATUS">Ivaq Rx Status</field>
+      <field type="float" name="rx_battery_voltage">Ivaq Rx Battery Voltage</field>
+      <field type="uint8_t" name="rx_stg_states" enum="MVK_STAGE_STATES">Ivaq Rx Stage States</field>
+      <field type="uint8_t" name="rx_save_opt" enum="MVK_SAVE_STATE">Ivaq Rx Save State</field>
+      <field type="uint8_t" name="rx_saturation_flag" enum="MVK_SIGNAL_SAT">Ivaq Rx Saturation flag</field>
+    </message>
+    
+    <message id="201" name="IVAQ_RX_SET_PARAMS">
+      <description>IVAQ Rx Target Parameters</description>
+      <field type="uint8_t" name="rx_set_reset" enum="MVK_RX_RESET">Ivaq Rx Set Reset</field>
+      <field type="uint8_t" name="rx_set_stg_states" enum="MVK_STAGE_STATES">Ivaq Rx Set Stage States</field>
+      <field type="uint8_t" name="rx_set_save_opt" enum="MVK_SAVE_STATE">Ivaq Rx Save State</field>
+    </message>
+
+    <message id="202" name="IVAQ_RX_SIGNAL_MASTER">
+    <description>Message with Signal from all antennas (X,Y,Z) in IVAQ Rx uploaded to Raspi</description>
+      <field type="uint32_t" name="rx_time_signal_ms">Ivaq Rx Signal Time tag</field>
+      <field type="uint8_t" name="rx_signal_x_det" enum="MVK_SIGNAL_DET">Ivaq Rx X-ant Signal Detection flag</field>
+      <field type="float" name="rx_signal_x_raw">Ivaq Rx X-ant Signal Raw Demod value</field>
+      <field type="float" name="rx_signal_x_corr">Ivaq Rx X-ant Signal Corr Demod value</field>
+      <field type="uint8_t" name="rx_signal_y_det" enum="MVK_SIGNAL_DET">Ivaq Rx Y-ant Signal Detection flag</field>
+      <field type="float" name="rx_signal_y_raw">Ivaq Rx Y-ant Signal Raw Demod value</field>
+      <field type="float" name="rx_signal_y_corr">Ivaq Rx Y-ant Signal Corr Demod value</field>
+      <field type="uint8_t" name="rx_signal_z_det" enum="MVK_SIGNAL_DET">Ivaq Rx Z-ant Signal Detection flag</field>
+      <field type="float" name="rx_signal_z_raw">Ivaq Rx Z-ant Signal Raw Demod value</field>
+      <field type="float" name="rx_signal_z_corr">Ivaq Rx Z-ant Signal Corr Demod value</field>
+    </message>
+
+    <message id="203" name="IVAQ_RX_SIGNAL_SLAVE">
+    <description>Message with Signal from all antennas (X,Y,Z) in IVAQ Rx uploaded to Raspi</description>
+      <field type="uint8_t" name="rx_signal_det" enum="MVK_SIGNAL_DET">Ivaq Rx X-ant Signal Detection flag</field>
+      <field type="float" name="rx_signal_raw">Ivaq Rx X-ant Signal Raw Demod value</field>
+      <field type="float" name="rx_signal_corr">Ivaq Rx X-ant Signal Corr Demod value</field>
+    </message>
+
+  </messages>
+</mavlink>
