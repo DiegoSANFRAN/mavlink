@@ -15,7 +15,6 @@ apidocs/
 .project
 .ropeproject
 *.cproject
-include/
 .tags*
 *.pyc
 .idea
