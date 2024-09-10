@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <mavlink>
   <!-- MAVLink standard messages -->
-  <include>common.xml</include> <!-- common.xml for Python & minimal.xml for C -->
+  <include>minimal.xml</include> <!-- common.xml for Python & minimal.xml for C -->
   <dialect>100</dialect>
 
   <enums>
