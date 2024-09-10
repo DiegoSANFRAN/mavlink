@@ -10,7 +10,7 @@
     #error Wrong include order: MAVLINK_IVAQ_MVK.H MUST NOT BE DIRECTLY USED. Include mavlink.h from the same directory instead or set ALL AND EVERY defines from MAVLINK.H manually accordingly, including the #define MAVLINK_H call.
 #endif
 
-#define MAVLINK_IVAQ_MVK_XML_HASH -2633866167151703787
+#define MAVLINK_IVAQ_MVK_XML_HASH -7645448934960375571
 
 #ifdef __cplusplus
 extern "C" {
@@ -23,7 +23,7 @@ extern "C" {
 #endif
 
 #ifndef MAVLINK_MESSAGE_CRCS
-#define MAVLINK_MESSAGE_CRCS {{0, 50, 9, 9, 0, 0, 0}, {2, 137, 12, 12, 0, 0, 0}, {200, 244, 8, 8, 0, 0, 0}, {201, 204, 3, 3, 0, 0, 0}, {202, 109, 31, 31, 0, 0, 0}, {203, 80, 9, 9, 0, 0, 0}, {300, 217, 22, 22, 0, 0, 0}}
+#define MAVLINK_MESSAGE_CRCS {{0, 50, 9, 9, 0, 0, 0}, {200, 62, 30, 30, 0, 0, 0}, {201, 235, 10, 10, 0, 0, 0}, {202, 80, 12, 12, 0, 0, 0}, {203, 56, 4, 4, 0, 0, 0}, {204, 212, 58, 58, 0, 0, 0}, {205, 11, 18, 18, 0, 0, 0}, {300, 217, 22, 22, 0, 0, 0}}
 #endif
 
 #include "../protocol.h"
@@ -32,6 +32,18 @@ extern "C" {
 
 // ENUM DEFINITIONS
 
+
+/** @brief These values define the status of the receiver. */
+#ifndef HAVE_ENUM_MVK_RX_MODE
+#define HAVE_ENUM_MVK_RX_MODE
+typedef enum MVK_RX_MODE
+{
+   MVK_MODE_1=0, /* PCB Mode 1 | */
+   MVK_MODE_2=1, /* PCB Mode 2 | */
+   MVK_MODE_3=2, /* PCB Mode 3 | */
+   MVK_RX_MODE_ENUM_END=3, /*  | */
+} MVK_RX_MODE;
+#endif
 
 /** @brief These values define the status of the receiver. */
 #ifndef HAVE_ENUM_MVK_RX_STATUS
@@ -46,17 +58,40 @@ typedef enum MVK_RX_STATUS
 } MVK_RX_STATUS;
 #endif
 
-/** @brief These values define the stage states of the system. */
+/** @brief These values define the antenna state of each PCB */
+#ifndef HAVE_ENUM_MVK_ANT_STATES
+#define HAVE_ENUM_MVK_ANT_STATES
+typedef enum MVK_ANT_STATES
+{
+   MVK_ANT_1_OFF=0, /* Antenna 1 off | */
+   MVK_ANT_1_ON=1, /* Antenna 1 on | */
+   MVK_ANT_STATES_ENUM_END=2, /*  | */
+} MVK_ANT_STATES;
+#endif
+
+/** @brief These values define the stage states of each PCB */
 #ifndef HAVE_ENUM_MVK_STAGE_STATES
 #define HAVE_ENUM_MVK_STAGE_STATES
 typedef enum MVK_STAGE_STATES
 {
-   MVK_STAGE_1_OFF_STAGE_2_OFF=0, /* Stage 1 off, Stage 2 off | */
-   MVK_STAGE_1_ON_STAGE_2_OFF=1, /* Stage 1 on, Stage 2 off | */
-   MVK_STAGE_1_OFF_STAGE_2_ON=2, /* Stage 1 off, Stage 2 on | */
-   MVK_STAGE_1_ON_STAGE_2_ON=3, /* Stage 1 on, Stage 2 on | */
-   MVK_STAGE_STATES_ENUM_END=4, /*  | */
+   MVK_STAGE_1_OFF_STAGE_2_OFF_STAGE_3_OFF_STAGE_4_OFF=0, /* Stage 1 off, Stage 2 off, Stage 3 off, Stage 4 off | */
+   MVK_STAGE_1_ON_STAGE_2_OFF_STAGE_3_OFF_STAGE_4_OFF=1, /* Stage 1 on, Stage 2 off, Stage 3 off, Stage 4 off | */
+   MVK_STAGE_1_ON_STAGE_2_ON_STAGE_3_OFF_STAGE_4_OFF=2, /* Stage 1 on, Stage 2 on, Stage 3 off, Stage 4 off | */
+   MVK_STAGE_1_ON_STAGE_2_ON_STAGE_3_ON_STAGE_4_OFF=3, /* Stage 1 on, Stage 2 on, Stage 3 on, Stage 4 off | */
+   MVK_STAGE_1_ON_STAGE_2_ON_STAGE_3_ON_STAGE_4_ON=4, /* Stage 1 on, Stage 2 on, Stage 3 on, Stage 4 on | */
+   MVK_STAGE_STATES_ENUM_END=5, /*  | */
 } MVK_STAGE_STATES;
+#endif
+
+/** @brief These values define the save states of the system. */
+#ifndef HAVE_ENUM_MVK_CARD_STATE
+#define HAVE_ENUM_MVK_CARD_STATE
+typedef enum MVK_CARD_STATE
+{
+   MVK_CARD_NOT_PRESENT=0, /* Save false | */
+   MVK_CARD_PRESENT=1, /* Save push button on | */
+   MVK_CARD_STATE_ENUM_END=2, /*  | */
+} MVK_CARD_STATE;
 #endif
 
 /** @brief These values define the save states of the system. */
@@ -117,9 +152,10 @@ typedef enum MVK_RX_RESET
 #endif
 
 // MESSAGE DEFINITIONS
-#include "./mavlink_msg_system_time.h"
-#include "./mavlink_msg_ivaq_rx_params.h"
-#include "./mavlink_msg_ivaq_rx_set_params.h"
+#include "./mavlink_msg_ivaq_rx_params_master.h"
+#include "./mavlink_msg_ivaq_rx_params_slave.h"
+#include "./mavlink_msg_ivaq_rx_set_params_master.h"
+#include "./mavlink_msg_ivaq_rx_set_params_slave.h"
 #include "./mavlink_msg_ivaq_rx_signal_master.h"
 #include "./mavlink_msg_ivaq_rx_signal_slave.h"
 
@@ -128,8 +164,8 @@ typedef enum MVK_RX_RESET
 
 
 #if MAVLINK_IVAQ_MVK_XML_HASH == MAVLINK_PRIMARY_XML_HASH
-# define MAVLINK_MESSAGE_INFO {MAVLINK_MESSAGE_INFO_HEARTBEAT, MAVLINK_MESSAGE_INFO_SYSTEM_TIME, MAVLINK_MESSAGE_INFO_IVAQ_RX_PARAMS, MAVLINK_MESSAGE_INFO_IVAQ_RX_SET_PARAMS, MAVLINK_MESSAGE_INFO_IVAQ_RX_SIGNAL_MASTER, MAVLINK_MESSAGE_INFO_IVAQ_RX_SIGNAL_SLAVE, MAVLINK_MESSAGE_INFO_PROTOCOL_VERSION}
-# define MAVLINK_MESSAGE_NAMES {{ "HEARTBEAT", 0 }, { "IVAQ_RX_PARAMS", 200 }, { "IVAQ_RX_SET_PARAMS", 201 }, { "IVAQ_RX_SIGNAL_MASTER", 202 }, { "IVAQ_RX_SIGNAL_SLAVE", 203 }, { "PROTOCOL_VERSION", 300 }, { "SYSTEM_TIME", 2 }}
+# define MAVLINK_MESSAGE_INFO {MAVLINK_MESSAGE_INFO_HEARTBEAT, MAVLINK_MESSAGE_INFO_IVAQ_RX_PARAMS_MASTER, MAVLINK_MESSAGE_INFO_IVAQ_RX_PARAMS_SLAVE, MAVLINK_MESSAGE_INFO_IVAQ_RX_SET_PARAMS_MASTER, MAVLINK_MESSAGE_INFO_IVAQ_RX_SET_PARAMS_SLAVE, MAVLINK_MESSAGE_INFO_IVAQ_RX_SIGNAL_MASTER, MAVLINK_MESSAGE_INFO_IVAQ_RX_SIGNAL_SLAVE, MAVLINK_MESSAGE_INFO_PROTOCOL_VERSION}
+# define MAVLINK_MESSAGE_NAMES {{ "HEARTBEAT", 0 }, { "IVAQ_RX_PARAMS_MASTER", 200 }, { "IVAQ_RX_PARAMS_SLAVE", 201 }, { "IVAQ_RX_SET_PARAMS_MASTER", 202 }, { "IVAQ_RX_SET_PARAMS_SLAVE", 203 }, { "IVAQ_RX_SIGNAL_MASTER", 204 }, { "IVAQ_RX_SIGNAL_SLAVE", 205 }, { "PROTOCOL_VERSION", 300 }}
 # if MAVLINK_COMMAND_24BIT
 #  include "../mavlink_get_info.h"
 # endif
