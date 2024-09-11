@@ -326,24 +326,24 @@ static void mavlink_test_ivaq_rx_signal_master(uint8_t system_id, uint8_t compon
     mavlink_ivaq_rx_signal_master_t packet1, packet2;
         memset(&packet1, 0, sizeof(packet1));
         packet1.rx_time_signal_ms = packet_in.rx_time_signal_ms;
-        packet1.rx_signal_x_raw = packet_in.rx_signal_x_raw;
-        packet1.rx_signal_x_corr = packet_in.rx_signal_x_corr;
-        packet1.rx_noise_x_raw = packet_in.rx_noise_x_raw;
-        packet1.rx_noise_x_corr = packet_in.rx_noise_x_corr;
-        packet1.rx_signal_y_raw = packet_in.rx_signal_y_raw;
-        packet1.rx_signal_y_corr = packet_in.rx_signal_y_corr;
-        packet1.rx_noise_y_raw = packet_in.rx_noise_y_raw;
-        packet1.rx_noise_y_corr = packet_in.rx_noise_y_corr;
-        packet1.rx_signal_z_raw = packet_in.rx_signal_z_raw;
-        packet1.rx_signal_z_corr = packet_in.rx_signal_z_corr;
-        packet1.rx_noise_z_raw = packet_in.rx_noise_z_raw;
-        packet1.rx_noise_z_corr = packet_in.rx_noise_z_corr;
-        packet1.rx_saturation_x_flag = packet_in.rx_saturation_x_flag;
-        packet1.rx_signal_x_det = packet_in.rx_signal_x_det;
-        packet1.rx_saturation_y_flag = packet_in.rx_saturation_y_flag;
-        packet1.rx_signal_y_det = packet_in.rx_signal_y_det;
-        packet1.rx_saturation_z_flag = packet_in.rx_saturation_z_flag;
-        packet1.rx_signal_z_det = packet_in.rx_signal_z_det;
+        packet1.rx_signal_raw_x = packet_in.rx_signal_raw_x;
+        packet1.rx_signal_corr_x = packet_in.rx_signal_corr_x;
+        packet1.rx_noise_raw_x = packet_in.rx_noise_raw_x;
+        packet1.rx_noise_corr_x = packet_in.rx_noise_corr_x;
+        packet1.rx_signal_raw_y = packet_in.rx_signal_raw_y;
+        packet1.rx_signal_corr_y = packet_in.rx_signal_corr_y;
+        packet1.rx_noise_raw_y = packet_in.rx_noise_raw_y;
+        packet1.rx_noise_corr_y = packet_in.rx_noise_corr_y;
+        packet1.rx_signal_raw_z = packet_in.rx_signal_raw_z;
+        packet1.rx_signal_corr_z = packet_in.rx_signal_corr_z;
+        packet1.rx_noise_raw_z = packet_in.rx_noise_raw_z;
+        packet1.rx_noise_corr_z = packet_in.rx_noise_corr_z;
+        packet1.rx_saturation_flag_x = packet_in.rx_saturation_flag_x;
+        packet1.rx_signal_det_x = packet_in.rx_signal_det_x;
+        packet1.rx_saturation_flag_y = packet_in.rx_saturation_flag_y;
+        packet1.rx_signal_det_y = packet_in.rx_signal_det_y;
+        packet1.rx_saturation_flag_z = packet_in.rx_saturation_flag_z;
+        packet1.rx_signal_det_z = packet_in.rx_signal_det_z;
         
         
 #ifdef MAVLINK_STATUS_FLAG_OUT_MAVLINK1
@@ -358,12 +358,12 @@ static void mavlink_test_ivaq_rx_signal_master(uint8_t system_id, uint8_t compon
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_ivaq_rx_signal_master_pack(system_id, component_id, &msg , packet1.rx_time_signal_ms , packet1.rx_saturation_x_flag , packet1.rx_signal_x_det , packet1.rx_signal_x_raw , packet1.rx_signal_x_corr , packet1.rx_noise_x_raw , packet1.rx_noise_x_corr , packet1.rx_saturation_y_flag , packet1.rx_signal_y_det , packet1.rx_signal_y_raw , packet1.rx_signal_y_corr , packet1.rx_noise_y_raw , packet1.rx_noise_y_corr , packet1.rx_saturation_z_flag , packet1.rx_signal_z_det , packet1.rx_signal_z_raw , packet1.rx_signal_z_corr , packet1.rx_noise_z_raw , packet1.rx_noise_z_corr );
+    mavlink_msg_ivaq_rx_signal_master_pack(system_id, component_id, &msg , packet1.rx_time_signal_ms , packet1.rx_saturation_flag_x , packet1.rx_signal_det_x , packet1.rx_signal_raw_x , packet1.rx_signal_corr_x , packet1.rx_noise_raw_x , packet1.rx_noise_corr_x , packet1.rx_saturation_flag_y , packet1.rx_signal_det_y , packet1.rx_signal_raw_y , packet1.rx_signal_corr_y , packet1.rx_noise_raw_y , packet1.rx_noise_corr_y , packet1.rx_saturation_flag_z , packet1.rx_signal_det_z , packet1.rx_signal_raw_z , packet1.rx_signal_corr_z , packet1.rx_noise_raw_z , packet1.rx_noise_corr_z );
     mavlink_msg_ivaq_rx_signal_master_decode(&msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_ivaq_rx_signal_master_pack_chan(system_id, component_id, MAVLINK_COMM_0, &msg , packet1.rx_time_signal_ms , packet1.rx_saturation_x_flag , packet1.rx_signal_x_det , packet1.rx_signal_x_raw , packet1.rx_signal_x_corr , packet1.rx_noise_x_raw , packet1.rx_noise_x_corr , packet1.rx_saturation_y_flag , packet1.rx_signal_y_det , packet1.rx_signal_y_raw , packet1.rx_signal_y_corr , packet1.rx_noise_y_raw , packet1.rx_noise_y_corr , packet1.rx_saturation_z_flag , packet1.rx_signal_z_det , packet1.rx_signal_z_raw , packet1.rx_signal_z_corr , packet1.rx_noise_z_raw , packet1.rx_noise_z_corr );
+    mavlink_msg_ivaq_rx_signal_master_pack_chan(system_id, component_id, MAVLINK_COMM_0, &msg , packet1.rx_time_signal_ms , packet1.rx_saturation_flag_x , packet1.rx_signal_det_x , packet1.rx_signal_raw_x , packet1.rx_signal_corr_x , packet1.rx_noise_raw_x , packet1.rx_noise_corr_x , packet1.rx_saturation_flag_y , packet1.rx_signal_det_y , packet1.rx_signal_raw_y , packet1.rx_signal_corr_y , packet1.rx_noise_raw_y , packet1.rx_noise_corr_y , packet1.rx_saturation_flag_z , packet1.rx_signal_det_z , packet1.rx_signal_raw_z , packet1.rx_signal_corr_z , packet1.rx_noise_raw_z , packet1.rx_noise_corr_z );
     mavlink_msg_ivaq_rx_signal_master_decode(&msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
@@ -376,7 +376,7 @@ static void mavlink_test_ivaq_rx_signal_master(uint8_t system_id, uint8_t compon
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
         
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_ivaq_rx_signal_master_send(MAVLINK_COMM_1 , packet1.rx_time_signal_ms , packet1.rx_saturation_x_flag , packet1.rx_signal_x_det , packet1.rx_signal_x_raw , packet1.rx_signal_x_corr , packet1.rx_noise_x_raw , packet1.rx_noise_x_corr , packet1.rx_saturation_y_flag , packet1.rx_signal_y_det , packet1.rx_signal_y_raw , packet1.rx_signal_y_corr , packet1.rx_noise_y_raw , packet1.rx_noise_y_corr , packet1.rx_saturation_z_flag , packet1.rx_signal_z_det , packet1.rx_signal_z_raw , packet1.rx_signal_z_corr , packet1.rx_noise_z_raw , packet1.rx_noise_z_corr );
+    mavlink_msg_ivaq_rx_signal_master_send(MAVLINK_COMM_1 , packet1.rx_time_signal_ms , packet1.rx_saturation_flag_x , packet1.rx_signal_det_x , packet1.rx_signal_raw_x , packet1.rx_signal_corr_x , packet1.rx_noise_raw_x , packet1.rx_noise_corr_x , packet1.rx_saturation_flag_y , packet1.rx_signal_det_y , packet1.rx_signal_raw_y , packet1.rx_signal_corr_y , packet1.rx_noise_raw_y , packet1.rx_noise_corr_y , packet1.rx_saturation_flag_z , packet1.rx_signal_det_z , packet1.rx_signal_raw_z , packet1.rx_signal_corr_z , packet1.rx_noise_raw_z , packet1.rx_noise_corr_z );
     mavlink_msg_ivaq_rx_signal_master_decode(last_msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
