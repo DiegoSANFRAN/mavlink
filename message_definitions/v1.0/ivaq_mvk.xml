@@ -35,6 +35,16 @@
       </entry>
     </enum>
 
+    <enum name="MVK_RX_ANLG_EN">
+      <description>These values define the power on/off of the analog part of the receiver.</description>
+      <entry value="0x00" name="MVK_VEN_FALSE">
+        <description>PCB Analog Part disable</description>
+      </entry>
+      <entry value="0x01" name="MVK_VEN_TRUE">
+        <description>PCB Analog Part enable</description>
+      </entry>
+    </enum>
+
     <enum name="MVK_ANT_STATES">
       <description>These values define the antenna state of each PCB</description>
       <entry value="0x00" name="MVK_ANT_1_OFF">
@@ -136,6 +146,7 @@
       <description>IVAQ Rx Current Parameters of all PCBs (X,Y,Z)</description>
       <field type="uint8_t" name="rx_mode_x" enum="MVK_RX_MODE">Ivaq Rx X-Ant Mode</field>
       <field type="uint8_t" name="rx_status_x" enum="MVK_RX_STATUS">Ivaq Rx X-Ant Status</field>
+      <field type="uint8_t" name="rx_anlg_en_x" enum="MVK_RX_ANLG_EN">Ivaq Rx X-Ant Anlg Part Status</field>
       <field type="float" name="rx_battery_voltage_x">Ivaq Rx X-Ant Battery Voltage</field>
       <field type="uint8_t" name="rx_ant_states_x" enum="MVK_ANT_STATES">Ivaq Rx X-Ant Antenna States</field>
       <field type="uint8_t" name="rx_stg_states_x" enum="MVK_STAGE_STATES">Ivaq Rx X-Ant Stage States</field>
@@ -143,6 +154,7 @@
       <field type="uint8_t" name="rx_save_opt_x" enum="MVK_SAVE_STATE">Ivaq Rx X-Ant Save State</field>
       <field type="uint8_t" name="rx_mode_y" enum="MVK_RX_MODE">Ivaq Rx Y-Ant Mode</field>
       <field type="uint8_t" name="rx_status_y" enum="MVK_RX_STATUS">Ivaq Rx Y-Ant Status</field>
+      <field type="uint8_t" name="rx_anlg_en_y" enum="MVK_RX_ANLG_EN">Ivaq Rx Y-Ant Anlg Part Status</field>
       <field type="float" name="rx_battery_voltage_y">Ivaq Rx Y-Ant Battery Voltage</field>
       <field type="uint8_t" name="rx_ant_states_y" enum="MVK_ANT_STATES">Ivaq Rx Y-Ant Antenna States</field>
       <field type="uint8_t" name="rx_stg_states_y" enum="MVK_STAGE_STATES">Ivaq Rx Y-Ant Stage States</field>
@@ -150,6 +162,7 @@
       <field type="uint8_t" name="rx_save_opt_y" enum="MVK_SAVE_STATE">Ivaq Rx Y-Ant Save State</field>
       <field type="uint8_t" name="rx_mode_z" enum="MVK_RX_MODE">Ivaq Rx Z-Ant Mode</field>
       <field type="uint8_t" name="rx_status_z" enum="MVK_RX_STATUS">Ivaq Rx Z-Ant Status</field>
+      <field type="uint8_t" name="rx_anlg_en_z" enum="MVK_RX_ANLG_EN">Ivaq Rx Z-Ant Anlg Part Status</field>
       <field type="float" name="rx_battery_voltage_z">Ivaq Rx Z-Ant Battery Voltage</field>
       <field type="uint8_t" name="rx_ant_states_z" enum="MVK_ANT_STATES">Ivaq Rx Z-Ant Antenna States</field>
       <field type="uint8_t" name="rx_stg_states_z" enum="MVK_STAGE_STATES">Ivaq Rx Z-Ant Stage States</field>
@@ -161,6 +174,7 @@
       <description>IVAQ Rx Current Parameters</description>
       <field type="uint8_t" name="rx_mode" enum="MVK_RX_MODE">Ivaq Rx Status</field>
       <field type="uint8_t" name="rx_status" enum="MVK_RX_STATUS">Ivaq Rx Status</field>
+      <field type="uint8_t" name="rx_anlg_en" enum="MVK_RX_ANLG_EN">Ivaq Rx Anlg Part Status</field>
       <field type="float" name="rx_battery_voltage">Ivaq Rx Battery Voltage</field>
       <field type="uint8_t" name="rx_ant_states" enum="MVK_ANT_STATES">Ivaq Rx Antenna States</field>
       <field type="uint8_t" name="rx_stg_states" enum="MVK_STAGE_STATES">Ivaq Rx Stage States</field>
@@ -171,14 +185,17 @@
     <message id="202" name="IVAQ_RX_SET_PARAMS_MASTER">
       <description>IVAQ Rx Target Parameters for all PCBs (X,Y,X) from Raspi to Master</description>
       <field type="uint8_t" name="rx_set_reset_x" enum="MVK_RX_RESET">Ivaq Rx X-ant Set Reset</field>
+      <field type="uint8_t" name="rx_set_anlg_en_x" enum="MVK_RX_ANLG_EN">Ivaq Rx X-Ant Set Anlg Part Status</field>
       <field type="uint8_t" name="rx_set_ant_states_x" enum="MVK_ANT_STATES">Ivaq Rx X-Ant Set Antenna State</field>
       <field type="uint8_t" name="rx_set_stg_states_x" enum="MVK_STAGE_STATES">Ivaq Rx X-Ant Set Stage States</field>
       <field type="uint8_t" name="rx_set_save_opt_x" enum="MVK_SAVE_STATE">Ivaq Rx X-Ant Set Save State</field>
       <field type="uint8_t" name="rx_set_reset_y" enum="MVK_RX_RESET">Ivaq Rx Y-ant Set Reset</field>
+      <field type="uint8_t" name="rx_set_anlg_en_y" enum="MVK_RX_ANLG_EN">Ivaq Rx Y-Ant Anlg Part Status</field>
       <field type="uint8_t" name="rx_set_ant_states_y" enum="MVK_ANT_STATES">Ivaq Rx Y-Ant Set Antenna State</field>
       <field type="uint8_t" name="rx_set_stg_states_y" enum="MVK_STAGE_STATES">Ivaq Rx Y-Ant Set Stage States</field>
       <field type="uint8_t" name="rx_set_save_opt_y" enum="MVK_SAVE_STATE">Ivaq Rx Y-Ant Set Save State</field>
       <field type="uint8_t" name="rx_set_reset_z" enum="MVK_RX_RESET">Ivaq Rx Z-ant Set Reset</field>
+      <field type="uint8_t" name="rx_set_anlg_en_z" enum="MVK_RX_ANLG_EN">Ivaq Rx Z-Ant Anlg Part Status</field>
       <field type="uint8_t" name="rx_set_ant_states_z" enum="MVK_ANT_STATES">Ivaq Rx Z-Ant Set Antenna State</field>
       <field type="uint8_t" name="rx_set_stg_states_z" enum="MVK_STAGE_STATES">Ivaq Rx Z-Ant Set Stage States</field>
       <field type="uint8_t" name="rx_set_save_opt_z" enum="MVK_SAVE_STATE">Ivaq Rx Z-Ant Set Save State</field>
@@ -187,6 +204,7 @@
     <message id="203" name="IVAQ_RX_SET_PARAMS_SLAVE">
       <description>IVAQ Rx Target Parameters from Master PCB (X) to Slaves (Y,Z)</description>
       <field type="uint8_t" name="rx_set_reset" enum="MVK_RX_RESET">Ivaq Rx Set Reset</field>
+      <field type="uint8_t" name="rx_set_anlg_en" enum="MVK_RX_ANLG_EN">Ivaq Rx Set Anlg Part Status</field>
       <field type="uint8_t" name="rx_set_ant_states" enum="MVK_ANT_STATES">Ivaq Rx Set Antenna State</field>
       <field type="uint8_t" name="rx_set_stg_states" enum="MVK_STAGE_STATES">Ivaq Rx Set Stage States</field>
       <field type="uint8_t" name="rx_set_save_opt" enum="MVK_SAVE_STATE">Ivaq Rx Set Save State</field>

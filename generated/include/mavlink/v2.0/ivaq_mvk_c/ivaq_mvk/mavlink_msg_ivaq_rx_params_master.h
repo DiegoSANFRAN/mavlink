@@ -10,31 +10,34 @@ typedef struct __mavlink_ivaq_rx_params_master_t {
  float rx_battery_voltage_z; /*<  Ivaq Rx Z-Ant Battery Voltage*/
  uint8_t rx_mode_x; /*<  Ivaq Rx X-Ant Mode*/
  uint8_t rx_status_x; /*<  Ivaq Rx X-Ant Status*/
+ uint8_t rx_anlg_en_x; /*<  Ivaq Rx X-Ant Anlg Part Status*/
  uint8_t rx_ant_states_x; /*<  Ivaq Rx X-Ant Antenna States*/
  uint8_t rx_stg_states_x; /*<  Ivaq Rx X-Ant Stage States*/
  uint8_t rx_card_det_x; /*<  Ivaq Rx X-Ant SD Card State*/
  uint8_t rx_save_opt_x; /*<  Ivaq Rx X-Ant Save State*/
  uint8_t rx_mode_y; /*<  Ivaq Rx Y-Ant Mode*/
  uint8_t rx_status_y; /*<  Ivaq Rx Y-Ant Status*/
+ uint8_t rx_anlg_en_y; /*<  Ivaq Rx Y-Ant Anlg Part Status*/
  uint8_t rx_ant_states_y; /*<  Ivaq Rx Y-Ant Antenna States*/
  uint8_t rx_stg_states_y; /*<  Ivaq Rx Y-Ant Stage States*/
  uint8_t rx_card_det_y; /*<  Ivaq Rx Y-Ant SD Card State*/
  uint8_t rx_save_opt_y; /*<  Ivaq Rx Y-Ant Save State*/
  uint8_t rx_mode_z; /*<  Ivaq Rx Z-Ant Mode*/
  uint8_t rx_status_z; /*<  Ivaq Rx Z-Ant Status*/
+ uint8_t rx_anlg_en_z; /*<  Ivaq Rx Z-Ant Anlg Part Status*/
  uint8_t rx_ant_states_z; /*<  Ivaq Rx Z-Ant Antenna States*/
  uint8_t rx_stg_states_z; /*<  Ivaq Rx Z-Ant Stage States*/
  uint8_t rx_card_det_z; /*<  Ivaq Rx Z-Ant SD Card State*/
  uint8_t rx_save_opt_z; /*<  Ivaq Rx Z-Ant Save State*/
 } mavlink_ivaq_rx_params_master_t;
 
-#define MAVLINK_MSG_ID_IVAQ_RX_PARAMS_MASTER_LEN 30
-#define MAVLINK_MSG_ID_IVAQ_RX_PARAMS_MASTER_MIN_LEN 30
-#define MAVLINK_MSG_ID_200_LEN 30
-#define MAVLINK_MSG_ID_200_MIN_LEN 30
+#define MAVLINK_MSG_ID_IVAQ_RX_PARAMS_MASTER_LEN 33
+#define MAVLINK_MSG_ID_IVAQ_RX_PARAMS_MASTER_MIN_LEN 33
+#define MAVLINK_MSG_ID_200_LEN 33
+#define MAVLINK_MSG_ID_200_MIN_LEN 33
 
-#define MAVLINK_MSG_ID_IVAQ_RX_PARAMS_MASTER_CRC 62
-#define MAVLINK_MSG_ID_200_CRC 62
+#define MAVLINK_MSG_ID_IVAQ_RX_PARAMS_MASTER_CRC 190
+#define MAVLINK_MSG_ID_200_CRC 190
 
 
 
@@ -42,55 +45,61 @@ typedef struct __mavlink_ivaq_rx_params_master_t {
 #define MAVLINK_MESSAGE_INFO_IVAQ_RX_PARAMS_MASTER { \
     200, \
     "IVAQ_RX_PARAMS_MASTER", \
-    21, \
+    24, \
     {  { "rx_mode_x", NULL, MAVLINK_TYPE_UINT8_T, 0, 12, offsetof(mavlink_ivaq_rx_params_master_t, rx_mode_x) }, \
          { "rx_status_x", NULL, MAVLINK_TYPE_UINT8_T, 0, 13, offsetof(mavlink_ivaq_rx_params_master_t, rx_status_x) }, \
+         { "rx_anlg_en_x", NULL, MAVLINK_TYPE_UINT8_T, 0, 14, offsetof(mavlink_ivaq_rx_params_master_t, rx_anlg_en_x) }, \
          { "rx_battery_voltage_x", NULL, MAVLINK_TYPE_FLOAT, 0, 0, offsetof(mavlink_ivaq_rx_params_master_t, rx_battery_voltage_x) }, \
-         { "rx_ant_states_x", NULL, MAVLINK_TYPE_UINT8_T, 0, 14, offsetof(mavlink_ivaq_rx_params_master_t, rx_ant_states_x) }, \
-         { "rx_stg_states_x", NULL, MAVLINK_TYPE_UINT8_T, 0, 15, offsetof(mavlink_ivaq_rx_params_master_t, rx_stg_states_x) }, \
-         { "rx_card_det_x", NULL, MAVLINK_TYPE_UINT8_T, 0, 16, offsetof(mavlink_ivaq_rx_params_master_t, rx_card_det_x) }, \
-         { "rx_save_opt_x", NULL, MAVLINK_TYPE_UINT8_T, 0, 17, offsetof(mavlink_ivaq_rx_params_master_t, rx_save_opt_x) }, \
-         { "rx_mode_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 18, offsetof(mavlink_ivaq_rx_params_master_t, rx_mode_y) }, \
-         { "rx_status_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 19, offsetof(mavlink_ivaq_rx_params_master_t, rx_status_y) }, \
+         { "rx_ant_states_x", NULL, MAVLINK_TYPE_UINT8_T, 0, 15, offsetof(mavlink_ivaq_rx_params_master_t, rx_ant_states_x) }, \
+         { "rx_stg_states_x", NULL, MAVLINK_TYPE_UINT8_T, 0, 16, offsetof(mavlink_ivaq_rx_params_master_t, rx_stg_states_x) }, \
+         { "rx_card_det_x", NULL, MAVLINK_TYPE_UINT8_T, 0, 17, offsetof(mavlink_ivaq_rx_params_master_t, rx_card_det_x) }, \
+         { "rx_save_opt_x", NULL, MAVLINK_TYPE_UINT8_T, 0, 18, offsetof(mavlink_ivaq_rx_params_master_t, rx_save_opt_x) }, \
+         { "rx_mode_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 19, offsetof(mavlink_ivaq_rx_params_master_t, rx_mode_y) }, \
+         { "rx_status_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 20, offsetof(mavlink_ivaq_rx_params_master_t, rx_status_y) }, \
+         { "rx_anlg_en_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 21, offsetof(mavlink_ivaq_rx_params_master_t, rx_anlg_en_y) }, \
          { "rx_battery_voltage_y", NULL, MAVLINK_TYPE_FLOAT, 0, 4, offsetof(mavlink_ivaq_rx_params_master_t, rx_battery_voltage_y) }, \
-         { "rx_ant_states_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 20, offsetof(mavlink_ivaq_rx_params_master_t, rx_ant_states_y) }, \
-         { "rx_stg_states_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 21, offsetof(mavlink_ivaq_rx_params_master_t, rx_stg_states_y) }, \
-         { "rx_card_det_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 22, offsetof(mavlink_ivaq_rx_params_master_t, rx_card_det_y) }, \
-         { "rx_save_opt_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 23, offsetof(mavlink_ivaq_rx_params_master_t, rx_save_opt_y) }, \
-         { "rx_mode_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 24, offsetof(mavlink_ivaq_rx_params_master_t, rx_mode_z) }, \
-         { "rx_status_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 25, offsetof(mavlink_ivaq_rx_params_master_t, rx_status_z) }, \
+         { "rx_ant_states_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 22, offsetof(mavlink_ivaq_rx_params_master_t, rx_ant_states_y) }, \
+         { "rx_stg_states_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 23, offsetof(mavlink_ivaq_rx_params_master_t, rx_stg_states_y) }, \
+         { "rx_card_det_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 24, offsetof(mavlink_ivaq_rx_params_master_t, rx_card_det_y) }, \
+         { "rx_save_opt_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 25, offsetof(mavlink_ivaq_rx_params_master_t, rx_save_opt_y) }, \
+         { "rx_mode_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 26, offsetof(mavlink_ivaq_rx_params_master_t, rx_mode_z) }, \
+         { "rx_status_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 27, offsetof(mavlink_ivaq_rx_params_master_t, rx_status_z) }, \
+         { "rx_anlg_en_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 28, offsetof(mavlink_ivaq_rx_params_master_t, rx_anlg_en_z) }, \
          { "rx_battery_voltage_z", NULL, MAVLINK_TYPE_FLOAT, 0, 8, offsetof(mavlink_ivaq_rx_params_master_t, rx_battery_voltage_z) }, \
-         { "rx_ant_states_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 26, offsetof(mavlink_ivaq_rx_params_master_t, rx_ant_states_z) }, \
-         { "rx_stg_states_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 27, offsetof(mavlink_ivaq_rx_params_master_t, rx_stg_states_z) }, \
-         { "rx_card_det_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 28, offsetof(mavlink_ivaq_rx_params_master_t, rx_card_det_z) }, \
-         { "rx_save_opt_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 29, offsetof(mavlink_ivaq_rx_params_master_t, rx_save_opt_z) }, \
+         { "rx_ant_states_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 29, offsetof(mavlink_ivaq_rx_params_master_t, rx_ant_states_z) }, \
+         { "rx_stg_states_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 30, offsetof(mavlink_ivaq_rx_params_master_t, rx_stg_states_z) }, \
+         { "rx_card_det_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 31, offsetof(mavlink_ivaq_rx_params_master_t, rx_card_det_z) }, \
+         { "rx_save_opt_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 32, offsetof(mavlink_ivaq_rx_params_master_t, rx_save_opt_z) }, \
          } \
 }
 #else
 #define MAVLINK_MESSAGE_INFO_IVAQ_RX_PARAMS_MASTER { \
     "IVAQ_RX_PARAMS_MASTER", \
-    21, \
+    24, \
     {  { "rx_mode_x", NULL, MAVLINK_TYPE_UINT8_T, 0, 12, offsetof(mavlink_ivaq_rx_params_master_t, rx_mode_x) }, \
          { "rx_status_x", NULL, MAVLINK_TYPE_UINT8_T, 0, 13, offsetof(mavlink_ivaq_rx_params_master_t, rx_status_x) }, \
+         { "rx_anlg_en_x", NULL, MAVLINK_TYPE_UINT8_T, 0, 14, offsetof(mavlink_ivaq_rx_params_master_t, rx_anlg_en_x) }, \
          { "rx_battery_voltage_x", NULL, MAVLINK_TYPE_FLOAT, 0, 0, offsetof(mavlink_ivaq_rx_params_master_t, rx_battery_voltage_x) }, \
-         { "rx_ant_states_x", NULL, MAVLINK_TYPE_UINT8_T, 0, 14, offsetof(mavlink_ivaq_rx_params_master_t, rx_ant_states_x) }, \
-         { "rx_stg_states_x", NULL, MAVLINK_TYPE_UINT8_T, 0, 15, offsetof(mavlink_ivaq_rx_params_master_t, rx_stg_states_x) }, \
-         { "rx_card_det_x", NULL, MAVLINK_TYPE_UINT8_T, 0, 16, offsetof(mavlink_ivaq_rx_params_master_t, rx_card_det_x) }, \
-         { "rx_save_opt_x", NULL, MAVLINK_TYPE_UINT8_T, 0, 17, offsetof(mavlink_ivaq_rx_params_master_t, rx_save_opt_x) }, \
-         { "rx_mode_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 18, offsetof(mavlink_ivaq_rx_params_master_t, rx_mode_y) }, \
-         { "rx_status_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 19, offsetof(mavlink_ivaq_rx_params_master_t, rx_status_y) }, \
+         { "rx_ant_states_x", NULL, MAVLINK_TYPE_UINT8_T, 0, 15, offsetof(mavlink_ivaq_rx_params_master_t, rx_ant_states_x) }, \
+         { "rx_stg_states_x", NULL, MAVLINK_TYPE_UINT8_T, 0, 16, offsetof(mavlink_ivaq_rx_params_master_t, rx_stg_states_x) }, \
+         { "rx_card_det_x", NULL, MAVLINK_TYPE_UINT8_T, 0, 17, offsetof(mavlink_ivaq_rx_params_master_t, rx_card_det_x) }, \
+         { "rx_save_opt_x", NULL, MAVLINK_TYPE_UINT8_T, 0, 18, offsetof(mavlink_ivaq_rx_params_master_t, rx_save_opt_x) }, \
+         { "rx_mode_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 19, offsetof(mavlink_ivaq_rx_params_master_t, rx_mode_y) }, \
+         { "rx_status_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 20, offsetof(mavlink_ivaq_rx_params_master_t, rx_status_y) }, \
+         { "rx_anlg_en_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 21, offsetof(mavlink_ivaq_rx_params_master_t, rx_anlg_en_y) }, \
          { "rx_battery_voltage_y", NULL, MAVLINK_TYPE_FLOAT, 0, 4, offsetof(mavlink_ivaq_rx_params_master_t, rx_battery_voltage_y) }, \
-         { "rx_ant_states_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 20, offsetof(mavlink_ivaq_rx_params_master_t, rx_ant_states_y) }, \
-         { "rx_stg_states_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 21, offsetof(mavlink_ivaq_rx_params_master_t, rx_stg_states_y) }, \
-         { "rx_card_det_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 22, offsetof(mavlink_ivaq_rx_params_master_t, rx_card_det_y) }, \
-         { "rx_save_opt_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 23, offsetof(mavlink_ivaq_rx_params_master_t, rx_save_opt_y) }, \
-         { "rx_mode_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 24, offsetof(mavlink_ivaq_rx_params_master_t, rx_mode_z) }, \
-         { "rx_status_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 25, offsetof(mavlink_ivaq_rx_params_master_t, rx_status_z) }, \
+         { "rx_ant_states_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 22, offsetof(mavlink_ivaq_rx_params_master_t, rx_ant_states_y) }, \
+         { "rx_stg_states_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 23, offsetof(mavlink_ivaq_rx_params_master_t, rx_stg_states_y) }, \
+         { "rx_card_det_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 24, offsetof(mavlink_ivaq_rx_params_master_t, rx_card_det_y) }, \
+         { "rx_save_opt_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 25, offsetof(mavlink_ivaq_rx_params_master_t, rx_save_opt_y) }, \
+         { "rx_mode_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 26, offsetof(mavlink_ivaq_rx_params_master_t, rx_mode_z) }, \
+         { "rx_status_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 27, offsetof(mavlink_ivaq_rx_params_master_t, rx_status_z) }, \
+         { "rx_anlg_en_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 28, offsetof(mavlink_ivaq_rx_params_master_t, rx_anlg_en_z) }, \
          { "rx_battery_voltage_z", NULL, MAVLINK_TYPE_FLOAT, 0, 8, offsetof(mavlink_ivaq_rx_params_master_t, rx_battery_voltage_z) }, \
-         { "rx_ant_states_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 26, offsetof(mavlink_ivaq_rx_params_master_t, rx_ant_states_z) }, \
-         { "rx_stg_states_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 27, offsetof(mavlink_ivaq_rx_params_master_t, rx_stg_states_z) }, \
-         { "rx_card_det_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 28, offsetof(mavlink_ivaq_rx_params_master_t, rx_card_det_z) }, \
-         { "rx_save_opt_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 29, offsetof(mavlink_ivaq_rx_params_master_t, rx_save_opt_z) }, \
+         { "rx_ant_states_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 29, offsetof(mavlink_ivaq_rx_params_master_t, rx_ant_states_z) }, \
+         { "rx_stg_states_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 30, offsetof(mavlink_ivaq_rx_params_master_t, rx_stg_states_z) }, \
+         { "rx_card_det_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 31, offsetof(mavlink_ivaq_rx_params_master_t, rx_card_det_z) }, \
+         { "rx_save_opt_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 32, offsetof(mavlink_ivaq_rx_params_master_t, rx_save_opt_z) }, \
          } \
 }
 #endif
@@ -103,6 +112,7 @@ typedef struct __mavlink_ivaq_rx_params_master_t {
  *
  * @param rx_mode_x  Ivaq Rx X-Ant Mode
  * @param rx_status_x  Ivaq Rx X-Ant Status
+ * @param rx_anlg_en_x  Ivaq Rx X-Ant Anlg Part Status
  * @param rx_battery_voltage_x  Ivaq Rx X-Ant Battery Voltage
  * @param rx_ant_states_x  Ivaq Rx X-Ant Antenna States
  * @param rx_stg_states_x  Ivaq Rx X-Ant Stage States
@@ -110,6 +120,7 @@ typedef struct __mavlink_ivaq_rx_params_master_t {
  * @param rx_save_opt_x  Ivaq Rx X-Ant Save State
  * @param rx_mode_y  Ivaq Rx Y-Ant Mode
  * @param rx_status_y  Ivaq Rx Y-Ant Status
+ * @param rx_anlg_en_y  Ivaq Rx Y-Ant Anlg Part Status
  * @param rx_battery_voltage_y  Ivaq Rx Y-Ant Battery Voltage
  * @param rx_ant_states_y  Ivaq Rx Y-Ant Antenna States
  * @param rx_stg_states_y  Ivaq Rx Y-Ant Stage States
@@ -117,6 +128,7 @@ typedef struct __mavlink_ivaq_rx_params_master_t {
  * @param rx_save_opt_y  Ivaq Rx Y-Ant Save State
  * @param rx_mode_z  Ivaq Rx Z-Ant Mode
  * @param rx_status_z  Ivaq Rx Z-Ant Status
+ * @param rx_anlg_en_z  Ivaq Rx Z-Ant Anlg Part Status
  * @param rx_battery_voltage_z  Ivaq Rx Z-Ant Battery Voltage
  * @param rx_ant_states_z  Ivaq Rx Z-Ant Antenna States
  * @param rx_stg_states_z  Ivaq Rx Z-Ant Stage States
@@ -125,7 +137,7 @@ typedef struct __mavlink_ivaq_rx_params_master_t {
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_ivaq_rx_params_master_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
-                               uint8_t rx_mode_x, uint8_t rx_status_x, float rx_battery_voltage_x, uint8_t rx_ant_states_x, uint8_t rx_stg_states_x, uint8_t rx_card_det_x, uint8_t rx_save_opt_x, uint8_t rx_mode_y, uint8_t rx_status_y, float rx_battery_voltage_y, uint8_t rx_ant_states_y, uint8_t rx_stg_states_y, uint8_t rx_card_det_y, uint8_t rx_save_opt_y, uint8_t rx_mode_z, uint8_t rx_status_z, float rx_battery_voltage_z, uint8_t rx_ant_states_z, uint8_t rx_stg_states_z, uint8_t rx_card_det_z, uint8_t rx_save_opt_z)
+                               uint8_t rx_mode_x, uint8_t rx_status_x, uint8_t rx_anlg_en_x, float rx_battery_voltage_x, uint8_t rx_ant_states_x, uint8_t rx_stg_states_x, uint8_t rx_card_det_x, uint8_t rx_save_opt_x, uint8_t rx_mode_y, uint8_t rx_status_y, uint8_t rx_anlg_en_y, float rx_battery_voltage_y, uint8_t rx_ant_states_y, uint8_t rx_stg_states_y, uint8_t rx_card_det_y, uint8_t rx_save_opt_y, uint8_t rx_mode_z, uint8_t rx_status_z, uint8_t rx_anlg_en_z, float rx_battery_voltage_z, uint8_t rx_ant_states_z, uint8_t rx_stg_states_z, uint8_t rx_card_det_z, uint8_t rx_save_opt_z)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_IVAQ_RX_PARAMS_MASTER_LEN];
@@ -134,22 +146,25 @@ static inline uint16_t mavlink_msg_ivaq_rx_params_master_pack(uint8_t system_id,
     _mav_put_float(buf, 8, rx_battery_voltage_z);
     _mav_put_uint8_t(buf, 12, rx_mode_x);
     _mav_put_uint8_t(buf, 13, rx_status_x);
-    _mav_put_uint8_t(buf, 14, rx_ant_states_x);
-    _mav_put_uint8_t(buf, 15, rx_stg_states_x);
-    _mav_put_uint8_t(buf, 16, rx_card_det_x);
-    _mav_put_uint8_t(buf, 17, rx_save_opt_x);
-    _mav_put_uint8_t(buf, 18, rx_mode_y);
-    _mav_put_uint8_t(buf, 19, rx_status_y);
-    _mav_put_uint8_t(buf, 20, rx_ant_states_y);
-    _mav_put_uint8_t(buf, 21, rx_stg_states_y);
-    _mav_put_uint8_t(buf, 22, rx_card_det_y);
-    _mav_put_uint8_t(buf, 23, rx_save_opt_y);
-    _mav_put_uint8_t(buf, 24, rx_mode_z);
-    _mav_put_uint8_t(buf, 25, rx_status_z);
-    _mav_put_uint8_t(buf, 26, rx_ant_states_z);
-    _mav_put_uint8_t(buf, 27, rx_stg_states_z);
-    _mav_put_uint8_t(buf, 28, rx_card_det_z);
-    _mav_put_uint8_t(buf, 29, rx_save_opt_z);
+    _mav_put_uint8_t(buf, 14, rx_anlg_en_x);
+    _mav_put_uint8_t(buf, 15, rx_ant_states_x);
+    _mav_put_uint8_t(buf, 16, rx_stg_states_x);
+    _mav_put_uint8_t(buf, 17, rx_card_det_x);
+    _mav_put_uint8_t(buf, 18, rx_save_opt_x);
+    _mav_put_uint8_t(buf, 19, rx_mode_y);
+    _mav_put_uint8_t(buf, 20, rx_status_y);
+    _mav_put_uint8_t(buf, 21, rx_anlg_en_y);
+    _mav_put_uint8_t(buf, 22, rx_ant_states_y);
+    _mav_put_uint8_t(buf, 23, rx_stg_states_y);
+    _mav_put_uint8_t(buf, 24, rx_card_det_y);
+    _mav_put_uint8_t(buf, 25, rx_save_opt_y);
+    _mav_put_uint8_t(buf, 26, rx_mode_z);
+    _mav_put_uint8_t(buf, 27, rx_status_z);
+    _mav_put_uint8_t(buf, 28, rx_anlg_en_z);
+    _mav_put_uint8_t(buf, 29, rx_ant_states_z);
+    _mav_put_uint8_t(buf, 30, rx_stg_states_z);
+    _mav_put_uint8_t(buf, 31, rx_card_det_z);
+    _mav_put_uint8_t(buf, 32, rx_save_opt_z);
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_IVAQ_RX_PARAMS_MASTER_LEN);
 #else
@@ -159,18 +174,21 @@ static inline uint16_t mavlink_msg_ivaq_rx_params_master_pack(uint8_t system_id,
     packet.rx_battery_voltage_z = rx_battery_voltage_z;
     packet.rx_mode_x = rx_mode_x;
     packet.rx_status_x = rx_status_x;
+    packet.rx_anlg_en_x = rx_anlg_en_x;
     packet.rx_ant_states_x = rx_ant_states_x;
     packet.rx_stg_states_x = rx_stg_states_x;
     packet.rx_card_det_x = rx_card_det_x;
     packet.rx_save_opt_x = rx_save_opt_x;
     packet.rx_mode_y = rx_mode_y;
     packet.rx_status_y = rx_status_y;
+    packet.rx_anlg_en_y = rx_anlg_en_y;
     packet.rx_ant_states_y = rx_ant_states_y;
     packet.rx_stg_states_y = rx_stg_states_y;
     packet.rx_card_det_y = rx_card_det_y;
     packet.rx_save_opt_y = rx_save_opt_y;
     packet.rx_mode_z = rx_mode_z;
     packet.rx_status_z = rx_status_z;
+    packet.rx_anlg_en_z = rx_anlg_en_z;
     packet.rx_ant_states_z = rx_ant_states_z;
     packet.rx_stg_states_z = rx_stg_states_z;
     packet.rx_card_det_z = rx_card_det_z;
@@ -192,6 +210,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_params_master_pack(uint8_t system_id,
  *
  * @param rx_mode_x  Ivaq Rx X-Ant Mode
  * @param rx_status_x  Ivaq Rx X-Ant Status
+ * @param rx_anlg_en_x  Ivaq Rx X-Ant Anlg Part Status
  * @param rx_battery_voltage_x  Ivaq Rx X-Ant Battery Voltage
  * @param rx_ant_states_x  Ivaq Rx X-Ant Antenna States
  * @param rx_stg_states_x  Ivaq Rx X-Ant Stage States
@@ -199,6 +218,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_params_master_pack(uint8_t system_id,
  * @param rx_save_opt_x  Ivaq Rx X-Ant Save State
  * @param rx_mode_y  Ivaq Rx Y-Ant Mode
  * @param rx_status_y  Ivaq Rx Y-Ant Status
+ * @param rx_anlg_en_y  Ivaq Rx Y-Ant Anlg Part Status
  * @param rx_battery_voltage_y  Ivaq Rx Y-Ant Battery Voltage
  * @param rx_ant_states_y  Ivaq Rx Y-Ant Antenna States
  * @param rx_stg_states_y  Ivaq Rx Y-Ant Stage States
@@ -206,6 +226,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_params_master_pack(uint8_t system_id,
  * @param rx_save_opt_y  Ivaq Rx Y-Ant Save State
  * @param rx_mode_z  Ivaq Rx Z-Ant Mode
  * @param rx_status_z  Ivaq Rx Z-Ant Status
+ * @param rx_anlg_en_z  Ivaq Rx Z-Ant Anlg Part Status
  * @param rx_battery_voltage_z  Ivaq Rx Z-Ant Battery Voltage
  * @param rx_ant_states_z  Ivaq Rx Z-Ant Antenna States
  * @param rx_stg_states_z  Ivaq Rx Z-Ant Stage States
@@ -214,7 +235,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_params_master_pack(uint8_t system_id,
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_ivaq_rx_params_master_pack_status(uint8_t system_id, uint8_t component_id, mavlink_status_t *_status, mavlink_message_t* msg,
-                               uint8_t rx_mode_x, uint8_t rx_status_x, float rx_battery_voltage_x, uint8_t rx_ant_states_x, uint8_t rx_stg_states_x, uint8_t rx_card_det_x, uint8_t rx_save_opt_x, uint8_t rx_mode_y, uint8_t rx_status_y, float rx_battery_voltage_y, uint8_t rx_ant_states_y, uint8_t rx_stg_states_y, uint8_t rx_card_det_y, uint8_t rx_save_opt_y, uint8_t rx_mode_z, uint8_t rx_status_z, float rx_battery_voltage_z, uint8_t rx_ant_states_z, uint8_t rx_stg_states_z, uint8_t rx_card_det_z, uint8_t rx_save_opt_z)
+                               uint8_t rx_mode_x, uint8_t rx_status_x, uint8_t rx_anlg_en_x, float rx_battery_voltage_x, uint8_t rx_ant_states_x, uint8_t rx_stg_states_x, uint8_t rx_card_det_x, uint8_t rx_save_opt_x, uint8_t rx_mode_y, uint8_t rx_status_y, uint8_t rx_anlg_en_y, float rx_battery_voltage_y, uint8_t rx_ant_states_y, uint8_t rx_stg_states_y, uint8_t rx_card_det_y, uint8_t rx_save_opt_y, uint8_t rx_mode_z, uint8_t rx_status_z, uint8_t rx_anlg_en_z, float rx_battery_voltage_z, uint8_t rx_ant_states_z, uint8_t rx_stg_states_z, uint8_t rx_card_det_z, uint8_t rx_save_opt_z)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_IVAQ_RX_PARAMS_MASTER_LEN];
@@ -223,22 +244,25 @@ static inline uint16_t mavlink_msg_ivaq_rx_params_master_pack_status(uint8_t sys
     _mav_put_float(buf, 8, rx_battery_voltage_z);
     _mav_put_uint8_t(buf, 12, rx_mode_x);
     _mav_put_uint8_t(buf, 13, rx_status_x);
-    _mav_put_uint8_t(buf, 14, rx_ant_states_x);
-    _mav_put_uint8_t(buf, 15, rx_stg_states_x);
-    _mav_put_uint8_t(buf, 16, rx_card_det_x);
-    _mav_put_uint8_t(buf, 17, rx_save_opt_x);
-    _mav_put_uint8_t(buf, 18, rx_mode_y);
-    _mav_put_uint8_t(buf, 19, rx_status_y);
-    _mav_put_uint8_t(buf, 20, rx_ant_states_y);
-    _mav_put_uint8_t(buf, 21, rx_stg_states_y);
-    _mav_put_uint8_t(buf, 22, rx_card_det_y);
-    _mav_put_uint8_t(buf, 23, rx_save_opt_y);
-    _mav_put_uint8_t(buf, 24, rx_mode_z);
-    _mav_put_uint8_t(buf, 25, rx_status_z);
-    _mav_put_uint8_t(buf, 26, rx_ant_states_z);
-    _mav_put_uint8_t(buf, 27, rx_stg_states_z);
-    _mav_put_uint8_t(buf, 28, rx_card_det_z);
-    _mav_put_uint8_t(buf, 29, rx_save_opt_z);
+    _mav_put_uint8_t(buf, 14, rx_anlg_en_x);
+    _mav_put_uint8_t(buf, 15, rx_ant_states_x);
+    _mav_put_uint8_t(buf, 16, rx_stg_states_x);
+    _mav_put_uint8_t(buf, 17, rx_card_det_x);
+    _mav_put_uint8_t(buf, 18, rx_save_opt_x);
+    _mav_put_uint8_t(buf, 19, rx_mode_y);
+    _mav_put_uint8_t(buf, 20, rx_status_y);
+    _mav_put_uint8_t(buf, 21, rx_anlg_en_y);
+    _mav_put_uint8_t(buf, 22, rx_ant_states_y);
+    _mav_put_uint8_t(buf, 23, rx_stg_states_y);
+    _mav_put_uint8_t(buf, 24, rx_card_det_y);
+    _mav_put_uint8_t(buf, 25, rx_save_opt_y);
+    _mav_put_uint8_t(buf, 26, rx_mode_z);
+    _mav_put_uint8_t(buf, 27, rx_status_z);
+    _mav_put_uint8_t(buf, 28, rx_anlg_en_z);
+    _mav_put_uint8_t(buf, 29, rx_ant_states_z);
+    _mav_put_uint8_t(buf, 30, rx_stg_states_z);
+    _mav_put_uint8_t(buf, 31, rx_card_det_z);
+    _mav_put_uint8_t(buf, 32, rx_save_opt_z);
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_IVAQ_RX_PARAMS_MASTER_LEN);
 #else
@@ -248,18 +272,21 @@ static inline uint16_t mavlink_msg_ivaq_rx_params_master_pack_status(uint8_t sys
     packet.rx_battery_voltage_z = rx_battery_voltage_z;
     packet.rx_mode_x = rx_mode_x;
     packet.rx_status_x = rx_status_x;
+    packet.rx_anlg_en_x = rx_anlg_en_x;
     packet.rx_ant_states_x = rx_ant_states_x;
     packet.rx_stg_states_x = rx_stg_states_x;
     packet.rx_card_det_x = rx_card_det_x;
     packet.rx_save_opt_x = rx_save_opt_x;
     packet.rx_mode_y = rx_mode_y;
     packet.rx_status_y = rx_status_y;
+    packet.rx_anlg_en_y = rx_anlg_en_y;
     packet.rx_ant_states_y = rx_ant_states_y;
     packet.rx_stg_states_y = rx_stg_states_y;
     packet.rx_card_det_y = rx_card_det_y;
     packet.rx_save_opt_y = rx_save_opt_y;
     packet.rx_mode_z = rx_mode_z;
     packet.rx_status_z = rx_status_z;
+    packet.rx_anlg_en_z = rx_anlg_en_z;
     packet.rx_ant_states_z = rx_ant_states_z;
     packet.rx_stg_states_z = rx_stg_states_z;
     packet.rx_card_det_z = rx_card_det_z;
@@ -284,6 +311,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_params_master_pack_status(uint8_t sys
  * @param msg The MAVLink message to compress the data into
  * @param rx_mode_x  Ivaq Rx X-Ant Mode
  * @param rx_status_x  Ivaq Rx X-Ant Status
+ * @param rx_anlg_en_x  Ivaq Rx X-Ant Anlg Part Status
  * @param rx_battery_voltage_x  Ivaq Rx X-Ant Battery Voltage
  * @param rx_ant_states_x  Ivaq Rx X-Ant Antenna States
  * @param rx_stg_states_x  Ivaq Rx X-Ant Stage States
@@ -291,6 +319,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_params_master_pack_status(uint8_t sys
  * @param rx_save_opt_x  Ivaq Rx X-Ant Save State
  * @param rx_mode_y  Ivaq Rx Y-Ant Mode
  * @param rx_status_y  Ivaq Rx Y-Ant Status
+ * @param rx_anlg_en_y  Ivaq Rx Y-Ant Anlg Part Status
  * @param rx_battery_voltage_y  Ivaq Rx Y-Ant Battery Voltage
  * @param rx_ant_states_y  Ivaq Rx Y-Ant Antenna States
  * @param rx_stg_states_y  Ivaq Rx Y-Ant Stage States
@@ -298,6 +327,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_params_master_pack_status(uint8_t sys
  * @param rx_save_opt_y  Ivaq Rx Y-Ant Save State
  * @param rx_mode_z  Ivaq Rx Z-Ant Mode
  * @param rx_status_z  Ivaq Rx Z-Ant Status
+ * @param rx_anlg_en_z  Ivaq Rx Z-Ant Anlg Part Status
  * @param rx_battery_voltage_z  Ivaq Rx Z-Ant Battery Voltage
  * @param rx_ant_states_z  Ivaq Rx Z-Ant Antenna States
  * @param rx_stg_states_z  Ivaq Rx Z-Ant Stage States
@@ -307,7 +337,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_params_master_pack_status(uint8_t sys
  */
 static inline uint16_t mavlink_msg_ivaq_rx_params_master_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
                                mavlink_message_t* msg,
-                                   uint8_t rx_mode_x,uint8_t rx_status_x,float rx_battery_voltage_x,uint8_t rx_ant_states_x,uint8_t rx_stg_states_x,uint8_t rx_card_det_x,uint8_t rx_save_opt_x,uint8_t rx_mode_y,uint8_t rx_status_y,float rx_battery_voltage_y,uint8_t rx_ant_states_y,uint8_t rx_stg_states_y,uint8_t rx_card_det_y,uint8_t rx_save_opt_y,uint8_t rx_mode_z,uint8_t rx_status_z,float rx_battery_voltage_z,uint8_t rx_ant_states_z,uint8_t rx_stg_states_z,uint8_t rx_card_det_z,uint8_t rx_save_opt_z)
+                                   uint8_t rx_mode_x,uint8_t rx_status_x,uint8_t rx_anlg_en_x,float rx_battery_voltage_x,uint8_t rx_ant_states_x,uint8_t rx_stg_states_x,uint8_t rx_card_det_x,uint8_t rx_save_opt_x,uint8_t rx_mode_y,uint8_t rx_status_y,uint8_t rx_anlg_en_y,float rx_battery_voltage_y,uint8_t rx_ant_states_y,uint8_t rx_stg_states_y,uint8_t rx_card_det_y,uint8_t rx_save_opt_y,uint8_t rx_mode_z,uint8_t rx_status_z,uint8_t rx_anlg_en_z,float rx_battery_voltage_z,uint8_t rx_ant_states_z,uint8_t rx_stg_states_z,uint8_t rx_card_det_z,uint8_t rx_save_opt_z)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_IVAQ_RX_PARAMS_MASTER_LEN];
@@ -316,22 +346,25 @@ static inline uint16_t mavlink_msg_ivaq_rx_params_master_pack_chan(uint8_t syste
     _mav_put_float(buf, 8, rx_battery_voltage_z);
     _mav_put_uint8_t(buf, 12, rx_mode_x);
     _mav_put_uint8_t(buf, 13, rx_status_x);
-    _mav_put_uint8_t(buf, 14, rx_ant_states_x);
-    _mav_put_uint8_t(buf, 15, rx_stg_states_x);
-    _mav_put_uint8_t(buf, 16, rx_card_det_x);
-    _mav_put_uint8_t(buf, 17, rx_save_opt_x);
-    _mav_put_uint8_t(buf, 18, rx_mode_y);
-    _mav_put_uint8_t(buf, 19, rx_status_y);
-    _mav_put_uint8_t(buf, 20, rx_ant_states_y);
-    _mav_put_uint8_t(buf, 21, rx_stg_states_y);
-    _mav_put_uint8_t(buf, 22, rx_card_det_y);
-    _mav_put_uint8_t(buf, 23, rx_save_opt_y);
-    _mav_put_uint8_t(buf, 24, rx_mode_z);
-    _mav_put_uint8_t(buf, 25, rx_status_z);
-    _mav_put_uint8_t(buf, 26, rx_ant_states_z);
-    _mav_put_uint8_t(buf, 27, rx_stg_states_z);
-    _mav_put_uint8_t(buf, 28, rx_card_det_z);
-    _mav_put_uint8_t(buf, 29, rx_save_opt_z);
+    _mav_put_uint8_t(buf, 14, rx_anlg_en_x);
+    _mav_put_uint8_t(buf, 15, rx_ant_states_x);
+    _mav_put_uint8_t(buf, 16, rx_stg_states_x);
+    _mav_put_uint8_t(buf, 17, rx_card_det_x);
+    _mav_put_uint8_t(buf, 18, rx_save_opt_x);
+    _mav_put_uint8_t(buf, 19, rx_mode_y);
+    _mav_put_uint8_t(buf, 20, rx_status_y);
+    _mav_put_uint8_t(buf, 21, rx_anlg_en_y);
+    _mav_put_uint8_t(buf, 22, rx_ant_states_y);
+    _mav_put_uint8_t(buf, 23, rx_stg_states_y);
+    _mav_put_uint8_t(buf, 24, rx_card_det_y);
+    _mav_put_uint8_t(buf, 25, rx_save_opt_y);
+    _mav_put_uint8_t(buf, 26, rx_mode_z);
+    _mav_put_uint8_t(buf, 27, rx_status_z);
+    _mav_put_uint8_t(buf, 28, rx_anlg_en_z);
+    _mav_put_uint8_t(buf, 29, rx_ant_states_z);
+    _mav_put_uint8_t(buf, 30, rx_stg_states_z);
+    _mav_put_uint8_t(buf, 31, rx_card_det_z);
+    _mav_put_uint8_t(buf, 32, rx_save_opt_z);
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_IVAQ_RX_PARAMS_MASTER_LEN);
 #else
@@ -341,18 +374,21 @@ static inline uint16_t mavlink_msg_ivaq_rx_params_master_pack_chan(uint8_t syste
     packet.rx_battery_voltage_z = rx_battery_voltage_z;
     packet.rx_mode_x = rx_mode_x;
     packet.rx_status_x = rx_status_x;
+    packet.rx_anlg_en_x = rx_anlg_en_x;
     packet.rx_ant_states_x = rx_ant_states_x;
     packet.rx_stg_states_x = rx_stg_states_x;
     packet.rx_card_det_x = rx_card_det_x;
     packet.rx_save_opt_x = rx_save_opt_x;
     packet.rx_mode_y = rx_mode_y;
     packet.rx_status_y = rx_status_y;
+    packet.rx_anlg_en_y = rx_anlg_en_y;
     packet.rx_ant_states_y = rx_ant_states_y;
     packet.rx_stg_states_y = rx_stg_states_y;
     packet.rx_card_det_y = rx_card_det_y;
     packet.rx_save_opt_y = rx_save_opt_y;
     packet.rx_mode_z = rx_mode_z;
     packet.rx_status_z = rx_status_z;
+    packet.rx_anlg_en_z = rx_anlg_en_z;
     packet.rx_ant_states_z = rx_ant_states_z;
     packet.rx_stg_states_z = rx_stg_states_z;
     packet.rx_card_det_z = rx_card_det_z;
@@ -375,7 +411,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_params_master_pack_chan(uint8_t syste
  */
 static inline uint16_t mavlink_msg_ivaq_rx_params_master_encode(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg, const mavlink_ivaq_rx_params_master_t* ivaq_rx_params_master)
 {
-    return mavlink_msg_ivaq_rx_params_master_pack(system_id, component_id, msg, ivaq_rx_params_master->rx_mode_x, ivaq_rx_params_master->rx_status_x, ivaq_rx_params_master->rx_battery_voltage_x, ivaq_rx_params_master->rx_ant_states_x, ivaq_rx_params_master->rx_stg_states_x, ivaq_rx_params_master->rx_card_det_x, ivaq_rx_params_master->rx_save_opt_x, ivaq_rx_params_master->rx_mode_y, ivaq_rx_params_master->rx_status_y, ivaq_rx_params_master->rx_battery_voltage_y, ivaq_rx_params_master->rx_ant_states_y, ivaq_rx_params_master->rx_stg_states_y, ivaq_rx_params_master->rx_card_det_y, ivaq_rx_params_master->rx_save_opt_y, ivaq_rx_params_master->rx_mode_z, ivaq_rx_params_master->rx_status_z, ivaq_rx_params_master->rx_battery_voltage_z, ivaq_rx_params_master->rx_ant_states_z, ivaq_rx_params_master->rx_stg_states_z, ivaq_rx_params_master->rx_card_det_z, ivaq_rx_params_master->rx_save_opt_z);
+    return mavlink_msg_ivaq_rx_params_master_pack(system_id, component_id, msg, ivaq_rx_params_master->rx_mode_x, ivaq_rx_params_master->rx_status_x, ivaq_rx_params_master->rx_anlg_en_x, ivaq_rx_params_master->rx_battery_voltage_x, ivaq_rx_params_master->rx_ant_states_x, ivaq_rx_params_master->rx_stg_states_x, ivaq_rx_params_master->rx_card_det_x, ivaq_rx_params_master->rx_save_opt_x, ivaq_rx_params_master->rx_mode_y, ivaq_rx_params_master->rx_status_y, ivaq_rx_params_master->rx_anlg_en_y, ivaq_rx_params_master->rx_battery_voltage_y, ivaq_rx_params_master->rx_ant_states_y, ivaq_rx_params_master->rx_stg_states_y, ivaq_rx_params_master->rx_card_det_y, ivaq_rx_params_master->rx_save_opt_y, ivaq_rx_params_master->rx_mode_z, ivaq_rx_params_master->rx_status_z, ivaq_rx_params_master->rx_anlg_en_z, ivaq_rx_params_master->rx_battery_voltage_z, ivaq_rx_params_master->rx_ant_states_z, ivaq_rx_params_master->rx_stg_states_z, ivaq_rx_params_master->rx_card_det_z, ivaq_rx_params_master->rx_save_opt_z);
 }
 
 /**
@@ -389,7 +425,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_params_master_encode(uint8_t system_i
  */
 static inline uint16_t mavlink_msg_ivaq_rx_params_master_encode_chan(uint8_t system_id, uint8_t component_id, uint8_t chan, mavlink_message_t* msg, const mavlink_ivaq_rx_params_master_t* ivaq_rx_params_master)
 {
-    return mavlink_msg_ivaq_rx_params_master_pack_chan(system_id, component_id, chan, msg, ivaq_rx_params_master->rx_mode_x, ivaq_rx_params_master->rx_status_x, ivaq_rx_params_master->rx_battery_voltage_x, ivaq_rx_params_master->rx_ant_states_x, ivaq_rx_params_master->rx_stg_states_x, ivaq_rx_params_master->rx_card_det_x, ivaq_rx_params_master->rx_save_opt_x, ivaq_rx_params_master->rx_mode_y, ivaq_rx_params_master->rx_status_y, ivaq_rx_params_master->rx_battery_voltage_y, ivaq_rx_params_master->rx_ant_states_y, ivaq_rx_params_master->rx_stg_states_y, ivaq_rx_params_master->rx_card_det_y, ivaq_rx_params_master->rx_save_opt_y, ivaq_rx_params_master->rx_mode_z, ivaq_rx_params_master->rx_status_z, ivaq_rx_params_master->rx_battery_voltage_z, ivaq_rx_params_master->rx_ant_states_z, ivaq_rx_params_master->rx_stg_states_z, ivaq_rx_params_master->rx_card_det_z, ivaq_rx_params_master->rx_save_opt_z);
+    return mavlink_msg_ivaq_rx_params_master_pack_chan(system_id, component_id, chan, msg, ivaq_rx_params_master->rx_mode_x, ivaq_rx_params_master->rx_status_x, ivaq_rx_params_master->rx_anlg_en_x, ivaq_rx_params_master->rx_battery_voltage_x, ivaq_rx_params_master->rx_ant_states_x, ivaq_rx_params_master->rx_stg_states_x, ivaq_rx_params_master->rx_card_det_x, ivaq_rx_params_master->rx_save_opt_x, ivaq_rx_params_master->rx_mode_y, ivaq_rx_params_master->rx_status_y, ivaq_rx_params_master->rx_anlg_en_y, ivaq_rx_params_master->rx_battery_voltage_y, ivaq_rx_params_master->rx_ant_states_y, ivaq_rx_params_master->rx_stg_states_y, ivaq_rx_params_master->rx_card_det_y, ivaq_rx_params_master->rx_save_opt_y, ivaq_rx_params_master->rx_mode_z, ivaq_rx_params_master->rx_status_z, ivaq_rx_params_master->rx_anlg_en_z, ivaq_rx_params_master->rx_battery_voltage_z, ivaq_rx_params_master->rx_ant_states_z, ivaq_rx_params_master->rx_stg_states_z, ivaq_rx_params_master->rx_card_det_z, ivaq_rx_params_master->rx_save_opt_z);
 }
 
 /**
@@ -403,7 +439,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_params_master_encode_chan(uint8_t sys
  */
 static inline uint16_t mavlink_msg_ivaq_rx_params_master_encode_status(uint8_t system_id, uint8_t component_id, mavlink_status_t* _status, mavlink_message_t* msg, const mavlink_ivaq_rx_params_master_t* ivaq_rx_params_master)
 {
-    return mavlink_msg_ivaq_rx_params_master_pack_status(system_id, component_id, _status, msg,  ivaq_rx_params_master->rx_mode_x, ivaq_rx_params_master->rx_status_x, ivaq_rx_params_master->rx_battery_voltage_x, ivaq_rx_params_master->rx_ant_states_x, ivaq_rx_params_master->rx_stg_states_x, ivaq_rx_params_master->rx_card_det_x, ivaq_rx_params_master->rx_save_opt_x, ivaq_rx_params_master->rx_mode_y, ivaq_rx_params_master->rx_status_y, ivaq_rx_params_master->rx_battery_voltage_y, ivaq_rx_params_master->rx_ant_states_y, ivaq_rx_params_master->rx_stg_states_y, ivaq_rx_params_master->rx_card_det_y, ivaq_rx_params_master->rx_save_opt_y, ivaq_rx_params_master->rx_mode_z, ivaq_rx_params_master->rx_status_z, ivaq_rx_params_master->rx_battery_voltage_z, ivaq_rx_params_master->rx_ant_states_z, ivaq_rx_params_master->rx_stg_states_z, ivaq_rx_params_master->rx_card_det_z, ivaq_rx_params_master->rx_save_opt_z);
+    return mavlink_msg_ivaq_rx_params_master_pack_status(system_id, component_id, _status, msg,  ivaq_rx_params_master->rx_mode_x, ivaq_rx_params_master->rx_status_x, ivaq_rx_params_master->rx_anlg_en_x, ivaq_rx_params_master->rx_battery_voltage_x, ivaq_rx_params_master->rx_ant_states_x, ivaq_rx_params_master->rx_stg_states_x, ivaq_rx_params_master->rx_card_det_x, ivaq_rx_params_master->rx_save_opt_x, ivaq_rx_params_master->rx_mode_y, ivaq_rx_params_master->rx_status_y, ivaq_rx_params_master->rx_anlg_en_y, ivaq_rx_params_master->rx_battery_voltage_y, ivaq_rx_params_master->rx_ant_states_y, ivaq_rx_params_master->rx_stg_states_y, ivaq_rx_params_master->rx_card_det_y, ivaq_rx_params_master->rx_save_opt_y, ivaq_rx_params_master->rx_mode_z, ivaq_rx_params_master->rx_status_z, ivaq_rx_params_master->rx_anlg_en_z, ivaq_rx_params_master->rx_battery_voltage_z, ivaq_rx_params_master->rx_ant_states_z, ivaq_rx_params_master->rx_stg_states_z, ivaq_rx_params_master->rx_card_det_z, ivaq_rx_params_master->rx_save_opt_z);
 }
 
 /**
@@ -412,6 +448,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_params_master_encode_status(uint8_t s
  *
  * @param rx_mode_x  Ivaq Rx X-Ant Mode
  * @param rx_status_x  Ivaq Rx X-Ant Status
+ * @param rx_anlg_en_x  Ivaq Rx X-Ant Anlg Part Status
  * @param rx_battery_voltage_x  Ivaq Rx X-Ant Battery Voltage
  * @param rx_ant_states_x  Ivaq Rx X-Ant Antenna States
  * @param rx_stg_states_x  Ivaq Rx X-Ant Stage States
@@ -419,6 +456,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_params_master_encode_status(uint8_t s
  * @param rx_save_opt_x  Ivaq Rx X-Ant Save State
  * @param rx_mode_y  Ivaq Rx Y-Ant Mode
  * @param rx_status_y  Ivaq Rx Y-Ant Status
+ * @param rx_anlg_en_y  Ivaq Rx Y-Ant Anlg Part Status
  * @param rx_battery_voltage_y  Ivaq Rx Y-Ant Battery Voltage
  * @param rx_ant_states_y  Ivaq Rx Y-Ant Antenna States
  * @param rx_stg_states_y  Ivaq Rx Y-Ant Stage States
@@ -426,6 +464,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_params_master_encode_status(uint8_t s
  * @param rx_save_opt_y  Ivaq Rx Y-Ant Save State
  * @param rx_mode_z  Ivaq Rx Z-Ant Mode
  * @param rx_status_z  Ivaq Rx Z-Ant Status
+ * @param rx_anlg_en_z  Ivaq Rx Z-Ant Anlg Part Status
  * @param rx_battery_voltage_z  Ivaq Rx Z-Ant Battery Voltage
  * @param rx_ant_states_z  Ivaq Rx Z-Ant Antenna States
  * @param rx_stg_states_z  Ivaq Rx Z-Ant Stage States
@@ -434,7 +473,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_params_master_encode_status(uint8_t s
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
-static inline void mavlink_msg_ivaq_rx_params_master_send(mavlink_channel_t chan, uint8_t rx_mode_x, uint8_t rx_status_x, float rx_battery_voltage_x, uint8_t rx_ant_states_x, uint8_t rx_stg_states_x, uint8_t rx_card_det_x, uint8_t rx_save_opt_x, uint8_t rx_mode_y, uint8_t rx_status_y, float rx_battery_voltage_y, uint8_t rx_ant_states_y, uint8_t rx_stg_states_y, uint8_t rx_card_det_y, uint8_t rx_save_opt_y, uint8_t rx_mode_z, uint8_t rx_status_z, float rx_battery_voltage_z, uint8_t rx_ant_states_z, uint8_t rx_stg_states_z, uint8_t rx_card_det_z, uint8_t rx_save_opt_z)
+static inline void mavlink_msg_ivaq_rx_params_master_send(mavlink_channel_t chan, uint8_t rx_mode_x, uint8_t rx_status_x, uint8_t rx_anlg_en_x, float rx_battery_voltage_x, uint8_t rx_ant_states_x, uint8_t rx_stg_states_x, uint8_t rx_card_det_x, uint8_t rx_save_opt_x, uint8_t rx_mode_y, uint8_t rx_status_y, uint8_t rx_anlg_en_y, float rx_battery_voltage_y, uint8_t rx_ant_states_y, uint8_t rx_stg_states_y, uint8_t rx_card_det_y, uint8_t rx_save_opt_y, uint8_t rx_mode_z, uint8_t rx_status_z, uint8_t rx_anlg_en_z, float rx_battery_voltage_z, uint8_t rx_ant_states_z, uint8_t rx_stg_states_z, uint8_t rx_card_det_z, uint8_t rx_save_opt_z)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_IVAQ_RX_PARAMS_MASTER_LEN];
@@ -443,22 +482,25 @@ static inline void mavlink_msg_ivaq_rx_params_master_send(mavlink_channel_t chan
     _mav_put_float(buf, 8, rx_battery_voltage_z);
     _mav_put_uint8_t(buf, 12, rx_mode_x);
     _mav_put_uint8_t(buf, 13, rx_status_x);
-    _mav_put_uint8_t(buf, 14, rx_ant_states_x);
-    _mav_put_uint8_t(buf, 15, rx_stg_states_x);
-    _mav_put_uint8_t(buf, 16, rx_card_det_x);
-    _mav_put_uint8_t(buf, 17, rx_save_opt_x);
-    _mav_put_uint8_t(buf, 18, rx_mode_y);
-    _mav_put_uint8_t(buf, 19, rx_status_y);
-    _mav_put_uint8_t(buf, 20, rx_ant_states_y);
-    _mav_put_uint8_t(buf, 21, rx_stg_states_y);
-    _mav_put_uint8_t(buf, 22, rx_card_det_y);
-    _mav_put_uint8_t(buf, 23, rx_save_opt_y);
-    _mav_put_uint8_t(buf, 24, rx_mode_z);
-    _mav_put_uint8_t(buf, 25, rx_status_z);
-    _mav_put_uint8_t(buf, 26, rx_ant_states_z);
-    _mav_put_uint8_t(buf, 27, rx_stg_states_z);
-    _mav_put_uint8_t(buf, 28, rx_card_det_z);
-    _mav_put_uint8_t(buf, 29, rx_save_opt_z);
+    _mav_put_uint8_t(buf, 14, rx_anlg_en_x);
+    _mav_put_uint8_t(buf, 15, rx_ant_states_x);
+    _mav_put_uint8_t(buf, 16, rx_stg_states_x);
+    _mav_put_uint8_t(buf, 17, rx_card_det_x);
+    _mav_put_uint8_t(buf, 18, rx_save_opt_x);
+    _mav_put_uint8_t(buf, 19, rx_mode_y);
+    _mav_put_uint8_t(buf, 20, rx_status_y);
+    _mav_put_uint8_t(buf, 21, rx_anlg_en_y);
+    _mav_put_uint8_t(buf, 22, rx_ant_states_y);
+    _mav_put_uint8_t(buf, 23, rx_stg_states_y);
+    _mav_put_uint8_t(buf, 24, rx_card_det_y);
+    _mav_put_uint8_t(buf, 25, rx_save_opt_y);
+    _mav_put_uint8_t(buf, 26, rx_mode_z);
+    _mav_put_uint8_t(buf, 27, rx_status_z);
+    _mav_put_uint8_t(buf, 28, rx_anlg_en_z);
+    _mav_put_uint8_t(buf, 29, rx_ant_states_z);
+    _mav_put_uint8_t(buf, 30, rx_stg_states_z);
+    _mav_put_uint8_t(buf, 31, rx_card_det_z);
+    _mav_put_uint8_t(buf, 32, rx_save_opt_z);
 
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_IVAQ_RX_PARAMS_MASTER, buf, MAVLINK_MSG_ID_IVAQ_RX_PARAMS_MASTER_MIN_LEN, MAVLINK_MSG_ID_IVAQ_RX_PARAMS_MASTER_LEN, MAVLINK_MSG_ID_IVAQ_RX_PARAMS_MASTER_CRC);
 #else
@@ -468,18 +510,21 @@ static inline void mavlink_msg_ivaq_rx_params_master_send(mavlink_channel_t chan
     packet.rx_battery_voltage_z = rx_battery_voltage_z;
     packet.rx_mode_x = rx_mode_x;
     packet.rx_status_x = rx_status_x;
+    packet.rx_anlg_en_x = rx_anlg_en_x;
     packet.rx_ant_states_x = rx_ant_states_x;
     packet.rx_stg_states_x = rx_stg_states_x;
     packet.rx_card_det_x = rx_card_det_x;
     packet.rx_save_opt_x = rx_save_opt_x;
     packet.rx_mode_y = rx_mode_y;
     packet.rx_status_y = rx_status_y;
+    packet.rx_anlg_en_y = rx_anlg_en_y;
     packet.rx_ant_states_y = rx_ant_states_y;
     packet.rx_stg_states_y = rx_stg_states_y;
     packet.rx_card_det_y = rx_card_det_y;
     packet.rx_save_opt_y = rx_save_opt_y;
     packet.rx_mode_z = rx_mode_z;
     packet.rx_status_z = rx_status_z;
+    packet.rx_anlg_en_z = rx_anlg_en_z;
     packet.rx_ant_states_z = rx_ant_states_z;
     packet.rx_stg_states_z = rx_stg_states_z;
     packet.rx_card_det_z = rx_card_det_z;
@@ -497,7 +542,7 @@ static inline void mavlink_msg_ivaq_rx_params_master_send(mavlink_channel_t chan
 static inline void mavlink_msg_ivaq_rx_params_master_send_struct(mavlink_channel_t chan, const mavlink_ivaq_rx_params_master_t* ivaq_rx_params_master)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
-    mavlink_msg_ivaq_rx_params_master_send(chan, ivaq_rx_params_master->rx_mode_x, ivaq_rx_params_master->rx_status_x, ivaq_rx_params_master->rx_battery_voltage_x, ivaq_rx_params_master->rx_ant_states_x, ivaq_rx_params_master->rx_stg_states_x, ivaq_rx_params_master->rx_card_det_x, ivaq_rx_params_master->rx_save_opt_x, ivaq_rx_params_master->rx_mode_y, ivaq_rx_params_master->rx_status_y, ivaq_rx_params_master->rx_battery_voltage_y, ivaq_rx_params_master->rx_ant_states_y, ivaq_rx_params_master->rx_stg_states_y, ivaq_rx_params_master->rx_card_det_y, ivaq_rx_params_master->rx_save_opt_y, ivaq_rx_params_master->rx_mode_z, ivaq_rx_params_master->rx_status_z, ivaq_rx_params_master->rx_battery_voltage_z, ivaq_rx_params_master->rx_ant_states_z, ivaq_rx_params_master->rx_stg_states_z, ivaq_rx_params_master->rx_card_det_z, ivaq_rx_params_master->rx_save_opt_z);
+    mavlink_msg_ivaq_rx_params_master_send(chan, ivaq_rx_params_master->rx_mode_x, ivaq_rx_params_master->rx_status_x, ivaq_rx_params_master->rx_anlg_en_x, ivaq_rx_params_master->rx_battery_voltage_x, ivaq_rx_params_master->rx_ant_states_x, ivaq_rx_params_master->rx_stg_states_x, ivaq_rx_params_master->rx_card_det_x, ivaq_rx_params_master->rx_save_opt_x, ivaq_rx_params_master->rx_mode_y, ivaq_rx_params_master->rx_status_y, ivaq_rx_params_master->rx_anlg_en_y, ivaq_rx_params_master->rx_battery_voltage_y, ivaq_rx_params_master->rx_ant_states_y, ivaq_rx_params_master->rx_stg_states_y, ivaq_rx_params_master->rx_card_det_y, ivaq_rx_params_master->rx_save_opt_y, ivaq_rx_params_master->rx_mode_z, ivaq_rx_params_master->rx_status_z, ivaq_rx_params_master->rx_anlg_en_z, ivaq_rx_params_master->rx_battery_voltage_z, ivaq_rx_params_master->rx_ant_states_z, ivaq_rx_params_master->rx_stg_states_z, ivaq_rx_params_master->rx_card_det_z, ivaq_rx_params_master->rx_save_opt_z);
 #else
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_IVAQ_RX_PARAMS_MASTER, (const char *)ivaq_rx_params_master, MAVLINK_MSG_ID_IVAQ_RX_PARAMS_MASTER_MIN_LEN, MAVLINK_MSG_ID_IVAQ_RX_PARAMS_MASTER_LEN, MAVLINK_MSG_ID_IVAQ_RX_PARAMS_MASTER_CRC);
 #endif
@@ -511,7 +556,7 @@ static inline void mavlink_msg_ivaq_rx_params_master_send_struct(mavlink_channel
   is usually the receive buffer for the channel, and allows a reply to an
   incoming message with minimum stack space usage.
  */
-static inline void mavlink_msg_ivaq_rx_params_master_send_buf(mavlink_message_t *msgbuf, mavlink_channel_t chan,  uint8_t rx_mode_x, uint8_t rx_status_x, float rx_battery_voltage_x, uint8_t rx_ant_states_x, uint8_t rx_stg_states_x, uint8_t rx_card_det_x, uint8_t rx_save_opt_x, uint8_t rx_mode_y, uint8_t rx_status_y, float rx_battery_voltage_y, uint8_t rx_ant_states_y, uint8_t rx_stg_states_y, uint8_t rx_card_det_y, uint8_t rx_save_opt_y, uint8_t rx_mode_z, uint8_t rx_status_z, float rx_battery_voltage_z, uint8_t rx_ant_states_z, uint8_t rx_stg_states_z, uint8_t rx_card_det_z, uint8_t rx_save_opt_z)
+static inline void mavlink_msg_ivaq_rx_params_master_send_buf(mavlink_message_t *msgbuf, mavlink_channel_t chan,  uint8_t rx_mode_x, uint8_t rx_status_x, uint8_t rx_anlg_en_x, float rx_battery_voltage_x, uint8_t rx_ant_states_x, uint8_t rx_stg_states_x, uint8_t rx_card_det_x, uint8_t rx_save_opt_x, uint8_t rx_mode_y, uint8_t rx_status_y, uint8_t rx_anlg_en_y, float rx_battery_voltage_y, uint8_t rx_ant_states_y, uint8_t rx_stg_states_y, uint8_t rx_card_det_y, uint8_t rx_save_opt_y, uint8_t rx_mode_z, uint8_t rx_status_z, uint8_t rx_anlg_en_z, float rx_battery_voltage_z, uint8_t rx_ant_states_z, uint8_t rx_stg_states_z, uint8_t rx_card_det_z, uint8_t rx_save_opt_z)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char *buf = (char *)msgbuf;
@@ -520,22 +565,25 @@ static inline void mavlink_msg_ivaq_rx_params_master_send_buf(mavlink_message_t 
     _mav_put_float(buf, 8, rx_battery_voltage_z);
     _mav_put_uint8_t(buf, 12, rx_mode_x);
     _mav_put_uint8_t(buf, 13, rx_status_x);
-    _mav_put_uint8_t(buf, 14, rx_ant_states_x);
-    _mav_put_uint8_t(buf, 15, rx_stg_states_x);
-    _mav_put_uint8_t(buf, 16, rx_card_det_x);
-    _mav_put_uint8_t(buf, 17, rx_save_opt_x);
-    _mav_put_uint8_t(buf, 18, rx_mode_y);
-    _mav_put_uint8_t(buf, 19, rx_status_y);
-    _mav_put_uint8_t(buf, 20, rx_ant_states_y);
-    _mav_put_uint8_t(buf, 21, rx_stg_states_y);
-    _mav_put_uint8_t(buf, 22, rx_card_det_y);
-    _mav_put_uint8_t(buf, 23, rx_save_opt_y);
-    _mav_put_uint8_t(buf, 24, rx_mode_z);
-    _mav_put_uint8_t(buf, 25, rx_status_z);
-    _mav_put_uint8_t(buf, 26, rx_ant_states_z);
-    _mav_put_uint8_t(buf, 27, rx_stg_states_z);
-    _mav_put_uint8_t(buf, 28, rx_card_det_z);
-    _mav_put_uint8_t(buf, 29, rx_save_opt_z);
+    _mav_put_uint8_t(buf, 14, rx_anlg_en_x);
+    _mav_put_uint8_t(buf, 15, rx_ant_states_x);
+    _mav_put_uint8_t(buf, 16, rx_stg_states_x);
+    _mav_put_uint8_t(buf, 17, rx_card_det_x);
+    _mav_put_uint8_t(buf, 18, rx_save_opt_x);
+    _mav_put_uint8_t(buf, 19, rx_mode_y);
+    _mav_put_uint8_t(buf, 20, rx_status_y);
+    _mav_put_uint8_t(buf, 21, rx_anlg_en_y);
+    _mav_put_uint8_t(buf, 22, rx_ant_states_y);
+    _mav_put_uint8_t(buf, 23, rx_stg_states_y);
+    _mav_put_uint8_t(buf, 24, rx_card_det_y);
+    _mav_put_uint8_t(buf, 25, rx_save_opt_y);
+    _mav_put_uint8_t(buf, 26, rx_mode_z);
+    _mav_put_uint8_t(buf, 27, rx_status_z);
+    _mav_put_uint8_t(buf, 28, rx_anlg_en_z);
+    _mav_put_uint8_t(buf, 29, rx_ant_states_z);
+    _mav_put_uint8_t(buf, 30, rx_stg_states_z);
+    _mav_put_uint8_t(buf, 31, rx_card_det_z);
+    _mav_put_uint8_t(buf, 32, rx_save_opt_z);
 
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_IVAQ_RX_PARAMS_MASTER, buf, MAVLINK_MSG_ID_IVAQ_RX_PARAMS_MASTER_MIN_LEN, MAVLINK_MSG_ID_IVAQ_RX_PARAMS_MASTER_LEN, MAVLINK_MSG_ID_IVAQ_RX_PARAMS_MASTER_CRC);
 #else
@@ -545,18 +593,21 @@ static inline void mavlink_msg_ivaq_rx_params_master_send_buf(mavlink_message_t 
     packet->rx_battery_voltage_z = rx_battery_voltage_z;
     packet->rx_mode_x = rx_mode_x;
     packet->rx_status_x = rx_status_x;
+    packet->rx_anlg_en_x = rx_anlg_en_x;
     packet->rx_ant_states_x = rx_ant_states_x;
     packet->rx_stg_states_x = rx_stg_states_x;
     packet->rx_card_det_x = rx_card_det_x;
     packet->rx_save_opt_x = rx_save_opt_x;
     packet->rx_mode_y = rx_mode_y;
     packet->rx_status_y = rx_status_y;
+    packet->rx_anlg_en_y = rx_anlg_en_y;
     packet->rx_ant_states_y = rx_ant_states_y;
     packet->rx_stg_states_y = rx_stg_states_y;
     packet->rx_card_det_y = rx_card_det_y;
     packet->rx_save_opt_y = rx_save_opt_y;
     packet->rx_mode_z = rx_mode_z;
     packet->rx_status_z = rx_status_z;
+    packet->rx_anlg_en_z = rx_anlg_en_z;
     packet->rx_ant_states_z = rx_ant_states_z;
     packet->rx_stg_states_z = rx_stg_states_z;
     packet->rx_card_det_z = rx_card_det_z;
@@ -593,6 +644,16 @@ static inline uint8_t mavlink_msg_ivaq_rx_params_master_get_rx_status_x(const ma
 }
 
 /**
+ * @brief Get field rx_anlg_en_x from ivaq_rx_params_master message
+ *
+ * @return  Ivaq Rx X-Ant Anlg Part Status
+ */
+static inline uint8_t mavlink_msg_ivaq_rx_params_master_get_rx_anlg_en_x(const mavlink_message_t* msg)
+{
+    return _MAV_RETURN_uint8_t(msg,  14);
+}
+
+/**
  * @brief Get field rx_battery_voltage_x from ivaq_rx_params_master message
  *
  * @return  Ivaq Rx X-Ant Battery Voltage
@@ -609,7 +670,7 @@ static inline float mavlink_msg_ivaq_rx_params_master_get_rx_battery_voltage_x(c
  */
 static inline uint8_t mavlink_msg_ivaq_rx_params_master_get_rx_ant_states_x(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  14);
+    return _MAV_RETURN_uint8_t(msg,  15);
 }
 
 /**
@@ -619,7 +680,7 @@ static inline uint8_t mavlink_msg_ivaq_rx_params_master_get_rx_ant_states_x(cons
  */
 static inline uint8_t mavlink_msg_ivaq_rx_params_master_get_rx_stg_states_x(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  15);
+    return _MAV_RETURN_uint8_t(msg,  16);
 }
 
 /**
@@ -629,7 +690,7 @@ static inline uint8_t mavlink_msg_ivaq_rx_params_master_get_rx_stg_states_x(cons
  */
 static inline uint8_t mavlink_msg_ivaq_rx_params_master_get_rx_card_det_x(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  16);
+    return _MAV_RETURN_uint8_t(msg,  17);
 }
 
 /**
@@ -639,7 +700,7 @@ static inline uint8_t mavlink_msg_ivaq_rx_params_master_get_rx_card_det_x(const 
  */
 static inline uint8_t mavlink_msg_ivaq_rx_params_master_get_rx_save_opt_x(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  17);
+    return _MAV_RETURN_uint8_t(msg,  18);
 }
 
 /**
@@ -649,7 +710,7 @@ static inline uint8_t mavlink_msg_ivaq_rx_params_master_get_rx_save_opt_x(const 
  */
 static inline uint8_t mavlink_msg_ivaq_rx_params_master_get_rx_mode_y(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  18);
+    return _MAV_RETURN_uint8_t(msg,  19);
 }
 
 /**
@@ -659,7 +720,17 @@ static inline uint8_t mavlink_msg_ivaq_rx_params_master_get_rx_mode_y(const mavl
  */
 static inline uint8_t mavlink_msg_ivaq_rx_params_master_get_rx_status_y(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  19);
+    return _MAV_RETURN_uint8_t(msg,  20);
+}
+
+/**
+ * @brief Get field rx_anlg_en_y from ivaq_rx_params_master message
+ *
+ * @return  Ivaq Rx Y-Ant Anlg Part Status
+ */
+static inline uint8_t mavlink_msg_ivaq_rx_params_master_get_rx_anlg_en_y(const mavlink_message_t* msg)
+{
+    return _MAV_RETURN_uint8_t(msg,  21);
 }
 
 /**
@@ -679,7 +750,7 @@ static inline float mavlink_msg_ivaq_rx_params_master_get_rx_battery_voltage_y(c
  */
 static inline uint8_t mavlink_msg_ivaq_rx_params_master_get_rx_ant_states_y(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  20);
+    return _MAV_RETURN_uint8_t(msg,  22);
 }
 
 /**
@@ -689,7 +760,7 @@ static inline uint8_t mavlink_msg_ivaq_rx_params_master_get_rx_ant_states_y(cons
  */
 static inline uint8_t mavlink_msg_ivaq_rx_params_master_get_rx_stg_states_y(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  21);
+    return _MAV_RETURN_uint8_t(msg,  23);
 }
 
 /**
@@ -699,7 +770,7 @@ static inline uint8_t mavlink_msg_ivaq_rx_params_master_get_rx_stg_states_y(cons
  */
 static inline uint8_t mavlink_msg_ivaq_rx_params_master_get_rx_card_det_y(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  22);
+    return _MAV_RETURN_uint8_t(msg,  24);
 }
 
 /**
@@ -709,7 +780,7 @@ static inline uint8_t mavlink_msg_ivaq_rx_params_master_get_rx_card_det_y(const 
  */
 static inline uint8_t mavlink_msg_ivaq_rx_params_master_get_rx_save_opt_y(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  23);
+    return _MAV_RETURN_uint8_t(msg,  25);
 }
 
 /**
@@ -719,7 +790,7 @@ static inline uint8_t mavlink_msg_ivaq_rx_params_master_get_rx_save_opt_y(const 
  */
 static inline uint8_t mavlink_msg_ivaq_rx_params_master_get_rx_mode_z(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  24);
+    return _MAV_RETURN_uint8_t(msg,  26);
 }
 
 /**
@@ -729,7 +800,17 @@ static inline uint8_t mavlink_msg_ivaq_rx_params_master_get_rx_mode_z(const mavl
  */
 static inline uint8_t mavlink_msg_ivaq_rx_params_master_get_rx_status_z(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  25);
+    return _MAV_RETURN_uint8_t(msg,  27);
+}
+
+/**
+ * @brief Get field rx_anlg_en_z from ivaq_rx_params_master message
+ *
+ * @return  Ivaq Rx Z-Ant Anlg Part Status
+ */
+static inline uint8_t mavlink_msg_ivaq_rx_params_master_get_rx_anlg_en_z(const mavlink_message_t* msg)
+{
+    return _MAV_RETURN_uint8_t(msg,  28);
 }
 
 /**
@@ -749,7 +830,7 @@ static inline float mavlink_msg_ivaq_rx_params_master_get_rx_battery_voltage_z(c
  */
 static inline uint8_t mavlink_msg_ivaq_rx_params_master_get_rx_ant_states_z(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  26);
+    return _MAV_RETURN_uint8_t(msg,  29);
 }
 
 /**
@@ -759,7 +840,7 @@ static inline uint8_t mavlink_msg_ivaq_rx_params_master_get_rx_ant_states_z(cons
  */
 static inline uint8_t mavlink_msg_ivaq_rx_params_master_get_rx_stg_states_z(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  27);
+    return _MAV_RETURN_uint8_t(msg,  30);
 }
 
 /**
@@ -769,7 +850,7 @@ static inline uint8_t mavlink_msg_ivaq_rx_params_master_get_rx_stg_states_z(cons
  */
 static inline uint8_t mavlink_msg_ivaq_rx_params_master_get_rx_card_det_z(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  28);
+    return _MAV_RETURN_uint8_t(msg,  31);
 }
 
 /**
@@ -779,7 +860,7 @@ static inline uint8_t mavlink_msg_ivaq_rx_params_master_get_rx_card_det_z(const 
  */
 static inline uint8_t mavlink_msg_ivaq_rx_params_master_get_rx_save_opt_z(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  29);
+    return _MAV_RETURN_uint8_t(msg,  32);
 }
 
 /**
@@ -796,18 +877,21 @@ static inline void mavlink_msg_ivaq_rx_params_master_decode(const mavlink_messag
     ivaq_rx_params_master->rx_battery_voltage_z = mavlink_msg_ivaq_rx_params_master_get_rx_battery_voltage_z(msg);
     ivaq_rx_params_master->rx_mode_x = mavlink_msg_ivaq_rx_params_master_get_rx_mode_x(msg);
     ivaq_rx_params_master->rx_status_x = mavlink_msg_ivaq_rx_params_master_get_rx_status_x(msg);
+    ivaq_rx_params_master->rx_anlg_en_x = mavlink_msg_ivaq_rx_params_master_get_rx_anlg_en_x(msg);
     ivaq_rx_params_master->rx_ant_states_x = mavlink_msg_ivaq_rx_params_master_get_rx_ant_states_x(msg);
     ivaq_rx_params_master->rx_stg_states_x = mavlink_msg_ivaq_rx_params_master_get_rx_stg_states_x(msg);
     ivaq_rx_params_master->rx_card_det_x = mavlink_msg_ivaq_rx_params_master_get_rx_card_det_x(msg);
     ivaq_rx_params_master->rx_save_opt_x = mavlink_msg_ivaq_rx_params_master_get_rx_save_opt_x(msg);
     ivaq_rx_params_master->rx_mode_y = mavlink_msg_ivaq_rx_params_master_get_rx_mode_y(msg);
     ivaq_rx_params_master->rx_status_y = mavlink_msg_ivaq_rx_params_master_get_rx_status_y(msg);
+    ivaq_rx_params_master->rx_anlg_en_y = mavlink_msg_ivaq_rx_params_master_get_rx_anlg_en_y(msg);
     ivaq_rx_params_master->rx_ant_states_y = mavlink_msg_ivaq_rx_params_master_get_rx_ant_states_y(msg);
     ivaq_rx_params_master->rx_stg_states_y = mavlink_msg_ivaq_rx_params_master_get_rx_stg_states_y(msg);
     ivaq_rx_params_master->rx_card_det_y = mavlink_msg_ivaq_rx_params_master_get_rx_card_det_y(msg);
     ivaq_rx_params_master->rx_save_opt_y = mavlink_msg_ivaq_rx_params_master_get_rx_save_opt_y(msg);
     ivaq_rx_params_master->rx_mode_z = mavlink_msg_ivaq_rx_params_master_get_rx_mode_z(msg);
     ivaq_rx_params_master->rx_status_z = mavlink_msg_ivaq_rx_params_master_get_rx_status_z(msg);
+    ivaq_rx_params_master->rx_anlg_en_z = mavlink_msg_ivaq_rx_params_master_get_rx_anlg_en_z(msg);
     ivaq_rx_params_master->rx_ant_states_z = mavlink_msg_ivaq_rx_params_master_get_rx_ant_states_z(msg);
     ivaq_rx_params_master->rx_stg_states_z = mavlink_msg_ivaq_rx_params_master_get_rx_stg_states_z(msg);
     ivaq_rx_params_master->rx_card_det_z = mavlink_msg_ivaq_rx_params_master_get_rx_card_det_z(msg);
