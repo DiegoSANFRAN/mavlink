@@ -136,11 +136,11 @@
 
     <!-- SYSTEM TIME commented for Python libraries generation as it is already in the common.xml -->
 
-    <!-- <message id="2" name="SYSTEM_TIME">
+    <message id="2" name="SYSTEM_TIME">
       <description>The system time is the time of the master clock, typically the computer clock of the main onboard computer.</description>
       <field type="uint64_t" name="time_unix_usec" units="us">Timestamp (UNIX epoch time).</field>
       <field type="uint32_t" name="time_boot_ms" units="ms">Timestamp (time since system boot).</field>
-    </message> -->
+    </message>
 
     <message id="200" name="IVAQ_RX_PARAMS_MASTER">
       <description>IVAQ Rx Current Parameters of all PCBs (X,Y,Z)</description>
