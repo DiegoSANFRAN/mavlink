@@ -89,13 +89,10 @@
       <entry value="0x00" name="MVK_SAVE_FALSE">
         <description>Save false</description>
       </entry>
-      <entry value="0x01" name="MVK_SAVE_PB_ON">
-        <description>Save push button on</description>
-      </entry>
-      <entry value="0x02" name="MVK_SAVE_ACQ">
+      <entry value="0x01" name="MVK_SAVE_ACQ">
         <description>Save acquisition</description>
       </entry>
-      <entry value="0x03" name="MVK_SAVE_2_SD">
+      <entry value="0x02" name="MVK_SAVE_2_SD">
         <description>Save to SD card</description>
       </entry>
     </enum>

@@ -10,7 +10,7 @@
     #error Wrong include order: MAVLINK_IVAQ_MVK.H MUST NOT BE DIRECTLY USED. Include mavlink.h from the same directory instead or set ALL AND EVERY defines from MAVLINK.H manually accordingly, including the #define MAVLINK_H call.
 #endif
 
-#define MAVLINK_IVAQ_MVK_XML_HASH -7416165302600726591
+#define MAVLINK_IVAQ_MVK_XML_HASH 1221942937929228699
 
 #ifdef __cplusplus
 extern "C" {
@@ -111,10 +111,9 @@ typedef enum MVK_CARD_STATE
 typedef enum MVK_SAVE_STATE
 {
    MVK_SAVE_FALSE=0, /* Save false | */
-   MVK_SAVE_PB_ON=1, /* Save push button on | */
-   MVK_SAVE_ACQ=2, /* Save acquisition | */
-   MVK_SAVE_2_SD=3, /* Save to SD card | */
-   MVK_SAVE_STATE_ENUM_END=4, /*  | */
+   MVK_SAVE_ACQ=1, /* Save acquisition | */
+   MVK_SAVE_2_SD=2, /* Save to SD card | */
+   MVK_SAVE_STATE_ENUM_END=3, /*  | */
 } MVK_SAVE_STATE;
 #endif
 
