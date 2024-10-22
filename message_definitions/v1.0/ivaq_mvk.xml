@@ -126,6 +126,16 @@
         <description>True</description>
       </entry>
     </enum>
+
+    <enum name="MVK_RX_CHG_REQ">
+      <description>These values define if a change request has been demanded by the user.</description>
+      <entry value="0x00" name="MVK_CHG_REQ_FALSE">
+        <description>False</description>
+      </entry>
+      <entry value="0x01" name="MVK_CHG_REQ_TRUE">
+        <description>True</description>
+      </entry>
+    </enum>
   </enums>
 
   <messages>
@@ -200,6 +210,7 @@
 
     <message id="203" name="IVAQ_RX_SET_PARAMS_SLAVE">
       <description>IVAQ Rx Target Parameters from Master PCB (X) to Slaves (Y,Z)</description>
+      <field type="uint8_t" name="rx_set_chg_request" enum="MVK_RX_CHG_REQ">Ivaq Rx Set Change Request</field>
       <field type="uint8_t" name="rx_set_reset" enum="MVK_RX_RESET">Ivaq Rx Set Reset</field>
       <field type="uint8_t" name="rx_set_anlg_en" enum="MVK_RX_ANLG_EN">Ivaq Rx Set Anlg Part Status</field>
       <field type="uint8_t" name="rx_set_ant_states" enum="MVK_ANT_STATES">Ivaq Rx Set Antenna State</field>
