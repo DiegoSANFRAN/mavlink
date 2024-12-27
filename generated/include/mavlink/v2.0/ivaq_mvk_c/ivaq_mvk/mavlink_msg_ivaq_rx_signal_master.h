@@ -28,22 +28,25 @@ typedef struct __mavlink_ivaq_rx_signal_master_t {
  float rx_noise_val_corr_z; /*<  Ivaq Rx Z-ant Noise Corr Demod value*/
  float rx_noise_std_nocorr_z; /*<  Ivaq Rx Z-ant Noise No Corr Demod std deviation*/
  float rx_noise_std_corr_z; /*<  Ivaq Rx Z-ant Noise Corr Demod std deviation*/
- uint8_t rx_signal_det_to_send_flag; /*<  Ivaq Rx X-ant Signal Detection flag*/
+ uint8_t rx_signal_det_to_send_flag; /*<  Ivaq Rx Signal Detected Sent flag*/
  uint8_t rx_saturation_flag_x; /*<  Ivaq Rx X-ant Saturation flag*/
  uint8_t rx_signal_det_flag_x; /*<  Ivaq Rx X-ant Signal Detection flag*/
+ uint8_t rx_signal_det_to_send_flag_x; /*<  Ivaq Rx X-ant Signal Detected Sent flag*/
  uint8_t rx_saturation_flag_y; /*<  Ivaq Rx Y-ant Saturation flag*/
  uint8_t rx_signal_det_flag_y; /*<  Ivaq Rx Y-ant Signal Detection flag*/
+ uint8_t rx_signal_det_to_send_flag_y; /*<  Ivaq Rx Y-ant Signal Detected Sent flag*/
  uint8_t rx_saturation_flag_z; /*<  Ivaq Rx Z-ant Saturation flag*/
  uint8_t rx_signal_det_flag_z; /*<  Ivaq Rx Z-ant Signal Detection flag*/
+ uint8_t rx_signal_det_to_send_flag_z; /*<  Ivaq Rx Z-ant Signal Detected Sent flag*/
 } mavlink_ivaq_rx_signal_master_t;
 
-#define MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER_LEN 99
-#define MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER_MIN_LEN 99
-#define MAVLINK_MSG_ID_204_LEN 99
-#define MAVLINK_MSG_ID_204_MIN_LEN 99
+#define MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER_LEN 102
+#define MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER_MIN_LEN 102
+#define MAVLINK_MSG_ID_204_LEN 102
+#define MAVLINK_MSG_ID_204_MIN_LEN 102
 
-#define MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER_CRC 99
-#define MAVLINK_MSG_ID_204_CRC 99
+#define MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER_CRC 4
+#define MAVLINK_MSG_ID_204_CRC 4
 
 
 
@@ -51,12 +54,13 @@ typedef struct __mavlink_ivaq_rx_signal_master_t {
 #define MAVLINK_MESSAGE_INFO_IVAQ_RX_SIGNAL_MASTER { \
     204, \
     "IVAQ_RX_SIGNAL_MASTER", \
-    30, \
+    33, \
     {  { "rx_signal_det_to_send_flag", NULL, MAVLINK_TYPE_UINT8_T, 0, 92, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_to_send_flag) }, \
          { "rx_time_signal_ms", NULL, MAVLINK_TYPE_UINT32_T, 0, 0, offsetof(mavlink_ivaq_rx_signal_master_t, rx_time_signal_ms) }, \
          { "rx_signal_det_module", NULL, MAVLINK_TYPE_FLOAT, 0, 4, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_module) }, \
          { "rx_saturation_flag_x", NULL, MAVLINK_TYPE_UINT8_T, 0, 93, offsetof(mavlink_ivaq_rx_signal_master_t, rx_saturation_flag_x) }, \
          { "rx_signal_det_flag_x", NULL, MAVLINK_TYPE_UINT8_T, 0, 94, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_flag_x) }, \
+         { "rx_signal_det_to_send_flag_x", NULL, MAVLINK_TYPE_UINT8_T, 0, 95, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_to_send_flag_x) }, \
          { "rx_signal_det_time_x", NULL, MAVLINK_TYPE_UINT32_T, 0, 8, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_time_x) }, \
          { "rx_signal_det_val_nocorr_x", NULL, MAVLINK_TYPE_FLOAT, 0, 12, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_val_nocorr_x) }, \
          { "rx_signal_det_val_corr_x", NULL, MAVLINK_TYPE_FLOAT, 0, 16, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_val_corr_x) }, \
@@ -64,8 +68,9 @@ typedef struct __mavlink_ivaq_rx_signal_master_t {
          { "rx_noise_val_corr_x", NULL, MAVLINK_TYPE_FLOAT, 0, 24, offsetof(mavlink_ivaq_rx_signal_master_t, rx_noise_val_corr_x) }, \
          { "rx_noise_std_nocorr_x", NULL, MAVLINK_TYPE_FLOAT, 0, 28, offsetof(mavlink_ivaq_rx_signal_master_t, rx_noise_std_nocorr_x) }, \
          { "rx_noise_std_corr_x", NULL, MAVLINK_TYPE_FLOAT, 0, 32, offsetof(mavlink_ivaq_rx_signal_master_t, rx_noise_std_corr_x) }, \
-         { "rx_saturation_flag_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 95, offsetof(mavlink_ivaq_rx_signal_master_t, rx_saturation_flag_y) }, \
-         { "rx_signal_det_flag_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 96, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_flag_y) }, \
+         { "rx_saturation_flag_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 96, offsetof(mavlink_ivaq_rx_signal_master_t, rx_saturation_flag_y) }, \
+         { "rx_signal_det_flag_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 97, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_flag_y) }, \
+         { "rx_signal_det_to_send_flag_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 98, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_to_send_flag_y) }, \
          { "rx_signal_det_time_y", NULL, MAVLINK_TYPE_UINT32_T, 0, 36, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_time_y) }, \
          { "rx_signal_det_val_nocorr_y", NULL, MAVLINK_TYPE_FLOAT, 0, 40, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_val_nocorr_y) }, \
          { "rx_signal_det_val_corr_y", NULL, MAVLINK_TYPE_FLOAT, 0, 44, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_val_corr_y) }, \
@@ -73,8 +78,9 @@ typedef struct __mavlink_ivaq_rx_signal_master_t {
          { "rx_noise_val_corr_y", NULL, MAVLINK_TYPE_FLOAT, 0, 52, offsetof(mavlink_ivaq_rx_signal_master_t, rx_noise_val_corr_y) }, \
          { "rx_noise_std_nocorr_y", NULL, MAVLINK_TYPE_FLOAT, 0, 56, offsetof(mavlink_ivaq_rx_signal_master_t, rx_noise_std_nocorr_y) }, \
          { "rx_noise_std_corr_y", NULL, MAVLINK_TYPE_FLOAT, 0, 60, offsetof(mavlink_ivaq_rx_signal_master_t, rx_noise_std_corr_y) }, \
-         { "rx_saturation_flag_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 97, offsetof(mavlink_ivaq_rx_signal_master_t, rx_saturation_flag_z) }, \
-         { "rx_signal_det_flag_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 98, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_flag_z) }, \
+         { "rx_saturation_flag_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 99, offsetof(mavlink_ivaq_rx_signal_master_t, rx_saturation_flag_z) }, \
+         { "rx_signal_det_flag_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 100, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_flag_z) }, \
+         { "rx_signal_det_to_send_flag_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 101, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_to_send_flag_z) }, \
          { "rx_signal_det_time_z", NULL, MAVLINK_TYPE_UINT32_T, 0, 64, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_time_z) }, \
          { "rx_signal_det_val_nocorr_z", NULL, MAVLINK_TYPE_FLOAT, 0, 68, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_val_nocorr_z) }, \
          { "rx_signal_det_val_corr_z", NULL, MAVLINK_TYPE_FLOAT, 0, 72, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_val_corr_z) }, \
@@ -87,12 +93,13 @@ typedef struct __mavlink_ivaq_rx_signal_master_t {
 #else
 #define MAVLINK_MESSAGE_INFO_IVAQ_RX_SIGNAL_MASTER { \
     "IVAQ_RX_SIGNAL_MASTER", \
-    30, \
+    33, \
     {  { "rx_signal_det_to_send_flag", NULL, MAVLINK_TYPE_UINT8_T, 0, 92, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_to_send_flag) }, \
          { "rx_time_signal_ms", NULL, MAVLINK_TYPE_UINT32_T, 0, 0, offsetof(mavlink_ivaq_rx_signal_master_t, rx_time_signal_ms) }, \
          { "rx_signal_det_module", NULL, MAVLINK_TYPE_FLOAT, 0, 4, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_module) }, \
          { "rx_saturation_flag_x", NULL, MAVLINK_TYPE_UINT8_T, 0, 93, offsetof(mavlink_ivaq_rx_signal_master_t, rx_saturation_flag_x) }, \
          { "rx_signal_det_flag_x", NULL, MAVLINK_TYPE_UINT8_T, 0, 94, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_flag_x) }, \
+         { "rx_signal_det_to_send_flag_x", NULL, MAVLINK_TYPE_UINT8_T, 0, 95, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_to_send_flag_x) }, \
          { "rx_signal_det_time_x", NULL, MAVLINK_TYPE_UINT32_T, 0, 8, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_time_x) }, \
          { "rx_signal_det_val_nocorr_x", NULL, MAVLINK_TYPE_FLOAT, 0, 12, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_val_nocorr_x) }, \
          { "rx_signal_det_val_corr_x", NULL, MAVLINK_TYPE_FLOAT, 0, 16, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_val_corr_x) }, \
@@ -100,8 +107,9 @@ typedef struct __mavlink_ivaq_rx_signal_master_t {
          { "rx_noise_val_corr_x", NULL, MAVLINK_TYPE_FLOAT, 0, 24, offsetof(mavlink_ivaq_rx_signal_master_t, rx_noise_val_corr_x) }, \
          { "rx_noise_std_nocorr_x", NULL, MAVLINK_TYPE_FLOAT, 0, 28, offsetof(mavlink_ivaq_rx_signal_master_t, rx_noise_std_nocorr_x) }, \
          { "rx_noise_std_corr_x", NULL, MAVLINK_TYPE_FLOAT, 0, 32, offsetof(mavlink_ivaq_rx_signal_master_t, rx_noise_std_corr_x) }, \
-         { "rx_saturation_flag_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 95, offsetof(mavlink_ivaq_rx_signal_master_t, rx_saturation_flag_y) }, \
-         { "rx_signal_det_flag_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 96, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_flag_y) }, \
+         { "rx_saturation_flag_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 96, offsetof(mavlink_ivaq_rx_signal_master_t, rx_saturation_flag_y) }, \
+         { "rx_signal_det_flag_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 97, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_flag_y) }, \
+         { "rx_signal_det_to_send_flag_y", NULL, MAVLINK_TYPE_UINT8_T, 0, 98, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_to_send_flag_y) }, \
          { "rx_signal_det_time_y", NULL, MAVLINK_TYPE_UINT32_T, 0, 36, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_time_y) }, \
          { "rx_signal_det_val_nocorr_y", NULL, MAVLINK_TYPE_FLOAT, 0, 40, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_val_nocorr_y) }, \
          { "rx_signal_det_val_corr_y", NULL, MAVLINK_TYPE_FLOAT, 0, 44, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_val_corr_y) }, \
@@ -109,8 +117,9 @@ typedef struct __mavlink_ivaq_rx_signal_master_t {
          { "rx_noise_val_corr_y", NULL, MAVLINK_TYPE_FLOAT, 0, 52, offsetof(mavlink_ivaq_rx_signal_master_t, rx_noise_val_corr_y) }, \
          { "rx_noise_std_nocorr_y", NULL, MAVLINK_TYPE_FLOAT, 0, 56, offsetof(mavlink_ivaq_rx_signal_master_t, rx_noise_std_nocorr_y) }, \
          { "rx_noise_std_corr_y", NULL, MAVLINK_TYPE_FLOAT, 0, 60, offsetof(mavlink_ivaq_rx_signal_master_t, rx_noise_std_corr_y) }, \
-         { "rx_saturation_flag_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 97, offsetof(mavlink_ivaq_rx_signal_master_t, rx_saturation_flag_z) }, \
-         { "rx_signal_det_flag_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 98, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_flag_z) }, \
+         { "rx_saturation_flag_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 99, offsetof(mavlink_ivaq_rx_signal_master_t, rx_saturation_flag_z) }, \
+         { "rx_signal_det_flag_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 100, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_flag_z) }, \
+         { "rx_signal_det_to_send_flag_z", NULL, MAVLINK_TYPE_UINT8_T, 0, 101, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_to_send_flag_z) }, \
          { "rx_signal_det_time_z", NULL, MAVLINK_TYPE_UINT32_T, 0, 64, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_time_z) }, \
          { "rx_signal_det_val_nocorr_z", NULL, MAVLINK_TYPE_FLOAT, 0, 68, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_val_nocorr_z) }, \
          { "rx_signal_det_val_corr_z", NULL, MAVLINK_TYPE_FLOAT, 0, 72, offsetof(mavlink_ivaq_rx_signal_master_t, rx_signal_det_val_corr_z) }, \
@@ -128,11 +137,12 @@ typedef struct __mavlink_ivaq_rx_signal_master_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
- * @param rx_signal_det_to_send_flag  Ivaq Rx X-ant Signal Detection flag
+ * @param rx_signal_det_to_send_flag  Ivaq Rx Signal Detected Sent flag
  * @param rx_time_signal_ms  Ivaq Rx Detected Pulse Overall Signal Time tag
  * @param rx_signal_det_module  Ivaq Rx Detected Pulse Module value
  * @param rx_saturation_flag_x  Ivaq Rx X-ant Saturation flag
  * @param rx_signal_det_flag_x  Ivaq Rx X-ant Signal Detection flag
+ * @param rx_signal_det_to_send_flag_x  Ivaq Rx X-ant Signal Detected Sent flag
  * @param rx_signal_det_time_x  Ivaq Rx X-ant Signal NoCorr value in detected pulse
  * @param rx_signal_det_val_nocorr_x  Ivaq Rx X-ant Signal NoCorr value in detected pulse
  * @param rx_signal_det_val_corr_x  Ivaq Rx X-ant Signal Corr value in detected pulse
@@ -142,6 +152,7 @@ typedef struct __mavlink_ivaq_rx_signal_master_t {
  * @param rx_noise_std_corr_x  Ivaq Rx X-ant Noise Corr Demod std deviation
  * @param rx_saturation_flag_y  Ivaq Rx Y-ant Saturation flag
  * @param rx_signal_det_flag_y  Ivaq Rx Y-ant Signal Detection flag
+ * @param rx_signal_det_to_send_flag_y  Ivaq Rx Y-ant Signal Detected Sent flag
  * @param rx_signal_det_time_y  Ivaq Rx Y-ant Signal NoCorr value in detected pulse
  * @param rx_signal_det_val_nocorr_y  Ivaq Rx Y-ant Signal NoCorr value in detected pulse
  * @param rx_signal_det_val_corr_y  Ivaq Rx Y-ant Signal Corr value in detected pulse
@@ -151,6 +162,7 @@ typedef struct __mavlink_ivaq_rx_signal_master_t {
  * @param rx_noise_std_corr_y  Ivaq Rx Y-ant Noise Corr Demod std deviation
  * @param rx_saturation_flag_z  Ivaq Rx Z-ant Saturation flag
  * @param rx_signal_det_flag_z  Ivaq Rx Z-ant Signal Detection flag
+ * @param rx_signal_det_to_send_flag_z  Ivaq Rx Z-ant Signal Detected Sent flag
  * @param rx_signal_det_time_z  Ivaq Rx Z-ant Signal NoCorr value in detected pulse
  * @param rx_signal_det_val_nocorr_z  Ivaq Rx Z-ant Signal NoCorr value in detected pulse
  * @param rx_signal_det_val_corr_z  Ivaq Rx Z-ant Signal Corr value in detected pulse
@@ -161,7 +173,7 @@ typedef struct __mavlink_ivaq_rx_signal_master_t {
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_ivaq_rx_signal_master_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
-                               uint8_t rx_signal_det_to_send_flag, uint32_t rx_time_signal_ms, float rx_signal_det_module, uint8_t rx_saturation_flag_x, uint8_t rx_signal_det_flag_x, uint32_t rx_signal_det_time_x, float rx_signal_det_val_nocorr_x, float rx_signal_det_val_corr_x, float rx_noise_val_nocorr_x, float rx_noise_val_corr_x, float rx_noise_std_nocorr_x, float rx_noise_std_corr_x, uint8_t rx_saturation_flag_y, uint8_t rx_signal_det_flag_y, uint32_t rx_signal_det_time_y, float rx_signal_det_val_nocorr_y, float rx_signal_det_val_corr_y, float rx_noise_val_nocorr_y, float rx_noise_val_corr_y, float rx_noise_std_nocorr_y, float rx_noise_std_corr_y, uint8_t rx_saturation_flag_z, uint8_t rx_signal_det_flag_z, uint32_t rx_signal_det_time_z, float rx_signal_det_val_nocorr_z, float rx_signal_det_val_corr_z, float rx_noise_val_nocorr_z, float rx_noise_val_corr_z, float rx_noise_std_nocorr_z, float rx_noise_std_corr_z)
+                               uint8_t rx_signal_det_to_send_flag, uint32_t rx_time_signal_ms, float rx_signal_det_module, uint8_t rx_saturation_flag_x, uint8_t rx_signal_det_flag_x, uint8_t rx_signal_det_to_send_flag_x, uint32_t rx_signal_det_time_x, float rx_signal_det_val_nocorr_x, float rx_signal_det_val_corr_x, float rx_noise_val_nocorr_x, float rx_noise_val_corr_x, float rx_noise_std_nocorr_x, float rx_noise_std_corr_x, uint8_t rx_saturation_flag_y, uint8_t rx_signal_det_flag_y, uint8_t rx_signal_det_to_send_flag_y, uint32_t rx_signal_det_time_y, float rx_signal_det_val_nocorr_y, float rx_signal_det_val_corr_y, float rx_noise_val_nocorr_y, float rx_noise_val_corr_y, float rx_noise_std_nocorr_y, float rx_noise_std_corr_y, uint8_t rx_saturation_flag_z, uint8_t rx_signal_det_flag_z, uint8_t rx_signal_det_to_send_flag_z, uint32_t rx_signal_det_time_z, float rx_signal_det_val_nocorr_z, float rx_signal_det_val_corr_z, float rx_noise_val_nocorr_z, float rx_noise_val_corr_z, float rx_noise_std_nocorr_z, float rx_noise_std_corr_z)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER_LEN];
@@ -191,10 +203,13 @@ static inline uint16_t mavlink_msg_ivaq_rx_signal_master_pack(uint8_t system_id,
     _mav_put_uint8_t(buf, 92, rx_signal_det_to_send_flag);
     _mav_put_uint8_t(buf, 93, rx_saturation_flag_x);
     _mav_put_uint8_t(buf, 94, rx_signal_det_flag_x);
-    _mav_put_uint8_t(buf, 95, rx_saturation_flag_y);
-    _mav_put_uint8_t(buf, 96, rx_signal_det_flag_y);
-    _mav_put_uint8_t(buf, 97, rx_saturation_flag_z);
-    _mav_put_uint8_t(buf, 98, rx_signal_det_flag_z);
+    _mav_put_uint8_t(buf, 95, rx_signal_det_to_send_flag_x);
+    _mav_put_uint8_t(buf, 96, rx_saturation_flag_y);
+    _mav_put_uint8_t(buf, 97, rx_signal_det_flag_y);
+    _mav_put_uint8_t(buf, 98, rx_signal_det_to_send_flag_y);
+    _mav_put_uint8_t(buf, 99, rx_saturation_flag_z);
+    _mav_put_uint8_t(buf, 100, rx_signal_det_flag_z);
+    _mav_put_uint8_t(buf, 101, rx_signal_det_to_send_flag_z);
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER_LEN);
 #else
@@ -225,10 +240,13 @@ static inline uint16_t mavlink_msg_ivaq_rx_signal_master_pack(uint8_t system_id,
     packet.rx_signal_det_to_send_flag = rx_signal_det_to_send_flag;
     packet.rx_saturation_flag_x = rx_saturation_flag_x;
     packet.rx_signal_det_flag_x = rx_signal_det_flag_x;
+    packet.rx_signal_det_to_send_flag_x = rx_signal_det_to_send_flag_x;
     packet.rx_saturation_flag_y = rx_saturation_flag_y;
     packet.rx_signal_det_flag_y = rx_signal_det_flag_y;
+    packet.rx_signal_det_to_send_flag_y = rx_signal_det_to_send_flag_y;
     packet.rx_saturation_flag_z = rx_saturation_flag_z;
     packet.rx_signal_det_flag_z = rx_signal_det_flag_z;
+    packet.rx_signal_det_to_send_flag_z = rx_signal_det_to_send_flag_z;
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER_LEN);
 #endif
@@ -244,11 +262,12 @@ static inline uint16_t mavlink_msg_ivaq_rx_signal_master_pack(uint8_t system_id,
  * @param status MAVLink status structure
  * @param msg The MAVLink message to compress the data into
  *
- * @param rx_signal_det_to_send_flag  Ivaq Rx X-ant Signal Detection flag
+ * @param rx_signal_det_to_send_flag  Ivaq Rx Signal Detected Sent flag
  * @param rx_time_signal_ms  Ivaq Rx Detected Pulse Overall Signal Time tag
  * @param rx_signal_det_module  Ivaq Rx Detected Pulse Module value
  * @param rx_saturation_flag_x  Ivaq Rx X-ant Saturation flag
  * @param rx_signal_det_flag_x  Ivaq Rx X-ant Signal Detection flag
+ * @param rx_signal_det_to_send_flag_x  Ivaq Rx X-ant Signal Detected Sent flag
  * @param rx_signal_det_time_x  Ivaq Rx X-ant Signal NoCorr value in detected pulse
  * @param rx_signal_det_val_nocorr_x  Ivaq Rx X-ant Signal NoCorr value in detected pulse
  * @param rx_signal_det_val_corr_x  Ivaq Rx X-ant Signal Corr value in detected pulse
@@ -258,6 +277,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_signal_master_pack(uint8_t system_id,
  * @param rx_noise_std_corr_x  Ivaq Rx X-ant Noise Corr Demod std deviation
  * @param rx_saturation_flag_y  Ivaq Rx Y-ant Saturation flag
  * @param rx_signal_det_flag_y  Ivaq Rx Y-ant Signal Detection flag
+ * @param rx_signal_det_to_send_flag_y  Ivaq Rx Y-ant Signal Detected Sent flag
  * @param rx_signal_det_time_y  Ivaq Rx Y-ant Signal NoCorr value in detected pulse
  * @param rx_signal_det_val_nocorr_y  Ivaq Rx Y-ant Signal NoCorr value in detected pulse
  * @param rx_signal_det_val_corr_y  Ivaq Rx Y-ant Signal Corr value in detected pulse
@@ -267,6 +287,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_signal_master_pack(uint8_t system_id,
  * @param rx_noise_std_corr_y  Ivaq Rx Y-ant Noise Corr Demod std deviation
  * @param rx_saturation_flag_z  Ivaq Rx Z-ant Saturation flag
  * @param rx_signal_det_flag_z  Ivaq Rx Z-ant Signal Detection flag
+ * @param rx_signal_det_to_send_flag_z  Ivaq Rx Z-ant Signal Detected Sent flag
  * @param rx_signal_det_time_z  Ivaq Rx Z-ant Signal NoCorr value in detected pulse
  * @param rx_signal_det_val_nocorr_z  Ivaq Rx Z-ant Signal NoCorr value in detected pulse
  * @param rx_signal_det_val_corr_z  Ivaq Rx Z-ant Signal Corr value in detected pulse
@@ -277,7 +298,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_signal_master_pack(uint8_t system_id,
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_ivaq_rx_signal_master_pack_status(uint8_t system_id, uint8_t component_id, mavlink_status_t *_status, mavlink_message_t* msg,
-                               uint8_t rx_signal_det_to_send_flag, uint32_t rx_time_signal_ms, float rx_signal_det_module, uint8_t rx_saturation_flag_x, uint8_t rx_signal_det_flag_x, uint32_t rx_signal_det_time_x, float rx_signal_det_val_nocorr_x, float rx_signal_det_val_corr_x, float rx_noise_val_nocorr_x, float rx_noise_val_corr_x, float rx_noise_std_nocorr_x, float rx_noise_std_corr_x, uint8_t rx_saturation_flag_y, uint8_t rx_signal_det_flag_y, uint32_t rx_signal_det_time_y, float rx_signal_det_val_nocorr_y, float rx_signal_det_val_corr_y, float rx_noise_val_nocorr_y, float rx_noise_val_corr_y, float rx_noise_std_nocorr_y, float rx_noise_std_corr_y, uint8_t rx_saturation_flag_z, uint8_t rx_signal_det_flag_z, uint32_t rx_signal_det_time_z, float rx_signal_det_val_nocorr_z, float rx_signal_det_val_corr_z, float rx_noise_val_nocorr_z, float rx_noise_val_corr_z, float rx_noise_std_nocorr_z, float rx_noise_std_corr_z)
+                               uint8_t rx_signal_det_to_send_flag, uint32_t rx_time_signal_ms, float rx_signal_det_module, uint8_t rx_saturation_flag_x, uint8_t rx_signal_det_flag_x, uint8_t rx_signal_det_to_send_flag_x, uint32_t rx_signal_det_time_x, float rx_signal_det_val_nocorr_x, float rx_signal_det_val_corr_x, float rx_noise_val_nocorr_x, float rx_noise_val_corr_x, float rx_noise_std_nocorr_x, float rx_noise_std_corr_x, uint8_t rx_saturation_flag_y, uint8_t rx_signal_det_flag_y, uint8_t rx_signal_det_to_send_flag_y, uint32_t rx_signal_det_time_y, float rx_signal_det_val_nocorr_y, float rx_signal_det_val_corr_y, float rx_noise_val_nocorr_y, float rx_noise_val_corr_y, float rx_noise_std_nocorr_y, float rx_noise_std_corr_y, uint8_t rx_saturation_flag_z, uint8_t rx_signal_det_flag_z, uint8_t rx_signal_det_to_send_flag_z, uint32_t rx_signal_det_time_z, float rx_signal_det_val_nocorr_z, float rx_signal_det_val_corr_z, float rx_noise_val_nocorr_z, float rx_noise_val_corr_z, float rx_noise_std_nocorr_z, float rx_noise_std_corr_z)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER_LEN];
@@ -307,10 +328,13 @@ static inline uint16_t mavlink_msg_ivaq_rx_signal_master_pack_status(uint8_t sys
     _mav_put_uint8_t(buf, 92, rx_signal_det_to_send_flag);
     _mav_put_uint8_t(buf, 93, rx_saturation_flag_x);
     _mav_put_uint8_t(buf, 94, rx_signal_det_flag_x);
-    _mav_put_uint8_t(buf, 95, rx_saturation_flag_y);
-    _mav_put_uint8_t(buf, 96, rx_signal_det_flag_y);
-    _mav_put_uint8_t(buf, 97, rx_saturation_flag_z);
-    _mav_put_uint8_t(buf, 98, rx_signal_det_flag_z);
+    _mav_put_uint8_t(buf, 95, rx_signal_det_to_send_flag_x);
+    _mav_put_uint8_t(buf, 96, rx_saturation_flag_y);
+    _mav_put_uint8_t(buf, 97, rx_signal_det_flag_y);
+    _mav_put_uint8_t(buf, 98, rx_signal_det_to_send_flag_y);
+    _mav_put_uint8_t(buf, 99, rx_saturation_flag_z);
+    _mav_put_uint8_t(buf, 100, rx_signal_det_flag_z);
+    _mav_put_uint8_t(buf, 101, rx_signal_det_to_send_flag_z);
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER_LEN);
 #else
@@ -341,10 +365,13 @@ static inline uint16_t mavlink_msg_ivaq_rx_signal_master_pack_status(uint8_t sys
     packet.rx_signal_det_to_send_flag = rx_signal_det_to_send_flag;
     packet.rx_saturation_flag_x = rx_saturation_flag_x;
     packet.rx_signal_det_flag_x = rx_signal_det_flag_x;
+    packet.rx_signal_det_to_send_flag_x = rx_signal_det_to_send_flag_x;
     packet.rx_saturation_flag_y = rx_saturation_flag_y;
     packet.rx_signal_det_flag_y = rx_signal_det_flag_y;
+    packet.rx_signal_det_to_send_flag_y = rx_signal_det_to_send_flag_y;
     packet.rx_saturation_flag_z = rx_saturation_flag_z;
     packet.rx_signal_det_flag_z = rx_signal_det_flag_z;
+    packet.rx_signal_det_to_send_flag_z = rx_signal_det_to_send_flag_z;
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER_LEN);
 #endif
@@ -363,11 +390,12 @@ static inline uint16_t mavlink_msg_ivaq_rx_signal_master_pack_status(uint8_t sys
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
- * @param rx_signal_det_to_send_flag  Ivaq Rx X-ant Signal Detection flag
+ * @param rx_signal_det_to_send_flag  Ivaq Rx Signal Detected Sent flag
  * @param rx_time_signal_ms  Ivaq Rx Detected Pulse Overall Signal Time tag
  * @param rx_signal_det_module  Ivaq Rx Detected Pulse Module value
  * @param rx_saturation_flag_x  Ivaq Rx X-ant Saturation flag
  * @param rx_signal_det_flag_x  Ivaq Rx X-ant Signal Detection flag
+ * @param rx_signal_det_to_send_flag_x  Ivaq Rx X-ant Signal Detected Sent flag
  * @param rx_signal_det_time_x  Ivaq Rx X-ant Signal NoCorr value in detected pulse
  * @param rx_signal_det_val_nocorr_x  Ivaq Rx X-ant Signal NoCorr value in detected pulse
  * @param rx_signal_det_val_corr_x  Ivaq Rx X-ant Signal Corr value in detected pulse
@@ -377,6 +405,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_signal_master_pack_status(uint8_t sys
  * @param rx_noise_std_corr_x  Ivaq Rx X-ant Noise Corr Demod std deviation
  * @param rx_saturation_flag_y  Ivaq Rx Y-ant Saturation flag
  * @param rx_signal_det_flag_y  Ivaq Rx Y-ant Signal Detection flag
+ * @param rx_signal_det_to_send_flag_y  Ivaq Rx Y-ant Signal Detected Sent flag
  * @param rx_signal_det_time_y  Ivaq Rx Y-ant Signal NoCorr value in detected pulse
  * @param rx_signal_det_val_nocorr_y  Ivaq Rx Y-ant Signal NoCorr value in detected pulse
  * @param rx_signal_det_val_corr_y  Ivaq Rx Y-ant Signal Corr value in detected pulse
@@ -386,6 +415,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_signal_master_pack_status(uint8_t sys
  * @param rx_noise_std_corr_y  Ivaq Rx Y-ant Noise Corr Demod std deviation
  * @param rx_saturation_flag_z  Ivaq Rx Z-ant Saturation flag
  * @param rx_signal_det_flag_z  Ivaq Rx Z-ant Signal Detection flag
+ * @param rx_signal_det_to_send_flag_z  Ivaq Rx Z-ant Signal Detected Sent flag
  * @param rx_signal_det_time_z  Ivaq Rx Z-ant Signal NoCorr value in detected pulse
  * @param rx_signal_det_val_nocorr_z  Ivaq Rx Z-ant Signal NoCorr value in detected pulse
  * @param rx_signal_det_val_corr_z  Ivaq Rx Z-ant Signal Corr value in detected pulse
@@ -397,7 +427,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_signal_master_pack_status(uint8_t sys
  */
 static inline uint16_t mavlink_msg_ivaq_rx_signal_master_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
                                mavlink_message_t* msg,
-                                   uint8_t rx_signal_det_to_send_flag,uint32_t rx_time_signal_ms,float rx_signal_det_module,uint8_t rx_saturation_flag_x,uint8_t rx_signal_det_flag_x,uint32_t rx_signal_det_time_x,float rx_signal_det_val_nocorr_x,float rx_signal_det_val_corr_x,float rx_noise_val_nocorr_x,float rx_noise_val_corr_x,float rx_noise_std_nocorr_x,float rx_noise_std_corr_x,uint8_t rx_saturation_flag_y,uint8_t rx_signal_det_flag_y,uint32_t rx_signal_det_time_y,float rx_signal_det_val_nocorr_y,float rx_signal_det_val_corr_y,float rx_noise_val_nocorr_y,float rx_noise_val_corr_y,float rx_noise_std_nocorr_y,float rx_noise_std_corr_y,uint8_t rx_saturation_flag_z,uint8_t rx_signal_det_flag_z,uint32_t rx_signal_det_time_z,float rx_signal_det_val_nocorr_z,float rx_signal_det_val_corr_z,float rx_noise_val_nocorr_z,float rx_noise_val_corr_z,float rx_noise_std_nocorr_z,float rx_noise_std_corr_z)
+                                   uint8_t rx_signal_det_to_send_flag,uint32_t rx_time_signal_ms,float rx_signal_det_module,uint8_t rx_saturation_flag_x,uint8_t rx_signal_det_flag_x,uint8_t rx_signal_det_to_send_flag_x,uint32_t rx_signal_det_time_x,float rx_signal_det_val_nocorr_x,float rx_signal_det_val_corr_x,float rx_noise_val_nocorr_x,float rx_noise_val_corr_x,float rx_noise_std_nocorr_x,float rx_noise_std_corr_x,uint8_t rx_saturation_flag_y,uint8_t rx_signal_det_flag_y,uint8_t rx_signal_det_to_send_flag_y,uint32_t rx_signal_det_time_y,float rx_signal_det_val_nocorr_y,float rx_signal_det_val_corr_y,float rx_noise_val_nocorr_y,float rx_noise_val_corr_y,float rx_noise_std_nocorr_y,float rx_noise_std_corr_y,uint8_t rx_saturation_flag_z,uint8_t rx_signal_det_flag_z,uint8_t rx_signal_det_to_send_flag_z,uint32_t rx_signal_det_time_z,float rx_signal_det_val_nocorr_z,float rx_signal_det_val_corr_z,float rx_noise_val_nocorr_z,float rx_noise_val_corr_z,float rx_noise_std_nocorr_z,float rx_noise_std_corr_z)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER_LEN];
@@ -427,10 +457,13 @@ static inline uint16_t mavlink_msg_ivaq_rx_signal_master_pack_chan(uint8_t syste
     _mav_put_uint8_t(buf, 92, rx_signal_det_to_send_flag);
     _mav_put_uint8_t(buf, 93, rx_saturation_flag_x);
     _mav_put_uint8_t(buf, 94, rx_signal_det_flag_x);
-    _mav_put_uint8_t(buf, 95, rx_saturation_flag_y);
-    _mav_put_uint8_t(buf, 96, rx_signal_det_flag_y);
-    _mav_put_uint8_t(buf, 97, rx_saturation_flag_z);
-    _mav_put_uint8_t(buf, 98, rx_signal_det_flag_z);
+    _mav_put_uint8_t(buf, 95, rx_signal_det_to_send_flag_x);
+    _mav_put_uint8_t(buf, 96, rx_saturation_flag_y);
+    _mav_put_uint8_t(buf, 97, rx_signal_det_flag_y);
+    _mav_put_uint8_t(buf, 98, rx_signal_det_to_send_flag_y);
+    _mav_put_uint8_t(buf, 99, rx_saturation_flag_z);
+    _mav_put_uint8_t(buf, 100, rx_signal_det_flag_z);
+    _mav_put_uint8_t(buf, 101, rx_signal_det_to_send_flag_z);
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER_LEN);
 #else
@@ -461,10 +494,13 @@ static inline uint16_t mavlink_msg_ivaq_rx_signal_master_pack_chan(uint8_t syste
     packet.rx_signal_det_to_send_flag = rx_signal_det_to_send_flag;
     packet.rx_saturation_flag_x = rx_saturation_flag_x;
     packet.rx_signal_det_flag_x = rx_signal_det_flag_x;
+    packet.rx_signal_det_to_send_flag_x = rx_signal_det_to_send_flag_x;
     packet.rx_saturation_flag_y = rx_saturation_flag_y;
     packet.rx_signal_det_flag_y = rx_signal_det_flag_y;
+    packet.rx_signal_det_to_send_flag_y = rx_signal_det_to_send_flag_y;
     packet.rx_saturation_flag_z = rx_saturation_flag_z;
     packet.rx_signal_det_flag_z = rx_signal_det_flag_z;
+    packet.rx_signal_det_to_send_flag_z = rx_signal_det_to_send_flag_z;
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER_LEN);
 #endif
@@ -483,7 +519,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_signal_master_pack_chan(uint8_t syste
  */
 static inline uint16_t mavlink_msg_ivaq_rx_signal_master_encode(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg, const mavlink_ivaq_rx_signal_master_t* ivaq_rx_signal_master)
 {
-    return mavlink_msg_ivaq_rx_signal_master_pack(system_id, component_id, msg, ivaq_rx_signal_master->rx_signal_det_to_send_flag, ivaq_rx_signal_master->rx_time_signal_ms, ivaq_rx_signal_master->rx_signal_det_module, ivaq_rx_signal_master->rx_saturation_flag_x, ivaq_rx_signal_master->rx_signal_det_flag_x, ivaq_rx_signal_master->rx_signal_det_time_x, ivaq_rx_signal_master->rx_signal_det_val_nocorr_x, ivaq_rx_signal_master->rx_signal_det_val_corr_x, ivaq_rx_signal_master->rx_noise_val_nocorr_x, ivaq_rx_signal_master->rx_noise_val_corr_x, ivaq_rx_signal_master->rx_noise_std_nocorr_x, ivaq_rx_signal_master->rx_noise_std_corr_x, ivaq_rx_signal_master->rx_saturation_flag_y, ivaq_rx_signal_master->rx_signal_det_flag_y, ivaq_rx_signal_master->rx_signal_det_time_y, ivaq_rx_signal_master->rx_signal_det_val_nocorr_y, ivaq_rx_signal_master->rx_signal_det_val_corr_y, ivaq_rx_signal_master->rx_noise_val_nocorr_y, ivaq_rx_signal_master->rx_noise_val_corr_y, ivaq_rx_signal_master->rx_noise_std_nocorr_y, ivaq_rx_signal_master->rx_noise_std_corr_y, ivaq_rx_signal_master->rx_saturation_flag_z, ivaq_rx_signal_master->rx_signal_det_flag_z, ivaq_rx_signal_master->rx_signal_det_time_z, ivaq_rx_signal_master->rx_signal_det_val_nocorr_z, ivaq_rx_signal_master->rx_signal_det_val_corr_z, ivaq_rx_signal_master->rx_noise_val_nocorr_z, ivaq_rx_signal_master->rx_noise_val_corr_z, ivaq_rx_signal_master->rx_noise_std_nocorr_z, ivaq_rx_signal_master->rx_noise_std_corr_z);
+    return mavlink_msg_ivaq_rx_signal_master_pack(system_id, component_id, msg, ivaq_rx_signal_master->rx_signal_det_to_send_flag, ivaq_rx_signal_master->rx_time_signal_ms, ivaq_rx_signal_master->rx_signal_det_module, ivaq_rx_signal_master->rx_saturation_flag_x, ivaq_rx_signal_master->rx_signal_det_flag_x, ivaq_rx_signal_master->rx_signal_det_to_send_flag_x, ivaq_rx_signal_master->rx_signal_det_time_x, ivaq_rx_signal_master->rx_signal_det_val_nocorr_x, ivaq_rx_signal_master->rx_signal_det_val_corr_x, ivaq_rx_signal_master->rx_noise_val_nocorr_x, ivaq_rx_signal_master->rx_noise_val_corr_x, ivaq_rx_signal_master->rx_noise_std_nocorr_x, ivaq_rx_signal_master->rx_noise_std_corr_x, ivaq_rx_signal_master->rx_saturation_flag_y, ivaq_rx_signal_master->rx_signal_det_flag_y, ivaq_rx_signal_master->rx_signal_det_to_send_flag_y, ivaq_rx_signal_master->rx_signal_det_time_y, ivaq_rx_signal_master->rx_signal_det_val_nocorr_y, ivaq_rx_signal_master->rx_signal_det_val_corr_y, ivaq_rx_signal_master->rx_noise_val_nocorr_y, ivaq_rx_signal_master->rx_noise_val_corr_y, ivaq_rx_signal_master->rx_noise_std_nocorr_y, ivaq_rx_signal_master->rx_noise_std_corr_y, ivaq_rx_signal_master->rx_saturation_flag_z, ivaq_rx_signal_master->rx_signal_det_flag_z, ivaq_rx_signal_master->rx_signal_det_to_send_flag_z, ivaq_rx_signal_master->rx_signal_det_time_z, ivaq_rx_signal_master->rx_signal_det_val_nocorr_z, ivaq_rx_signal_master->rx_signal_det_val_corr_z, ivaq_rx_signal_master->rx_noise_val_nocorr_z, ivaq_rx_signal_master->rx_noise_val_corr_z, ivaq_rx_signal_master->rx_noise_std_nocorr_z, ivaq_rx_signal_master->rx_noise_std_corr_z);
 }
 
 /**
@@ -497,7 +533,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_signal_master_encode(uint8_t system_i
  */
 static inline uint16_t mavlink_msg_ivaq_rx_signal_master_encode_chan(uint8_t system_id, uint8_t component_id, uint8_t chan, mavlink_message_t* msg, const mavlink_ivaq_rx_signal_master_t* ivaq_rx_signal_master)
 {
-    return mavlink_msg_ivaq_rx_signal_master_pack_chan(system_id, component_id, chan, msg, ivaq_rx_signal_master->rx_signal_det_to_send_flag, ivaq_rx_signal_master->rx_time_signal_ms, ivaq_rx_signal_master->rx_signal_det_module, ivaq_rx_signal_master->rx_saturation_flag_x, ivaq_rx_signal_master->rx_signal_det_flag_x, ivaq_rx_signal_master->rx_signal_det_time_x, ivaq_rx_signal_master->rx_signal_det_val_nocorr_x, ivaq_rx_signal_master->rx_signal_det_val_corr_x, ivaq_rx_signal_master->rx_noise_val_nocorr_x, ivaq_rx_signal_master->rx_noise_val_corr_x, ivaq_rx_signal_master->rx_noise_std_nocorr_x, ivaq_rx_signal_master->rx_noise_std_corr_x, ivaq_rx_signal_master->rx_saturation_flag_y, ivaq_rx_signal_master->rx_signal_det_flag_y, ivaq_rx_signal_master->rx_signal_det_time_y, ivaq_rx_signal_master->rx_signal_det_val_nocorr_y, ivaq_rx_signal_master->rx_signal_det_val_corr_y, ivaq_rx_signal_master->rx_noise_val_nocorr_y, ivaq_rx_signal_master->rx_noise_val_corr_y, ivaq_rx_signal_master->rx_noise_std_nocorr_y, ivaq_rx_signal_master->rx_noise_std_corr_y, ivaq_rx_signal_master->rx_saturation_flag_z, ivaq_rx_signal_master->rx_signal_det_flag_z, ivaq_rx_signal_master->rx_signal_det_time_z, ivaq_rx_signal_master->rx_signal_det_val_nocorr_z, ivaq_rx_signal_master->rx_signal_det_val_corr_z, ivaq_rx_signal_master->rx_noise_val_nocorr_z, ivaq_rx_signal_master->rx_noise_val_corr_z, ivaq_rx_signal_master->rx_noise_std_nocorr_z, ivaq_rx_signal_master->rx_noise_std_corr_z);
+    return mavlink_msg_ivaq_rx_signal_master_pack_chan(system_id, component_id, chan, msg, ivaq_rx_signal_master->rx_signal_det_to_send_flag, ivaq_rx_signal_master->rx_time_signal_ms, ivaq_rx_signal_master->rx_signal_det_module, ivaq_rx_signal_master->rx_saturation_flag_x, ivaq_rx_signal_master->rx_signal_det_flag_x, ivaq_rx_signal_master->rx_signal_det_to_send_flag_x, ivaq_rx_signal_master->rx_signal_det_time_x, ivaq_rx_signal_master->rx_signal_det_val_nocorr_x, ivaq_rx_signal_master->rx_signal_det_val_corr_x, ivaq_rx_signal_master->rx_noise_val_nocorr_x, ivaq_rx_signal_master->rx_noise_val_corr_x, ivaq_rx_signal_master->rx_noise_std_nocorr_x, ivaq_rx_signal_master->rx_noise_std_corr_x, ivaq_rx_signal_master->rx_saturation_flag_y, ivaq_rx_signal_master->rx_signal_det_flag_y, ivaq_rx_signal_master->rx_signal_det_to_send_flag_y, ivaq_rx_signal_master->rx_signal_det_time_y, ivaq_rx_signal_master->rx_signal_det_val_nocorr_y, ivaq_rx_signal_master->rx_signal_det_val_corr_y, ivaq_rx_signal_master->rx_noise_val_nocorr_y, ivaq_rx_signal_master->rx_noise_val_corr_y, ivaq_rx_signal_master->rx_noise_std_nocorr_y, ivaq_rx_signal_master->rx_noise_std_corr_y, ivaq_rx_signal_master->rx_saturation_flag_z, ivaq_rx_signal_master->rx_signal_det_flag_z, ivaq_rx_signal_master->rx_signal_det_to_send_flag_z, ivaq_rx_signal_master->rx_signal_det_time_z, ivaq_rx_signal_master->rx_signal_det_val_nocorr_z, ivaq_rx_signal_master->rx_signal_det_val_corr_z, ivaq_rx_signal_master->rx_noise_val_nocorr_z, ivaq_rx_signal_master->rx_noise_val_corr_z, ivaq_rx_signal_master->rx_noise_std_nocorr_z, ivaq_rx_signal_master->rx_noise_std_corr_z);
 }
 
 /**
@@ -511,18 +547,19 @@ static inline uint16_t mavlink_msg_ivaq_rx_signal_master_encode_chan(uint8_t sys
  */
 static inline uint16_t mavlink_msg_ivaq_rx_signal_master_encode_status(uint8_t system_id, uint8_t component_id, mavlink_status_t* _status, mavlink_message_t* msg, const mavlink_ivaq_rx_signal_master_t* ivaq_rx_signal_master)
 {
-    return mavlink_msg_ivaq_rx_signal_master_pack_status(system_id, component_id, _status, msg,  ivaq_rx_signal_master->rx_signal_det_to_send_flag, ivaq_rx_signal_master->rx_time_signal_ms, ivaq_rx_signal_master->rx_signal_det_module, ivaq_rx_signal_master->rx_saturation_flag_x, ivaq_rx_signal_master->rx_signal_det_flag_x, ivaq_rx_signal_master->rx_signal_det_time_x, ivaq_rx_signal_master->rx_signal_det_val_nocorr_x, ivaq_rx_signal_master->rx_signal_det_val_corr_x, ivaq_rx_signal_master->rx_noise_val_nocorr_x, ivaq_rx_signal_master->rx_noise_val_corr_x, ivaq_rx_signal_master->rx_noise_std_nocorr_x, ivaq_rx_signal_master->rx_noise_std_corr_x, ivaq_rx_signal_master->rx_saturation_flag_y, ivaq_rx_signal_master->rx_signal_det_flag_y, ivaq_rx_signal_master->rx_signal_det_time_y, ivaq_rx_signal_master->rx_signal_det_val_nocorr_y, ivaq_rx_signal_master->rx_signal_det_val_corr_y, ivaq_rx_signal_master->rx_noise_val_nocorr_y, ivaq_rx_signal_master->rx_noise_val_corr_y, ivaq_rx_signal_master->rx_noise_std_nocorr_y, ivaq_rx_signal_master->rx_noise_std_corr_y, ivaq_rx_signal_master->rx_saturation_flag_z, ivaq_rx_signal_master->rx_signal_det_flag_z, ivaq_rx_signal_master->rx_signal_det_time_z, ivaq_rx_signal_master->rx_signal_det_val_nocorr_z, ivaq_rx_signal_master->rx_signal_det_val_corr_z, ivaq_rx_signal_master->rx_noise_val_nocorr_z, ivaq_rx_signal_master->rx_noise_val_corr_z, ivaq_rx_signal_master->rx_noise_std_nocorr_z, ivaq_rx_signal_master->rx_noise_std_corr_z);
+    return mavlink_msg_ivaq_rx_signal_master_pack_status(system_id, component_id, _status, msg,  ivaq_rx_signal_master->rx_signal_det_to_send_flag, ivaq_rx_signal_master->rx_time_signal_ms, ivaq_rx_signal_master->rx_signal_det_module, ivaq_rx_signal_master->rx_saturation_flag_x, ivaq_rx_signal_master->rx_signal_det_flag_x, ivaq_rx_signal_master->rx_signal_det_to_send_flag_x, ivaq_rx_signal_master->rx_signal_det_time_x, ivaq_rx_signal_master->rx_signal_det_val_nocorr_x, ivaq_rx_signal_master->rx_signal_det_val_corr_x, ivaq_rx_signal_master->rx_noise_val_nocorr_x, ivaq_rx_signal_master->rx_noise_val_corr_x, ivaq_rx_signal_master->rx_noise_std_nocorr_x, ivaq_rx_signal_master->rx_noise_std_corr_x, ivaq_rx_signal_master->rx_saturation_flag_y, ivaq_rx_signal_master->rx_signal_det_flag_y, ivaq_rx_signal_master->rx_signal_det_to_send_flag_y, ivaq_rx_signal_master->rx_signal_det_time_y, ivaq_rx_signal_master->rx_signal_det_val_nocorr_y, ivaq_rx_signal_master->rx_signal_det_val_corr_y, ivaq_rx_signal_master->rx_noise_val_nocorr_y, ivaq_rx_signal_master->rx_noise_val_corr_y, ivaq_rx_signal_master->rx_noise_std_nocorr_y, ivaq_rx_signal_master->rx_noise_std_corr_y, ivaq_rx_signal_master->rx_saturation_flag_z, ivaq_rx_signal_master->rx_signal_det_flag_z, ivaq_rx_signal_master->rx_signal_det_to_send_flag_z, ivaq_rx_signal_master->rx_signal_det_time_z, ivaq_rx_signal_master->rx_signal_det_val_nocorr_z, ivaq_rx_signal_master->rx_signal_det_val_corr_z, ivaq_rx_signal_master->rx_noise_val_nocorr_z, ivaq_rx_signal_master->rx_noise_val_corr_z, ivaq_rx_signal_master->rx_noise_std_nocorr_z, ivaq_rx_signal_master->rx_noise_std_corr_z);
 }
 
 /**
  * @brief Send a ivaq_rx_signal_master message
  * @param chan MAVLink channel to send the message
  *
- * @param rx_signal_det_to_send_flag  Ivaq Rx X-ant Signal Detection flag
+ * @param rx_signal_det_to_send_flag  Ivaq Rx Signal Detected Sent flag
  * @param rx_time_signal_ms  Ivaq Rx Detected Pulse Overall Signal Time tag
  * @param rx_signal_det_module  Ivaq Rx Detected Pulse Module value
  * @param rx_saturation_flag_x  Ivaq Rx X-ant Saturation flag
  * @param rx_signal_det_flag_x  Ivaq Rx X-ant Signal Detection flag
+ * @param rx_signal_det_to_send_flag_x  Ivaq Rx X-ant Signal Detected Sent flag
  * @param rx_signal_det_time_x  Ivaq Rx X-ant Signal NoCorr value in detected pulse
  * @param rx_signal_det_val_nocorr_x  Ivaq Rx X-ant Signal NoCorr value in detected pulse
  * @param rx_signal_det_val_corr_x  Ivaq Rx X-ant Signal Corr value in detected pulse
@@ -532,6 +569,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_signal_master_encode_status(uint8_t s
  * @param rx_noise_std_corr_x  Ivaq Rx X-ant Noise Corr Demod std deviation
  * @param rx_saturation_flag_y  Ivaq Rx Y-ant Saturation flag
  * @param rx_signal_det_flag_y  Ivaq Rx Y-ant Signal Detection flag
+ * @param rx_signal_det_to_send_flag_y  Ivaq Rx Y-ant Signal Detected Sent flag
  * @param rx_signal_det_time_y  Ivaq Rx Y-ant Signal NoCorr value in detected pulse
  * @param rx_signal_det_val_nocorr_y  Ivaq Rx Y-ant Signal NoCorr value in detected pulse
  * @param rx_signal_det_val_corr_y  Ivaq Rx Y-ant Signal Corr value in detected pulse
@@ -541,6 +579,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_signal_master_encode_status(uint8_t s
  * @param rx_noise_std_corr_y  Ivaq Rx Y-ant Noise Corr Demod std deviation
  * @param rx_saturation_flag_z  Ivaq Rx Z-ant Saturation flag
  * @param rx_signal_det_flag_z  Ivaq Rx Z-ant Signal Detection flag
+ * @param rx_signal_det_to_send_flag_z  Ivaq Rx Z-ant Signal Detected Sent flag
  * @param rx_signal_det_time_z  Ivaq Rx Z-ant Signal NoCorr value in detected pulse
  * @param rx_signal_det_val_nocorr_z  Ivaq Rx Z-ant Signal NoCorr value in detected pulse
  * @param rx_signal_det_val_corr_z  Ivaq Rx Z-ant Signal Corr value in detected pulse
@@ -551,7 +590,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_signal_master_encode_status(uint8_t s
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
-static inline void mavlink_msg_ivaq_rx_signal_master_send(mavlink_channel_t chan, uint8_t rx_signal_det_to_send_flag, uint32_t rx_time_signal_ms, float rx_signal_det_module, uint8_t rx_saturation_flag_x, uint8_t rx_signal_det_flag_x, uint32_t rx_signal_det_time_x, float rx_signal_det_val_nocorr_x, float rx_signal_det_val_corr_x, float rx_noise_val_nocorr_x, float rx_noise_val_corr_x, float rx_noise_std_nocorr_x, float rx_noise_std_corr_x, uint8_t rx_saturation_flag_y, uint8_t rx_signal_det_flag_y, uint32_t rx_signal_det_time_y, float rx_signal_det_val_nocorr_y, float rx_signal_det_val_corr_y, float rx_noise_val_nocorr_y, float rx_noise_val_corr_y, float rx_noise_std_nocorr_y, float rx_noise_std_corr_y, uint8_t rx_saturation_flag_z, uint8_t rx_signal_det_flag_z, uint32_t rx_signal_det_time_z, float rx_signal_det_val_nocorr_z, float rx_signal_det_val_corr_z, float rx_noise_val_nocorr_z, float rx_noise_val_corr_z, float rx_noise_std_nocorr_z, float rx_noise_std_corr_z)
+static inline void mavlink_msg_ivaq_rx_signal_master_send(mavlink_channel_t chan, uint8_t rx_signal_det_to_send_flag, uint32_t rx_time_signal_ms, float rx_signal_det_module, uint8_t rx_saturation_flag_x, uint8_t rx_signal_det_flag_x, uint8_t rx_signal_det_to_send_flag_x, uint32_t rx_signal_det_time_x, float rx_signal_det_val_nocorr_x, float rx_signal_det_val_corr_x, float rx_noise_val_nocorr_x, float rx_noise_val_corr_x, float rx_noise_std_nocorr_x, float rx_noise_std_corr_x, uint8_t rx_saturation_flag_y, uint8_t rx_signal_det_flag_y, uint8_t rx_signal_det_to_send_flag_y, uint32_t rx_signal_det_time_y, float rx_signal_det_val_nocorr_y, float rx_signal_det_val_corr_y, float rx_noise_val_nocorr_y, float rx_noise_val_corr_y, float rx_noise_std_nocorr_y, float rx_noise_std_corr_y, uint8_t rx_saturation_flag_z, uint8_t rx_signal_det_flag_z, uint8_t rx_signal_det_to_send_flag_z, uint32_t rx_signal_det_time_z, float rx_signal_det_val_nocorr_z, float rx_signal_det_val_corr_z, float rx_noise_val_nocorr_z, float rx_noise_val_corr_z, float rx_noise_std_nocorr_z, float rx_noise_std_corr_z)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER_LEN];
@@ -581,10 +620,13 @@ static inline void mavlink_msg_ivaq_rx_signal_master_send(mavlink_channel_t chan
     _mav_put_uint8_t(buf, 92, rx_signal_det_to_send_flag);
     _mav_put_uint8_t(buf, 93, rx_saturation_flag_x);
     _mav_put_uint8_t(buf, 94, rx_signal_det_flag_x);
-    _mav_put_uint8_t(buf, 95, rx_saturation_flag_y);
-    _mav_put_uint8_t(buf, 96, rx_signal_det_flag_y);
-    _mav_put_uint8_t(buf, 97, rx_saturation_flag_z);
-    _mav_put_uint8_t(buf, 98, rx_signal_det_flag_z);
+    _mav_put_uint8_t(buf, 95, rx_signal_det_to_send_flag_x);
+    _mav_put_uint8_t(buf, 96, rx_saturation_flag_y);
+    _mav_put_uint8_t(buf, 97, rx_signal_det_flag_y);
+    _mav_put_uint8_t(buf, 98, rx_signal_det_to_send_flag_y);
+    _mav_put_uint8_t(buf, 99, rx_saturation_flag_z);
+    _mav_put_uint8_t(buf, 100, rx_signal_det_flag_z);
+    _mav_put_uint8_t(buf, 101, rx_signal_det_to_send_flag_z);
 
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER, buf, MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER_MIN_LEN, MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER_LEN, MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER_CRC);
 #else
@@ -615,10 +657,13 @@ static inline void mavlink_msg_ivaq_rx_signal_master_send(mavlink_channel_t chan
     packet.rx_signal_det_to_send_flag = rx_signal_det_to_send_flag;
     packet.rx_saturation_flag_x = rx_saturation_flag_x;
     packet.rx_signal_det_flag_x = rx_signal_det_flag_x;
+    packet.rx_signal_det_to_send_flag_x = rx_signal_det_to_send_flag_x;
     packet.rx_saturation_flag_y = rx_saturation_flag_y;
     packet.rx_signal_det_flag_y = rx_signal_det_flag_y;
+    packet.rx_signal_det_to_send_flag_y = rx_signal_det_to_send_flag_y;
     packet.rx_saturation_flag_z = rx_saturation_flag_z;
     packet.rx_signal_det_flag_z = rx_signal_det_flag_z;
+    packet.rx_signal_det_to_send_flag_z = rx_signal_det_to_send_flag_z;
 
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER, (const char *)&packet, MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER_MIN_LEN, MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER_LEN, MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER_CRC);
 #endif
@@ -632,7 +677,7 @@ static inline void mavlink_msg_ivaq_rx_signal_master_send(mavlink_channel_t chan
 static inline void mavlink_msg_ivaq_rx_signal_master_send_struct(mavlink_channel_t chan, const mavlink_ivaq_rx_signal_master_t* ivaq_rx_signal_master)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
-    mavlink_msg_ivaq_rx_signal_master_send(chan, ivaq_rx_signal_master->rx_signal_det_to_send_flag, ivaq_rx_signal_master->rx_time_signal_ms, ivaq_rx_signal_master->rx_signal_det_module, ivaq_rx_signal_master->rx_saturation_flag_x, ivaq_rx_signal_master->rx_signal_det_flag_x, ivaq_rx_signal_master->rx_signal_det_time_x, ivaq_rx_signal_master->rx_signal_det_val_nocorr_x, ivaq_rx_signal_master->rx_signal_det_val_corr_x, ivaq_rx_signal_master->rx_noise_val_nocorr_x, ivaq_rx_signal_master->rx_noise_val_corr_x, ivaq_rx_signal_master->rx_noise_std_nocorr_x, ivaq_rx_signal_master->rx_noise_std_corr_x, ivaq_rx_signal_master->rx_saturation_flag_y, ivaq_rx_signal_master->rx_signal_det_flag_y, ivaq_rx_signal_master->rx_signal_det_time_y, ivaq_rx_signal_master->rx_signal_det_val_nocorr_y, ivaq_rx_signal_master->rx_signal_det_val_corr_y, ivaq_rx_signal_master->rx_noise_val_nocorr_y, ivaq_rx_signal_master->rx_noise_val_corr_y, ivaq_rx_signal_master->rx_noise_std_nocorr_y, ivaq_rx_signal_master->rx_noise_std_corr_y, ivaq_rx_signal_master->rx_saturation_flag_z, ivaq_rx_signal_master->rx_signal_det_flag_z, ivaq_rx_signal_master->rx_signal_det_time_z, ivaq_rx_signal_master->rx_signal_det_val_nocorr_z, ivaq_rx_signal_master->rx_signal_det_val_corr_z, ivaq_rx_signal_master->rx_noise_val_nocorr_z, ivaq_rx_signal_master->rx_noise_val_corr_z, ivaq_rx_signal_master->rx_noise_std_nocorr_z, ivaq_rx_signal_master->rx_noise_std_corr_z);
+    mavlink_msg_ivaq_rx_signal_master_send(chan, ivaq_rx_signal_master->rx_signal_det_to_send_flag, ivaq_rx_signal_master->rx_time_signal_ms, ivaq_rx_signal_master->rx_signal_det_module, ivaq_rx_signal_master->rx_saturation_flag_x, ivaq_rx_signal_master->rx_signal_det_flag_x, ivaq_rx_signal_master->rx_signal_det_to_send_flag_x, ivaq_rx_signal_master->rx_signal_det_time_x, ivaq_rx_signal_master->rx_signal_det_val_nocorr_x, ivaq_rx_signal_master->rx_signal_det_val_corr_x, ivaq_rx_signal_master->rx_noise_val_nocorr_x, ivaq_rx_signal_master->rx_noise_val_corr_x, ivaq_rx_signal_master->rx_noise_std_nocorr_x, ivaq_rx_signal_master->rx_noise_std_corr_x, ivaq_rx_signal_master->rx_saturation_flag_y, ivaq_rx_signal_master->rx_signal_det_flag_y, ivaq_rx_signal_master->rx_signal_det_to_send_flag_y, ivaq_rx_signal_master->rx_signal_det_time_y, ivaq_rx_signal_master->rx_signal_det_val_nocorr_y, ivaq_rx_signal_master->rx_signal_det_val_corr_y, ivaq_rx_signal_master->rx_noise_val_nocorr_y, ivaq_rx_signal_master->rx_noise_val_corr_y, ivaq_rx_signal_master->rx_noise_std_nocorr_y, ivaq_rx_signal_master->rx_noise_std_corr_y, ivaq_rx_signal_master->rx_saturation_flag_z, ivaq_rx_signal_master->rx_signal_det_flag_z, ivaq_rx_signal_master->rx_signal_det_to_send_flag_z, ivaq_rx_signal_master->rx_signal_det_time_z, ivaq_rx_signal_master->rx_signal_det_val_nocorr_z, ivaq_rx_signal_master->rx_signal_det_val_corr_z, ivaq_rx_signal_master->rx_noise_val_nocorr_z, ivaq_rx_signal_master->rx_noise_val_corr_z, ivaq_rx_signal_master->rx_noise_std_nocorr_z, ivaq_rx_signal_master->rx_noise_std_corr_z);
 #else
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER, (const char *)ivaq_rx_signal_master, MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER_MIN_LEN, MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER_LEN, MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER_CRC);
 #endif
@@ -646,7 +691,7 @@ static inline void mavlink_msg_ivaq_rx_signal_master_send_struct(mavlink_channel
   is usually the receive buffer for the channel, and allows a reply to an
   incoming message with minimum stack space usage.
  */
-static inline void mavlink_msg_ivaq_rx_signal_master_send_buf(mavlink_message_t *msgbuf, mavlink_channel_t chan,  uint8_t rx_signal_det_to_send_flag, uint32_t rx_time_signal_ms, float rx_signal_det_module, uint8_t rx_saturation_flag_x, uint8_t rx_signal_det_flag_x, uint32_t rx_signal_det_time_x, float rx_signal_det_val_nocorr_x, float rx_signal_det_val_corr_x, float rx_noise_val_nocorr_x, float rx_noise_val_corr_x, float rx_noise_std_nocorr_x, float rx_noise_std_corr_x, uint8_t rx_saturation_flag_y, uint8_t rx_signal_det_flag_y, uint32_t rx_signal_det_time_y, float rx_signal_det_val_nocorr_y, float rx_signal_det_val_corr_y, float rx_noise_val_nocorr_y, float rx_noise_val_corr_y, float rx_noise_std_nocorr_y, float rx_noise_std_corr_y, uint8_t rx_saturation_flag_z, uint8_t rx_signal_det_flag_z, uint32_t rx_signal_det_time_z, float rx_signal_det_val_nocorr_z, float rx_signal_det_val_corr_z, float rx_noise_val_nocorr_z, float rx_noise_val_corr_z, float rx_noise_std_nocorr_z, float rx_noise_std_corr_z)
+static inline void mavlink_msg_ivaq_rx_signal_master_send_buf(mavlink_message_t *msgbuf, mavlink_channel_t chan,  uint8_t rx_signal_det_to_send_flag, uint32_t rx_time_signal_ms, float rx_signal_det_module, uint8_t rx_saturation_flag_x, uint8_t rx_signal_det_flag_x, uint8_t rx_signal_det_to_send_flag_x, uint32_t rx_signal_det_time_x, float rx_signal_det_val_nocorr_x, float rx_signal_det_val_corr_x, float rx_noise_val_nocorr_x, float rx_noise_val_corr_x, float rx_noise_std_nocorr_x, float rx_noise_std_corr_x, uint8_t rx_saturation_flag_y, uint8_t rx_signal_det_flag_y, uint8_t rx_signal_det_to_send_flag_y, uint32_t rx_signal_det_time_y, float rx_signal_det_val_nocorr_y, float rx_signal_det_val_corr_y, float rx_noise_val_nocorr_y, float rx_noise_val_corr_y, float rx_noise_std_nocorr_y, float rx_noise_std_corr_y, uint8_t rx_saturation_flag_z, uint8_t rx_signal_det_flag_z, uint8_t rx_signal_det_to_send_flag_z, uint32_t rx_signal_det_time_z, float rx_signal_det_val_nocorr_z, float rx_signal_det_val_corr_z, float rx_noise_val_nocorr_z, float rx_noise_val_corr_z, float rx_noise_std_nocorr_z, float rx_noise_std_corr_z)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char *buf = (char *)msgbuf;
@@ -676,10 +721,13 @@ static inline void mavlink_msg_ivaq_rx_signal_master_send_buf(mavlink_message_t 
     _mav_put_uint8_t(buf, 92, rx_signal_det_to_send_flag);
     _mav_put_uint8_t(buf, 93, rx_saturation_flag_x);
     _mav_put_uint8_t(buf, 94, rx_signal_det_flag_x);
-    _mav_put_uint8_t(buf, 95, rx_saturation_flag_y);
-    _mav_put_uint8_t(buf, 96, rx_signal_det_flag_y);
-    _mav_put_uint8_t(buf, 97, rx_saturation_flag_z);
-    _mav_put_uint8_t(buf, 98, rx_signal_det_flag_z);
+    _mav_put_uint8_t(buf, 95, rx_signal_det_to_send_flag_x);
+    _mav_put_uint8_t(buf, 96, rx_saturation_flag_y);
+    _mav_put_uint8_t(buf, 97, rx_signal_det_flag_y);
+    _mav_put_uint8_t(buf, 98, rx_signal_det_to_send_flag_y);
+    _mav_put_uint8_t(buf, 99, rx_saturation_flag_z);
+    _mav_put_uint8_t(buf, 100, rx_signal_det_flag_z);
+    _mav_put_uint8_t(buf, 101, rx_signal_det_to_send_flag_z);
 
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER, buf, MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER_MIN_LEN, MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER_LEN, MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER_CRC);
 #else
@@ -710,10 +758,13 @@ static inline void mavlink_msg_ivaq_rx_signal_master_send_buf(mavlink_message_t 
     packet->rx_signal_det_to_send_flag = rx_signal_det_to_send_flag;
     packet->rx_saturation_flag_x = rx_saturation_flag_x;
     packet->rx_signal_det_flag_x = rx_signal_det_flag_x;
+    packet->rx_signal_det_to_send_flag_x = rx_signal_det_to_send_flag_x;
     packet->rx_saturation_flag_y = rx_saturation_flag_y;
     packet->rx_signal_det_flag_y = rx_signal_det_flag_y;
+    packet->rx_signal_det_to_send_flag_y = rx_signal_det_to_send_flag_y;
     packet->rx_saturation_flag_z = rx_saturation_flag_z;
     packet->rx_signal_det_flag_z = rx_signal_det_flag_z;
+    packet->rx_signal_det_to_send_flag_z = rx_signal_det_to_send_flag_z;
 
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER, (const char *)packet, MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER_MIN_LEN, MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER_LEN, MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER_CRC);
 #endif
@@ -728,7 +779,7 @@ static inline void mavlink_msg_ivaq_rx_signal_master_send_buf(mavlink_message_t 
 /**
  * @brief Get field rx_signal_det_to_send_flag from ivaq_rx_signal_master message
  *
- * @return  Ivaq Rx X-ant Signal Detection flag
+ * @return  Ivaq Rx Signal Detected Sent flag
  */
 static inline uint8_t mavlink_msg_ivaq_rx_signal_master_get_rx_signal_det_to_send_flag(const mavlink_message_t* msg)
 {
@@ -773,6 +824,16 @@ static inline uint8_t mavlink_msg_ivaq_rx_signal_master_get_rx_saturation_flag_x
 static inline uint8_t mavlink_msg_ivaq_rx_signal_master_get_rx_signal_det_flag_x(const mavlink_message_t* msg)
 {
     return _MAV_RETURN_uint8_t(msg,  94);
+}
+
+/**
+ * @brief Get field rx_signal_det_to_send_flag_x from ivaq_rx_signal_master message
+ *
+ * @return  Ivaq Rx X-ant Signal Detected Sent flag
+ */
+static inline uint8_t mavlink_msg_ivaq_rx_signal_master_get_rx_signal_det_to_send_flag_x(const mavlink_message_t* msg)
+{
+    return _MAV_RETURN_uint8_t(msg,  95);
 }
 
 /**
@@ -852,7 +913,7 @@ static inline float mavlink_msg_ivaq_rx_signal_master_get_rx_noise_std_corr_x(co
  */
 static inline uint8_t mavlink_msg_ivaq_rx_signal_master_get_rx_saturation_flag_y(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  95);
+    return _MAV_RETURN_uint8_t(msg,  96);
 }
 
 /**
@@ -862,7 +923,17 @@ static inline uint8_t mavlink_msg_ivaq_rx_signal_master_get_rx_saturation_flag_y
  */
 static inline uint8_t mavlink_msg_ivaq_rx_signal_master_get_rx_signal_det_flag_y(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  96);
+    return _MAV_RETURN_uint8_t(msg,  97);
+}
+
+/**
+ * @brief Get field rx_signal_det_to_send_flag_y from ivaq_rx_signal_master message
+ *
+ * @return  Ivaq Rx Y-ant Signal Detected Sent flag
+ */
+static inline uint8_t mavlink_msg_ivaq_rx_signal_master_get_rx_signal_det_to_send_flag_y(const mavlink_message_t* msg)
+{
+    return _MAV_RETURN_uint8_t(msg,  98);
 }
 
 /**
@@ -942,7 +1013,7 @@ static inline float mavlink_msg_ivaq_rx_signal_master_get_rx_noise_std_corr_y(co
  */
 static inline uint8_t mavlink_msg_ivaq_rx_signal_master_get_rx_saturation_flag_z(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  97);
+    return _MAV_RETURN_uint8_t(msg,  99);
 }
 
 /**
@@ -952,7 +1023,17 @@ static inline uint8_t mavlink_msg_ivaq_rx_signal_master_get_rx_saturation_flag_z
  */
 static inline uint8_t mavlink_msg_ivaq_rx_signal_master_get_rx_signal_det_flag_z(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  98);
+    return _MAV_RETURN_uint8_t(msg,  100);
+}
+
+/**
+ * @brief Get field rx_signal_det_to_send_flag_z from ivaq_rx_signal_master message
+ *
+ * @return  Ivaq Rx Z-ant Signal Detected Sent flag
+ */
+static inline uint8_t mavlink_msg_ivaq_rx_signal_master_get_rx_signal_det_to_send_flag_z(const mavlink_message_t* msg)
+{
+    return _MAV_RETURN_uint8_t(msg,  101);
 }
 
 /**
@@ -1060,10 +1141,13 @@ static inline void mavlink_msg_ivaq_rx_signal_master_decode(const mavlink_messag
     ivaq_rx_signal_master->rx_signal_det_to_send_flag = mavlink_msg_ivaq_rx_signal_master_get_rx_signal_det_to_send_flag(msg);
     ivaq_rx_signal_master->rx_saturation_flag_x = mavlink_msg_ivaq_rx_signal_master_get_rx_saturation_flag_x(msg);
     ivaq_rx_signal_master->rx_signal_det_flag_x = mavlink_msg_ivaq_rx_signal_master_get_rx_signal_det_flag_x(msg);
+    ivaq_rx_signal_master->rx_signal_det_to_send_flag_x = mavlink_msg_ivaq_rx_signal_master_get_rx_signal_det_to_send_flag_x(msg);
     ivaq_rx_signal_master->rx_saturation_flag_y = mavlink_msg_ivaq_rx_signal_master_get_rx_saturation_flag_y(msg);
     ivaq_rx_signal_master->rx_signal_det_flag_y = mavlink_msg_ivaq_rx_signal_master_get_rx_signal_det_flag_y(msg);
+    ivaq_rx_signal_master->rx_signal_det_to_send_flag_y = mavlink_msg_ivaq_rx_signal_master_get_rx_signal_det_to_send_flag_y(msg);
     ivaq_rx_signal_master->rx_saturation_flag_z = mavlink_msg_ivaq_rx_signal_master_get_rx_saturation_flag_z(msg);
     ivaq_rx_signal_master->rx_signal_det_flag_z = mavlink_msg_ivaq_rx_signal_master_get_rx_signal_det_flag_z(msg);
+    ivaq_rx_signal_master->rx_signal_det_to_send_flag_z = mavlink_msg_ivaq_rx_signal_master_get_rx_signal_det_to_send_flag_z(msg);
 #else
         uint8_t len = msg->len < MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER_LEN? msg->len : MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER_LEN;
         memset(ivaq_rx_signal_master, 0, MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER_LEN);
