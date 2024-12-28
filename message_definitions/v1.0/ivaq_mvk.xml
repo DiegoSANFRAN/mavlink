@@ -247,6 +247,7 @@
     <message id="204" name="IVAQ_RX_SIGNAL_MASTER">
     <description>Message with Signal from all antennas (X,Y,Z) in IVAQ Rx, uploaded to Raspi from Master</description>
       <field type="uint8_t" name="rx_signal_det_flag" enum="MVK_SIGNAL_MASTER_DET">Ivaq Rx X-ant Signal Detection flag</field>
+      <field type="uint8_t" name="rx_signal_det_flag_prev" enum="MVK_SIGNAL_MASTER_DET">Ivaq Rx X-ant Signal Detection flag - Previous</field>
       <field type="uint8_t" name="rx_signal_det_to_send_flag" enum="MVK_SIGNAL_DET_SENT">Ivaq Rx Signal Detected Sent flag</field>
       <field type="uint32_t" name="rx_signal_det_time">Ivaq Rx Detected Pulse Overall Signal Time tag [ms]</field>
       <field type="float" name="rx_signal_det_module">Ivaq Rx Detected Pulse Module value [V]</field>
