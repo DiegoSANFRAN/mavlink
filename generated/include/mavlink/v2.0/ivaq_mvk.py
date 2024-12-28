@@ -423,6 +423,19 @@ enums["MVK_SIGNAL_DET"][1] = EnumEntry("MVK_DET_TRUE", """True""")
 MVK_SIGNAL_DET_ENUM_END = 2
 enums["MVK_SIGNAL_DET"][2] = EnumEntry("MVK_SIGNAL_DET_ENUM_END", """""")
 
+# MVK_SIGNAL_MASTER_DET
+enums["MVK_SIGNAL_MASTER_DET"] = {}
+MVK_DET_FALSE = 0
+enums["MVK_SIGNAL_MASTER_DET"][0] = EnumEntry("MVK_DET_FALSE", """False""")
+MVK_DET_X_OR_Y_OR_Z_TRUE = 1
+enums["MVK_SIGNAL_MASTER_DET"][1] = EnumEntry("MVK_DET_X_OR_Y_OR_Z_TRUE", """Signal detected in 1 Ant""")
+MVK_DET_X_AND_Y_OR_X_AND_Z_OR_Y_AND_Z_TRUE = 2
+enums["MVK_SIGNAL_MASTER_DET"][2] = EnumEntry("MVK_DET_X_AND_Y_OR_X_AND_Z_OR_Y_AND_Z_TRUE", """Signal detected in 2 Ant""")
+MVK_DET_X_AND_Y_AND_Z_TRUE = 3
+enums["MVK_SIGNAL_MASTER_DET"][3] = EnumEntry("MVK_DET_X_AND_Y_AND_Z_TRUE", """Signal detected in 3 Ant""")
+MVK_SIGNAL_MASTER_DET_ENUM_END = 4
+enums["MVK_SIGNAL_MASTER_DET"][4] = EnumEntry("MVK_SIGNAL_MASTER_DET_ENUM_END", """""")
+
 # MVK_SIGNAL_DET_SENT
 enums["MVK_SIGNAL_DET_SENT"] = {}
 MVK_DET_SENT_FALSE = 0
@@ -1202,7 +1215,7 @@ class MAVLink_ivaq_rx_signal_master_message(MAVLink_message):
     ordered_fieldnames = ["rx_signal_det_time", "rx_signal_det_module", "rx_signal_det_time_x", "rx_signal_det_val_nocorr_x", "rx_signal_det_val_corr_x", "rx_noise_val_nocorr_x", "rx_noise_val_corr_x", "rx_noise_std_nocorr_x", "rx_noise_std_corr_x", "rx_signal_det_time_y", "rx_signal_det_val_nocorr_y", "rx_signal_det_val_corr_y", "rx_noise_val_nocorr_y", "rx_noise_val_corr_y", "rx_noise_std_nocorr_y", "rx_noise_std_corr_y", "rx_signal_det_time_z", "rx_signal_det_val_nocorr_z", "rx_signal_det_val_corr_z", "rx_noise_val_nocorr_z", "rx_noise_val_corr_z", "rx_noise_std_nocorr_z", "rx_noise_std_corr_z", "rx_signal_det_flag", "rx_signal_det_to_send_flag", "rx_saturation_flag_x", "rx_signal_det_flag_x", "rx_signal_det_to_send_flag_x", "rx_saturation_flag_y", "rx_signal_det_flag_y", "rx_signal_det_to_send_flag_y", "rx_saturation_flag_z", "rx_signal_det_flag_z", "rx_signal_det_to_send_flag_z"]
     fieldtypes = ["uint8_t", "uint8_t", "uint32_t", "float", "uint8_t", "uint8_t", "uint8_t", "uint32_t", "float", "float", "float", "float", "float", "float", "uint8_t", "uint8_t", "uint8_t", "uint32_t", "float", "float", "float", "float", "float", "float", "uint8_t", "uint8_t", "uint8_t", "uint32_t", "float", "float", "float", "float", "float", "float"]
     fielddisplays_by_name: Dict[str, str] = {}
-    fieldenums_by_name: Dict[str, str] = {"rx_signal_det_flag": "MVK_SIGNAL_DET", "rx_signal_det_to_send_flag": "MVK_SIGNAL_DET_SENT", "rx_saturation_flag_x": "MVK_SIGNAL_SAT", "rx_signal_det_flag_x": "MVK_SIGNAL_DET", "rx_signal_det_to_send_flag_x": "MVK_SIGNAL_DET_SENT", "rx_saturation_flag_y": "MVK_SIGNAL_SAT", "rx_signal_det_flag_y": "MVK_SIGNAL_DET", "rx_signal_det_to_send_flag_y": "MVK_SIGNAL_DET_SENT", "rx_saturation_flag_z": "MVK_SIGNAL_SAT", "rx_signal_det_flag_z": "MVK_SIGNAL_DET", "rx_signal_det_to_send_flag_z": "MVK_SIGNAL_DET_SENT"}
+    fieldenums_by_name: Dict[str, str] = {"rx_signal_det_flag": "MVK_SIGNAL_MASTER_DET", "rx_signal_det_to_send_flag": "MVK_SIGNAL_DET_SENT", "rx_saturation_flag_x": "MVK_SIGNAL_SAT", "rx_signal_det_flag_x": "MVK_SIGNAL_DET", "rx_signal_det_to_send_flag_x": "MVK_SIGNAL_DET_SENT", "rx_saturation_flag_y": "MVK_SIGNAL_SAT", "rx_signal_det_flag_y": "MVK_SIGNAL_DET", "rx_signal_det_to_send_flag_y": "MVK_SIGNAL_DET_SENT", "rx_saturation_flag_z": "MVK_SIGNAL_SAT", "rx_signal_det_flag_z": "MVK_SIGNAL_DET", "rx_signal_det_to_send_flag_z": "MVK_SIGNAL_DET_SENT"}
     fieldunits_by_name: Dict[str, str] = {}
     native_format = bytearray(b"<IfIffffffIffffffIffffffBBBBBBBBBBB")
     orders = [23, 24, 0, 1, 25, 26, 27, 2, 3, 4, 5, 6, 7, 8, 28, 29, 30, 9, 10, 11, 12, 13, 14, 15, 31, 32, 33, 16, 17, 18, 19, 20, 21, 22]
@@ -2024,7 +2037,7 @@ class MAVLink(object):
         Message with Signal from all antennas (X,Y,Z) in IVAQ Rx, uploaded to
         Raspi from Master
 
-        rx_signal_det_flag        : Ivaq Rx X-ant Signal Detection flag (type:uint8_t, values:MVK_SIGNAL_DET)
+        rx_signal_det_flag        : Ivaq Rx X-ant Signal Detection flag (type:uint8_t, values:MVK_SIGNAL_MASTER_DET)
         rx_signal_det_to_send_flag        : Ivaq Rx Signal Detected Sent flag (type:uint8_t, values:MVK_SIGNAL_DET_SENT)
         rx_signal_det_time        : Ivaq Rx Detected Pulse Overall Signal Time tag [ms] (type:uint32_t)
         rx_signal_det_module        : Ivaq Rx Detected Pulse Module value [V] (type:float)
@@ -2067,7 +2080,7 @@ class MAVLink(object):
         Message with Signal from all antennas (X,Y,Z) in IVAQ Rx, uploaded to
         Raspi from Master
 
-        rx_signal_det_flag        : Ivaq Rx X-ant Signal Detection flag (type:uint8_t, values:MVK_SIGNAL_DET)
+        rx_signal_det_flag        : Ivaq Rx X-ant Signal Detection flag (type:uint8_t, values:MVK_SIGNAL_MASTER_DET)
         rx_signal_det_to_send_flag        : Ivaq Rx Signal Detected Sent flag (type:uint8_t, values:MVK_SIGNAL_DET_SENT)
         rx_signal_det_time        : Ivaq Rx Detected Pulse Overall Signal Time tag [ms] (type:uint32_t)
         rx_signal_det_module        : Ivaq Rx Detected Pulse Module value [V] (type:float)

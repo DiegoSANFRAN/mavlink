@@ -117,6 +117,22 @@
       </entry>
     </enum>
 
+    <enum name="MVK_SIGNAL_MASTER_DET">
+      <description>These values define the boolean states.</description>
+      <entry value="0x00" name="MVK_DET_FALSE">
+        <description>False</description>
+      </entry>
+      <entry value="0x01" name="MVK_DET_X_OR_Y_OR_Z_TRUE">
+        <description>Signal detected in 1 Ant</description>
+      </entry>
+      <entry value="0x02" name="MVK_DET_X_AND_Y_OR_X_AND_Z_OR_Y_AND_Z_TRUE">
+        <description>Signal detected in 2 Ant</description>
+      </entry>
+      <entry value="0x03" name="MVK_DET_X_AND_Y_AND_Z_TRUE">
+        <description>Signal detected in 3 Ant</description>
+      </entry>
+    </enum>
+
     <enum name="MVK_SIGNAL_DET_SENT">
       <description>These values define the boolean states.</description>
       <entry value="0x00" name="MVK_DET_SENT_FALSE">
@@ -230,7 +246,7 @@
 
     <message id="204" name="IVAQ_RX_SIGNAL_MASTER">
     <description>Message with Signal from all antennas (X,Y,Z) in IVAQ Rx, uploaded to Raspi from Master</description>
-      <field type="uint8_t" name="rx_signal_det_flag" enum="MVK_SIGNAL_DET">Ivaq Rx X-ant Signal Detection flag</field>
+      <field type="uint8_t" name="rx_signal_det_flag" enum="MVK_SIGNAL_MASTER_DET">Ivaq Rx X-ant Signal Detection flag</field>
       <field type="uint8_t" name="rx_signal_det_to_send_flag" enum="MVK_SIGNAL_DET_SENT">Ivaq Rx Signal Detected Sent flag</field>
       <field type="uint32_t" name="rx_signal_det_time">Ivaq Rx Detected Pulse Overall Signal Time tag [ms]</field>
       <field type="float" name="rx_signal_det_module">Ivaq Rx Detected Pulse Module value [V]</field>
