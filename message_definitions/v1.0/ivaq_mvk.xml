@@ -119,7 +119,7 @@
 
     <enum name="MVK_SIGNAL_MASTER_DET">
       <description>These values define the boolean states.</description>
-      <entry value="0x00" name="MVK_DET_FALSE">
+      <entry value="0x00" name="MVK_DET_X_Y_Z_FALSE">
         <description>False</description>
       </entry>
       <entry value="0x01" name="MVK_DET_X_OR_Y_OR_Z_TRUE">

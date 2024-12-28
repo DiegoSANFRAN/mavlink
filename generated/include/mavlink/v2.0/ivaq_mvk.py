@@ -425,8 +425,8 @@ enums["MVK_SIGNAL_DET"][2] = EnumEntry("MVK_SIGNAL_DET_ENUM_END", """""")
 
 # MVK_SIGNAL_MASTER_DET
 enums["MVK_SIGNAL_MASTER_DET"] = {}
-MVK_DET_FALSE = 0
-enums["MVK_SIGNAL_MASTER_DET"][0] = EnumEntry("MVK_DET_FALSE", """False""")
+MVK_DET_X_Y_Z_FALSE = 0
+enums["MVK_SIGNAL_MASTER_DET"][0] = EnumEntry("MVK_DET_X_Y_Z_FALSE", """False""")
 MVK_DET_X_OR_Y_OR_Z_TRUE = 1
 enums["MVK_SIGNAL_MASTER_DET"][1] = EnumEntry("MVK_DET_X_OR_Y_OR_Z_TRUE", """Signal detected in 1 Ant""")
 MVK_DET_X_AND_Y_OR_X_AND_Z_OR_Y_AND_Z_TRUE = 2
