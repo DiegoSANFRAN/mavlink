@@ -10,7 +10,7 @@
     #error Wrong include order: MAVLINK_IVAQ_MVK.H MUST NOT BE DIRECTLY USED. Include mavlink.h from the same directory instead or set ALL AND EVERY defines from MAVLINK.H manually accordingly, including the #define MAVLINK_H call.
 #endif
 
-#define MAVLINK_IVAQ_MVK_XML_HASH 4665447853366084904
+#define MAVLINK_IVAQ_MVK_XML_HASH -3688835386944309419
 
 #ifdef __cplusplus
 extern "C" {
@@ -133,9 +133,9 @@ typedef enum MVK_SIGNAL_SAT
 #define HAVE_ENUM_MVK_SIGNAL_DET
 typedef enum MVK_SIGNAL_DET
 {
-   MVK_DET_FALSE=0, /* False | */
    MVK_DET_TRUE=1, /* True | */
-   MVK_SIGNAL_DET_ENUM_END=2, /*  | */
+   MVK_DET_FALSE=99, /* False | */
+   MVK_SIGNAL_DET_ENUM_END=100, /*  | */
 } MVK_SIGNAL_DET;
 #endif
 

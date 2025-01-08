@@ -416,12 +416,12 @@ enums["MVK_SIGNAL_SAT"][2] = EnumEntry("MVK_SIGNAL_SAT_ENUM_END", """""")
 
 # MVK_SIGNAL_DET
 enums["MVK_SIGNAL_DET"] = {}
-MVK_DET_FALSE = 0
-enums["MVK_SIGNAL_DET"][0] = EnumEntry("MVK_DET_FALSE", """False""")
 MVK_DET_TRUE = 1
 enums["MVK_SIGNAL_DET"][1] = EnumEntry("MVK_DET_TRUE", """True""")
-MVK_SIGNAL_DET_ENUM_END = 2
-enums["MVK_SIGNAL_DET"][2] = EnumEntry("MVK_SIGNAL_DET_ENUM_END", """""")
+MVK_DET_FALSE = 99
+enums["MVK_SIGNAL_DET"][99] = EnumEntry("MVK_DET_FALSE", """False""")
+MVK_SIGNAL_DET_ENUM_END = 100
+enums["MVK_SIGNAL_DET"][100] = EnumEntry("MVK_SIGNAL_DET_ENUM_END", """""")
 
 # MVK_SIGNAL_MASTER_DET
 enums["MVK_SIGNAL_MASTER_DET"] = {}
