@@ -179,10 +179,11 @@ static void mavlink_test_ivaq_rx_params_slave(uint8_t system_id, uint8_t compone
         uint8_t buffer[MAVLINK_MAX_PACKET_LEN];
         uint16_t i;
     mavlink_ivaq_rx_params_slave_t packet_in = {
-        17.0,17,84,151,218,29,96,163
+        963497464,45.0,29,96,163,230,41,108,175
     };
     mavlink_ivaq_rx_params_slave_t packet1, packet2;
         memset(&packet1, 0, sizeof(packet1));
+        packet1.delta_t_master_slave = packet_in.delta_t_master_slave;
         packet1.rx_battery_voltage = packet_in.rx_battery_voltage;
         packet1.rx_mode = packet_in.rx_mode;
         packet1.rx_status = packet_in.rx_status;
@@ -205,12 +206,12 @@ static void mavlink_test_ivaq_rx_params_slave(uint8_t system_id, uint8_t compone
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_ivaq_rx_params_slave_pack(system_id, component_id, &msg , packet1.rx_mode , packet1.rx_status , packet1.rx_anlg_en , packet1.rx_battery_voltage , packet1.rx_ant_states , packet1.rx_stg_states , packet1.rx_card_det , packet1.rx_save_opt );
+    mavlink_msg_ivaq_rx_params_slave_pack(system_id, component_id, &msg , packet1.delta_t_master_slave , packet1.rx_mode , packet1.rx_status , packet1.rx_anlg_en , packet1.rx_battery_voltage , packet1.rx_ant_states , packet1.rx_stg_states , packet1.rx_card_det , packet1.rx_save_opt );
     mavlink_msg_ivaq_rx_params_slave_decode(&msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_ivaq_rx_params_slave_pack_chan(system_id, component_id, MAVLINK_COMM_0, &msg , packet1.rx_mode , packet1.rx_status , packet1.rx_anlg_en , packet1.rx_battery_voltage , packet1.rx_ant_states , packet1.rx_stg_states , packet1.rx_card_det , packet1.rx_save_opt );
+    mavlink_msg_ivaq_rx_params_slave_pack_chan(system_id, component_id, MAVLINK_COMM_0, &msg , packet1.delta_t_master_slave , packet1.rx_mode , packet1.rx_status , packet1.rx_anlg_en , packet1.rx_battery_voltage , packet1.rx_ant_states , packet1.rx_stg_states , packet1.rx_card_det , packet1.rx_save_opt );
     mavlink_msg_ivaq_rx_params_slave_decode(&msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
@@ -223,7 +224,7 @@ static void mavlink_test_ivaq_rx_params_slave(uint8_t system_id, uint8_t compone
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
         
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_ivaq_rx_params_slave_send(MAVLINK_COMM_1 , packet1.rx_mode , packet1.rx_status , packet1.rx_anlg_en , packet1.rx_battery_voltage , packet1.rx_ant_states , packet1.rx_stg_states , packet1.rx_card_det , packet1.rx_save_opt );
+    mavlink_msg_ivaq_rx_params_slave_send(MAVLINK_COMM_1 , packet1.delta_t_master_slave , packet1.rx_mode , packet1.rx_status , packet1.rx_anlg_en , packet1.rx_battery_voltage , packet1.rx_ant_states , packet1.rx_stg_states , packet1.rx_card_det , packet1.rx_save_opt );
     mavlink_msg_ivaq_rx_params_slave_decode(last_msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 

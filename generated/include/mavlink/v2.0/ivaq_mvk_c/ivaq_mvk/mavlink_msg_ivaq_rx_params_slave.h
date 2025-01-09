@@ -5,6 +5,7 @@
 
 
 typedef struct __mavlink_ivaq_rx_params_slave_t {
+ uint32_t delta_t_master_slave; /*<  IVAQ Rx difference in time from boot between master and slave in ms*/
  float rx_battery_voltage; /*<  Ivaq Rx Battery Voltage*/
  uint8_t rx_mode; /*<  Ivaq Rx Status*/
  uint8_t rx_status; /*<  Ivaq Rx Status*/
@@ -15,13 +16,13 @@ typedef struct __mavlink_ivaq_rx_params_slave_t {
  uint8_t rx_save_opt; /*<  Ivaq Rx Save State*/
 } mavlink_ivaq_rx_params_slave_t;
 
-#define MAVLINK_MSG_ID_IVAQ_RX_PARAMS_SLAVE_LEN 11
-#define MAVLINK_MSG_ID_IVAQ_RX_PARAMS_SLAVE_MIN_LEN 11
-#define MAVLINK_MSG_ID_201_LEN 11
-#define MAVLINK_MSG_ID_201_MIN_LEN 11
+#define MAVLINK_MSG_ID_IVAQ_RX_PARAMS_SLAVE_LEN 15
+#define MAVLINK_MSG_ID_IVAQ_RX_PARAMS_SLAVE_MIN_LEN 15
+#define MAVLINK_MSG_ID_201_LEN 15
+#define MAVLINK_MSG_ID_201_MIN_LEN 15
 
-#define MAVLINK_MSG_ID_IVAQ_RX_PARAMS_SLAVE_CRC 161
-#define MAVLINK_MSG_ID_201_CRC 161
+#define MAVLINK_MSG_ID_IVAQ_RX_PARAMS_SLAVE_CRC 80
+#define MAVLINK_MSG_ID_201_CRC 80
 
 
 
@@ -29,29 +30,31 @@ typedef struct __mavlink_ivaq_rx_params_slave_t {
 #define MAVLINK_MESSAGE_INFO_IVAQ_RX_PARAMS_SLAVE { \
     201, \
     "IVAQ_RX_PARAMS_SLAVE", \
-    8, \
-    {  { "rx_mode", NULL, MAVLINK_TYPE_UINT8_T, 0, 4, offsetof(mavlink_ivaq_rx_params_slave_t, rx_mode) }, \
-         { "rx_status", NULL, MAVLINK_TYPE_UINT8_T, 0, 5, offsetof(mavlink_ivaq_rx_params_slave_t, rx_status) }, \
-         { "rx_anlg_en", NULL, MAVLINK_TYPE_UINT8_T, 0, 6, offsetof(mavlink_ivaq_rx_params_slave_t, rx_anlg_en) }, \
-         { "rx_battery_voltage", NULL, MAVLINK_TYPE_FLOAT, 0, 0, offsetof(mavlink_ivaq_rx_params_slave_t, rx_battery_voltage) }, \
-         { "rx_ant_states", NULL, MAVLINK_TYPE_UINT8_T, 0, 7, offsetof(mavlink_ivaq_rx_params_slave_t, rx_ant_states) }, \
-         { "rx_stg_states", NULL, MAVLINK_TYPE_UINT8_T, 0, 8, offsetof(mavlink_ivaq_rx_params_slave_t, rx_stg_states) }, \
-         { "rx_card_det", NULL, MAVLINK_TYPE_UINT8_T, 0, 9, offsetof(mavlink_ivaq_rx_params_slave_t, rx_card_det) }, \
-         { "rx_save_opt", NULL, MAVLINK_TYPE_UINT8_T, 0, 10, offsetof(mavlink_ivaq_rx_params_slave_t, rx_save_opt) }, \
+    9, \
+    {  { "delta_t_master_slave", NULL, MAVLINK_TYPE_UINT32_T, 0, 0, offsetof(mavlink_ivaq_rx_params_slave_t, delta_t_master_slave) }, \
+         { "rx_mode", NULL, MAVLINK_TYPE_UINT8_T, 0, 8, offsetof(mavlink_ivaq_rx_params_slave_t, rx_mode) }, \
+         { "rx_status", NULL, MAVLINK_TYPE_UINT8_T, 0, 9, offsetof(mavlink_ivaq_rx_params_slave_t, rx_status) }, \
+         { "rx_anlg_en", NULL, MAVLINK_TYPE_UINT8_T, 0, 10, offsetof(mavlink_ivaq_rx_params_slave_t, rx_anlg_en) }, \
+         { "rx_battery_voltage", NULL, MAVLINK_TYPE_FLOAT, 0, 4, offsetof(mavlink_ivaq_rx_params_slave_t, rx_battery_voltage) }, \
+         { "rx_ant_states", NULL, MAVLINK_TYPE_UINT8_T, 0, 11, offsetof(mavlink_ivaq_rx_params_slave_t, rx_ant_states) }, \
+         { "rx_stg_states", NULL, MAVLINK_TYPE_UINT8_T, 0, 12, offsetof(mavlink_ivaq_rx_params_slave_t, rx_stg_states) }, \
+         { "rx_card_det", NULL, MAVLINK_TYPE_UINT8_T, 0, 13, offsetof(mavlink_ivaq_rx_params_slave_t, rx_card_det) }, \
+         { "rx_save_opt", NULL, MAVLINK_TYPE_UINT8_T, 0, 14, offsetof(mavlink_ivaq_rx_params_slave_t, rx_save_opt) }, \
          } \
 }
 #else
 #define MAVLINK_MESSAGE_INFO_IVAQ_RX_PARAMS_SLAVE { \
     "IVAQ_RX_PARAMS_SLAVE", \
-    8, \
-    {  { "rx_mode", NULL, MAVLINK_TYPE_UINT8_T, 0, 4, offsetof(mavlink_ivaq_rx_params_slave_t, rx_mode) }, \
-         { "rx_status", NULL, MAVLINK_TYPE_UINT8_T, 0, 5, offsetof(mavlink_ivaq_rx_params_slave_t, rx_status) }, \
-         { "rx_anlg_en", NULL, MAVLINK_TYPE_UINT8_T, 0, 6, offsetof(mavlink_ivaq_rx_params_slave_t, rx_anlg_en) }, \
-         { "rx_battery_voltage", NULL, MAVLINK_TYPE_FLOAT, 0, 0, offsetof(mavlink_ivaq_rx_params_slave_t, rx_battery_voltage) }, \
-         { "rx_ant_states", NULL, MAVLINK_TYPE_UINT8_T, 0, 7, offsetof(mavlink_ivaq_rx_params_slave_t, rx_ant_states) }, \
-         { "rx_stg_states", NULL, MAVLINK_TYPE_UINT8_T, 0, 8, offsetof(mavlink_ivaq_rx_params_slave_t, rx_stg_states) }, \
-         { "rx_card_det", NULL, MAVLINK_TYPE_UINT8_T, 0, 9, offsetof(mavlink_ivaq_rx_params_slave_t, rx_card_det) }, \
-         { "rx_save_opt", NULL, MAVLINK_TYPE_UINT8_T, 0, 10, offsetof(mavlink_ivaq_rx_params_slave_t, rx_save_opt) }, \
+    9, \
+    {  { "delta_t_master_slave", NULL, MAVLINK_TYPE_UINT32_T, 0, 0, offsetof(mavlink_ivaq_rx_params_slave_t, delta_t_master_slave) }, \
+         { "rx_mode", NULL, MAVLINK_TYPE_UINT8_T, 0, 8, offsetof(mavlink_ivaq_rx_params_slave_t, rx_mode) }, \
+         { "rx_status", NULL, MAVLINK_TYPE_UINT8_T, 0, 9, offsetof(mavlink_ivaq_rx_params_slave_t, rx_status) }, \
+         { "rx_anlg_en", NULL, MAVLINK_TYPE_UINT8_T, 0, 10, offsetof(mavlink_ivaq_rx_params_slave_t, rx_anlg_en) }, \
+         { "rx_battery_voltage", NULL, MAVLINK_TYPE_FLOAT, 0, 4, offsetof(mavlink_ivaq_rx_params_slave_t, rx_battery_voltage) }, \
+         { "rx_ant_states", NULL, MAVLINK_TYPE_UINT8_T, 0, 11, offsetof(mavlink_ivaq_rx_params_slave_t, rx_ant_states) }, \
+         { "rx_stg_states", NULL, MAVLINK_TYPE_UINT8_T, 0, 12, offsetof(mavlink_ivaq_rx_params_slave_t, rx_stg_states) }, \
+         { "rx_card_det", NULL, MAVLINK_TYPE_UINT8_T, 0, 13, offsetof(mavlink_ivaq_rx_params_slave_t, rx_card_det) }, \
+         { "rx_save_opt", NULL, MAVLINK_TYPE_UINT8_T, 0, 14, offsetof(mavlink_ivaq_rx_params_slave_t, rx_save_opt) }, \
          } \
 }
 #endif
@@ -62,6 +65,7 @@ typedef struct __mavlink_ivaq_rx_params_slave_t {
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param msg The MAVLink message to compress the data into
  *
+ * @param delta_t_master_slave  IVAQ Rx difference in time from boot between master and slave in ms
  * @param rx_mode  Ivaq Rx Status
  * @param rx_status  Ivaq Rx Status
  * @param rx_anlg_en  Ivaq Rx Anlg Part Status
@@ -73,22 +77,24 @@ typedef struct __mavlink_ivaq_rx_params_slave_t {
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_ivaq_rx_params_slave_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
-                               uint8_t rx_mode, uint8_t rx_status, uint8_t rx_anlg_en, float rx_battery_voltage, uint8_t rx_ant_states, uint8_t rx_stg_states, uint8_t rx_card_det, uint8_t rx_save_opt)
+                               uint32_t delta_t_master_slave, uint8_t rx_mode, uint8_t rx_status, uint8_t rx_anlg_en, float rx_battery_voltage, uint8_t rx_ant_states, uint8_t rx_stg_states, uint8_t rx_card_det, uint8_t rx_save_opt)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_IVAQ_RX_PARAMS_SLAVE_LEN];
-    _mav_put_float(buf, 0, rx_battery_voltage);
-    _mav_put_uint8_t(buf, 4, rx_mode);
-    _mav_put_uint8_t(buf, 5, rx_status);
-    _mav_put_uint8_t(buf, 6, rx_anlg_en);
-    _mav_put_uint8_t(buf, 7, rx_ant_states);
-    _mav_put_uint8_t(buf, 8, rx_stg_states);
-    _mav_put_uint8_t(buf, 9, rx_card_det);
-    _mav_put_uint8_t(buf, 10, rx_save_opt);
+    _mav_put_uint32_t(buf, 0, delta_t_master_slave);
+    _mav_put_float(buf, 4, rx_battery_voltage);
+    _mav_put_uint8_t(buf, 8, rx_mode);
+    _mav_put_uint8_t(buf, 9, rx_status);
+    _mav_put_uint8_t(buf, 10, rx_anlg_en);
+    _mav_put_uint8_t(buf, 11, rx_ant_states);
+    _mav_put_uint8_t(buf, 12, rx_stg_states);
+    _mav_put_uint8_t(buf, 13, rx_card_det);
+    _mav_put_uint8_t(buf, 14, rx_save_opt);
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_IVAQ_RX_PARAMS_SLAVE_LEN);
 #else
     mavlink_ivaq_rx_params_slave_t packet;
+    packet.delta_t_master_slave = delta_t_master_slave;
     packet.rx_battery_voltage = rx_battery_voltage;
     packet.rx_mode = rx_mode;
     packet.rx_status = rx_status;
@@ -112,6 +118,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_params_slave_pack(uint8_t system_id, 
  * @param status MAVLink status structure
  * @param msg The MAVLink message to compress the data into
  *
+ * @param delta_t_master_slave  IVAQ Rx difference in time from boot between master and slave in ms
  * @param rx_mode  Ivaq Rx Status
  * @param rx_status  Ivaq Rx Status
  * @param rx_anlg_en  Ivaq Rx Anlg Part Status
@@ -123,22 +130,24 @@ static inline uint16_t mavlink_msg_ivaq_rx_params_slave_pack(uint8_t system_id, 
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_ivaq_rx_params_slave_pack_status(uint8_t system_id, uint8_t component_id, mavlink_status_t *_status, mavlink_message_t* msg,
-                               uint8_t rx_mode, uint8_t rx_status, uint8_t rx_anlg_en, float rx_battery_voltage, uint8_t rx_ant_states, uint8_t rx_stg_states, uint8_t rx_card_det, uint8_t rx_save_opt)
+                               uint32_t delta_t_master_slave, uint8_t rx_mode, uint8_t rx_status, uint8_t rx_anlg_en, float rx_battery_voltage, uint8_t rx_ant_states, uint8_t rx_stg_states, uint8_t rx_card_det, uint8_t rx_save_opt)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_IVAQ_RX_PARAMS_SLAVE_LEN];
-    _mav_put_float(buf, 0, rx_battery_voltage);
-    _mav_put_uint8_t(buf, 4, rx_mode);
-    _mav_put_uint8_t(buf, 5, rx_status);
-    _mav_put_uint8_t(buf, 6, rx_anlg_en);
-    _mav_put_uint8_t(buf, 7, rx_ant_states);
-    _mav_put_uint8_t(buf, 8, rx_stg_states);
-    _mav_put_uint8_t(buf, 9, rx_card_det);
-    _mav_put_uint8_t(buf, 10, rx_save_opt);
+    _mav_put_uint32_t(buf, 0, delta_t_master_slave);
+    _mav_put_float(buf, 4, rx_battery_voltage);
+    _mav_put_uint8_t(buf, 8, rx_mode);
+    _mav_put_uint8_t(buf, 9, rx_status);
+    _mav_put_uint8_t(buf, 10, rx_anlg_en);
+    _mav_put_uint8_t(buf, 11, rx_ant_states);
+    _mav_put_uint8_t(buf, 12, rx_stg_states);
+    _mav_put_uint8_t(buf, 13, rx_card_det);
+    _mav_put_uint8_t(buf, 14, rx_save_opt);
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_IVAQ_RX_PARAMS_SLAVE_LEN);
 #else
     mavlink_ivaq_rx_params_slave_t packet;
+    packet.delta_t_master_slave = delta_t_master_slave;
     packet.rx_battery_voltage = rx_battery_voltage;
     packet.rx_mode = rx_mode;
     packet.rx_status = rx_status;
@@ -165,6 +174,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_params_slave_pack_status(uint8_t syst
  * @param component_id ID of this component (e.g. 200 for IMU)
  * @param chan The MAVLink channel this message will be sent over
  * @param msg The MAVLink message to compress the data into
+ * @param delta_t_master_slave  IVAQ Rx difference in time from boot between master and slave in ms
  * @param rx_mode  Ivaq Rx Status
  * @param rx_status  Ivaq Rx Status
  * @param rx_anlg_en  Ivaq Rx Anlg Part Status
@@ -177,22 +187,24 @@ static inline uint16_t mavlink_msg_ivaq_rx_params_slave_pack_status(uint8_t syst
  */
 static inline uint16_t mavlink_msg_ivaq_rx_params_slave_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
                                mavlink_message_t* msg,
-                                   uint8_t rx_mode,uint8_t rx_status,uint8_t rx_anlg_en,float rx_battery_voltage,uint8_t rx_ant_states,uint8_t rx_stg_states,uint8_t rx_card_det,uint8_t rx_save_opt)
+                                   uint32_t delta_t_master_slave,uint8_t rx_mode,uint8_t rx_status,uint8_t rx_anlg_en,float rx_battery_voltage,uint8_t rx_ant_states,uint8_t rx_stg_states,uint8_t rx_card_det,uint8_t rx_save_opt)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_IVAQ_RX_PARAMS_SLAVE_LEN];
-    _mav_put_float(buf, 0, rx_battery_voltage);
-    _mav_put_uint8_t(buf, 4, rx_mode);
-    _mav_put_uint8_t(buf, 5, rx_status);
-    _mav_put_uint8_t(buf, 6, rx_anlg_en);
-    _mav_put_uint8_t(buf, 7, rx_ant_states);
-    _mav_put_uint8_t(buf, 8, rx_stg_states);
-    _mav_put_uint8_t(buf, 9, rx_card_det);
-    _mav_put_uint8_t(buf, 10, rx_save_opt);
+    _mav_put_uint32_t(buf, 0, delta_t_master_slave);
+    _mav_put_float(buf, 4, rx_battery_voltage);
+    _mav_put_uint8_t(buf, 8, rx_mode);
+    _mav_put_uint8_t(buf, 9, rx_status);
+    _mav_put_uint8_t(buf, 10, rx_anlg_en);
+    _mav_put_uint8_t(buf, 11, rx_ant_states);
+    _mav_put_uint8_t(buf, 12, rx_stg_states);
+    _mav_put_uint8_t(buf, 13, rx_card_det);
+    _mav_put_uint8_t(buf, 14, rx_save_opt);
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_IVAQ_RX_PARAMS_SLAVE_LEN);
 #else
     mavlink_ivaq_rx_params_slave_t packet;
+    packet.delta_t_master_slave = delta_t_master_slave;
     packet.rx_battery_voltage = rx_battery_voltage;
     packet.rx_mode = rx_mode;
     packet.rx_status = rx_status;
@@ -219,7 +231,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_params_slave_pack_chan(uint8_t system
  */
 static inline uint16_t mavlink_msg_ivaq_rx_params_slave_encode(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg, const mavlink_ivaq_rx_params_slave_t* ivaq_rx_params_slave)
 {
-    return mavlink_msg_ivaq_rx_params_slave_pack(system_id, component_id, msg, ivaq_rx_params_slave->rx_mode, ivaq_rx_params_slave->rx_status, ivaq_rx_params_slave->rx_anlg_en, ivaq_rx_params_slave->rx_battery_voltage, ivaq_rx_params_slave->rx_ant_states, ivaq_rx_params_slave->rx_stg_states, ivaq_rx_params_slave->rx_card_det, ivaq_rx_params_slave->rx_save_opt);
+    return mavlink_msg_ivaq_rx_params_slave_pack(system_id, component_id, msg, ivaq_rx_params_slave->delta_t_master_slave, ivaq_rx_params_slave->rx_mode, ivaq_rx_params_slave->rx_status, ivaq_rx_params_slave->rx_anlg_en, ivaq_rx_params_slave->rx_battery_voltage, ivaq_rx_params_slave->rx_ant_states, ivaq_rx_params_slave->rx_stg_states, ivaq_rx_params_slave->rx_card_det, ivaq_rx_params_slave->rx_save_opt);
 }
 
 /**
@@ -233,7 +245,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_params_slave_encode(uint8_t system_id
  */
 static inline uint16_t mavlink_msg_ivaq_rx_params_slave_encode_chan(uint8_t system_id, uint8_t component_id, uint8_t chan, mavlink_message_t* msg, const mavlink_ivaq_rx_params_slave_t* ivaq_rx_params_slave)
 {
-    return mavlink_msg_ivaq_rx_params_slave_pack_chan(system_id, component_id, chan, msg, ivaq_rx_params_slave->rx_mode, ivaq_rx_params_slave->rx_status, ivaq_rx_params_slave->rx_anlg_en, ivaq_rx_params_slave->rx_battery_voltage, ivaq_rx_params_slave->rx_ant_states, ivaq_rx_params_slave->rx_stg_states, ivaq_rx_params_slave->rx_card_det, ivaq_rx_params_slave->rx_save_opt);
+    return mavlink_msg_ivaq_rx_params_slave_pack_chan(system_id, component_id, chan, msg, ivaq_rx_params_slave->delta_t_master_slave, ivaq_rx_params_slave->rx_mode, ivaq_rx_params_slave->rx_status, ivaq_rx_params_slave->rx_anlg_en, ivaq_rx_params_slave->rx_battery_voltage, ivaq_rx_params_slave->rx_ant_states, ivaq_rx_params_slave->rx_stg_states, ivaq_rx_params_slave->rx_card_det, ivaq_rx_params_slave->rx_save_opt);
 }
 
 /**
@@ -247,13 +259,14 @@ static inline uint16_t mavlink_msg_ivaq_rx_params_slave_encode_chan(uint8_t syst
  */
 static inline uint16_t mavlink_msg_ivaq_rx_params_slave_encode_status(uint8_t system_id, uint8_t component_id, mavlink_status_t* _status, mavlink_message_t* msg, const mavlink_ivaq_rx_params_slave_t* ivaq_rx_params_slave)
 {
-    return mavlink_msg_ivaq_rx_params_slave_pack_status(system_id, component_id, _status, msg,  ivaq_rx_params_slave->rx_mode, ivaq_rx_params_slave->rx_status, ivaq_rx_params_slave->rx_anlg_en, ivaq_rx_params_slave->rx_battery_voltage, ivaq_rx_params_slave->rx_ant_states, ivaq_rx_params_slave->rx_stg_states, ivaq_rx_params_slave->rx_card_det, ivaq_rx_params_slave->rx_save_opt);
+    return mavlink_msg_ivaq_rx_params_slave_pack_status(system_id, component_id, _status, msg,  ivaq_rx_params_slave->delta_t_master_slave, ivaq_rx_params_slave->rx_mode, ivaq_rx_params_slave->rx_status, ivaq_rx_params_slave->rx_anlg_en, ivaq_rx_params_slave->rx_battery_voltage, ivaq_rx_params_slave->rx_ant_states, ivaq_rx_params_slave->rx_stg_states, ivaq_rx_params_slave->rx_card_det, ivaq_rx_params_slave->rx_save_opt);
 }
 
 /**
  * @brief Send a ivaq_rx_params_slave message
  * @param chan MAVLink channel to send the message
  *
+ * @param delta_t_master_slave  IVAQ Rx difference in time from boot between master and slave in ms
  * @param rx_mode  Ivaq Rx Status
  * @param rx_status  Ivaq Rx Status
  * @param rx_anlg_en  Ivaq Rx Anlg Part Status
@@ -265,22 +278,24 @@ static inline uint16_t mavlink_msg_ivaq_rx_params_slave_encode_status(uint8_t sy
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
-static inline void mavlink_msg_ivaq_rx_params_slave_send(mavlink_channel_t chan, uint8_t rx_mode, uint8_t rx_status, uint8_t rx_anlg_en, float rx_battery_voltage, uint8_t rx_ant_states, uint8_t rx_stg_states, uint8_t rx_card_det, uint8_t rx_save_opt)
+static inline void mavlink_msg_ivaq_rx_params_slave_send(mavlink_channel_t chan, uint32_t delta_t_master_slave, uint8_t rx_mode, uint8_t rx_status, uint8_t rx_anlg_en, float rx_battery_voltage, uint8_t rx_ant_states, uint8_t rx_stg_states, uint8_t rx_card_det, uint8_t rx_save_opt)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_IVAQ_RX_PARAMS_SLAVE_LEN];
-    _mav_put_float(buf, 0, rx_battery_voltage);
-    _mav_put_uint8_t(buf, 4, rx_mode);
-    _mav_put_uint8_t(buf, 5, rx_status);
-    _mav_put_uint8_t(buf, 6, rx_anlg_en);
-    _mav_put_uint8_t(buf, 7, rx_ant_states);
-    _mav_put_uint8_t(buf, 8, rx_stg_states);
-    _mav_put_uint8_t(buf, 9, rx_card_det);
-    _mav_put_uint8_t(buf, 10, rx_save_opt);
+    _mav_put_uint32_t(buf, 0, delta_t_master_slave);
+    _mav_put_float(buf, 4, rx_battery_voltage);
+    _mav_put_uint8_t(buf, 8, rx_mode);
+    _mav_put_uint8_t(buf, 9, rx_status);
+    _mav_put_uint8_t(buf, 10, rx_anlg_en);
+    _mav_put_uint8_t(buf, 11, rx_ant_states);
+    _mav_put_uint8_t(buf, 12, rx_stg_states);
+    _mav_put_uint8_t(buf, 13, rx_card_det);
+    _mav_put_uint8_t(buf, 14, rx_save_opt);
 
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_IVAQ_RX_PARAMS_SLAVE, buf, MAVLINK_MSG_ID_IVAQ_RX_PARAMS_SLAVE_MIN_LEN, MAVLINK_MSG_ID_IVAQ_RX_PARAMS_SLAVE_LEN, MAVLINK_MSG_ID_IVAQ_RX_PARAMS_SLAVE_CRC);
 #else
     mavlink_ivaq_rx_params_slave_t packet;
+    packet.delta_t_master_slave = delta_t_master_slave;
     packet.rx_battery_voltage = rx_battery_voltage;
     packet.rx_mode = rx_mode;
     packet.rx_status = rx_status;
@@ -302,7 +317,7 @@ static inline void mavlink_msg_ivaq_rx_params_slave_send(mavlink_channel_t chan,
 static inline void mavlink_msg_ivaq_rx_params_slave_send_struct(mavlink_channel_t chan, const mavlink_ivaq_rx_params_slave_t* ivaq_rx_params_slave)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
-    mavlink_msg_ivaq_rx_params_slave_send(chan, ivaq_rx_params_slave->rx_mode, ivaq_rx_params_slave->rx_status, ivaq_rx_params_slave->rx_anlg_en, ivaq_rx_params_slave->rx_battery_voltage, ivaq_rx_params_slave->rx_ant_states, ivaq_rx_params_slave->rx_stg_states, ivaq_rx_params_slave->rx_card_det, ivaq_rx_params_slave->rx_save_opt);
+    mavlink_msg_ivaq_rx_params_slave_send(chan, ivaq_rx_params_slave->delta_t_master_slave, ivaq_rx_params_slave->rx_mode, ivaq_rx_params_slave->rx_status, ivaq_rx_params_slave->rx_anlg_en, ivaq_rx_params_slave->rx_battery_voltage, ivaq_rx_params_slave->rx_ant_states, ivaq_rx_params_slave->rx_stg_states, ivaq_rx_params_slave->rx_card_det, ivaq_rx_params_slave->rx_save_opt);
 #else
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_IVAQ_RX_PARAMS_SLAVE, (const char *)ivaq_rx_params_slave, MAVLINK_MSG_ID_IVAQ_RX_PARAMS_SLAVE_MIN_LEN, MAVLINK_MSG_ID_IVAQ_RX_PARAMS_SLAVE_LEN, MAVLINK_MSG_ID_IVAQ_RX_PARAMS_SLAVE_CRC);
 #endif
@@ -316,22 +331,24 @@ static inline void mavlink_msg_ivaq_rx_params_slave_send_struct(mavlink_channel_
   is usually the receive buffer for the channel, and allows a reply to an
   incoming message with minimum stack space usage.
  */
-static inline void mavlink_msg_ivaq_rx_params_slave_send_buf(mavlink_message_t *msgbuf, mavlink_channel_t chan,  uint8_t rx_mode, uint8_t rx_status, uint8_t rx_anlg_en, float rx_battery_voltage, uint8_t rx_ant_states, uint8_t rx_stg_states, uint8_t rx_card_det, uint8_t rx_save_opt)
+static inline void mavlink_msg_ivaq_rx_params_slave_send_buf(mavlink_message_t *msgbuf, mavlink_channel_t chan,  uint32_t delta_t_master_slave, uint8_t rx_mode, uint8_t rx_status, uint8_t rx_anlg_en, float rx_battery_voltage, uint8_t rx_ant_states, uint8_t rx_stg_states, uint8_t rx_card_det, uint8_t rx_save_opt)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char *buf = (char *)msgbuf;
-    _mav_put_float(buf, 0, rx_battery_voltage);
-    _mav_put_uint8_t(buf, 4, rx_mode);
-    _mav_put_uint8_t(buf, 5, rx_status);
-    _mav_put_uint8_t(buf, 6, rx_anlg_en);
-    _mav_put_uint8_t(buf, 7, rx_ant_states);
-    _mav_put_uint8_t(buf, 8, rx_stg_states);
-    _mav_put_uint8_t(buf, 9, rx_card_det);
-    _mav_put_uint8_t(buf, 10, rx_save_opt);
+    _mav_put_uint32_t(buf, 0, delta_t_master_slave);
+    _mav_put_float(buf, 4, rx_battery_voltage);
+    _mav_put_uint8_t(buf, 8, rx_mode);
+    _mav_put_uint8_t(buf, 9, rx_status);
+    _mav_put_uint8_t(buf, 10, rx_anlg_en);
+    _mav_put_uint8_t(buf, 11, rx_ant_states);
+    _mav_put_uint8_t(buf, 12, rx_stg_states);
+    _mav_put_uint8_t(buf, 13, rx_card_det);
+    _mav_put_uint8_t(buf, 14, rx_save_opt);
 
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_IVAQ_RX_PARAMS_SLAVE, buf, MAVLINK_MSG_ID_IVAQ_RX_PARAMS_SLAVE_MIN_LEN, MAVLINK_MSG_ID_IVAQ_RX_PARAMS_SLAVE_LEN, MAVLINK_MSG_ID_IVAQ_RX_PARAMS_SLAVE_CRC);
 #else
     mavlink_ivaq_rx_params_slave_t *packet = (mavlink_ivaq_rx_params_slave_t *)msgbuf;
+    packet->delta_t_master_slave = delta_t_master_slave;
     packet->rx_battery_voltage = rx_battery_voltage;
     packet->rx_mode = rx_mode;
     packet->rx_status = rx_status;
@@ -352,13 +369,23 @@ static inline void mavlink_msg_ivaq_rx_params_slave_send_buf(mavlink_message_t *
 
 
 /**
+ * @brief Get field delta_t_master_slave from ivaq_rx_params_slave message
+ *
+ * @return  IVAQ Rx difference in time from boot between master and slave in ms
+ */
+static inline uint32_t mavlink_msg_ivaq_rx_params_slave_get_delta_t_master_slave(const mavlink_message_t* msg)
+{
+    return _MAV_RETURN_uint32_t(msg,  0);
+}
+
+/**
  * @brief Get field rx_mode from ivaq_rx_params_slave message
  *
  * @return  Ivaq Rx Status
  */
 static inline uint8_t mavlink_msg_ivaq_rx_params_slave_get_rx_mode(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  4);
+    return _MAV_RETURN_uint8_t(msg,  8);
 }
 
 /**
@@ -368,7 +395,7 @@ static inline uint8_t mavlink_msg_ivaq_rx_params_slave_get_rx_mode(const mavlink
  */
 static inline uint8_t mavlink_msg_ivaq_rx_params_slave_get_rx_status(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  5);
+    return _MAV_RETURN_uint8_t(msg,  9);
 }
 
 /**
@@ -378,7 +405,7 @@ static inline uint8_t mavlink_msg_ivaq_rx_params_slave_get_rx_status(const mavli
  */
 static inline uint8_t mavlink_msg_ivaq_rx_params_slave_get_rx_anlg_en(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  6);
+    return _MAV_RETURN_uint8_t(msg,  10);
 }
 
 /**
@@ -388,7 +415,7 @@ static inline uint8_t mavlink_msg_ivaq_rx_params_slave_get_rx_anlg_en(const mavl
  */
 static inline float mavlink_msg_ivaq_rx_params_slave_get_rx_battery_voltage(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_float(msg,  0);
+    return _MAV_RETURN_float(msg,  4);
 }
 
 /**
@@ -398,7 +425,7 @@ static inline float mavlink_msg_ivaq_rx_params_slave_get_rx_battery_voltage(cons
  */
 static inline uint8_t mavlink_msg_ivaq_rx_params_slave_get_rx_ant_states(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  7);
+    return _MAV_RETURN_uint8_t(msg,  11);
 }
 
 /**
@@ -408,7 +435,7 @@ static inline uint8_t mavlink_msg_ivaq_rx_params_slave_get_rx_ant_states(const m
  */
 static inline uint8_t mavlink_msg_ivaq_rx_params_slave_get_rx_stg_states(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  8);
+    return _MAV_RETURN_uint8_t(msg,  12);
 }
 
 /**
@@ -418,7 +445,7 @@ static inline uint8_t mavlink_msg_ivaq_rx_params_slave_get_rx_stg_states(const m
  */
 static inline uint8_t mavlink_msg_ivaq_rx_params_slave_get_rx_card_det(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  9);
+    return _MAV_RETURN_uint8_t(msg,  13);
 }
 
 /**
@@ -428,7 +455,7 @@ static inline uint8_t mavlink_msg_ivaq_rx_params_slave_get_rx_card_det(const mav
  */
 static inline uint8_t mavlink_msg_ivaq_rx_params_slave_get_rx_save_opt(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  10);
+    return _MAV_RETURN_uint8_t(msg,  14);
 }
 
 /**
@@ -440,6 +467,7 @@ static inline uint8_t mavlink_msg_ivaq_rx_params_slave_get_rx_save_opt(const mav
 static inline void mavlink_msg_ivaq_rx_params_slave_decode(const mavlink_message_t* msg, mavlink_ivaq_rx_params_slave_t* ivaq_rx_params_slave)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
+    ivaq_rx_params_slave->delta_t_master_slave = mavlink_msg_ivaq_rx_params_slave_get_delta_t_master_slave(msg);
     ivaq_rx_params_slave->rx_battery_voltage = mavlink_msg_ivaq_rx_params_slave_get_rx_battery_voltage(msg);
     ivaq_rx_params_slave->rx_mode = mavlink_msg_ivaq_rx_params_slave_get_rx_mode(msg);
     ivaq_rx_params_slave->rx_status = mavlink_msg_ivaq_rx_params_slave_get_rx_status(msg);

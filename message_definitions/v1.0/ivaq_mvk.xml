@@ -205,6 +205,7 @@
 
     <message id="201" name="IVAQ_RX_PARAMS_SLAVE">
       <description>IVAQ Rx Current Parameters</description>
+      <field type="uint32_t" name="delta_t_master_slave">IVAQ Rx difference in time from boot between master and slave in ms</field>
       <field type="uint8_t" name="rx_mode" enum="MVK_RX_MODE">Ivaq Rx Status</field>
       <field type="uint8_t" name="rx_status" enum="MVK_RX_STATUS">Ivaq Rx Status</field>
       <field type="uint8_t" name="rx_anlg_en" enum="MVK_RX_ANLG_EN">Ivaq Rx Anlg Part Status</field>

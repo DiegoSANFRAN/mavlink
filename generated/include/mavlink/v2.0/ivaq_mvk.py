@@ -1069,26 +1069,27 @@ class MAVLink_ivaq_rx_params_slave_message(MAVLink_message):
 
     id = MAVLINK_MSG_ID_IVAQ_RX_PARAMS_SLAVE
     msgname = "IVAQ_RX_PARAMS_SLAVE"
-    fieldnames = ["rx_mode", "rx_status", "rx_anlg_en", "rx_battery_voltage", "rx_ant_states", "rx_stg_states", "rx_card_det", "rx_save_opt"]
-    ordered_fieldnames = ["rx_battery_voltage", "rx_mode", "rx_status", "rx_anlg_en", "rx_ant_states", "rx_stg_states", "rx_card_det", "rx_save_opt"]
-    fieldtypes = ["uint8_t", "uint8_t", "uint8_t", "float", "uint8_t", "uint8_t", "uint8_t", "uint8_t"]
+    fieldnames = ["delta_t_master_slave", "rx_mode", "rx_status", "rx_anlg_en", "rx_battery_voltage", "rx_ant_states", "rx_stg_states", "rx_card_det", "rx_save_opt"]
+    ordered_fieldnames = ["delta_t_master_slave", "rx_battery_voltage", "rx_mode", "rx_status", "rx_anlg_en", "rx_ant_states", "rx_stg_states", "rx_card_det", "rx_save_opt"]
+    fieldtypes = ["uint32_t", "uint8_t", "uint8_t", "uint8_t", "float", "uint8_t", "uint8_t", "uint8_t", "uint8_t"]
     fielddisplays_by_name: Dict[str, str] = {}
     fieldenums_by_name: Dict[str, str] = {"rx_mode": "MVK_RX_MODE", "rx_status": "MVK_RX_STATUS", "rx_anlg_en": "MVK_RX_ANLG_EN", "rx_ant_states": "MVK_ANT_STATES", "rx_stg_states": "MVK_STAGE_STATES", "rx_card_det": "MVK_CARD_STATE", "rx_save_opt": "MVK_SAVE_STATE"}
     fieldunits_by_name: Dict[str, str] = {}
-    native_format = bytearray(b"<fBBBBBBB")
-    orders = [1, 2, 3, 0, 4, 5, 6, 7]
-    lengths = [1, 1, 1, 1, 1, 1, 1, 1]
-    array_lengths = [0, 0, 0, 0, 0, 0, 0, 0]
-    crc_extra = 161
-    unpacker = struct.Struct("<fBBBBBBB")
+    native_format = bytearray(b"<IfBBBBBBB")
+    orders = [0, 2, 3, 4, 1, 5, 6, 7, 8]
+    lengths = [1, 1, 1, 1, 1, 1, 1, 1, 1]
+    array_lengths = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    crc_extra = 80
+    unpacker = struct.Struct("<IfBBBBBBB")
     instance_field = None
     instance_offset = -1
 
-    def __init__(self, rx_mode: int, rx_status: int, rx_anlg_en: int, rx_battery_voltage: float, rx_ant_states: int, rx_stg_states: int, rx_card_det: int, rx_save_opt: int):
+    def __init__(self, delta_t_master_slave: int, rx_mode: int, rx_status: int, rx_anlg_en: int, rx_battery_voltage: float, rx_ant_states: int, rx_stg_states: int, rx_card_det: int, rx_save_opt: int):
         MAVLink_message.__init__(self, MAVLink_ivaq_rx_params_slave_message.id, MAVLink_ivaq_rx_params_slave_message.msgname)
         self._fieldnames = MAVLink_ivaq_rx_params_slave_message.fieldnames
         self._instance_field = MAVLink_ivaq_rx_params_slave_message.instance_field
         self._instance_offset = MAVLink_ivaq_rx_params_slave_message.instance_offset
+        self.delta_t_master_slave = delta_t_master_slave
         self.rx_mode = rx_mode
         self.rx_status = rx_status
         self.rx_anlg_en = rx_anlg_en
@@ -1099,7 +1100,7 @@ class MAVLink_ivaq_rx_params_slave_message(MAVLink_message):
         self.rx_save_opt = rx_save_opt
 
     def pack(self, mav: "MAVLink", force_mavlink1: bool = False) -> bytes:
-        return self._pack(mav, self.crc_extra, self.unpacker.pack(self.rx_battery_voltage, self.rx_mode, self.rx_status, self.rx_anlg_en, self.rx_ant_states, self.rx_stg_states, self.rx_card_det, self.rx_save_opt), force_mavlink1=force_mavlink1)
+        return self._pack(mav, self.crc_extra, self.unpacker.pack(self.delta_t_master_slave, self.rx_battery_voltage, self.rx_mode, self.rx_status, self.rx_anlg_en, self.rx_ant_states, self.rx_stg_states, self.rx_card_det, self.rx_save_opt), force_mavlink1=force_mavlink1)
 
 
 # Define name on the class for backwards compatibility (it is now msgname).
@@ -1928,10 +1929,11 @@ class MAVLink(object):
         """
         self.send(self.ivaq_rx_params_master_encode(rx_mode_x, rx_status_x, rx_anlg_en_x, rx_battery_voltage_x, rx_ant_states_x, rx_stg_states_x, rx_card_det_x, rx_save_opt_x, rx_mode_y, rx_status_y, rx_anlg_en_y, rx_battery_voltage_y, rx_ant_states_y, rx_stg_states_y, rx_card_det_y, rx_save_opt_y, rx_mode_z, rx_status_z, rx_anlg_en_z, rx_battery_voltage_z, rx_ant_states_z, rx_stg_states_z, rx_card_det_z, rx_save_opt_z), force_mavlink1=force_mavlink1)
 
-    def ivaq_rx_params_slave_encode(self, rx_mode: int, rx_status: int, rx_anlg_en: int, rx_battery_voltage: float, rx_ant_states: int, rx_stg_states: int, rx_card_det: int, rx_save_opt: int) -> MAVLink_ivaq_rx_params_slave_message:
+    def ivaq_rx_params_slave_encode(self, delta_t_master_slave: int, rx_mode: int, rx_status: int, rx_anlg_en: int, rx_battery_voltage: float, rx_ant_states: int, rx_stg_states: int, rx_card_det: int, rx_save_opt: int) -> MAVLink_ivaq_rx_params_slave_message:
         """
         IVAQ Rx Current Parameters
 
+        delta_t_master_slave        : IVAQ Rx difference in time from boot between master and slave in ms (type:uint32_t)
         rx_mode                   : Ivaq Rx Status (type:uint8_t, values:MVK_RX_MODE)
         rx_status                 : Ivaq Rx Status (type:uint8_t, values:MVK_RX_STATUS)
         rx_anlg_en                : Ivaq Rx Anlg Part Status (type:uint8_t, values:MVK_RX_ANLG_EN)
@@ -1942,12 +1944,13 @@ class MAVLink(object):
         rx_save_opt               : Ivaq Rx Save State (type:uint8_t, values:MVK_SAVE_STATE)
 
         """
-        return MAVLink_ivaq_rx_params_slave_message(rx_mode, rx_status, rx_anlg_en, rx_battery_voltage, rx_ant_states, rx_stg_states, rx_card_det, rx_save_opt)
+        return MAVLink_ivaq_rx_params_slave_message(delta_t_master_slave, rx_mode, rx_status, rx_anlg_en, rx_battery_voltage, rx_ant_states, rx_stg_states, rx_card_det, rx_save_opt)
 
-    def ivaq_rx_params_slave_send(self, rx_mode: int, rx_status: int, rx_anlg_en: int, rx_battery_voltage: float, rx_ant_states: int, rx_stg_states: int, rx_card_det: int, rx_save_opt: int, force_mavlink1: bool = False) -> None:
+    def ivaq_rx_params_slave_send(self, delta_t_master_slave: int, rx_mode: int, rx_status: int, rx_anlg_en: int, rx_battery_voltage: float, rx_ant_states: int, rx_stg_states: int, rx_card_det: int, rx_save_opt: int, force_mavlink1: bool = False) -> None:
         """
         IVAQ Rx Current Parameters
 
+        delta_t_master_slave        : IVAQ Rx difference in time from boot between master and slave in ms (type:uint32_t)
         rx_mode                   : Ivaq Rx Status (type:uint8_t, values:MVK_RX_MODE)
         rx_status                 : Ivaq Rx Status (type:uint8_t, values:MVK_RX_STATUS)
         rx_anlg_en                : Ivaq Rx Anlg Part Status (type:uint8_t, values:MVK_RX_ANLG_EN)
@@ -1958,7 +1961,7 @@ class MAVLink(object):
         rx_save_opt               : Ivaq Rx Save State (type:uint8_t, values:MVK_SAVE_STATE)
 
         """
-        self.send(self.ivaq_rx_params_slave_encode(rx_mode, rx_status, rx_anlg_en, rx_battery_voltage, rx_ant_states, rx_stg_states, rx_card_det, rx_save_opt), force_mavlink1=force_mavlink1)
+        self.send(self.ivaq_rx_params_slave_encode(delta_t_master_slave, rx_mode, rx_status, rx_anlg_en, rx_battery_voltage, rx_ant_states, rx_stg_states, rx_card_det, rx_save_opt), force_mavlink1=force_mavlink1)
 
     def ivaq_rx_set_params_master_encode(self, rx_set_reset_x: int, rx_set_anlg_en_x: int, rx_set_ant_states_x: int, rx_set_stg_states_x: int, rx_set_save_opt_x: int, rx_set_reset_y: int, rx_set_anlg_en_y: int, rx_set_ant_states_y: int, rx_set_stg_states_y: int, rx_set_save_opt_y: int, rx_set_reset_z: int, rx_set_anlg_en_z: int, rx_set_ant_states_z: int, rx_set_stg_states_z: int, rx_set_save_opt_z: int) -> MAVLink_ivaq_rx_set_params_master_message:
         """
