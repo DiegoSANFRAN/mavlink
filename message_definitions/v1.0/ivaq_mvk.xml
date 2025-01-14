@@ -122,13 +122,25 @@
       <entry value="0x00" name="MVK_DET_X_Y_Z_FALSE">
         <description>False</description>
       </entry>
-      <entry value="0x01" name="MVK_DET_X_OR_Y_OR_Z_TRUE">
+      <entry value="0x01" name="MVK_DET_X_TRUE">
         <description>Signal detected in 1 Ant</description>
       </entry>
-      <entry value="0x02" name="MVK_DET_X_AND_Y_OR_X_AND_Z_OR_Y_AND_Z_TRUE">
+      <entry value="0x02" name="MVK_DET_Y_TRUE">
+        <description>Signal detected in 1 Ant</description>
+      </entry>
+      <entry value="0x03" name="MVK_DET_Z_TRUE">
+        <description>Signal detected in 1 Ant</description>
+      </entry>
+      <entry value="0x04" name="MVK_DET_X_AND_Y_TRUE">
         <description>Signal detected in 2 Ant</description>
       </entry>
-      <entry value="0x03" name="MVK_DET_X_AND_Y_AND_Z_TRUE">
+      <entry value="0x05" name="MVK_DET_X_AND_Z_TRUE">
+        <description>Signal detected in 2 Ant</description>
+      </entry>
+      <entry value="0x06" name="MVK_DET_Y_AND_Z_TRUE">
+        <description>Signal detected in 2 Ant</description>
+      </entry>
+      <entry value="0x07" name="MVK_DET_X_AND_Y_AND_Z_TRUE">
         <description>Signal detected in 3 Ant</description>
       </entry>
     </enum>

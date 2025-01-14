@@ -10,7 +10,7 @@
     #error Wrong include order: MAVLINK_IVAQ_MVK.H MUST NOT BE DIRECTLY USED. Include mavlink.h from the same directory instead or set ALL AND EVERY defines from MAVLINK.H manually accordingly, including the #define MAVLINK_H call.
 #endif
 
-#define MAVLINK_IVAQ_MVK_XML_HASH -2497563671468623941
+#define MAVLINK_IVAQ_MVK_XML_HASH 3423657502589244360
 
 #ifdef __cplusplus
 extern "C" {
@@ -145,10 +145,14 @@ typedef enum MVK_SIGNAL_DET
 typedef enum MVK_SIGNAL_MASTER_DET
 {
    MVK_DET_X_Y_Z_FALSE=0, /* False | */
-   MVK_DET_X_OR_Y_OR_Z_TRUE=1, /* Signal detected in 1 Ant | */
-   MVK_DET_X_AND_Y_OR_X_AND_Z_OR_Y_AND_Z_TRUE=2, /* Signal detected in 2 Ant | */
-   MVK_DET_X_AND_Y_AND_Z_TRUE=3, /* Signal detected in 3 Ant | */
-   MVK_SIGNAL_MASTER_DET_ENUM_END=4, /*  | */
+   MVK_DET_X_TRUE=1, /* Signal detected in 1 Ant | */
+   MVK_DET_Y_TRUE=2, /* Signal detected in 1 Ant | */
+   MVK_DET_Z_TRUE=3, /* Signal detected in 1 Ant | */
+   MVK_DET_X_AND_Y_TRUE=4, /* Signal detected in 2 Ant | */
+   MVK_DET_X_AND_Z_TRUE=5, /* Signal detected in 2 Ant | */
+   MVK_DET_Y_AND_Z_TRUE=6, /* Signal detected in 2 Ant | */
+   MVK_DET_X_AND_Y_AND_Z_TRUE=7, /* Signal detected in 3 Ant | */
+   MVK_SIGNAL_MASTER_DET_ENUM_END=8, /*  | */
 } MVK_SIGNAL_MASTER_DET;
 #endif
 
