@@ -10,7 +10,7 @@
     #error Wrong include order: MAVLINK_IVAQ_MVK.H MUST NOT BE DIRECTLY USED. Include mavlink.h from the same directory instead or set ALL AND EVERY defines from MAVLINK.H manually accordingly, including the #define MAVLINK_H call.
 #endif
 
-#define MAVLINK_IVAQ_MVK_XML_HASH 3423657502589244360
+#define MAVLINK_IVAQ_MVK_XML_HASH -2445052338429979998
 
 #ifdef __cplusplus
 extern "C" {
@@ -23,7 +23,7 @@ extern "C" {
 #endif
 
 #ifndef MAVLINK_MESSAGE_CRCS
-#define MAVLINK_MESSAGE_CRCS {{0, 50, 9, 9, 0, 0, 0}, {2, 137, 12, 12, 0, 0, 0}, {200, 190, 33, 33, 0, 0, 0}, {201, 80, 15, 15, 0, 0, 0}, {202, 20, 15, 15, 0, 0, 0}, {203, 44, 10, 10, 0, 0, 0}, {204, 154, 104, 104, 0, 0, 0}, {205, 170, 31, 31, 0, 0, 0}, {300, 217, 22, 22, 0, 0, 0}}
+#define MAVLINK_MESSAGE_CRCS {{0, 50, 9, 9, 0, 0, 0}, {2, 137, 12, 12, 0, 0, 0}, {200, 190, 33, 33, 0, 0, 0}, {201, 80, 15, 15, 0, 0, 0}, {202, 20, 15, 15, 0, 0, 0}, {203, 44, 10, 10, 0, 0, 0}, {204, 252, 107, 107, 0, 0, 0}, {205, 170, 31, 31, 0, 0, 0}, {300, 217, 22, 22, 0, 0, 0}}
 #endif
 
 #include "../protocol.h"
