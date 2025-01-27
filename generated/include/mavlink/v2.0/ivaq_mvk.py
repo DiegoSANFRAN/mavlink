@@ -1221,22 +1221,22 @@ class MAVLink_ivaq_rx_signal_master_message(MAVLink_message):
 
     id = MAVLINK_MSG_ID_IVAQ_RX_SIGNAL_MASTER
     msgname = "IVAQ_RX_SIGNAL_MASTER"
-    fieldnames = ["rx_signal_det_flag", "rx_signal_det_to_send_flag", "rx_signal_det_time", "rx_signal_det_module_nocorr", "rx_signal_det_module_corr", "rx_saturation_flag_x", "rx_signal_det_flag_x", "rx_signal_det_to_send_flag_x", "rx_signal_det_time_x", "rx_signal_det_val_nocorr_x", "rx_signal_det_val_corr_x", "rx_noise_val_nocorr_x", "rx_noise_val_corr_x", "rx_noise_std_nocorr_x", "rx_noise_std_corr_x", "rx_saturation_flag_y", "rx_signal_det_flag_y", "rx_signal_det_to_send_flag_y", "rx_signal_det_time_y", "rx_signal_det_val_nocorr_y", "rx_signal_det_val_corr_y", "rx_noise_val_nocorr_y", "rx_noise_val_corr_y", "rx_noise_std_nocorr_y", "rx_noise_std_corr_y", "rx_saturation_flag_z", "rx_signal_det_flag_z", "rx_signal_det_to_send_flag_z", "rx_signal_det_time_z", "rx_signal_det_val_nocorr_z", "rx_signal_det_val_corr_z", "rx_noise_val_nocorr_z", "rx_noise_val_corr_z", "rx_noise_std_nocorr_z", "rx_noise_std_corr_z"]
-    ordered_fieldnames = ["rx_signal_det_time", "rx_signal_det_module_nocorr", "rx_signal_det_module_corr", "rx_signal_det_time_x", "rx_signal_det_val_nocorr_x", "rx_signal_det_val_corr_x", "rx_noise_val_nocorr_x", "rx_noise_val_corr_x", "rx_noise_std_nocorr_x", "rx_noise_std_corr_x", "rx_signal_det_time_y", "rx_signal_det_val_nocorr_y", "rx_signal_det_val_corr_y", "rx_noise_val_nocorr_y", "rx_noise_val_corr_y", "rx_noise_std_nocorr_y", "rx_noise_std_corr_y", "rx_signal_det_time_z", "rx_signal_det_val_nocorr_z", "rx_signal_det_val_corr_z", "rx_noise_val_nocorr_z", "rx_noise_val_corr_z", "rx_noise_std_nocorr_z", "rx_noise_std_corr_z", "rx_signal_det_flag", "rx_signal_det_to_send_flag", "rx_saturation_flag_x", "rx_signal_det_flag_x", "rx_signal_det_to_send_flag_x", "rx_saturation_flag_y", "rx_signal_det_flag_y", "rx_signal_det_to_send_flag_y", "rx_saturation_flag_z", "rx_signal_det_flag_z", "rx_signal_det_to_send_flag_z"]
-    fieldtypes = ["uint8_t", "uint8_t", "uint32_t", "float", "float", "uint8_t", "uint8_t", "uint8_t", "uint32_t", "float", "float", "float", "float", "float", "float", "uint8_t", "uint8_t", "uint8_t", "uint32_t", "float", "float", "float", "float", "float", "float", "uint8_t", "uint8_t", "uint8_t", "uint32_t", "float", "float", "float", "float", "float", "float"]
+    fieldnames = ["rx_signal_det_flag", "rx_signal_det_to_send_flag", "rx_signal_det_time", "rx_signal_det_module_nocorr", "rx_signal_det_module_corr", "rx_saturation_flag_x", "rx_signal_det_flag_x", "rx_signal_det_time_x", "rx_signal_det_val_nocorr_x", "rx_signal_det_val_corr_x", "rx_noise_val_nocorr_x", "rx_noise_val_corr_x", "rx_noise_std_nocorr_x", "rx_noise_std_corr_x", "rx_saturation_flag_y", "rx_signal_det_flag_y", "rx_signal_det_time_y", "rx_signal_det_val_nocorr_y", "rx_signal_det_val_corr_y", "rx_noise_val_nocorr_y", "rx_noise_val_corr_y", "rx_noise_std_nocorr_y", "rx_noise_std_corr_y", "rx_saturation_flag_z", "rx_signal_det_flag_z", "rx_signal_det_time_z", "rx_signal_det_val_nocorr_z", "rx_signal_det_val_corr_z", "rx_noise_val_nocorr_z", "rx_noise_val_corr_z", "rx_noise_std_nocorr_z", "rx_noise_std_corr_z"]
+    ordered_fieldnames = ["rx_signal_det_time", "rx_signal_det_module_nocorr", "rx_signal_det_module_corr", "rx_signal_det_time_x", "rx_signal_det_val_nocorr_x", "rx_signal_det_val_corr_x", "rx_noise_val_nocorr_x", "rx_noise_val_corr_x", "rx_noise_std_nocorr_x", "rx_noise_std_corr_x", "rx_signal_det_time_y", "rx_signal_det_val_nocorr_y", "rx_signal_det_val_corr_y", "rx_noise_val_nocorr_y", "rx_noise_val_corr_y", "rx_noise_std_nocorr_y", "rx_noise_std_corr_y", "rx_signal_det_time_z", "rx_signal_det_val_nocorr_z", "rx_signal_det_val_corr_z", "rx_noise_val_nocorr_z", "rx_noise_val_corr_z", "rx_noise_std_nocorr_z", "rx_noise_std_corr_z", "rx_signal_det_flag", "rx_signal_det_to_send_flag", "rx_saturation_flag_x", "rx_signal_det_flag_x", "rx_saturation_flag_y", "rx_signal_det_flag_y", "rx_saturation_flag_z", "rx_signal_det_flag_z"]
+    fieldtypes = ["uint8_t", "uint8_t", "uint32_t", "float", "float", "uint8_t", "uint8_t", "uint32_t", "float", "float", "float", "float", "float", "float", "uint8_t", "uint8_t", "uint32_t", "float", "float", "float", "float", "float", "float", "uint8_t", "uint8_t", "uint32_t", "float", "float", "float", "float", "float", "float"]
     fielddisplays_by_name: Dict[str, str] = {}
-    fieldenums_by_name: Dict[str, str] = {"rx_signal_det_flag": "MVK_SIGNAL_MASTER_DET", "rx_signal_det_to_send_flag": "MVK_SIGNAL_DET_SENT", "rx_saturation_flag_x": "MVK_SIGNAL_SAT", "rx_signal_det_flag_x": "MVK_SIGNAL_DET", "rx_signal_det_to_send_flag_x": "MVK_SIGNAL_DET_SENT", "rx_saturation_flag_y": "MVK_SIGNAL_SAT", "rx_signal_det_flag_y": "MVK_SIGNAL_DET", "rx_signal_det_to_send_flag_y": "MVK_SIGNAL_DET_SENT", "rx_saturation_flag_z": "MVK_SIGNAL_SAT", "rx_signal_det_flag_z": "MVK_SIGNAL_DET", "rx_signal_det_to_send_flag_z": "MVK_SIGNAL_DET_SENT"}
+    fieldenums_by_name: Dict[str, str] = {"rx_signal_det_flag": "MVK_SIGNAL_MASTER_DET", "rx_signal_det_to_send_flag": "MVK_SIGNAL_DET_SENT", "rx_saturation_flag_x": "MVK_SIGNAL_SAT", "rx_signal_det_flag_x": "MVK_SIGNAL_DET", "rx_saturation_flag_y": "MVK_SIGNAL_SAT", "rx_signal_det_flag_y": "MVK_SIGNAL_DET", "rx_saturation_flag_z": "MVK_SIGNAL_SAT", "rx_signal_det_flag_z": "MVK_SIGNAL_DET"}
     fieldunits_by_name: Dict[str, str] = {}
-    native_format = bytearray(b"<IffIffffffIffffffIffffffBBBBBBBBBBB")
-    orders = [24, 25, 0, 1, 2, 26, 27, 28, 3, 4, 5, 6, 7, 8, 9, 29, 30, 31, 10, 11, 12, 13, 14, 15, 16, 32, 33, 34, 17, 18, 19, 20, 21, 22, 23]
-    lengths = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-    array_lengths = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    crc_extra = 252
-    unpacker = struct.Struct("<IffIffffffIffffffIffffffBBBBBBBBBBB")
+    native_format = bytearray(b"<IffIffffffIffffffIffffffBBBBBBBB")
+    orders = [24, 25, 0, 1, 2, 26, 27, 3, 4, 5, 6, 7, 8, 9, 28, 29, 10, 11, 12, 13, 14, 15, 16, 30, 31, 17, 18, 19, 20, 21, 22, 23]
+    lengths = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    array_lengths = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    crc_extra = 206
+    unpacker = struct.Struct("<IffIffffffIffffffIffffffBBBBBBBB")
     instance_field = None
     instance_offset = -1
 
-    def __init__(self, rx_signal_det_flag: int, rx_signal_det_to_send_flag: int, rx_signal_det_time: int, rx_signal_det_module_nocorr: float, rx_signal_det_module_corr: float, rx_saturation_flag_x: int, rx_signal_det_flag_x: int, rx_signal_det_to_send_flag_x: int, rx_signal_det_time_x: int, rx_signal_det_val_nocorr_x: float, rx_signal_det_val_corr_x: float, rx_noise_val_nocorr_x: float, rx_noise_val_corr_x: float, rx_noise_std_nocorr_x: float, rx_noise_std_corr_x: float, rx_saturation_flag_y: int, rx_signal_det_flag_y: int, rx_signal_det_to_send_flag_y: int, rx_signal_det_time_y: int, rx_signal_det_val_nocorr_y: float, rx_signal_det_val_corr_y: float, rx_noise_val_nocorr_y: float, rx_noise_val_corr_y: float, rx_noise_std_nocorr_y: float, rx_noise_std_corr_y: float, rx_saturation_flag_z: int, rx_signal_det_flag_z: int, rx_signal_det_to_send_flag_z: int, rx_signal_det_time_z: int, rx_signal_det_val_nocorr_z: float, rx_signal_det_val_corr_z: float, rx_noise_val_nocorr_z: float, rx_noise_val_corr_z: float, rx_noise_std_nocorr_z: float, rx_noise_std_corr_z: float):
+    def __init__(self, rx_signal_det_flag: int, rx_signal_det_to_send_flag: int, rx_signal_det_time: int, rx_signal_det_module_nocorr: float, rx_signal_det_module_corr: float, rx_saturation_flag_x: int, rx_signal_det_flag_x: int, rx_signal_det_time_x: int, rx_signal_det_val_nocorr_x: float, rx_signal_det_val_corr_x: float, rx_noise_val_nocorr_x: float, rx_noise_val_corr_x: float, rx_noise_std_nocorr_x: float, rx_noise_std_corr_x: float, rx_saturation_flag_y: int, rx_signal_det_flag_y: int, rx_signal_det_time_y: int, rx_signal_det_val_nocorr_y: float, rx_signal_det_val_corr_y: float, rx_noise_val_nocorr_y: float, rx_noise_val_corr_y: float, rx_noise_std_nocorr_y: float, rx_noise_std_corr_y: float, rx_saturation_flag_z: int, rx_signal_det_flag_z: int, rx_signal_det_time_z: int, rx_signal_det_val_nocorr_z: float, rx_signal_det_val_corr_z: float, rx_noise_val_nocorr_z: float, rx_noise_val_corr_z: float, rx_noise_std_nocorr_z: float, rx_noise_std_corr_z: float):
         MAVLink_message.__init__(self, MAVLink_ivaq_rx_signal_master_message.id, MAVLink_ivaq_rx_signal_master_message.msgname)
         self._fieldnames = MAVLink_ivaq_rx_signal_master_message.fieldnames
         self._instance_field = MAVLink_ivaq_rx_signal_master_message.instance_field
@@ -1248,7 +1248,6 @@ class MAVLink_ivaq_rx_signal_master_message(MAVLink_message):
         self.rx_signal_det_module_corr = rx_signal_det_module_corr
         self.rx_saturation_flag_x = rx_saturation_flag_x
         self.rx_signal_det_flag_x = rx_signal_det_flag_x
-        self.rx_signal_det_to_send_flag_x = rx_signal_det_to_send_flag_x
         self.rx_signal_det_time_x = rx_signal_det_time_x
         self.rx_signal_det_val_nocorr_x = rx_signal_det_val_nocorr_x
         self.rx_signal_det_val_corr_x = rx_signal_det_val_corr_x
@@ -1258,7 +1257,6 @@ class MAVLink_ivaq_rx_signal_master_message(MAVLink_message):
         self.rx_noise_std_corr_x = rx_noise_std_corr_x
         self.rx_saturation_flag_y = rx_saturation_flag_y
         self.rx_signal_det_flag_y = rx_signal_det_flag_y
-        self.rx_signal_det_to_send_flag_y = rx_signal_det_to_send_flag_y
         self.rx_signal_det_time_y = rx_signal_det_time_y
         self.rx_signal_det_val_nocorr_y = rx_signal_det_val_nocorr_y
         self.rx_signal_det_val_corr_y = rx_signal_det_val_corr_y
@@ -1268,7 +1266,6 @@ class MAVLink_ivaq_rx_signal_master_message(MAVLink_message):
         self.rx_noise_std_corr_y = rx_noise_std_corr_y
         self.rx_saturation_flag_z = rx_saturation_flag_z
         self.rx_signal_det_flag_z = rx_signal_det_flag_z
-        self.rx_signal_det_to_send_flag_z = rx_signal_det_to_send_flag_z
         self.rx_signal_det_time_z = rx_signal_det_time_z
         self.rx_signal_det_val_nocorr_z = rx_signal_det_val_nocorr_z
         self.rx_signal_det_val_corr_z = rx_signal_det_val_corr_z
@@ -1278,7 +1275,7 @@ class MAVLink_ivaq_rx_signal_master_message(MAVLink_message):
         self.rx_noise_std_corr_z = rx_noise_std_corr_z
 
     def pack(self, mav: "MAVLink", force_mavlink1: bool = False) -> bytes:
-        return self._pack(mav, self.crc_extra, self.unpacker.pack(self.rx_signal_det_time, self.rx_signal_det_module_nocorr, self.rx_signal_det_module_corr, self.rx_signal_det_time_x, self.rx_signal_det_val_nocorr_x, self.rx_signal_det_val_corr_x, self.rx_noise_val_nocorr_x, self.rx_noise_val_corr_x, self.rx_noise_std_nocorr_x, self.rx_noise_std_corr_x, self.rx_signal_det_time_y, self.rx_signal_det_val_nocorr_y, self.rx_signal_det_val_corr_y, self.rx_noise_val_nocorr_y, self.rx_noise_val_corr_y, self.rx_noise_std_nocorr_y, self.rx_noise_std_corr_y, self.rx_signal_det_time_z, self.rx_signal_det_val_nocorr_z, self.rx_signal_det_val_corr_z, self.rx_noise_val_nocorr_z, self.rx_noise_val_corr_z, self.rx_noise_std_nocorr_z, self.rx_noise_std_corr_z, self.rx_signal_det_flag, self.rx_signal_det_to_send_flag, self.rx_saturation_flag_x, self.rx_signal_det_flag_x, self.rx_signal_det_to_send_flag_x, self.rx_saturation_flag_y, self.rx_signal_det_flag_y, self.rx_signal_det_to_send_flag_y, self.rx_saturation_flag_z, self.rx_signal_det_flag_z, self.rx_signal_det_to_send_flag_z), force_mavlink1=force_mavlink1)
+        return self._pack(mav, self.crc_extra, self.unpacker.pack(self.rx_signal_det_time, self.rx_signal_det_module_nocorr, self.rx_signal_det_module_corr, self.rx_signal_det_time_x, self.rx_signal_det_val_nocorr_x, self.rx_signal_det_val_corr_x, self.rx_noise_val_nocorr_x, self.rx_noise_val_corr_x, self.rx_noise_std_nocorr_x, self.rx_noise_std_corr_x, self.rx_signal_det_time_y, self.rx_signal_det_val_nocorr_y, self.rx_signal_det_val_corr_y, self.rx_noise_val_nocorr_y, self.rx_noise_val_corr_y, self.rx_noise_std_nocorr_y, self.rx_noise_std_corr_y, self.rx_signal_det_time_z, self.rx_signal_det_val_nocorr_z, self.rx_signal_det_val_corr_z, self.rx_noise_val_nocorr_z, self.rx_noise_val_corr_z, self.rx_noise_std_nocorr_z, self.rx_noise_std_corr_z, self.rx_signal_det_flag, self.rx_signal_det_to_send_flag, self.rx_saturation_flag_x, self.rx_signal_det_flag_x, self.rx_saturation_flag_y, self.rx_signal_det_flag_y, self.rx_saturation_flag_z, self.rx_signal_det_flag_z), force_mavlink1=force_mavlink1)
 
 
 # Define name on the class for backwards compatibility (it is now msgname).
@@ -2047,7 +2044,7 @@ class MAVLink(object):
         """
         self.send(self.ivaq_rx_set_params_slave_encode(rx_time_master_boot_ms, rx_set_chg_request, rx_set_reset, rx_set_anlg_en, rx_set_ant_states, rx_set_stg_states, rx_set_save_opt), force_mavlink1=force_mavlink1)
 
-    def ivaq_rx_signal_master_encode(self, rx_signal_det_flag: int, rx_signal_det_to_send_flag: int, rx_signal_det_time: int, rx_signal_det_module_nocorr: float, rx_signal_det_module_corr: float, rx_saturation_flag_x: int, rx_signal_det_flag_x: int, rx_signal_det_to_send_flag_x: int, rx_signal_det_time_x: int, rx_signal_det_val_nocorr_x: float, rx_signal_det_val_corr_x: float, rx_noise_val_nocorr_x: float, rx_noise_val_corr_x: float, rx_noise_std_nocorr_x: float, rx_noise_std_corr_x: float, rx_saturation_flag_y: int, rx_signal_det_flag_y: int, rx_signal_det_to_send_flag_y: int, rx_signal_det_time_y: int, rx_signal_det_val_nocorr_y: float, rx_signal_det_val_corr_y: float, rx_noise_val_nocorr_y: float, rx_noise_val_corr_y: float, rx_noise_std_nocorr_y: float, rx_noise_std_corr_y: float, rx_saturation_flag_z: int, rx_signal_det_flag_z: int, rx_signal_det_to_send_flag_z: int, rx_signal_det_time_z: int, rx_signal_det_val_nocorr_z: float, rx_signal_det_val_corr_z: float, rx_noise_val_nocorr_z: float, rx_noise_val_corr_z: float, rx_noise_std_nocorr_z: float, rx_noise_std_corr_z: float) -> MAVLink_ivaq_rx_signal_master_message:
+    def ivaq_rx_signal_master_encode(self, rx_signal_det_flag: int, rx_signal_det_to_send_flag: int, rx_signal_det_time: int, rx_signal_det_module_nocorr: float, rx_signal_det_module_corr: float, rx_saturation_flag_x: int, rx_signal_det_flag_x: int, rx_signal_det_time_x: int, rx_signal_det_val_nocorr_x: float, rx_signal_det_val_corr_x: float, rx_noise_val_nocorr_x: float, rx_noise_val_corr_x: float, rx_noise_std_nocorr_x: float, rx_noise_std_corr_x: float, rx_saturation_flag_y: int, rx_signal_det_flag_y: int, rx_signal_det_time_y: int, rx_signal_det_val_nocorr_y: float, rx_signal_det_val_corr_y: float, rx_noise_val_nocorr_y: float, rx_noise_val_corr_y: float, rx_noise_std_nocorr_y: float, rx_noise_std_corr_y: float, rx_saturation_flag_z: int, rx_signal_det_flag_z: int, rx_signal_det_time_z: int, rx_signal_det_val_nocorr_z: float, rx_signal_det_val_corr_z: float, rx_noise_val_nocorr_z: float, rx_noise_val_corr_z: float, rx_noise_std_nocorr_z: float, rx_noise_std_corr_z: float) -> MAVLink_ivaq_rx_signal_master_message:
         """
         Message with Signal from all antennas (X,Y,Z) in IVAQ Rx, uploaded to
         Raspi from Master
@@ -2059,7 +2056,6 @@ class MAVLink(object):
         rx_signal_det_module_corr        : Ivaq Rx Detected Pulse Module value [V] (type:float)
         rx_saturation_flag_x        : Ivaq Rx X-ant Saturation flag (type:uint8_t, values:MVK_SIGNAL_SAT)
         rx_signal_det_flag_x        : Ivaq Rx X-ant Signal Detection flag (type:uint8_t, values:MVK_SIGNAL_DET)
-        rx_signal_det_to_send_flag_x        : Ivaq Rx X-ant Signal Detected Sent flag (type:uint8_t, values:MVK_SIGNAL_DET_SENT)
         rx_signal_det_time_x        : Ivaq Rx X-ant Signal NoCorr value in detected pulse (type:uint32_t)
         rx_signal_det_val_nocorr_x        : Ivaq Rx X-ant Signal NoCorr value in detected pulse (type:float)
         rx_signal_det_val_corr_x        : Ivaq Rx X-ant Signal Corr value in detected pulse (type:float)
@@ -2069,7 +2065,6 @@ class MAVLink(object):
         rx_noise_std_corr_x        : Ivaq Rx X-ant Noise Corr Demod std deviation (type:float)
         rx_saturation_flag_y        : Ivaq Rx Y-ant Saturation flag (type:uint8_t, values:MVK_SIGNAL_SAT)
         rx_signal_det_flag_y        : Ivaq Rx Y-ant Signal Detection flag (type:uint8_t, values:MVK_SIGNAL_DET)
-        rx_signal_det_to_send_flag_y        : Ivaq Rx Y-ant Signal Detected Sent flag (type:uint8_t, values:MVK_SIGNAL_DET_SENT)
         rx_signal_det_time_y        : Ivaq Rx Y-ant Signal NoCorr value in detected pulse (type:uint32_t)
         rx_signal_det_val_nocorr_y        : Ivaq Rx Y-ant Signal NoCorr value in detected pulse (type:float)
         rx_signal_det_val_corr_y        : Ivaq Rx Y-ant Signal Corr value in detected pulse (type:float)
@@ -2079,7 +2074,6 @@ class MAVLink(object):
         rx_noise_std_corr_y        : Ivaq Rx Y-ant Noise Corr Demod std deviation (type:float)
         rx_saturation_flag_z        : Ivaq Rx Z-ant Saturation flag (type:uint8_t, values:MVK_SIGNAL_SAT)
         rx_signal_det_flag_z        : Ivaq Rx Z-ant Signal Detection flag (type:uint8_t, values:MVK_SIGNAL_DET)
-        rx_signal_det_to_send_flag_z        : Ivaq Rx Z-ant Signal Detected Sent flag (type:uint8_t, values:MVK_SIGNAL_DET_SENT)
         rx_signal_det_time_z        : Ivaq Rx Z-ant Signal NoCorr value in detected pulse (type:uint32_t)
         rx_signal_det_val_nocorr_z        : Ivaq Rx Z-ant Signal NoCorr value in detected pulse (type:float)
         rx_signal_det_val_corr_z        : Ivaq Rx Z-ant Signal Corr value in detected pulse (type:float)
@@ -2089,9 +2083,9 @@ class MAVLink(object):
         rx_noise_std_corr_z        : Ivaq Rx Z-ant Noise Corr Demod std deviation (type:float)
 
         """
-        return MAVLink_ivaq_rx_signal_master_message(rx_signal_det_flag, rx_signal_det_to_send_flag, rx_signal_det_time, rx_signal_det_module_nocorr, rx_signal_det_module_corr, rx_saturation_flag_x, rx_signal_det_flag_x, rx_signal_det_to_send_flag_x, rx_signal_det_time_x, rx_signal_det_val_nocorr_x, rx_signal_det_val_corr_x, rx_noise_val_nocorr_x, rx_noise_val_corr_x, rx_noise_std_nocorr_x, rx_noise_std_corr_x, rx_saturation_flag_y, rx_signal_det_flag_y, rx_signal_det_to_send_flag_y, rx_signal_det_time_y, rx_signal_det_val_nocorr_y, rx_signal_det_val_corr_y, rx_noise_val_nocorr_y, rx_noise_val_corr_y, rx_noise_std_nocorr_y, rx_noise_std_corr_y, rx_saturation_flag_z, rx_signal_det_flag_z, rx_signal_det_to_send_flag_z, rx_signal_det_time_z, rx_signal_det_val_nocorr_z, rx_signal_det_val_corr_z, rx_noise_val_nocorr_z, rx_noise_val_corr_z, rx_noise_std_nocorr_z, rx_noise_std_corr_z)
+        return MAVLink_ivaq_rx_signal_master_message(rx_signal_det_flag, rx_signal_det_to_send_flag, rx_signal_det_time, rx_signal_det_module_nocorr, rx_signal_det_module_corr, rx_saturation_flag_x, rx_signal_det_flag_x, rx_signal_det_time_x, rx_signal_det_val_nocorr_x, rx_signal_det_val_corr_x, rx_noise_val_nocorr_x, rx_noise_val_corr_x, rx_noise_std_nocorr_x, rx_noise_std_corr_x, rx_saturation_flag_y, rx_signal_det_flag_y, rx_signal_det_time_y, rx_signal_det_val_nocorr_y, rx_signal_det_val_corr_y, rx_noise_val_nocorr_y, rx_noise_val_corr_y, rx_noise_std_nocorr_y, rx_noise_std_corr_y, rx_saturation_flag_z, rx_signal_det_flag_z, rx_signal_det_time_z, rx_signal_det_val_nocorr_z, rx_signal_det_val_corr_z, rx_noise_val_nocorr_z, rx_noise_val_corr_z, rx_noise_std_nocorr_z, rx_noise_std_corr_z)
 
-    def ivaq_rx_signal_master_send(self, rx_signal_det_flag: int, rx_signal_det_to_send_flag: int, rx_signal_det_time: int, rx_signal_det_module_nocorr: float, rx_signal_det_module_corr: float, rx_saturation_flag_x: int, rx_signal_det_flag_x: int, rx_signal_det_to_send_flag_x: int, rx_signal_det_time_x: int, rx_signal_det_val_nocorr_x: float, rx_signal_det_val_corr_x: float, rx_noise_val_nocorr_x: float, rx_noise_val_corr_x: float, rx_noise_std_nocorr_x: float, rx_noise_std_corr_x: float, rx_saturation_flag_y: int, rx_signal_det_flag_y: int, rx_signal_det_to_send_flag_y: int, rx_signal_det_time_y: int, rx_signal_det_val_nocorr_y: float, rx_signal_det_val_corr_y: float, rx_noise_val_nocorr_y: float, rx_noise_val_corr_y: float, rx_noise_std_nocorr_y: float, rx_noise_std_corr_y: float, rx_saturation_flag_z: int, rx_signal_det_flag_z: int, rx_signal_det_to_send_flag_z: int, rx_signal_det_time_z: int, rx_signal_det_val_nocorr_z: float, rx_signal_det_val_corr_z: float, rx_noise_val_nocorr_z: float, rx_noise_val_corr_z: float, rx_noise_std_nocorr_z: float, rx_noise_std_corr_z: float, force_mavlink1: bool = False) -> None:
+    def ivaq_rx_signal_master_send(self, rx_signal_det_flag: int, rx_signal_det_to_send_flag: int, rx_signal_det_time: int, rx_signal_det_module_nocorr: float, rx_signal_det_module_corr: float, rx_saturation_flag_x: int, rx_signal_det_flag_x: int, rx_signal_det_time_x: int, rx_signal_det_val_nocorr_x: float, rx_signal_det_val_corr_x: float, rx_noise_val_nocorr_x: float, rx_noise_val_corr_x: float, rx_noise_std_nocorr_x: float, rx_noise_std_corr_x: float, rx_saturation_flag_y: int, rx_signal_det_flag_y: int, rx_signal_det_time_y: int, rx_signal_det_val_nocorr_y: float, rx_signal_det_val_corr_y: float, rx_noise_val_nocorr_y: float, rx_noise_val_corr_y: float, rx_noise_std_nocorr_y: float, rx_noise_std_corr_y: float, rx_saturation_flag_z: int, rx_signal_det_flag_z: int, rx_signal_det_time_z: int, rx_signal_det_val_nocorr_z: float, rx_signal_det_val_corr_z: float, rx_noise_val_nocorr_z: float, rx_noise_val_corr_z: float, rx_noise_std_nocorr_z: float, rx_noise_std_corr_z: float, force_mavlink1: bool = False) -> None:
         """
         Message with Signal from all antennas (X,Y,Z) in IVAQ Rx, uploaded to
         Raspi from Master
@@ -2103,7 +2097,6 @@ class MAVLink(object):
         rx_signal_det_module_corr        : Ivaq Rx Detected Pulse Module value [V] (type:float)
         rx_saturation_flag_x        : Ivaq Rx X-ant Saturation flag (type:uint8_t, values:MVK_SIGNAL_SAT)
         rx_signal_det_flag_x        : Ivaq Rx X-ant Signal Detection flag (type:uint8_t, values:MVK_SIGNAL_DET)
-        rx_signal_det_to_send_flag_x        : Ivaq Rx X-ant Signal Detected Sent flag (type:uint8_t, values:MVK_SIGNAL_DET_SENT)
         rx_signal_det_time_x        : Ivaq Rx X-ant Signal NoCorr value in detected pulse (type:uint32_t)
         rx_signal_det_val_nocorr_x        : Ivaq Rx X-ant Signal NoCorr value in detected pulse (type:float)
         rx_signal_det_val_corr_x        : Ivaq Rx X-ant Signal Corr value in detected pulse (type:float)
@@ -2113,7 +2106,6 @@ class MAVLink(object):
         rx_noise_std_corr_x        : Ivaq Rx X-ant Noise Corr Demod std deviation (type:float)
         rx_saturation_flag_y        : Ivaq Rx Y-ant Saturation flag (type:uint8_t, values:MVK_SIGNAL_SAT)
         rx_signal_det_flag_y        : Ivaq Rx Y-ant Signal Detection flag (type:uint8_t, values:MVK_SIGNAL_DET)
-        rx_signal_det_to_send_flag_y        : Ivaq Rx Y-ant Signal Detected Sent flag (type:uint8_t, values:MVK_SIGNAL_DET_SENT)
         rx_signal_det_time_y        : Ivaq Rx Y-ant Signal NoCorr value in detected pulse (type:uint32_t)
         rx_signal_det_val_nocorr_y        : Ivaq Rx Y-ant Signal NoCorr value in detected pulse (type:float)
         rx_signal_det_val_corr_y        : Ivaq Rx Y-ant Signal Corr value in detected pulse (type:float)
@@ -2123,7 +2115,6 @@ class MAVLink(object):
         rx_noise_std_corr_y        : Ivaq Rx Y-ant Noise Corr Demod std deviation (type:float)
         rx_saturation_flag_z        : Ivaq Rx Z-ant Saturation flag (type:uint8_t, values:MVK_SIGNAL_SAT)
         rx_signal_det_flag_z        : Ivaq Rx Z-ant Signal Detection flag (type:uint8_t, values:MVK_SIGNAL_DET)
-        rx_signal_det_to_send_flag_z        : Ivaq Rx Z-ant Signal Detected Sent flag (type:uint8_t, values:MVK_SIGNAL_DET_SENT)
         rx_signal_det_time_z        : Ivaq Rx Z-ant Signal NoCorr value in detected pulse (type:uint32_t)
         rx_signal_det_val_nocorr_z        : Ivaq Rx Z-ant Signal NoCorr value in detected pulse (type:float)
         rx_signal_det_val_corr_z        : Ivaq Rx Z-ant Signal Corr value in detected pulse (type:float)
@@ -2133,7 +2124,7 @@ class MAVLink(object):
         rx_noise_std_corr_z        : Ivaq Rx Z-ant Noise Corr Demod std deviation (type:float)
 
         """
-        self.send(self.ivaq_rx_signal_master_encode(rx_signal_det_flag, rx_signal_det_to_send_flag, rx_signal_det_time, rx_signal_det_module_nocorr, rx_signal_det_module_corr, rx_saturation_flag_x, rx_signal_det_flag_x, rx_signal_det_to_send_flag_x, rx_signal_det_time_x, rx_signal_det_val_nocorr_x, rx_signal_det_val_corr_x, rx_noise_val_nocorr_x, rx_noise_val_corr_x, rx_noise_std_nocorr_x, rx_noise_std_corr_x, rx_saturation_flag_y, rx_signal_det_flag_y, rx_signal_det_to_send_flag_y, rx_signal_det_time_y, rx_signal_det_val_nocorr_y, rx_signal_det_val_corr_y, rx_noise_val_nocorr_y, rx_noise_val_corr_y, rx_noise_std_nocorr_y, rx_noise_std_corr_y, rx_saturation_flag_z, rx_signal_det_flag_z, rx_signal_det_to_send_flag_z, rx_signal_det_time_z, rx_signal_det_val_nocorr_z, rx_signal_det_val_corr_z, rx_noise_val_nocorr_z, rx_noise_val_corr_z, rx_noise_std_nocorr_z, rx_noise_std_corr_z), force_mavlink1=force_mavlink1)
+        self.send(self.ivaq_rx_signal_master_encode(rx_signal_det_flag, rx_signal_det_to_send_flag, rx_signal_det_time, rx_signal_det_module_nocorr, rx_signal_det_module_corr, rx_saturation_flag_x, rx_signal_det_flag_x, rx_signal_det_time_x, rx_signal_det_val_nocorr_x, rx_signal_det_val_corr_x, rx_noise_val_nocorr_x, rx_noise_val_corr_x, rx_noise_std_nocorr_x, rx_noise_std_corr_x, rx_saturation_flag_y, rx_signal_det_flag_y, rx_signal_det_time_y, rx_signal_det_val_nocorr_y, rx_signal_det_val_corr_y, rx_noise_val_nocorr_y, rx_noise_val_corr_y, rx_noise_std_nocorr_y, rx_noise_std_corr_y, rx_saturation_flag_z, rx_signal_det_flag_z, rx_signal_det_time_z, rx_signal_det_val_nocorr_z, rx_signal_det_val_corr_z, rx_noise_val_nocorr_z, rx_noise_val_corr_z, rx_noise_std_nocorr_z, rx_noise_std_corr_z), force_mavlink1=force_mavlink1)
 
     def ivaq_rx_signal_slave_encode(self, rx_saturation_flag: int, rx_signal_det_flag: int, rx_signal_det_to_send_flag: int, rx_signal_det_time: int, rx_signal_det_val_nocorr: float, rx_signal_det_val_corr: float, rx_noise_val_nocorr: float, rx_noise_val_corr: float, rx_noise_std_nocorr: float, rx_noise_std_corr: float) -> MAVLink_ivaq_rx_signal_slave_message:
         """
