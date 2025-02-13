@@ -1025,22 +1025,22 @@ class MAVLink_ivaq_rx_params_master_message(MAVLink_message):
 
     id = MAVLINK_MSG_ID_IVAQ_RX_PARAMS_MASTER
     msgname = "IVAQ_RX_PARAMS_MASTER"
-    fieldnames = ["rx_mode_x", "rx_status_x", "rx_anlg_en_x", "rx_battery_voltage_x", "rx_ant_states_x", "rx_stg_states_x", "rx_card_det_x", "rx_save_opt_x", "rx_mode_y", "rx_status_y", "rx_anlg_en_y", "rx_battery_voltage_y", "rx_ant_states_y", "rx_stg_states_y", "rx_card_det_y", "rx_save_opt_y", "rx_mode_z", "rx_status_z", "rx_anlg_en_z", "rx_battery_voltage_z", "rx_ant_states_z", "rx_stg_states_z", "rx_card_det_z", "rx_save_opt_z"]
-    ordered_fieldnames = ["rx_battery_voltage_x", "rx_battery_voltage_y", "rx_battery_voltage_z", "rx_mode_x", "rx_status_x", "rx_anlg_en_x", "rx_ant_states_x", "rx_stg_states_x", "rx_card_det_x", "rx_save_opt_x", "rx_mode_y", "rx_status_y", "rx_anlg_en_y", "rx_ant_states_y", "rx_stg_states_y", "rx_card_det_y", "rx_save_opt_y", "rx_mode_z", "rx_status_z", "rx_anlg_en_z", "rx_ant_states_z", "rx_stg_states_z", "rx_card_det_z", "rx_save_opt_z"]
-    fieldtypes = ["uint8_t", "uint8_t", "uint8_t", "float", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "float", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "float", "uint8_t", "uint8_t", "uint8_t", "uint8_t"]
+    fieldnames = ["rx_mode_x", "rx_status_x", "rx_anlg_en_x", "rx_battery_voltage_x", "rx_ant_states_x", "rx_stgs_operation_x", "rx_stg_states_x", "rx_card_det_x", "rx_save_opt_x", "rx_mode_y", "rx_status_y", "rx_anlg_en_y", "rx_battery_voltage_y", "rx_ant_states_y", "rx_stgs_operation_y", "rx_stg_states_y", "rx_card_det_y", "rx_save_opt_y", "rx_mode_z", "rx_status_z", "rx_anlg_en_z", "rx_battery_voltage_z", "rx_ant_states_z", "rx_stgs_operation_z", "rx_stg_states_z", "rx_card_det_z", "rx_save_opt_z"]
+    ordered_fieldnames = ["rx_battery_voltage_x", "rx_battery_voltage_y", "rx_battery_voltage_z", "rx_mode_x", "rx_status_x", "rx_anlg_en_x", "rx_ant_states_x", "rx_stgs_operation_x", "rx_stg_states_x", "rx_card_det_x", "rx_save_opt_x", "rx_mode_y", "rx_status_y", "rx_anlg_en_y", "rx_ant_states_y", "rx_stgs_operation_y", "rx_stg_states_y", "rx_card_det_y", "rx_save_opt_y", "rx_mode_z", "rx_status_z", "rx_anlg_en_z", "rx_ant_states_z", "rx_stgs_operation_z", "rx_stg_states_z", "rx_card_det_z", "rx_save_opt_z"]
+    fieldtypes = ["uint8_t", "uint8_t", "uint8_t", "float", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "float", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "float", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t"]
     fielddisplays_by_name: Dict[str, str] = {}
-    fieldenums_by_name: Dict[str, str] = {"rx_mode_x": "MVK_RX_MODE", "rx_status_x": "MVK_RX_STATUS", "rx_anlg_en_x": "MVK_RX_ANLG_EN", "rx_ant_states_x": "MVK_ANT_STATES", "rx_stg_states_x": "MVK_STAGE_STATES", "rx_card_det_x": "MVK_CARD_STATE", "rx_save_opt_x": "MVK_SAVE_STATE", "rx_mode_y": "MVK_RX_MODE", "rx_status_y": "MVK_RX_STATUS", "rx_anlg_en_y": "MVK_RX_ANLG_EN", "rx_ant_states_y": "MVK_ANT_STATES", "rx_stg_states_y": "MVK_STAGE_STATES", "rx_card_det_y": "MVK_CARD_STATE", "rx_save_opt_y": "MVK_SAVE_STATE", "rx_mode_z": "MVK_RX_MODE", "rx_status_z": "MVK_RX_STATUS", "rx_anlg_en_z": "MVK_RX_ANLG_EN", "rx_ant_states_z": "MVK_ANT_STATES", "rx_stg_states_z": "MVK_STAGE_STATES", "rx_card_det_z": "MVK_CARD_STATE", "rx_save_opt_z": "MVK_SAVE_STATE"}
+    fieldenums_by_name: Dict[str, str] = {"rx_mode_x": "MVK_RX_MODE", "rx_status_x": "MVK_RX_STATUS", "rx_anlg_en_x": "MVK_RX_ANLG_EN", "rx_ant_states_x": "MVK_ANT_STATES", "rx_stgs_operation_x": "MVK_RX_STAGES_OPERATION", "rx_stg_states_x": "MVK_STAGE_STATES", "rx_card_det_x": "MVK_CARD_STATE", "rx_save_opt_x": "MVK_SAVE_STATE", "rx_mode_y": "MVK_RX_MODE", "rx_status_y": "MVK_RX_STATUS", "rx_anlg_en_y": "MVK_RX_ANLG_EN", "rx_ant_states_y": "MVK_ANT_STATES", "rx_stgs_operation_y": "MVK_RX_STAGES_OPERATION", "rx_stg_states_y": "MVK_STAGE_STATES", "rx_card_det_y": "MVK_CARD_STATE", "rx_save_opt_y": "MVK_SAVE_STATE", "rx_mode_z": "MVK_RX_MODE", "rx_status_z": "MVK_RX_STATUS", "rx_anlg_en_z": "MVK_RX_ANLG_EN", "rx_ant_states_z": "MVK_ANT_STATES", "rx_stgs_operation_z": "MVK_RX_STAGES_OPERATION", "rx_stg_states_z": "MVK_STAGE_STATES", "rx_card_det_z": "MVK_CARD_STATE", "rx_save_opt_z": "MVK_SAVE_STATE"}
     fieldunits_by_name: Dict[str, str] = {}
-    native_format = bytearray(b"<fffBBBBBBBBBBBBBBBBBBBBB")
-    orders = [3, 4, 5, 0, 6, 7, 8, 9, 10, 11, 12, 1, 13, 14, 15, 16, 17, 18, 19, 2, 20, 21, 22, 23]
-    lengths = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-    array_lengths = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    crc_extra = 190
-    unpacker = struct.Struct("<fffBBBBBBBBBBBBBBBBBBBBB")
+    native_format = bytearray(b"<fffBBBBBBBBBBBBBBBBBBBBBBBB")
+    orders = [3, 4, 5, 0, 6, 7, 8, 9, 10, 11, 12, 13, 1, 14, 15, 16, 17, 18, 19, 20, 21, 2, 22, 23, 24, 25, 26]
+    lengths = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    array_lengths = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    crc_extra = 176
+    unpacker = struct.Struct("<fffBBBBBBBBBBBBBBBBBBBBBBBB")
     instance_field = None
     instance_offset = -1
 
-    def __init__(self, rx_mode_x: int, rx_status_x: int, rx_anlg_en_x: int, rx_battery_voltage_x: float, rx_ant_states_x: int, rx_stg_states_x: int, rx_card_det_x: int, rx_save_opt_x: int, rx_mode_y: int, rx_status_y: int, rx_anlg_en_y: int, rx_battery_voltage_y: float, rx_ant_states_y: int, rx_stg_states_y: int, rx_card_det_y: int, rx_save_opt_y: int, rx_mode_z: int, rx_status_z: int, rx_anlg_en_z: int, rx_battery_voltage_z: float, rx_ant_states_z: int, rx_stg_states_z: int, rx_card_det_z: int, rx_save_opt_z: int):
+    def __init__(self, rx_mode_x: int, rx_status_x: int, rx_anlg_en_x: int, rx_battery_voltage_x: float, rx_ant_states_x: int, rx_stgs_operation_x: int, rx_stg_states_x: int, rx_card_det_x: int, rx_save_opt_x: int, rx_mode_y: int, rx_status_y: int, rx_anlg_en_y: int, rx_battery_voltage_y: float, rx_ant_states_y: int, rx_stgs_operation_y: int, rx_stg_states_y: int, rx_card_det_y: int, rx_save_opt_y: int, rx_mode_z: int, rx_status_z: int, rx_anlg_en_z: int, rx_battery_voltage_z: float, rx_ant_states_z: int, rx_stgs_operation_z: int, rx_stg_states_z: int, rx_card_det_z: int, rx_save_opt_z: int):
         MAVLink_message.__init__(self, MAVLink_ivaq_rx_params_master_message.id, MAVLink_ivaq_rx_params_master_message.msgname)
         self._fieldnames = MAVLink_ivaq_rx_params_master_message.fieldnames
         self._instance_field = MAVLink_ivaq_rx_params_master_message.instance_field
@@ -1050,6 +1050,7 @@ class MAVLink_ivaq_rx_params_master_message(MAVLink_message):
         self.rx_anlg_en_x = rx_anlg_en_x
         self.rx_battery_voltage_x = rx_battery_voltage_x
         self.rx_ant_states_x = rx_ant_states_x
+        self.rx_stgs_operation_x = rx_stgs_operation_x
         self.rx_stg_states_x = rx_stg_states_x
         self.rx_card_det_x = rx_card_det_x
         self.rx_save_opt_x = rx_save_opt_x
@@ -1058,6 +1059,7 @@ class MAVLink_ivaq_rx_params_master_message(MAVLink_message):
         self.rx_anlg_en_y = rx_anlg_en_y
         self.rx_battery_voltage_y = rx_battery_voltage_y
         self.rx_ant_states_y = rx_ant_states_y
+        self.rx_stgs_operation_y = rx_stgs_operation_y
         self.rx_stg_states_y = rx_stg_states_y
         self.rx_card_det_y = rx_card_det_y
         self.rx_save_opt_y = rx_save_opt_y
@@ -1066,12 +1068,13 @@ class MAVLink_ivaq_rx_params_master_message(MAVLink_message):
         self.rx_anlg_en_z = rx_anlg_en_z
         self.rx_battery_voltage_z = rx_battery_voltage_z
         self.rx_ant_states_z = rx_ant_states_z
+        self.rx_stgs_operation_z = rx_stgs_operation_z
         self.rx_stg_states_z = rx_stg_states_z
         self.rx_card_det_z = rx_card_det_z
         self.rx_save_opt_z = rx_save_opt_z
 
     def pack(self, mav: "MAVLink", force_mavlink1: bool = False) -> bytes:
-        return self._pack(mav, self.crc_extra, self.unpacker.pack(self.rx_battery_voltage_x, self.rx_battery_voltage_y, self.rx_battery_voltage_z, self.rx_mode_x, self.rx_status_x, self.rx_anlg_en_x, self.rx_ant_states_x, self.rx_stg_states_x, self.rx_card_det_x, self.rx_save_opt_x, self.rx_mode_y, self.rx_status_y, self.rx_anlg_en_y, self.rx_ant_states_y, self.rx_stg_states_y, self.rx_card_det_y, self.rx_save_opt_y, self.rx_mode_z, self.rx_status_z, self.rx_anlg_en_z, self.rx_ant_states_z, self.rx_stg_states_z, self.rx_card_det_z, self.rx_save_opt_z), force_mavlink1=force_mavlink1)
+        return self._pack(mav, self.crc_extra, self.unpacker.pack(self.rx_battery_voltage_x, self.rx_battery_voltage_y, self.rx_battery_voltage_z, self.rx_mode_x, self.rx_status_x, self.rx_anlg_en_x, self.rx_ant_states_x, self.rx_stgs_operation_x, self.rx_stg_states_x, self.rx_card_det_x, self.rx_save_opt_x, self.rx_mode_y, self.rx_status_y, self.rx_anlg_en_y, self.rx_ant_states_y, self.rx_stgs_operation_y, self.rx_stg_states_y, self.rx_card_det_y, self.rx_save_opt_y, self.rx_mode_z, self.rx_status_z, self.rx_anlg_en_z, self.rx_ant_states_z, self.rx_stgs_operation_z, self.rx_stg_states_z, self.rx_card_det_z, self.rx_save_opt_z), force_mavlink1=force_mavlink1)
 
 
 # Define name on the class for backwards compatibility (it is now msgname).
@@ -1086,22 +1089,22 @@ class MAVLink_ivaq_rx_params_slave_message(MAVLink_message):
 
     id = MAVLINK_MSG_ID_IVAQ_RX_PARAMS_SLAVE
     msgname = "IVAQ_RX_PARAMS_SLAVE"
-    fieldnames = ["delta_t_master_slave", "rx_mode", "rx_status", "rx_anlg_en", "rx_battery_voltage", "rx_ant_states", "rx_stg_states", "rx_card_det", "rx_save_opt"]
-    ordered_fieldnames = ["delta_t_master_slave", "rx_battery_voltage", "rx_mode", "rx_status", "rx_anlg_en", "rx_ant_states", "rx_stg_states", "rx_card_det", "rx_save_opt"]
-    fieldtypes = ["uint32_t", "uint8_t", "uint8_t", "uint8_t", "float", "uint8_t", "uint8_t", "uint8_t", "uint8_t"]
+    fieldnames = ["delta_t_master_slave", "rx_mode", "rx_status", "rx_anlg_en", "rx_battery_voltage", "rx_ant_states", "rx_stgs_operation", "rx_stg_states", "rx_card_det", "rx_save_opt"]
+    ordered_fieldnames = ["delta_t_master_slave", "rx_battery_voltage", "rx_mode", "rx_status", "rx_anlg_en", "rx_ant_states", "rx_stgs_operation", "rx_stg_states", "rx_card_det", "rx_save_opt"]
+    fieldtypes = ["uint32_t", "uint8_t", "uint8_t", "uint8_t", "float", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t"]
     fielddisplays_by_name: Dict[str, str] = {}
-    fieldenums_by_name: Dict[str, str] = {"rx_mode": "MVK_RX_MODE", "rx_status": "MVK_RX_STATUS", "rx_anlg_en": "MVK_RX_ANLG_EN", "rx_ant_states": "MVK_ANT_STATES", "rx_stg_states": "MVK_STAGE_STATES", "rx_card_det": "MVK_CARD_STATE", "rx_save_opt": "MVK_SAVE_STATE"}
+    fieldenums_by_name: Dict[str, str] = {"rx_mode": "MVK_RX_MODE", "rx_status": "MVK_RX_STATUS", "rx_anlg_en": "MVK_RX_ANLG_EN", "rx_ant_states": "MVK_ANT_STATES", "rx_stgs_operation": "MVK_RX_STAGES_OPERATION", "rx_stg_states": "MVK_STAGE_STATES", "rx_card_det": "MVK_CARD_STATE", "rx_save_opt": "MVK_SAVE_STATE"}
     fieldunits_by_name: Dict[str, str] = {}
-    native_format = bytearray(b"<IfBBBBBBB")
-    orders = [0, 2, 3, 4, 1, 5, 6, 7, 8]
-    lengths = [1, 1, 1, 1, 1, 1, 1, 1, 1]
-    array_lengths = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-    crc_extra = 80
-    unpacker = struct.Struct("<IfBBBBBBB")
+    native_format = bytearray(b"<IfBBBBBBBB")
+    orders = [0, 2, 3, 4, 1, 5, 6, 7, 8, 9]
+    lengths = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    array_lengths = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    crc_extra = 7
+    unpacker = struct.Struct("<IfBBBBBBBB")
     instance_field = None
     instance_offset = -1
 
-    def __init__(self, delta_t_master_slave: int, rx_mode: int, rx_status: int, rx_anlg_en: int, rx_battery_voltage: float, rx_ant_states: int, rx_stg_states: int, rx_card_det: int, rx_save_opt: int):
+    def __init__(self, delta_t_master_slave: int, rx_mode: int, rx_status: int, rx_anlg_en: int, rx_battery_voltage: float, rx_ant_states: int, rx_stgs_operation: int, rx_stg_states: int, rx_card_det: int, rx_save_opt: int):
         MAVLink_message.__init__(self, MAVLink_ivaq_rx_params_slave_message.id, MAVLink_ivaq_rx_params_slave_message.msgname)
         self._fieldnames = MAVLink_ivaq_rx_params_slave_message.fieldnames
         self._instance_field = MAVLink_ivaq_rx_params_slave_message.instance_field
@@ -1112,12 +1115,13 @@ class MAVLink_ivaq_rx_params_slave_message(MAVLink_message):
         self.rx_anlg_en = rx_anlg_en
         self.rx_battery_voltage = rx_battery_voltage
         self.rx_ant_states = rx_ant_states
+        self.rx_stgs_operation = rx_stgs_operation
         self.rx_stg_states = rx_stg_states
         self.rx_card_det = rx_card_det
         self.rx_save_opt = rx_save_opt
 
     def pack(self, mav: "MAVLink", force_mavlink1: bool = False) -> bytes:
-        return self._pack(mav, self.crc_extra, self.unpacker.pack(self.delta_t_master_slave, self.rx_battery_voltage, self.rx_mode, self.rx_status, self.rx_anlg_en, self.rx_ant_states, self.rx_stg_states, self.rx_card_det, self.rx_save_opt), force_mavlink1=force_mavlink1)
+        return self._pack(mav, self.crc_extra, self.unpacker.pack(self.delta_t_master_slave, self.rx_battery_voltage, self.rx_mode, self.rx_status, self.rx_anlg_en, self.rx_ant_states, self.rx_stgs_operation, self.rx_stg_states, self.rx_card_det, self.rx_save_opt), force_mavlink1=force_mavlink1)
 
 
 # Define name on the class for backwards compatibility (it is now msgname).
@@ -1133,45 +1137,47 @@ class MAVLink_ivaq_rx_set_params_master_message(MAVLink_message):
 
     id = MAVLINK_MSG_ID_IVAQ_RX_SET_PARAMS_MASTER
     msgname = "IVAQ_RX_SET_PARAMS_MASTER"
-    fieldnames = ["rx_set_reset_x", "rx_set_anlg_en_x", "rx_set_stgs_operation", "rx_set_ant_states_x", "rx_set_stg_states_x", "rx_set_save_opt_x", "rx_set_reset_y", "rx_set_anlg_en_y", "rx_set_ant_states_y", "rx_set_stg_states_y", "rx_set_save_opt_y", "rx_set_reset_z", "rx_set_anlg_en_z", "rx_set_ant_states_z", "rx_set_stg_states_z", "rx_set_save_opt_z"]
-    ordered_fieldnames = ["rx_set_reset_x", "rx_set_anlg_en_x", "rx_set_stgs_operation", "rx_set_ant_states_x", "rx_set_stg_states_x", "rx_set_save_opt_x", "rx_set_reset_y", "rx_set_anlg_en_y", "rx_set_ant_states_y", "rx_set_stg_states_y", "rx_set_save_opt_y", "rx_set_reset_z", "rx_set_anlg_en_z", "rx_set_ant_states_z", "rx_set_stg_states_z", "rx_set_save_opt_z"]
-    fieldtypes = ["uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t"]
+    fieldnames = ["rx_set_reset_x", "rx_set_anlg_en_x", "rx_set_ant_states_x", "rx_set_stgs_operation_x", "rx_set_stg_states_x", "rx_set_save_opt_x", "rx_set_reset_y", "rx_set_anlg_en_y", "rx_set_ant_states_y", "rx_set_stgs_operation_y", "rx_set_stg_states_y", "rx_set_save_opt_y", "rx_set_reset_z", "rx_set_anlg_en_z", "rx_set_ant_states_z", "rx_set_stgs_operation_z", "rx_set_stg_states_z", "rx_set_save_opt_z"]
+    ordered_fieldnames = ["rx_set_reset_x", "rx_set_anlg_en_x", "rx_set_ant_states_x", "rx_set_stgs_operation_x", "rx_set_stg_states_x", "rx_set_save_opt_x", "rx_set_reset_y", "rx_set_anlg_en_y", "rx_set_ant_states_y", "rx_set_stgs_operation_y", "rx_set_stg_states_y", "rx_set_save_opt_y", "rx_set_reset_z", "rx_set_anlg_en_z", "rx_set_ant_states_z", "rx_set_stgs_operation_z", "rx_set_stg_states_z", "rx_set_save_opt_z"]
+    fieldtypes = ["uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t"]
     fielddisplays_by_name: Dict[str, str] = {}
-    fieldenums_by_name: Dict[str, str] = {"rx_set_reset_x": "MVK_RX_RESET", "rx_set_anlg_en_x": "MVK_RX_ANLG_EN", "rx_set_stgs_operation": "MVK_RX_STAGES_OPERATION", "rx_set_ant_states_x": "MVK_ANT_STATES", "rx_set_stg_states_x": "MVK_STAGE_STATES", "rx_set_save_opt_x": "MVK_SAVE_STATE", "rx_set_reset_y": "MVK_RX_RESET", "rx_set_anlg_en_y": "MVK_RX_ANLG_EN", "rx_set_ant_states_y": "MVK_ANT_STATES", "rx_set_stg_states_y": "MVK_STAGE_STATES", "rx_set_save_opt_y": "MVK_SAVE_STATE", "rx_set_reset_z": "MVK_RX_RESET", "rx_set_anlg_en_z": "MVK_RX_ANLG_EN", "rx_set_ant_states_z": "MVK_ANT_STATES", "rx_set_stg_states_z": "MVK_STAGE_STATES", "rx_set_save_opt_z": "MVK_SAVE_STATE"}
+    fieldenums_by_name: Dict[str, str] = {"rx_set_reset_x": "MVK_RX_RESET", "rx_set_anlg_en_x": "MVK_RX_ANLG_EN", "rx_set_ant_states_x": "MVK_ANT_STATES", "rx_set_stgs_operation_x": "MVK_RX_STAGES_OPERATION", "rx_set_stg_states_x": "MVK_STAGE_STATES", "rx_set_save_opt_x": "MVK_SAVE_STATE", "rx_set_reset_y": "MVK_RX_RESET", "rx_set_anlg_en_y": "MVK_RX_ANLG_EN", "rx_set_ant_states_y": "MVK_ANT_STATES", "rx_set_stgs_operation_y": "MVK_RX_STAGES_OPERATION", "rx_set_stg_states_y": "MVK_STAGE_STATES", "rx_set_save_opt_y": "MVK_SAVE_STATE", "rx_set_reset_z": "MVK_RX_RESET", "rx_set_anlg_en_z": "MVK_RX_ANLG_EN", "rx_set_ant_states_z": "MVK_ANT_STATES", "rx_set_stgs_operation_z": "MVK_RX_STAGES_OPERATION", "rx_set_stg_states_z": "MVK_STAGE_STATES", "rx_set_save_opt_z": "MVK_SAVE_STATE"}
     fieldunits_by_name: Dict[str, str] = {}
-    native_format = bytearray(b"<BBBBBBBBBBBBBBBB")
-    orders = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-    lengths = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-    array_lengths = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    crc_extra = 102
-    unpacker = struct.Struct("<BBBBBBBBBBBBBBBB")
+    native_format = bytearray(b"<BBBBBBBBBBBBBBBBBB")
+    orders = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+    lengths = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    array_lengths = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    crc_extra = 204
+    unpacker = struct.Struct("<BBBBBBBBBBBBBBBBBB")
     instance_field = None
     instance_offset = -1
 
-    def __init__(self, rx_set_reset_x: int, rx_set_anlg_en_x: int, rx_set_stgs_operation: int, rx_set_ant_states_x: int, rx_set_stg_states_x: int, rx_set_save_opt_x: int, rx_set_reset_y: int, rx_set_anlg_en_y: int, rx_set_ant_states_y: int, rx_set_stg_states_y: int, rx_set_save_opt_y: int, rx_set_reset_z: int, rx_set_anlg_en_z: int, rx_set_ant_states_z: int, rx_set_stg_states_z: int, rx_set_save_opt_z: int):
+    def __init__(self, rx_set_reset_x: int, rx_set_anlg_en_x: int, rx_set_ant_states_x: int, rx_set_stgs_operation_x: int, rx_set_stg_states_x: int, rx_set_save_opt_x: int, rx_set_reset_y: int, rx_set_anlg_en_y: int, rx_set_ant_states_y: int, rx_set_stgs_operation_y: int, rx_set_stg_states_y: int, rx_set_save_opt_y: int, rx_set_reset_z: int, rx_set_anlg_en_z: int, rx_set_ant_states_z: int, rx_set_stgs_operation_z: int, rx_set_stg_states_z: int, rx_set_save_opt_z: int):
         MAVLink_message.__init__(self, MAVLink_ivaq_rx_set_params_master_message.id, MAVLink_ivaq_rx_set_params_master_message.msgname)
         self._fieldnames = MAVLink_ivaq_rx_set_params_master_message.fieldnames
         self._instance_field = MAVLink_ivaq_rx_set_params_master_message.instance_field
         self._instance_offset = MAVLink_ivaq_rx_set_params_master_message.instance_offset
         self.rx_set_reset_x = rx_set_reset_x
         self.rx_set_anlg_en_x = rx_set_anlg_en_x
-        self.rx_set_stgs_operation = rx_set_stgs_operation
         self.rx_set_ant_states_x = rx_set_ant_states_x
+        self.rx_set_stgs_operation_x = rx_set_stgs_operation_x
         self.rx_set_stg_states_x = rx_set_stg_states_x
         self.rx_set_save_opt_x = rx_set_save_opt_x
         self.rx_set_reset_y = rx_set_reset_y
         self.rx_set_anlg_en_y = rx_set_anlg_en_y
         self.rx_set_ant_states_y = rx_set_ant_states_y
+        self.rx_set_stgs_operation_y = rx_set_stgs_operation_y
         self.rx_set_stg_states_y = rx_set_stg_states_y
         self.rx_set_save_opt_y = rx_set_save_opt_y
         self.rx_set_reset_z = rx_set_reset_z
         self.rx_set_anlg_en_z = rx_set_anlg_en_z
         self.rx_set_ant_states_z = rx_set_ant_states_z
+        self.rx_set_stgs_operation_z = rx_set_stgs_operation_z
         self.rx_set_stg_states_z = rx_set_stg_states_z
         self.rx_set_save_opt_z = rx_set_save_opt_z
 
     def pack(self, mav: "MAVLink", force_mavlink1: bool = False) -> bytes:
-        return self._pack(mav, self.crc_extra, self.unpacker.pack(self.rx_set_reset_x, self.rx_set_anlg_en_x, self.rx_set_stgs_operation, self.rx_set_ant_states_x, self.rx_set_stg_states_x, self.rx_set_save_opt_x, self.rx_set_reset_y, self.rx_set_anlg_en_y, self.rx_set_ant_states_y, self.rx_set_stg_states_y, self.rx_set_save_opt_y, self.rx_set_reset_z, self.rx_set_anlg_en_z, self.rx_set_ant_states_z, self.rx_set_stg_states_z, self.rx_set_save_opt_z), force_mavlink1=force_mavlink1)
+        return self._pack(mav, self.crc_extra, self.unpacker.pack(self.rx_set_reset_x, self.rx_set_anlg_en_x, self.rx_set_ant_states_x, self.rx_set_stgs_operation_x, self.rx_set_stg_states_x, self.rx_set_save_opt_x, self.rx_set_reset_y, self.rx_set_anlg_en_y, self.rx_set_ant_states_y, self.rx_set_stgs_operation_y, self.rx_set_stg_states_y, self.rx_set_save_opt_y, self.rx_set_reset_z, self.rx_set_anlg_en_z, self.rx_set_ant_states_z, self.rx_set_stgs_operation_z, self.rx_set_stg_states_z, self.rx_set_save_opt_z), force_mavlink1=force_mavlink1)
 
 
 # Define name on the class for backwards compatibility (it is now msgname).
@@ -1186,11 +1192,11 @@ class MAVLink_ivaq_rx_set_params_slave_message(MAVLink_message):
 
     id = MAVLINK_MSG_ID_IVAQ_RX_SET_PARAMS_SLAVE
     msgname = "IVAQ_RX_SET_PARAMS_SLAVE"
-    fieldnames = ["rx_time_master_boot_ms", "rx_set_chg_request", "rx_set_reset", "rx_set_anlg_en", "rx_set_stgs_operation", "rx_set_ant_states", "rx_set_stg_states", "rx_set_save_opt"]
-    ordered_fieldnames = ["rx_time_master_boot_ms", "rx_set_chg_request", "rx_set_reset", "rx_set_anlg_en", "rx_set_stgs_operation", "rx_set_ant_states", "rx_set_stg_states", "rx_set_save_opt"]
+    fieldnames = ["rx_time_master_boot_ms", "rx_set_chg_request", "rx_set_reset", "rx_set_anlg_en", "rx_set_ant_states", "rx_set_stgs_operation", "rx_set_stg_states", "rx_set_save_opt"]
+    ordered_fieldnames = ["rx_time_master_boot_ms", "rx_set_chg_request", "rx_set_reset", "rx_set_anlg_en", "rx_set_ant_states", "rx_set_stgs_operation", "rx_set_stg_states", "rx_set_save_opt"]
     fieldtypes = ["uint32_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t", "uint8_t"]
     fielddisplays_by_name: Dict[str, str] = {}
-    fieldenums_by_name: Dict[str, str] = {"rx_set_chg_request": "MVK_RX_CHG_REQ", "rx_set_reset": "MVK_RX_RESET", "rx_set_anlg_en": "MVK_RX_ANLG_EN", "rx_set_stgs_operation": "MVK_RX_STAGES_OPERATION", "rx_set_ant_states": "MVK_ANT_STATES", "rx_set_stg_states": "MVK_STAGE_STATES", "rx_set_save_opt": "MVK_SAVE_STATE"}
+    fieldenums_by_name: Dict[str, str] = {"rx_set_chg_request": "MVK_RX_CHG_REQ", "rx_set_reset": "MVK_RX_RESET", "rx_set_anlg_en": "MVK_RX_ANLG_EN", "rx_set_ant_states": "MVK_ANT_STATES", "rx_set_stgs_operation": "MVK_RX_STAGES_OPERATION", "rx_set_stg_states": "MVK_STAGE_STATES", "rx_set_save_opt": "MVK_SAVE_STATE"}
     fieldunits_by_name: Dict[str, str] = {}
     native_format = bytearray(b"<IBBBBBBB")
     orders = [0, 1, 2, 3, 4, 5, 6, 7]
@@ -1201,7 +1207,7 @@ class MAVLink_ivaq_rx_set_params_slave_message(MAVLink_message):
     instance_field = None
     instance_offset = -1
 
-    def __init__(self, rx_time_master_boot_ms: int, rx_set_chg_request: int, rx_set_reset: int, rx_set_anlg_en: int, rx_set_stgs_operation: int, rx_set_ant_states: int, rx_set_stg_states: int, rx_set_save_opt: int):
+    def __init__(self, rx_time_master_boot_ms: int, rx_set_chg_request: int, rx_set_reset: int, rx_set_anlg_en: int, rx_set_ant_states: int, rx_set_stgs_operation: int, rx_set_stg_states: int, rx_set_save_opt: int):
         MAVLink_message.__init__(self, MAVLink_ivaq_rx_set_params_slave_message.id, MAVLink_ivaq_rx_set_params_slave_message.msgname)
         self._fieldnames = MAVLink_ivaq_rx_set_params_slave_message.fieldnames
         self._instance_field = MAVLink_ivaq_rx_set_params_slave_message.instance_field
@@ -1210,13 +1216,13 @@ class MAVLink_ivaq_rx_set_params_slave_message(MAVLink_message):
         self.rx_set_chg_request = rx_set_chg_request
         self.rx_set_reset = rx_set_reset
         self.rx_set_anlg_en = rx_set_anlg_en
-        self.rx_set_stgs_operation = rx_set_stgs_operation
         self.rx_set_ant_states = rx_set_ant_states
+        self.rx_set_stgs_operation = rx_set_stgs_operation
         self.rx_set_stg_states = rx_set_stg_states
         self.rx_set_save_opt = rx_set_save_opt
 
     def pack(self, mav: "MAVLink", force_mavlink1: bool = False) -> bytes:
-        return self._pack(mav, self.crc_extra, self.unpacker.pack(self.rx_time_master_boot_ms, self.rx_set_chg_request, self.rx_set_reset, self.rx_set_anlg_en, self.rx_set_stgs_operation, self.rx_set_ant_states, self.rx_set_stg_states, self.rx_set_save_opt), force_mavlink1=force_mavlink1)
+        return self._pack(mav, self.crc_extra, self.unpacker.pack(self.rx_time_master_boot_ms, self.rx_set_chg_request, self.rx_set_reset, self.rx_set_anlg_en, self.rx_set_ant_states, self.rx_set_stgs_operation, self.rx_set_stg_states, self.rx_set_save_opt), force_mavlink1=force_mavlink1)
 
 
 # Define name on the class for backwards compatibility (it is now msgname).
@@ -1881,7 +1887,7 @@ class MAVLink(object):
         """
         self.send(self.system_time_encode(time_unix_usec, time_boot_ms), force_mavlink1=force_mavlink1)
 
-    def ivaq_rx_params_master_encode(self, rx_mode_x: int, rx_status_x: int, rx_anlg_en_x: int, rx_battery_voltage_x: float, rx_ant_states_x: int, rx_stg_states_x: int, rx_card_det_x: int, rx_save_opt_x: int, rx_mode_y: int, rx_status_y: int, rx_anlg_en_y: int, rx_battery_voltage_y: float, rx_ant_states_y: int, rx_stg_states_y: int, rx_card_det_y: int, rx_save_opt_y: int, rx_mode_z: int, rx_status_z: int, rx_anlg_en_z: int, rx_battery_voltage_z: float, rx_ant_states_z: int, rx_stg_states_z: int, rx_card_det_z: int, rx_save_opt_z: int) -> MAVLink_ivaq_rx_params_master_message:
+    def ivaq_rx_params_master_encode(self, rx_mode_x: int, rx_status_x: int, rx_anlg_en_x: int, rx_battery_voltage_x: float, rx_ant_states_x: int, rx_stgs_operation_x: int, rx_stg_states_x: int, rx_card_det_x: int, rx_save_opt_x: int, rx_mode_y: int, rx_status_y: int, rx_anlg_en_y: int, rx_battery_voltage_y: float, rx_ant_states_y: int, rx_stgs_operation_y: int, rx_stg_states_y: int, rx_card_det_y: int, rx_save_opt_y: int, rx_mode_z: int, rx_status_z: int, rx_anlg_en_z: int, rx_battery_voltage_z: float, rx_ant_states_z: int, rx_stgs_operation_z: int, rx_stg_states_z: int, rx_card_det_z: int, rx_save_opt_z: int) -> MAVLink_ivaq_rx_params_master_message:
         """
         IVAQ Rx Current Parameters of all PCBs (X,Y,Z)
 
@@ -1890,6 +1896,7 @@ class MAVLink(object):
         rx_anlg_en_x              : Ivaq Rx X-Ant Anlg Part Status (type:uint8_t, values:MVK_RX_ANLG_EN)
         rx_battery_voltage_x        : Ivaq Rx X-Ant Battery Voltage (type:float)
         rx_ant_states_x           : Ivaq Rx X-Ant Antenna States (type:uint8_t, values:MVK_ANT_STATES)
+        rx_stgs_operation_x        : Ivaq Rx X-Ant Stages Operation (automatic/manual) (type:uint8_t, values:MVK_RX_STAGES_OPERATION)
         rx_stg_states_x           : Ivaq Rx X-Ant Stage States (type:uint8_t, values:MVK_STAGE_STATES)
         rx_card_det_x             : Ivaq Rx X-Ant SD Card State (type:uint8_t, values:MVK_CARD_STATE)
         rx_save_opt_x             : Ivaq Rx X-Ant Save State (type:uint8_t, values:MVK_SAVE_STATE)
@@ -1898,6 +1905,7 @@ class MAVLink(object):
         rx_anlg_en_y              : Ivaq Rx Y-Ant Anlg Part Status (type:uint8_t, values:MVK_RX_ANLG_EN)
         rx_battery_voltage_y        : Ivaq Rx Y-Ant Battery Voltage (type:float)
         rx_ant_states_y           : Ivaq Rx Y-Ant Antenna States (type:uint8_t, values:MVK_ANT_STATES)
+        rx_stgs_operation_y        : Ivaq Rx Y-Ant Stages Operation (automatic/manual) (type:uint8_t, values:MVK_RX_STAGES_OPERATION)
         rx_stg_states_y           : Ivaq Rx Y-Ant Stage States (type:uint8_t, values:MVK_STAGE_STATES)
         rx_card_det_y             : Ivaq Rx Y-Ant SD Card State (type:uint8_t, values:MVK_CARD_STATE)
         rx_save_opt_y             : Ivaq Rx Y-Ant Save State (type:uint8_t, values:MVK_SAVE_STATE)
@@ -1906,14 +1914,15 @@ class MAVLink(object):
         rx_anlg_en_z              : Ivaq Rx Z-Ant Anlg Part Status (type:uint8_t, values:MVK_RX_ANLG_EN)
         rx_battery_voltage_z        : Ivaq Rx Z-Ant Battery Voltage (type:float)
         rx_ant_states_z           : Ivaq Rx Z-Ant Antenna States (type:uint8_t, values:MVK_ANT_STATES)
+        rx_stgs_operation_z        : Ivaq Rx Z-Ant Stages Operation (automatic/manual) (type:uint8_t, values:MVK_RX_STAGES_OPERATION)
         rx_stg_states_z           : Ivaq Rx Z-Ant Stage States (type:uint8_t, values:MVK_STAGE_STATES)
         rx_card_det_z             : Ivaq Rx Z-Ant SD Card State (type:uint8_t, values:MVK_CARD_STATE)
         rx_save_opt_z             : Ivaq Rx Z-Ant Save State (type:uint8_t, values:MVK_SAVE_STATE)
 
         """
-        return MAVLink_ivaq_rx_params_master_message(rx_mode_x, rx_status_x, rx_anlg_en_x, rx_battery_voltage_x, rx_ant_states_x, rx_stg_states_x, rx_card_det_x, rx_save_opt_x, rx_mode_y, rx_status_y, rx_anlg_en_y, rx_battery_voltage_y, rx_ant_states_y, rx_stg_states_y, rx_card_det_y, rx_save_opt_y, rx_mode_z, rx_status_z, rx_anlg_en_z, rx_battery_voltage_z, rx_ant_states_z, rx_stg_states_z, rx_card_det_z, rx_save_opt_z)
+        return MAVLink_ivaq_rx_params_master_message(rx_mode_x, rx_status_x, rx_anlg_en_x, rx_battery_voltage_x, rx_ant_states_x, rx_stgs_operation_x, rx_stg_states_x, rx_card_det_x, rx_save_opt_x, rx_mode_y, rx_status_y, rx_anlg_en_y, rx_battery_voltage_y, rx_ant_states_y, rx_stgs_operation_y, rx_stg_states_y, rx_card_det_y, rx_save_opt_y, rx_mode_z, rx_status_z, rx_anlg_en_z, rx_battery_voltage_z, rx_ant_states_z, rx_stgs_operation_z, rx_stg_states_z, rx_card_det_z, rx_save_opt_z)
 
-    def ivaq_rx_params_master_send(self, rx_mode_x: int, rx_status_x: int, rx_anlg_en_x: int, rx_battery_voltage_x: float, rx_ant_states_x: int, rx_stg_states_x: int, rx_card_det_x: int, rx_save_opt_x: int, rx_mode_y: int, rx_status_y: int, rx_anlg_en_y: int, rx_battery_voltage_y: float, rx_ant_states_y: int, rx_stg_states_y: int, rx_card_det_y: int, rx_save_opt_y: int, rx_mode_z: int, rx_status_z: int, rx_anlg_en_z: int, rx_battery_voltage_z: float, rx_ant_states_z: int, rx_stg_states_z: int, rx_card_det_z: int, rx_save_opt_z: int, force_mavlink1: bool = False) -> None:
+    def ivaq_rx_params_master_send(self, rx_mode_x: int, rx_status_x: int, rx_anlg_en_x: int, rx_battery_voltage_x: float, rx_ant_states_x: int, rx_stgs_operation_x: int, rx_stg_states_x: int, rx_card_det_x: int, rx_save_opt_x: int, rx_mode_y: int, rx_status_y: int, rx_anlg_en_y: int, rx_battery_voltage_y: float, rx_ant_states_y: int, rx_stgs_operation_y: int, rx_stg_states_y: int, rx_card_det_y: int, rx_save_opt_y: int, rx_mode_z: int, rx_status_z: int, rx_anlg_en_z: int, rx_battery_voltage_z: float, rx_ant_states_z: int, rx_stgs_operation_z: int, rx_stg_states_z: int, rx_card_det_z: int, rx_save_opt_z: int, force_mavlink1: bool = False) -> None:
         """
         IVAQ Rx Current Parameters of all PCBs (X,Y,Z)
 
@@ -1922,6 +1931,7 @@ class MAVLink(object):
         rx_anlg_en_x              : Ivaq Rx X-Ant Anlg Part Status (type:uint8_t, values:MVK_RX_ANLG_EN)
         rx_battery_voltage_x        : Ivaq Rx X-Ant Battery Voltage (type:float)
         rx_ant_states_x           : Ivaq Rx X-Ant Antenna States (type:uint8_t, values:MVK_ANT_STATES)
+        rx_stgs_operation_x        : Ivaq Rx X-Ant Stages Operation (automatic/manual) (type:uint8_t, values:MVK_RX_STAGES_OPERATION)
         rx_stg_states_x           : Ivaq Rx X-Ant Stage States (type:uint8_t, values:MVK_STAGE_STATES)
         rx_card_det_x             : Ivaq Rx X-Ant SD Card State (type:uint8_t, values:MVK_CARD_STATE)
         rx_save_opt_x             : Ivaq Rx X-Ant Save State (type:uint8_t, values:MVK_SAVE_STATE)
@@ -1930,6 +1940,7 @@ class MAVLink(object):
         rx_anlg_en_y              : Ivaq Rx Y-Ant Anlg Part Status (type:uint8_t, values:MVK_RX_ANLG_EN)
         rx_battery_voltage_y        : Ivaq Rx Y-Ant Battery Voltage (type:float)
         rx_ant_states_y           : Ivaq Rx Y-Ant Antenna States (type:uint8_t, values:MVK_ANT_STATES)
+        rx_stgs_operation_y        : Ivaq Rx Y-Ant Stages Operation (automatic/manual) (type:uint8_t, values:MVK_RX_STAGES_OPERATION)
         rx_stg_states_y           : Ivaq Rx Y-Ant Stage States (type:uint8_t, values:MVK_STAGE_STATES)
         rx_card_det_y             : Ivaq Rx Y-Ant SD Card State (type:uint8_t, values:MVK_CARD_STATE)
         rx_save_opt_y             : Ivaq Rx Y-Ant Save State (type:uint8_t, values:MVK_SAVE_STATE)
@@ -1938,14 +1949,15 @@ class MAVLink(object):
         rx_anlg_en_z              : Ivaq Rx Z-Ant Anlg Part Status (type:uint8_t, values:MVK_RX_ANLG_EN)
         rx_battery_voltage_z        : Ivaq Rx Z-Ant Battery Voltage (type:float)
         rx_ant_states_z           : Ivaq Rx Z-Ant Antenna States (type:uint8_t, values:MVK_ANT_STATES)
+        rx_stgs_operation_z        : Ivaq Rx Z-Ant Stages Operation (automatic/manual) (type:uint8_t, values:MVK_RX_STAGES_OPERATION)
         rx_stg_states_z           : Ivaq Rx Z-Ant Stage States (type:uint8_t, values:MVK_STAGE_STATES)
         rx_card_det_z             : Ivaq Rx Z-Ant SD Card State (type:uint8_t, values:MVK_CARD_STATE)
         rx_save_opt_z             : Ivaq Rx Z-Ant Save State (type:uint8_t, values:MVK_SAVE_STATE)
 
         """
-        self.send(self.ivaq_rx_params_master_encode(rx_mode_x, rx_status_x, rx_anlg_en_x, rx_battery_voltage_x, rx_ant_states_x, rx_stg_states_x, rx_card_det_x, rx_save_opt_x, rx_mode_y, rx_status_y, rx_anlg_en_y, rx_battery_voltage_y, rx_ant_states_y, rx_stg_states_y, rx_card_det_y, rx_save_opt_y, rx_mode_z, rx_status_z, rx_anlg_en_z, rx_battery_voltage_z, rx_ant_states_z, rx_stg_states_z, rx_card_det_z, rx_save_opt_z), force_mavlink1=force_mavlink1)
+        self.send(self.ivaq_rx_params_master_encode(rx_mode_x, rx_status_x, rx_anlg_en_x, rx_battery_voltage_x, rx_ant_states_x, rx_stgs_operation_x, rx_stg_states_x, rx_card_det_x, rx_save_opt_x, rx_mode_y, rx_status_y, rx_anlg_en_y, rx_battery_voltage_y, rx_ant_states_y, rx_stgs_operation_y, rx_stg_states_y, rx_card_det_y, rx_save_opt_y, rx_mode_z, rx_status_z, rx_anlg_en_z, rx_battery_voltage_z, rx_ant_states_z, rx_stgs_operation_z, rx_stg_states_z, rx_card_det_z, rx_save_opt_z), force_mavlink1=force_mavlink1)
 
-    def ivaq_rx_params_slave_encode(self, delta_t_master_slave: int, rx_mode: int, rx_status: int, rx_anlg_en: int, rx_battery_voltage: float, rx_ant_states: int, rx_stg_states: int, rx_card_det: int, rx_save_opt: int) -> MAVLink_ivaq_rx_params_slave_message:
+    def ivaq_rx_params_slave_encode(self, delta_t_master_slave: int, rx_mode: int, rx_status: int, rx_anlg_en: int, rx_battery_voltage: float, rx_ant_states: int, rx_stgs_operation: int, rx_stg_states: int, rx_card_det: int, rx_save_opt: int) -> MAVLink_ivaq_rx_params_slave_message:
         """
         IVAQ Rx Current Parameters
 
@@ -1955,14 +1967,15 @@ class MAVLink(object):
         rx_anlg_en                : Ivaq Rx Anlg Part Status (type:uint8_t, values:MVK_RX_ANLG_EN)
         rx_battery_voltage        : Ivaq Rx Battery Voltage (type:float)
         rx_ant_states             : Ivaq Rx Antenna States (type:uint8_t, values:MVK_ANT_STATES)
+        rx_stgs_operation         : Ivaq Rx Currrent Stages Operation (automatic/manual) (type:uint8_t, values:MVK_RX_STAGES_OPERATION)
         rx_stg_states             : Ivaq Rx Stage States (type:uint8_t, values:MVK_STAGE_STATES)
         rx_card_det               : Ivaq Rx SD Card State (type:uint8_t, values:MVK_CARD_STATE)
         rx_save_opt               : Ivaq Rx Save State (type:uint8_t, values:MVK_SAVE_STATE)
 
         """
-        return MAVLink_ivaq_rx_params_slave_message(delta_t_master_slave, rx_mode, rx_status, rx_anlg_en, rx_battery_voltage, rx_ant_states, rx_stg_states, rx_card_det, rx_save_opt)
+        return MAVLink_ivaq_rx_params_slave_message(delta_t_master_slave, rx_mode, rx_status, rx_anlg_en, rx_battery_voltage, rx_ant_states, rx_stgs_operation, rx_stg_states, rx_card_det, rx_save_opt)
 
-    def ivaq_rx_params_slave_send(self, delta_t_master_slave: int, rx_mode: int, rx_status: int, rx_anlg_en: int, rx_battery_voltage: float, rx_ant_states: int, rx_stg_states: int, rx_card_det: int, rx_save_opt: int, force_mavlink1: bool = False) -> None:
+    def ivaq_rx_params_slave_send(self, delta_t_master_slave: int, rx_mode: int, rx_status: int, rx_anlg_en: int, rx_battery_voltage: float, rx_ant_states: int, rx_stgs_operation: int, rx_stg_states: int, rx_card_det: int, rx_save_opt: int, force_mavlink1: bool = False) -> None:
         """
         IVAQ Rx Current Parameters
 
@@ -1972,62 +1985,67 @@ class MAVLink(object):
         rx_anlg_en                : Ivaq Rx Anlg Part Status (type:uint8_t, values:MVK_RX_ANLG_EN)
         rx_battery_voltage        : Ivaq Rx Battery Voltage (type:float)
         rx_ant_states             : Ivaq Rx Antenna States (type:uint8_t, values:MVK_ANT_STATES)
+        rx_stgs_operation         : Ivaq Rx Currrent Stages Operation (automatic/manual) (type:uint8_t, values:MVK_RX_STAGES_OPERATION)
         rx_stg_states             : Ivaq Rx Stage States (type:uint8_t, values:MVK_STAGE_STATES)
         rx_card_det               : Ivaq Rx SD Card State (type:uint8_t, values:MVK_CARD_STATE)
         rx_save_opt               : Ivaq Rx Save State (type:uint8_t, values:MVK_SAVE_STATE)
 
         """
-        self.send(self.ivaq_rx_params_slave_encode(delta_t_master_slave, rx_mode, rx_status, rx_anlg_en, rx_battery_voltage, rx_ant_states, rx_stg_states, rx_card_det, rx_save_opt), force_mavlink1=force_mavlink1)
+        self.send(self.ivaq_rx_params_slave_encode(delta_t_master_slave, rx_mode, rx_status, rx_anlg_en, rx_battery_voltage, rx_ant_states, rx_stgs_operation, rx_stg_states, rx_card_det, rx_save_opt), force_mavlink1=force_mavlink1)
 
-    def ivaq_rx_set_params_master_encode(self, rx_set_reset_x: int, rx_set_anlg_en_x: int, rx_set_stgs_operation: int, rx_set_ant_states_x: int, rx_set_stg_states_x: int, rx_set_save_opt_x: int, rx_set_reset_y: int, rx_set_anlg_en_y: int, rx_set_ant_states_y: int, rx_set_stg_states_y: int, rx_set_save_opt_y: int, rx_set_reset_z: int, rx_set_anlg_en_z: int, rx_set_ant_states_z: int, rx_set_stg_states_z: int, rx_set_save_opt_z: int) -> MAVLink_ivaq_rx_set_params_master_message:
+    def ivaq_rx_set_params_master_encode(self, rx_set_reset_x: int, rx_set_anlg_en_x: int, rx_set_ant_states_x: int, rx_set_stgs_operation_x: int, rx_set_stg_states_x: int, rx_set_save_opt_x: int, rx_set_reset_y: int, rx_set_anlg_en_y: int, rx_set_ant_states_y: int, rx_set_stgs_operation_y: int, rx_set_stg_states_y: int, rx_set_save_opt_y: int, rx_set_reset_z: int, rx_set_anlg_en_z: int, rx_set_ant_states_z: int, rx_set_stgs_operation_z: int, rx_set_stg_states_z: int, rx_set_save_opt_z: int) -> MAVLink_ivaq_rx_set_params_master_message:
         """
         IVAQ Rx Target Parameters for all PCBs (X,Y,X) from Raspi to Master
 
         rx_set_reset_x            : Ivaq Rx X-ant Set Reset (type:uint8_t, values:MVK_RX_RESET)
         rx_set_anlg_en_x          : Ivaq Rx X-Ant Set Anlg Part Status (type:uint8_t, values:MVK_RX_ANLG_EN)
-        rx_set_stgs_operation        : Ivaq Rx All ant Set Stages Operation (automatic/manual) (type:uint8_t, values:MVK_RX_STAGES_OPERATION)
         rx_set_ant_states_x        : Ivaq Rx X-Ant Set Antenna State (type:uint8_t, values:MVK_ANT_STATES)
+        rx_set_stgs_operation_x        : Ivaq Rx X-Ant Set Stages Operation (automatic/manual) (type:uint8_t, values:MVK_RX_STAGES_OPERATION)
         rx_set_stg_states_x        : Ivaq Rx X-Ant Set Stage States (type:uint8_t, values:MVK_STAGE_STATES)
         rx_set_save_opt_x         : Ivaq Rx X-Ant Set Save State (type:uint8_t, values:MVK_SAVE_STATE)
         rx_set_reset_y            : Ivaq Rx Y-ant Set Reset (type:uint8_t, values:MVK_RX_RESET)
         rx_set_anlg_en_y          : Ivaq Rx Y-Ant Anlg Part Status (type:uint8_t, values:MVK_RX_ANLG_EN)
         rx_set_ant_states_y        : Ivaq Rx Y-Ant Set Antenna State (type:uint8_t, values:MVK_ANT_STATES)
+        rx_set_stgs_operation_y        : Ivaq Rx Y-Ant Set Stages Operation (automatic/manual) (type:uint8_t, values:MVK_RX_STAGES_OPERATION)
         rx_set_stg_states_y        : Ivaq Rx Y-Ant Set Stage States (type:uint8_t, values:MVK_STAGE_STATES)
         rx_set_save_opt_y         : Ivaq Rx Y-Ant Set Save State (type:uint8_t, values:MVK_SAVE_STATE)
         rx_set_reset_z            : Ivaq Rx Z-ant Set Reset (type:uint8_t, values:MVK_RX_RESET)
         rx_set_anlg_en_z          : Ivaq Rx Z-Ant Anlg Part Status (type:uint8_t, values:MVK_RX_ANLG_EN)
         rx_set_ant_states_z        : Ivaq Rx Z-Ant Set Antenna State (type:uint8_t, values:MVK_ANT_STATES)
+        rx_set_stgs_operation_z        : Ivaq Rx Z-Ant Set Stages Operation (automatic/manual) (type:uint8_t, values:MVK_RX_STAGES_OPERATION)
         rx_set_stg_states_z        : Ivaq Rx Z-Ant Set Stage States (type:uint8_t, values:MVK_STAGE_STATES)
         rx_set_save_opt_z         : Ivaq Rx Z-Ant Set Save State (type:uint8_t, values:MVK_SAVE_STATE)
 
         """
-        return MAVLink_ivaq_rx_set_params_master_message(rx_set_reset_x, rx_set_anlg_en_x, rx_set_stgs_operation, rx_set_ant_states_x, rx_set_stg_states_x, rx_set_save_opt_x, rx_set_reset_y, rx_set_anlg_en_y, rx_set_ant_states_y, rx_set_stg_states_y, rx_set_save_opt_y, rx_set_reset_z, rx_set_anlg_en_z, rx_set_ant_states_z, rx_set_stg_states_z, rx_set_save_opt_z)
+        return MAVLink_ivaq_rx_set_params_master_message(rx_set_reset_x, rx_set_anlg_en_x, rx_set_ant_states_x, rx_set_stgs_operation_x, rx_set_stg_states_x, rx_set_save_opt_x, rx_set_reset_y, rx_set_anlg_en_y, rx_set_ant_states_y, rx_set_stgs_operation_y, rx_set_stg_states_y, rx_set_save_opt_y, rx_set_reset_z, rx_set_anlg_en_z, rx_set_ant_states_z, rx_set_stgs_operation_z, rx_set_stg_states_z, rx_set_save_opt_z)
 
-    def ivaq_rx_set_params_master_send(self, rx_set_reset_x: int, rx_set_anlg_en_x: int, rx_set_stgs_operation: int, rx_set_ant_states_x: int, rx_set_stg_states_x: int, rx_set_save_opt_x: int, rx_set_reset_y: int, rx_set_anlg_en_y: int, rx_set_ant_states_y: int, rx_set_stg_states_y: int, rx_set_save_opt_y: int, rx_set_reset_z: int, rx_set_anlg_en_z: int, rx_set_ant_states_z: int, rx_set_stg_states_z: int, rx_set_save_opt_z: int, force_mavlink1: bool = False) -> None:
+    def ivaq_rx_set_params_master_send(self, rx_set_reset_x: int, rx_set_anlg_en_x: int, rx_set_ant_states_x: int, rx_set_stgs_operation_x: int, rx_set_stg_states_x: int, rx_set_save_opt_x: int, rx_set_reset_y: int, rx_set_anlg_en_y: int, rx_set_ant_states_y: int, rx_set_stgs_operation_y: int, rx_set_stg_states_y: int, rx_set_save_opt_y: int, rx_set_reset_z: int, rx_set_anlg_en_z: int, rx_set_ant_states_z: int, rx_set_stgs_operation_z: int, rx_set_stg_states_z: int, rx_set_save_opt_z: int, force_mavlink1: bool = False) -> None:
         """
         IVAQ Rx Target Parameters for all PCBs (X,Y,X) from Raspi to Master
 
         rx_set_reset_x            : Ivaq Rx X-ant Set Reset (type:uint8_t, values:MVK_RX_RESET)
         rx_set_anlg_en_x          : Ivaq Rx X-Ant Set Anlg Part Status (type:uint8_t, values:MVK_RX_ANLG_EN)
-        rx_set_stgs_operation        : Ivaq Rx All ant Set Stages Operation (automatic/manual) (type:uint8_t, values:MVK_RX_STAGES_OPERATION)
         rx_set_ant_states_x        : Ivaq Rx X-Ant Set Antenna State (type:uint8_t, values:MVK_ANT_STATES)
+        rx_set_stgs_operation_x        : Ivaq Rx X-Ant Set Stages Operation (automatic/manual) (type:uint8_t, values:MVK_RX_STAGES_OPERATION)
         rx_set_stg_states_x        : Ivaq Rx X-Ant Set Stage States (type:uint8_t, values:MVK_STAGE_STATES)
         rx_set_save_opt_x         : Ivaq Rx X-Ant Set Save State (type:uint8_t, values:MVK_SAVE_STATE)
         rx_set_reset_y            : Ivaq Rx Y-ant Set Reset (type:uint8_t, values:MVK_RX_RESET)
         rx_set_anlg_en_y          : Ivaq Rx Y-Ant Anlg Part Status (type:uint8_t, values:MVK_RX_ANLG_EN)
         rx_set_ant_states_y        : Ivaq Rx Y-Ant Set Antenna State (type:uint8_t, values:MVK_ANT_STATES)
+        rx_set_stgs_operation_y        : Ivaq Rx Y-Ant Set Stages Operation (automatic/manual) (type:uint8_t, values:MVK_RX_STAGES_OPERATION)
         rx_set_stg_states_y        : Ivaq Rx Y-Ant Set Stage States (type:uint8_t, values:MVK_STAGE_STATES)
         rx_set_save_opt_y         : Ivaq Rx Y-Ant Set Save State (type:uint8_t, values:MVK_SAVE_STATE)
         rx_set_reset_z            : Ivaq Rx Z-ant Set Reset (type:uint8_t, values:MVK_RX_RESET)
         rx_set_anlg_en_z          : Ivaq Rx Z-Ant Anlg Part Status (type:uint8_t, values:MVK_RX_ANLG_EN)
         rx_set_ant_states_z        : Ivaq Rx Z-Ant Set Antenna State (type:uint8_t, values:MVK_ANT_STATES)
+        rx_set_stgs_operation_z        : Ivaq Rx Z-Ant Set Stages Operation (automatic/manual) (type:uint8_t, values:MVK_RX_STAGES_OPERATION)
         rx_set_stg_states_z        : Ivaq Rx Z-Ant Set Stage States (type:uint8_t, values:MVK_STAGE_STATES)
         rx_set_save_opt_z         : Ivaq Rx Z-Ant Set Save State (type:uint8_t, values:MVK_SAVE_STATE)
 
         """
-        self.send(self.ivaq_rx_set_params_master_encode(rx_set_reset_x, rx_set_anlg_en_x, rx_set_stgs_operation, rx_set_ant_states_x, rx_set_stg_states_x, rx_set_save_opt_x, rx_set_reset_y, rx_set_anlg_en_y, rx_set_ant_states_y, rx_set_stg_states_y, rx_set_save_opt_y, rx_set_reset_z, rx_set_anlg_en_z, rx_set_ant_states_z, rx_set_stg_states_z, rx_set_save_opt_z), force_mavlink1=force_mavlink1)
+        self.send(self.ivaq_rx_set_params_master_encode(rx_set_reset_x, rx_set_anlg_en_x, rx_set_ant_states_x, rx_set_stgs_operation_x, rx_set_stg_states_x, rx_set_save_opt_x, rx_set_reset_y, rx_set_anlg_en_y, rx_set_ant_states_y, rx_set_stgs_operation_y, rx_set_stg_states_y, rx_set_save_opt_y, rx_set_reset_z, rx_set_anlg_en_z, rx_set_ant_states_z, rx_set_stgs_operation_z, rx_set_stg_states_z, rx_set_save_opt_z), force_mavlink1=force_mavlink1)
 
-    def ivaq_rx_set_params_slave_encode(self, rx_time_master_boot_ms: int, rx_set_chg_request: int, rx_set_reset: int, rx_set_anlg_en: int, rx_set_stgs_operation: int, rx_set_ant_states: int, rx_set_stg_states: int, rx_set_save_opt: int) -> MAVLink_ivaq_rx_set_params_slave_message:
+    def ivaq_rx_set_params_slave_encode(self, rx_time_master_boot_ms: int, rx_set_chg_request: int, rx_set_reset: int, rx_set_anlg_en: int, rx_set_ant_states: int, rx_set_stgs_operation: int, rx_set_stg_states: int, rx_set_save_opt: int) -> MAVLink_ivaq_rx_set_params_slave_message:
         """
         IVAQ Rx Target Parameters from Master PCB (X) to Slaves (Y,Z)
 
@@ -2035,15 +2053,15 @@ class MAVLink(object):
         rx_set_chg_request        : Ivaq Rx Set Change Request (type:uint8_t, values:MVK_RX_CHG_REQ)
         rx_set_reset              : Ivaq Rx Set Reset (type:uint8_t, values:MVK_RX_RESET)
         rx_set_anlg_en            : Ivaq Rx Set Anlg Part Status (type:uint8_t, values:MVK_RX_ANLG_EN)
-        rx_set_stgs_operation        : Ivaq Rx All ant Set Stages Operation (automatic/manual) (type:uint8_t, values:MVK_RX_STAGES_OPERATION)
         rx_set_ant_states         : Ivaq Rx Set Antenna State (type:uint8_t, values:MVK_ANT_STATES)
+        rx_set_stgs_operation        : Ivaq Rx Set Stages Operation (automatic/manual) (type:uint8_t, values:MVK_RX_STAGES_OPERATION)
         rx_set_stg_states         : Ivaq Rx Set Stage States (type:uint8_t, values:MVK_STAGE_STATES)
         rx_set_save_opt           : Ivaq Rx Set Save State (type:uint8_t, values:MVK_SAVE_STATE)
 
         """
-        return MAVLink_ivaq_rx_set_params_slave_message(rx_time_master_boot_ms, rx_set_chg_request, rx_set_reset, rx_set_anlg_en, rx_set_stgs_operation, rx_set_ant_states, rx_set_stg_states, rx_set_save_opt)
+        return MAVLink_ivaq_rx_set_params_slave_message(rx_time_master_boot_ms, rx_set_chg_request, rx_set_reset, rx_set_anlg_en, rx_set_ant_states, rx_set_stgs_operation, rx_set_stg_states, rx_set_save_opt)
 
-    def ivaq_rx_set_params_slave_send(self, rx_time_master_boot_ms: int, rx_set_chg_request: int, rx_set_reset: int, rx_set_anlg_en: int, rx_set_stgs_operation: int, rx_set_ant_states: int, rx_set_stg_states: int, rx_set_save_opt: int, force_mavlink1: bool = False) -> None:
+    def ivaq_rx_set_params_slave_send(self, rx_time_master_boot_ms: int, rx_set_chg_request: int, rx_set_reset: int, rx_set_anlg_en: int, rx_set_ant_states: int, rx_set_stgs_operation: int, rx_set_stg_states: int, rx_set_save_opt: int, force_mavlink1: bool = False) -> None:
         """
         IVAQ Rx Target Parameters from Master PCB (X) to Slaves (Y,Z)
 
@@ -2051,13 +2069,13 @@ class MAVLink(object):
         rx_set_chg_request        : Ivaq Rx Set Change Request (type:uint8_t, values:MVK_RX_CHG_REQ)
         rx_set_reset              : Ivaq Rx Set Reset (type:uint8_t, values:MVK_RX_RESET)
         rx_set_anlg_en            : Ivaq Rx Set Anlg Part Status (type:uint8_t, values:MVK_RX_ANLG_EN)
-        rx_set_stgs_operation        : Ivaq Rx All ant Set Stages Operation (automatic/manual) (type:uint8_t, values:MVK_RX_STAGES_OPERATION)
         rx_set_ant_states         : Ivaq Rx Set Antenna State (type:uint8_t, values:MVK_ANT_STATES)
+        rx_set_stgs_operation        : Ivaq Rx Set Stages Operation (automatic/manual) (type:uint8_t, values:MVK_RX_STAGES_OPERATION)
         rx_set_stg_states         : Ivaq Rx Set Stage States (type:uint8_t, values:MVK_STAGE_STATES)
         rx_set_save_opt           : Ivaq Rx Set Save State (type:uint8_t, values:MVK_SAVE_STATE)
 
         """
-        self.send(self.ivaq_rx_set_params_slave_encode(rx_time_master_boot_ms, rx_set_chg_request, rx_set_reset, rx_set_anlg_en, rx_set_stgs_operation, rx_set_ant_states, rx_set_stg_states, rx_set_save_opt), force_mavlink1=force_mavlink1)
+        self.send(self.ivaq_rx_set_params_slave_encode(rx_time_master_boot_ms, rx_set_chg_request, rx_set_reset, rx_set_anlg_en, rx_set_ant_states, rx_set_stgs_operation, rx_set_stg_states, rx_set_save_opt), force_mavlink1=force_mavlink1)
 
     def ivaq_rx_signal_master_encode(self, rx_signal_det_flag: int, rx_signal_det_to_send_flag: int, rx_signal_det_time: int, rx_signal_det_module_nocorr: float, rx_signal_det_module_corr: float, rx_saturation_flag_x: int, rx_signal_det_flag_x: int, rx_signal_det_time_x: int, rx_signal_det_val_nocorr_x: float, rx_signal_det_val_corr_x: float, rx_noise_val_nocorr_x: float, rx_noise_val_corr_x: float, rx_noise_std_nocorr_x: float, rx_noise_std_corr_x: float, rx_saturation_flag_y: int, rx_signal_det_flag_y: int, rx_signal_det_time_y: int, rx_signal_det_val_nocorr_y: float, rx_signal_det_val_corr_y: float, rx_noise_val_nocorr_y: float, rx_noise_val_corr_y: float, rx_noise_std_nocorr_y: float, rx_noise_std_corr_y: float, rx_saturation_flag_z: int, rx_signal_det_flag_z: int, rx_signal_det_time_z: int, rx_signal_det_val_nocorr_z: float, rx_signal_det_val_corr_z: float, rx_noise_val_nocorr_z: float, rx_noise_val_corr_z: float, rx_noise_std_nocorr_z: float, rx_noise_std_corr_z: float) -> MAVLink_ivaq_rx_signal_master_message:
         """
