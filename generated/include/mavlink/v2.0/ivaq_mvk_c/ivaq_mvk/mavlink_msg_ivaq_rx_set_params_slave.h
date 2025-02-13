@@ -9,18 +9,19 @@ typedef struct __mavlink_ivaq_rx_set_params_slave_t {
  uint8_t rx_set_chg_request; /*<  Ivaq Rx Set Change Request*/
  uint8_t rx_set_reset; /*<  Ivaq Rx Set Reset*/
  uint8_t rx_set_anlg_en; /*<  Ivaq Rx Set Anlg Part Status*/
+ uint8_t rx_set_stgs_operation; /*<  Ivaq Rx All ant Set Stages Operation (automatic/manual)*/
  uint8_t rx_set_ant_states; /*<  Ivaq Rx Set Antenna State*/
  uint8_t rx_set_stg_states; /*<  Ivaq Rx Set Stage States*/
  uint8_t rx_set_save_opt; /*<  Ivaq Rx Set Save State*/
 } mavlink_ivaq_rx_set_params_slave_t;
 
-#define MAVLINK_MSG_ID_IVAQ_RX_SET_PARAMS_SLAVE_LEN 10
-#define MAVLINK_MSG_ID_IVAQ_RX_SET_PARAMS_SLAVE_MIN_LEN 10
-#define MAVLINK_MSG_ID_203_LEN 10
-#define MAVLINK_MSG_ID_203_MIN_LEN 10
+#define MAVLINK_MSG_ID_IVAQ_RX_SET_PARAMS_SLAVE_LEN 11
+#define MAVLINK_MSG_ID_IVAQ_RX_SET_PARAMS_SLAVE_MIN_LEN 11
+#define MAVLINK_MSG_ID_203_LEN 11
+#define MAVLINK_MSG_ID_203_MIN_LEN 11
 
-#define MAVLINK_MSG_ID_IVAQ_RX_SET_PARAMS_SLAVE_CRC 44
-#define MAVLINK_MSG_ID_203_CRC 44
+#define MAVLINK_MSG_ID_IVAQ_RX_SET_PARAMS_SLAVE_CRC 56
+#define MAVLINK_MSG_ID_203_CRC 56
 
 
 
@@ -28,27 +29,29 @@ typedef struct __mavlink_ivaq_rx_set_params_slave_t {
 #define MAVLINK_MESSAGE_INFO_IVAQ_RX_SET_PARAMS_SLAVE { \
     203, \
     "IVAQ_RX_SET_PARAMS_SLAVE", \
-    7, \
+    8, \
     {  { "rx_time_master_boot_ms", NULL, MAVLINK_TYPE_UINT32_T, 0, 0, offsetof(mavlink_ivaq_rx_set_params_slave_t, rx_time_master_boot_ms) }, \
          { "rx_set_chg_request", NULL, MAVLINK_TYPE_UINT8_T, 0, 4, offsetof(mavlink_ivaq_rx_set_params_slave_t, rx_set_chg_request) }, \
          { "rx_set_reset", NULL, MAVLINK_TYPE_UINT8_T, 0, 5, offsetof(mavlink_ivaq_rx_set_params_slave_t, rx_set_reset) }, \
          { "rx_set_anlg_en", NULL, MAVLINK_TYPE_UINT8_T, 0, 6, offsetof(mavlink_ivaq_rx_set_params_slave_t, rx_set_anlg_en) }, \
-         { "rx_set_ant_states", NULL, MAVLINK_TYPE_UINT8_T, 0, 7, offsetof(mavlink_ivaq_rx_set_params_slave_t, rx_set_ant_states) }, \
-         { "rx_set_stg_states", NULL, MAVLINK_TYPE_UINT8_T, 0, 8, offsetof(mavlink_ivaq_rx_set_params_slave_t, rx_set_stg_states) }, \
-         { "rx_set_save_opt", NULL, MAVLINK_TYPE_UINT8_T, 0, 9, offsetof(mavlink_ivaq_rx_set_params_slave_t, rx_set_save_opt) }, \
+         { "rx_set_stgs_operation", NULL, MAVLINK_TYPE_UINT8_T, 0, 7, offsetof(mavlink_ivaq_rx_set_params_slave_t, rx_set_stgs_operation) }, \
+         { "rx_set_ant_states", NULL, MAVLINK_TYPE_UINT8_T, 0, 8, offsetof(mavlink_ivaq_rx_set_params_slave_t, rx_set_ant_states) }, \
+         { "rx_set_stg_states", NULL, MAVLINK_TYPE_UINT8_T, 0, 9, offsetof(mavlink_ivaq_rx_set_params_slave_t, rx_set_stg_states) }, \
+         { "rx_set_save_opt", NULL, MAVLINK_TYPE_UINT8_T, 0, 10, offsetof(mavlink_ivaq_rx_set_params_slave_t, rx_set_save_opt) }, \
          } \
 }
 #else
 #define MAVLINK_MESSAGE_INFO_IVAQ_RX_SET_PARAMS_SLAVE { \
     "IVAQ_RX_SET_PARAMS_SLAVE", \
-    7, \
+    8, \
     {  { "rx_time_master_boot_ms", NULL, MAVLINK_TYPE_UINT32_T, 0, 0, offsetof(mavlink_ivaq_rx_set_params_slave_t, rx_time_master_boot_ms) }, \
          { "rx_set_chg_request", NULL, MAVLINK_TYPE_UINT8_T, 0, 4, offsetof(mavlink_ivaq_rx_set_params_slave_t, rx_set_chg_request) }, \
          { "rx_set_reset", NULL, MAVLINK_TYPE_UINT8_T, 0, 5, offsetof(mavlink_ivaq_rx_set_params_slave_t, rx_set_reset) }, \
          { "rx_set_anlg_en", NULL, MAVLINK_TYPE_UINT8_T, 0, 6, offsetof(mavlink_ivaq_rx_set_params_slave_t, rx_set_anlg_en) }, \
-         { "rx_set_ant_states", NULL, MAVLINK_TYPE_UINT8_T, 0, 7, offsetof(mavlink_ivaq_rx_set_params_slave_t, rx_set_ant_states) }, \
-         { "rx_set_stg_states", NULL, MAVLINK_TYPE_UINT8_T, 0, 8, offsetof(mavlink_ivaq_rx_set_params_slave_t, rx_set_stg_states) }, \
-         { "rx_set_save_opt", NULL, MAVLINK_TYPE_UINT8_T, 0, 9, offsetof(mavlink_ivaq_rx_set_params_slave_t, rx_set_save_opt) }, \
+         { "rx_set_stgs_operation", NULL, MAVLINK_TYPE_UINT8_T, 0, 7, offsetof(mavlink_ivaq_rx_set_params_slave_t, rx_set_stgs_operation) }, \
+         { "rx_set_ant_states", NULL, MAVLINK_TYPE_UINT8_T, 0, 8, offsetof(mavlink_ivaq_rx_set_params_slave_t, rx_set_ant_states) }, \
+         { "rx_set_stg_states", NULL, MAVLINK_TYPE_UINT8_T, 0, 9, offsetof(mavlink_ivaq_rx_set_params_slave_t, rx_set_stg_states) }, \
+         { "rx_set_save_opt", NULL, MAVLINK_TYPE_UINT8_T, 0, 10, offsetof(mavlink_ivaq_rx_set_params_slave_t, rx_set_save_opt) }, \
          } \
 }
 #endif
@@ -63,13 +66,14 @@ typedef struct __mavlink_ivaq_rx_set_params_slave_t {
  * @param rx_set_chg_request  Ivaq Rx Set Change Request
  * @param rx_set_reset  Ivaq Rx Set Reset
  * @param rx_set_anlg_en  Ivaq Rx Set Anlg Part Status
+ * @param rx_set_stgs_operation  Ivaq Rx All ant Set Stages Operation (automatic/manual)
  * @param rx_set_ant_states  Ivaq Rx Set Antenna State
  * @param rx_set_stg_states  Ivaq Rx Set Stage States
  * @param rx_set_save_opt  Ivaq Rx Set Save State
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_ivaq_rx_set_params_slave_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
-                               uint32_t rx_time_master_boot_ms, uint8_t rx_set_chg_request, uint8_t rx_set_reset, uint8_t rx_set_anlg_en, uint8_t rx_set_ant_states, uint8_t rx_set_stg_states, uint8_t rx_set_save_opt)
+                               uint32_t rx_time_master_boot_ms, uint8_t rx_set_chg_request, uint8_t rx_set_reset, uint8_t rx_set_anlg_en, uint8_t rx_set_stgs_operation, uint8_t rx_set_ant_states, uint8_t rx_set_stg_states, uint8_t rx_set_save_opt)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_IVAQ_RX_SET_PARAMS_SLAVE_LEN];
@@ -77,9 +81,10 @@ static inline uint16_t mavlink_msg_ivaq_rx_set_params_slave_pack(uint8_t system_
     _mav_put_uint8_t(buf, 4, rx_set_chg_request);
     _mav_put_uint8_t(buf, 5, rx_set_reset);
     _mav_put_uint8_t(buf, 6, rx_set_anlg_en);
-    _mav_put_uint8_t(buf, 7, rx_set_ant_states);
-    _mav_put_uint8_t(buf, 8, rx_set_stg_states);
-    _mav_put_uint8_t(buf, 9, rx_set_save_opt);
+    _mav_put_uint8_t(buf, 7, rx_set_stgs_operation);
+    _mav_put_uint8_t(buf, 8, rx_set_ant_states);
+    _mav_put_uint8_t(buf, 9, rx_set_stg_states);
+    _mav_put_uint8_t(buf, 10, rx_set_save_opt);
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_IVAQ_RX_SET_PARAMS_SLAVE_LEN);
 #else
@@ -88,6 +93,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_set_params_slave_pack(uint8_t system_
     packet.rx_set_chg_request = rx_set_chg_request;
     packet.rx_set_reset = rx_set_reset;
     packet.rx_set_anlg_en = rx_set_anlg_en;
+    packet.rx_set_stgs_operation = rx_set_stgs_operation;
     packet.rx_set_ant_states = rx_set_ant_states;
     packet.rx_set_stg_states = rx_set_stg_states;
     packet.rx_set_save_opt = rx_set_save_opt;
@@ -110,13 +116,14 @@ static inline uint16_t mavlink_msg_ivaq_rx_set_params_slave_pack(uint8_t system_
  * @param rx_set_chg_request  Ivaq Rx Set Change Request
  * @param rx_set_reset  Ivaq Rx Set Reset
  * @param rx_set_anlg_en  Ivaq Rx Set Anlg Part Status
+ * @param rx_set_stgs_operation  Ivaq Rx All ant Set Stages Operation (automatic/manual)
  * @param rx_set_ant_states  Ivaq Rx Set Antenna State
  * @param rx_set_stg_states  Ivaq Rx Set Stage States
  * @param rx_set_save_opt  Ivaq Rx Set Save State
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_ivaq_rx_set_params_slave_pack_status(uint8_t system_id, uint8_t component_id, mavlink_status_t *_status, mavlink_message_t* msg,
-                               uint32_t rx_time_master_boot_ms, uint8_t rx_set_chg_request, uint8_t rx_set_reset, uint8_t rx_set_anlg_en, uint8_t rx_set_ant_states, uint8_t rx_set_stg_states, uint8_t rx_set_save_opt)
+                               uint32_t rx_time_master_boot_ms, uint8_t rx_set_chg_request, uint8_t rx_set_reset, uint8_t rx_set_anlg_en, uint8_t rx_set_stgs_operation, uint8_t rx_set_ant_states, uint8_t rx_set_stg_states, uint8_t rx_set_save_opt)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_IVAQ_RX_SET_PARAMS_SLAVE_LEN];
@@ -124,9 +131,10 @@ static inline uint16_t mavlink_msg_ivaq_rx_set_params_slave_pack_status(uint8_t 
     _mav_put_uint8_t(buf, 4, rx_set_chg_request);
     _mav_put_uint8_t(buf, 5, rx_set_reset);
     _mav_put_uint8_t(buf, 6, rx_set_anlg_en);
-    _mav_put_uint8_t(buf, 7, rx_set_ant_states);
-    _mav_put_uint8_t(buf, 8, rx_set_stg_states);
-    _mav_put_uint8_t(buf, 9, rx_set_save_opt);
+    _mav_put_uint8_t(buf, 7, rx_set_stgs_operation);
+    _mav_put_uint8_t(buf, 8, rx_set_ant_states);
+    _mav_put_uint8_t(buf, 9, rx_set_stg_states);
+    _mav_put_uint8_t(buf, 10, rx_set_save_opt);
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_IVAQ_RX_SET_PARAMS_SLAVE_LEN);
 #else
@@ -135,6 +143,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_set_params_slave_pack_status(uint8_t 
     packet.rx_set_chg_request = rx_set_chg_request;
     packet.rx_set_reset = rx_set_reset;
     packet.rx_set_anlg_en = rx_set_anlg_en;
+    packet.rx_set_stgs_operation = rx_set_stgs_operation;
     packet.rx_set_ant_states = rx_set_ant_states;
     packet.rx_set_stg_states = rx_set_stg_states;
     packet.rx_set_save_opt = rx_set_save_opt;
@@ -160,6 +169,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_set_params_slave_pack_status(uint8_t 
  * @param rx_set_chg_request  Ivaq Rx Set Change Request
  * @param rx_set_reset  Ivaq Rx Set Reset
  * @param rx_set_anlg_en  Ivaq Rx Set Anlg Part Status
+ * @param rx_set_stgs_operation  Ivaq Rx All ant Set Stages Operation (automatic/manual)
  * @param rx_set_ant_states  Ivaq Rx Set Antenna State
  * @param rx_set_stg_states  Ivaq Rx Set Stage States
  * @param rx_set_save_opt  Ivaq Rx Set Save State
@@ -167,7 +177,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_set_params_slave_pack_status(uint8_t 
  */
 static inline uint16_t mavlink_msg_ivaq_rx_set_params_slave_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
                                mavlink_message_t* msg,
-                                   uint32_t rx_time_master_boot_ms,uint8_t rx_set_chg_request,uint8_t rx_set_reset,uint8_t rx_set_anlg_en,uint8_t rx_set_ant_states,uint8_t rx_set_stg_states,uint8_t rx_set_save_opt)
+                                   uint32_t rx_time_master_boot_ms,uint8_t rx_set_chg_request,uint8_t rx_set_reset,uint8_t rx_set_anlg_en,uint8_t rx_set_stgs_operation,uint8_t rx_set_ant_states,uint8_t rx_set_stg_states,uint8_t rx_set_save_opt)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_IVAQ_RX_SET_PARAMS_SLAVE_LEN];
@@ -175,9 +185,10 @@ static inline uint16_t mavlink_msg_ivaq_rx_set_params_slave_pack_chan(uint8_t sy
     _mav_put_uint8_t(buf, 4, rx_set_chg_request);
     _mav_put_uint8_t(buf, 5, rx_set_reset);
     _mav_put_uint8_t(buf, 6, rx_set_anlg_en);
-    _mav_put_uint8_t(buf, 7, rx_set_ant_states);
-    _mav_put_uint8_t(buf, 8, rx_set_stg_states);
-    _mav_put_uint8_t(buf, 9, rx_set_save_opt);
+    _mav_put_uint8_t(buf, 7, rx_set_stgs_operation);
+    _mav_put_uint8_t(buf, 8, rx_set_ant_states);
+    _mav_put_uint8_t(buf, 9, rx_set_stg_states);
+    _mav_put_uint8_t(buf, 10, rx_set_save_opt);
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_IVAQ_RX_SET_PARAMS_SLAVE_LEN);
 #else
@@ -186,6 +197,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_set_params_slave_pack_chan(uint8_t sy
     packet.rx_set_chg_request = rx_set_chg_request;
     packet.rx_set_reset = rx_set_reset;
     packet.rx_set_anlg_en = rx_set_anlg_en;
+    packet.rx_set_stgs_operation = rx_set_stgs_operation;
     packet.rx_set_ant_states = rx_set_ant_states;
     packet.rx_set_stg_states = rx_set_stg_states;
     packet.rx_set_save_opt = rx_set_save_opt;
@@ -207,7 +219,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_set_params_slave_pack_chan(uint8_t sy
  */
 static inline uint16_t mavlink_msg_ivaq_rx_set_params_slave_encode(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg, const mavlink_ivaq_rx_set_params_slave_t* ivaq_rx_set_params_slave)
 {
-    return mavlink_msg_ivaq_rx_set_params_slave_pack(system_id, component_id, msg, ivaq_rx_set_params_slave->rx_time_master_boot_ms, ivaq_rx_set_params_slave->rx_set_chg_request, ivaq_rx_set_params_slave->rx_set_reset, ivaq_rx_set_params_slave->rx_set_anlg_en, ivaq_rx_set_params_slave->rx_set_ant_states, ivaq_rx_set_params_slave->rx_set_stg_states, ivaq_rx_set_params_slave->rx_set_save_opt);
+    return mavlink_msg_ivaq_rx_set_params_slave_pack(system_id, component_id, msg, ivaq_rx_set_params_slave->rx_time_master_boot_ms, ivaq_rx_set_params_slave->rx_set_chg_request, ivaq_rx_set_params_slave->rx_set_reset, ivaq_rx_set_params_slave->rx_set_anlg_en, ivaq_rx_set_params_slave->rx_set_stgs_operation, ivaq_rx_set_params_slave->rx_set_ant_states, ivaq_rx_set_params_slave->rx_set_stg_states, ivaq_rx_set_params_slave->rx_set_save_opt);
 }
 
 /**
@@ -221,7 +233,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_set_params_slave_encode(uint8_t syste
  */
 static inline uint16_t mavlink_msg_ivaq_rx_set_params_slave_encode_chan(uint8_t system_id, uint8_t component_id, uint8_t chan, mavlink_message_t* msg, const mavlink_ivaq_rx_set_params_slave_t* ivaq_rx_set_params_slave)
 {
-    return mavlink_msg_ivaq_rx_set_params_slave_pack_chan(system_id, component_id, chan, msg, ivaq_rx_set_params_slave->rx_time_master_boot_ms, ivaq_rx_set_params_slave->rx_set_chg_request, ivaq_rx_set_params_slave->rx_set_reset, ivaq_rx_set_params_slave->rx_set_anlg_en, ivaq_rx_set_params_slave->rx_set_ant_states, ivaq_rx_set_params_slave->rx_set_stg_states, ivaq_rx_set_params_slave->rx_set_save_opt);
+    return mavlink_msg_ivaq_rx_set_params_slave_pack_chan(system_id, component_id, chan, msg, ivaq_rx_set_params_slave->rx_time_master_boot_ms, ivaq_rx_set_params_slave->rx_set_chg_request, ivaq_rx_set_params_slave->rx_set_reset, ivaq_rx_set_params_slave->rx_set_anlg_en, ivaq_rx_set_params_slave->rx_set_stgs_operation, ivaq_rx_set_params_slave->rx_set_ant_states, ivaq_rx_set_params_slave->rx_set_stg_states, ivaq_rx_set_params_slave->rx_set_save_opt);
 }
 
 /**
@@ -235,7 +247,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_set_params_slave_encode_chan(uint8_t 
  */
 static inline uint16_t mavlink_msg_ivaq_rx_set_params_slave_encode_status(uint8_t system_id, uint8_t component_id, mavlink_status_t* _status, mavlink_message_t* msg, const mavlink_ivaq_rx_set_params_slave_t* ivaq_rx_set_params_slave)
 {
-    return mavlink_msg_ivaq_rx_set_params_slave_pack_status(system_id, component_id, _status, msg,  ivaq_rx_set_params_slave->rx_time_master_boot_ms, ivaq_rx_set_params_slave->rx_set_chg_request, ivaq_rx_set_params_slave->rx_set_reset, ivaq_rx_set_params_slave->rx_set_anlg_en, ivaq_rx_set_params_slave->rx_set_ant_states, ivaq_rx_set_params_slave->rx_set_stg_states, ivaq_rx_set_params_slave->rx_set_save_opt);
+    return mavlink_msg_ivaq_rx_set_params_slave_pack_status(system_id, component_id, _status, msg,  ivaq_rx_set_params_slave->rx_time_master_boot_ms, ivaq_rx_set_params_slave->rx_set_chg_request, ivaq_rx_set_params_slave->rx_set_reset, ivaq_rx_set_params_slave->rx_set_anlg_en, ivaq_rx_set_params_slave->rx_set_stgs_operation, ivaq_rx_set_params_slave->rx_set_ant_states, ivaq_rx_set_params_slave->rx_set_stg_states, ivaq_rx_set_params_slave->rx_set_save_opt);
 }
 
 /**
@@ -246,13 +258,14 @@ static inline uint16_t mavlink_msg_ivaq_rx_set_params_slave_encode_status(uint8_
  * @param rx_set_chg_request  Ivaq Rx Set Change Request
  * @param rx_set_reset  Ivaq Rx Set Reset
  * @param rx_set_anlg_en  Ivaq Rx Set Anlg Part Status
+ * @param rx_set_stgs_operation  Ivaq Rx All ant Set Stages Operation (automatic/manual)
  * @param rx_set_ant_states  Ivaq Rx Set Antenna State
  * @param rx_set_stg_states  Ivaq Rx Set Stage States
  * @param rx_set_save_opt  Ivaq Rx Set Save State
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
-static inline void mavlink_msg_ivaq_rx_set_params_slave_send(mavlink_channel_t chan, uint32_t rx_time_master_boot_ms, uint8_t rx_set_chg_request, uint8_t rx_set_reset, uint8_t rx_set_anlg_en, uint8_t rx_set_ant_states, uint8_t rx_set_stg_states, uint8_t rx_set_save_opt)
+static inline void mavlink_msg_ivaq_rx_set_params_slave_send(mavlink_channel_t chan, uint32_t rx_time_master_boot_ms, uint8_t rx_set_chg_request, uint8_t rx_set_reset, uint8_t rx_set_anlg_en, uint8_t rx_set_stgs_operation, uint8_t rx_set_ant_states, uint8_t rx_set_stg_states, uint8_t rx_set_save_opt)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_IVAQ_RX_SET_PARAMS_SLAVE_LEN];
@@ -260,9 +273,10 @@ static inline void mavlink_msg_ivaq_rx_set_params_slave_send(mavlink_channel_t c
     _mav_put_uint8_t(buf, 4, rx_set_chg_request);
     _mav_put_uint8_t(buf, 5, rx_set_reset);
     _mav_put_uint8_t(buf, 6, rx_set_anlg_en);
-    _mav_put_uint8_t(buf, 7, rx_set_ant_states);
-    _mav_put_uint8_t(buf, 8, rx_set_stg_states);
-    _mav_put_uint8_t(buf, 9, rx_set_save_opt);
+    _mav_put_uint8_t(buf, 7, rx_set_stgs_operation);
+    _mav_put_uint8_t(buf, 8, rx_set_ant_states);
+    _mav_put_uint8_t(buf, 9, rx_set_stg_states);
+    _mav_put_uint8_t(buf, 10, rx_set_save_opt);
 
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_IVAQ_RX_SET_PARAMS_SLAVE, buf, MAVLINK_MSG_ID_IVAQ_RX_SET_PARAMS_SLAVE_MIN_LEN, MAVLINK_MSG_ID_IVAQ_RX_SET_PARAMS_SLAVE_LEN, MAVLINK_MSG_ID_IVAQ_RX_SET_PARAMS_SLAVE_CRC);
 #else
@@ -271,6 +285,7 @@ static inline void mavlink_msg_ivaq_rx_set_params_slave_send(mavlink_channel_t c
     packet.rx_set_chg_request = rx_set_chg_request;
     packet.rx_set_reset = rx_set_reset;
     packet.rx_set_anlg_en = rx_set_anlg_en;
+    packet.rx_set_stgs_operation = rx_set_stgs_operation;
     packet.rx_set_ant_states = rx_set_ant_states;
     packet.rx_set_stg_states = rx_set_stg_states;
     packet.rx_set_save_opt = rx_set_save_opt;
@@ -287,7 +302,7 @@ static inline void mavlink_msg_ivaq_rx_set_params_slave_send(mavlink_channel_t c
 static inline void mavlink_msg_ivaq_rx_set_params_slave_send_struct(mavlink_channel_t chan, const mavlink_ivaq_rx_set_params_slave_t* ivaq_rx_set_params_slave)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
-    mavlink_msg_ivaq_rx_set_params_slave_send(chan, ivaq_rx_set_params_slave->rx_time_master_boot_ms, ivaq_rx_set_params_slave->rx_set_chg_request, ivaq_rx_set_params_slave->rx_set_reset, ivaq_rx_set_params_slave->rx_set_anlg_en, ivaq_rx_set_params_slave->rx_set_ant_states, ivaq_rx_set_params_slave->rx_set_stg_states, ivaq_rx_set_params_slave->rx_set_save_opt);
+    mavlink_msg_ivaq_rx_set_params_slave_send(chan, ivaq_rx_set_params_slave->rx_time_master_boot_ms, ivaq_rx_set_params_slave->rx_set_chg_request, ivaq_rx_set_params_slave->rx_set_reset, ivaq_rx_set_params_slave->rx_set_anlg_en, ivaq_rx_set_params_slave->rx_set_stgs_operation, ivaq_rx_set_params_slave->rx_set_ant_states, ivaq_rx_set_params_slave->rx_set_stg_states, ivaq_rx_set_params_slave->rx_set_save_opt);
 #else
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_IVAQ_RX_SET_PARAMS_SLAVE, (const char *)ivaq_rx_set_params_slave, MAVLINK_MSG_ID_IVAQ_RX_SET_PARAMS_SLAVE_MIN_LEN, MAVLINK_MSG_ID_IVAQ_RX_SET_PARAMS_SLAVE_LEN, MAVLINK_MSG_ID_IVAQ_RX_SET_PARAMS_SLAVE_CRC);
 #endif
@@ -301,7 +316,7 @@ static inline void mavlink_msg_ivaq_rx_set_params_slave_send_struct(mavlink_chan
   is usually the receive buffer for the channel, and allows a reply to an
   incoming message with minimum stack space usage.
  */
-static inline void mavlink_msg_ivaq_rx_set_params_slave_send_buf(mavlink_message_t *msgbuf, mavlink_channel_t chan,  uint32_t rx_time_master_boot_ms, uint8_t rx_set_chg_request, uint8_t rx_set_reset, uint8_t rx_set_anlg_en, uint8_t rx_set_ant_states, uint8_t rx_set_stg_states, uint8_t rx_set_save_opt)
+static inline void mavlink_msg_ivaq_rx_set_params_slave_send_buf(mavlink_message_t *msgbuf, mavlink_channel_t chan,  uint32_t rx_time_master_boot_ms, uint8_t rx_set_chg_request, uint8_t rx_set_reset, uint8_t rx_set_anlg_en, uint8_t rx_set_stgs_operation, uint8_t rx_set_ant_states, uint8_t rx_set_stg_states, uint8_t rx_set_save_opt)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char *buf = (char *)msgbuf;
@@ -309,9 +324,10 @@ static inline void mavlink_msg_ivaq_rx_set_params_slave_send_buf(mavlink_message
     _mav_put_uint8_t(buf, 4, rx_set_chg_request);
     _mav_put_uint8_t(buf, 5, rx_set_reset);
     _mav_put_uint8_t(buf, 6, rx_set_anlg_en);
-    _mav_put_uint8_t(buf, 7, rx_set_ant_states);
-    _mav_put_uint8_t(buf, 8, rx_set_stg_states);
-    _mav_put_uint8_t(buf, 9, rx_set_save_opt);
+    _mav_put_uint8_t(buf, 7, rx_set_stgs_operation);
+    _mav_put_uint8_t(buf, 8, rx_set_ant_states);
+    _mav_put_uint8_t(buf, 9, rx_set_stg_states);
+    _mav_put_uint8_t(buf, 10, rx_set_save_opt);
 
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_IVAQ_RX_SET_PARAMS_SLAVE, buf, MAVLINK_MSG_ID_IVAQ_RX_SET_PARAMS_SLAVE_MIN_LEN, MAVLINK_MSG_ID_IVAQ_RX_SET_PARAMS_SLAVE_LEN, MAVLINK_MSG_ID_IVAQ_RX_SET_PARAMS_SLAVE_CRC);
 #else
@@ -320,6 +336,7 @@ static inline void mavlink_msg_ivaq_rx_set_params_slave_send_buf(mavlink_message
     packet->rx_set_chg_request = rx_set_chg_request;
     packet->rx_set_reset = rx_set_reset;
     packet->rx_set_anlg_en = rx_set_anlg_en;
+    packet->rx_set_stgs_operation = rx_set_stgs_operation;
     packet->rx_set_ant_states = rx_set_ant_states;
     packet->rx_set_stg_states = rx_set_stg_states;
     packet->rx_set_save_opt = rx_set_save_opt;
@@ -375,13 +392,23 @@ static inline uint8_t mavlink_msg_ivaq_rx_set_params_slave_get_rx_set_anlg_en(co
 }
 
 /**
+ * @brief Get field rx_set_stgs_operation from ivaq_rx_set_params_slave message
+ *
+ * @return  Ivaq Rx All ant Set Stages Operation (automatic/manual)
+ */
+static inline uint8_t mavlink_msg_ivaq_rx_set_params_slave_get_rx_set_stgs_operation(const mavlink_message_t* msg)
+{
+    return _MAV_RETURN_uint8_t(msg,  7);
+}
+
+/**
  * @brief Get field rx_set_ant_states from ivaq_rx_set_params_slave message
  *
  * @return  Ivaq Rx Set Antenna State
  */
 static inline uint8_t mavlink_msg_ivaq_rx_set_params_slave_get_rx_set_ant_states(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  7);
+    return _MAV_RETURN_uint8_t(msg,  8);
 }
 
 /**
@@ -391,7 +418,7 @@ static inline uint8_t mavlink_msg_ivaq_rx_set_params_slave_get_rx_set_ant_states
  */
 static inline uint8_t mavlink_msg_ivaq_rx_set_params_slave_get_rx_set_stg_states(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  8);
+    return _MAV_RETURN_uint8_t(msg,  9);
 }
 
 /**
@@ -401,7 +428,7 @@ static inline uint8_t mavlink_msg_ivaq_rx_set_params_slave_get_rx_set_stg_states
  */
 static inline uint8_t mavlink_msg_ivaq_rx_set_params_slave_get_rx_set_save_opt(const mavlink_message_t* msg)
 {
-    return _MAV_RETURN_uint8_t(msg,  9);
+    return _MAV_RETURN_uint8_t(msg,  10);
 }
 
 /**
@@ -417,6 +444,7 @@ static inline void mavlink_msg_ivaq_rx_set_params_slave_decode(const mavlink_mes
     ivaq_rx_set_params_slave->rx_set_chg_request = mavlink_msg_ivaq_rx_set_params_slave_get_rx_set_chg_request(msg);
     ivaq_rx_set_params_slave->rx_set_reset = mavlink_msg_ivaq_rx_set_params_slave_get_rx_set_reset(msg);
     ivaq_rx_set_params_slave->rx_set_anlg_en = mavlink_msg_ivaq_rx_set_params_slave_get_rx_set_anlg_en(msg);
+    ivaq_rx_set_params_slave->rx_set_stgs_operation = mavlink_msg_ivaq_rx_set_params_slave_get_rx_set_stgs_operation(msg);
     ivaq_rx_set_params_slave->rx_set_ant_states = mavlink_msg_ivaq_rx_set_params_slave_get_rx_set_ant_states(msg);
     ivaq_rx_set_params_slave->rx_set_stg_states = mavlink_msg_ivaq_rx_set_params_slave_get_rx_set_stg_states(msg);
     ivaq_rx_set_params_slave->rx_set_save_opt = mavlink_msg_ivaq_rx_set_params_slave_get_rx_set_save_opt(msg);

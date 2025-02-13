@@ -246,12 +246,13 @@ static void mavlink_test_ivaq_rx_set_params_master(uint8_t system_id, uint8_t co
         uint8_t buffer[MAVLINK_MAX_PACKET_LEN];
         uint16_t i;
     mavlink_ivaq_rx_set_params_master_t packet_in = {
-        5,72,139,206,17,84,151,218,29,96,163,230,41,108,175
+        5,72,139,206,17,84,151,218,29,96,163,230,41,108,175,242
     };
     mavlink_ivaq_rx_set_params_master_t packet1, packet2;
         memset(&packet1, 0, sizeof(packet1));
         packet1.rx_set_reset_x = packet_in.rx_set_reset_x;
         packet1.rx_set_anlg_en_x = packet_in.rx_set_anlg_en_x;
+        packet1.rx_set_stgs_operation = packet_in.rx_set_stgs_operation;
         packet1.rx_set_ant_states_x = packet_in.rx_set_ant_states_x;
         packet1.rx_set_stg_states_x = packet_in.rx_set_stg_states_x;
         packet1.rx_set_save_opt_x = packet_in.rx_set_save_opt_x;
@@ -279,12 +280,12 @@ static void mavlink_test_ivaq_rx_set_params_master(uint8_t system_id, uint8_t co
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_ivaq_rx_set_params_master_pack(system_id, component_id, &msg , packet1.rx_set_reset_x , packet1.rx_set_anlg_en_x , packet1.rx_set_ant_states_x , packet1.rx_set_stg_states_x , packet1.rx_set_save_opt_x , packet1.rx_set_reset_y , packet1.rx_set_anlg_en_y , packet1.rx_set_ant_states_y , packet1.rx_set_stg_states_y , packet1.rx_set_save_opt_y , packet1.rx_set_reset_z , packet1.rx_set_anlg_en_z , packet1.rx_set_ant_states_z , packet1.rx_set_stg_states_z , packet1.rx_set_save_opt_z );
+    mavlink_msg_ivaq_rx_set_params_master_pack(system_id, component_id, &msg , packet1.rx_set_reset_x , packet1.rx_set_anlg_en_x , packet1.rx_set_stgs_operation , packet1.rx_set_ant_states_x , packet1.rx_set_stg_states_x , packet1.rx_set_save_opt_x , packet1.rx_set_reset_y , packet1.rx_set_anlg_en_y , packet1.rx_set_ant_states_y , packet1.rx_set_stg_states_y , packet1.rx_set_save_opt_y , packet1.rx_set_reset_z , packet1.rx_set_anlg_en_z , packet1.rx_set_ant_states_z , packet1.rx_set_stg_states_z , packet1.rx_set_save_opt_z );
     mavlink_msg_ivaq_rx_set_params_master_decode(&msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_ivaq_rx_set_params_master_pack_chan(system_id, component_id, MAVLINK_COMM_0, &msg , packet1.rx_set_reset_x , packet1.rx_set_anlg_en_x , packet1.rx_set_ant_states_x , packet1.rx_set_stg_states_x , packet1.rx_set_save_opt_x , packet1.rx_set_reset_y , packet1.rx_set_anlg_en_y , packet1.rx_set_ant_states_y , packet1.rx_set_stg_states_y , packet1.rx_set_save_opt_y , packet1.rx_set_reset_z , packet1.rx_set_anlg_en_z , packet1.rx_set_ant_states_z , packet1.rx_set_stg_states_z , packet1.rx_set_save_opt_z );
+    mavlink_msg_ivaq_rx_set_params_master_pack_chan(system_id, component_id, MAVLINK_COMM_0, &msg , packet1.rx_set_reset_x , packet1.rx_set_anlg_en_x , packet1.rx_set_stgs_operation , packet1.rx_set_ant_states_x , packet1.rx_set_stg_states_x , packet1.rx_set_save_opt_x , packet1.rx_set_reset_y , packet1.rx_set_anlg_en_y , packet1.rx_set_ant_states_y , packet1.rx_set_stg_states_y , packet1.rx_set_save_opt_y , packet1.rx_set_reset_z , packet1.rx_set_anlg_en_z , packet1.rx_set_ant_states_z , packet1.rx_set_stg_states_z , packet1.rx_set_save_opt_z );
     mavlink_msg_ivaq_rx_set_params_master_decode(&msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
@@ -297,7 +298,7 @@ static void mavlink_test_ivaq_rx_set_params_master(uint8_t system_id, uint8_t co
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
         
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_ivaq_rx_set_params_master_send(MAVLINK_COMM_1 , packet1.rx_set_reset_x , packet1.rx_set_anlg_en_x , packet1.rx_set_ant_states_x , packet1.rx_set_stg_states_x , packet1.rx_set_save_opt_x , packet1.rx_set_reset_y , packet1.rx_set_anlg_en_y , packet1.rx_set_ant_states_y , packet1.rx_set_stg_states_y , packet1.rx_set_save_opt_y , packet1.rx_set_reset_z , packet1.rx_set_anlg_en_z , packet1.rx_set_ant_states_z , packet1.rx_set_stg_states_z , packet1.rx_set_save_opt_z );
+    mavlink_msg_ivaq_rx_set_params_master_send(MAVLINK_COMM_1 , packet1.rx_set_reset_x , packet1.rx_set_anlg_en_x , packet1.rx_set_stgs_operation , packet1.rx_set_ant_states_x , packet1.rx_set_stg_states_x , packet1.rx_set_save_opt_x , packet1.rx_set_reset_y , packet1.rx_set_anlg_en_y , packet1.rx_set_ant_states_y , packet1.rx_set_stg_states_y , packet1.rx_set_save_opt_y , packet1.rx_set_reset_z , packet1.rx_set_anlg_en_z , packet1.rx_set_ant_states_z , packet1.rx_set_stg_states_z , packet1.rx_set_save_opt_z );
     mavlink_msg_ivaq_rx_set_params_master_decode(last_msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
@@ -319,7 +320,7 @@ static void mavlink_test_ivaq_rx_set_params_slave(uint8_t system_id, uint8_t com
         uint8_t buffer[MAVLINK_MAX_PACKET_LEN];
         uint16_t i;
     mavlink_ivaq_rx_set_params_slave_t packet_in = {
-        963497464,17,84,151,218,29,96
+        963497464,17,84,151,218,29,96,163
     };
     mavlink_ivaq_rx_set_params_slave_t packet1, packet2;
         memset(&packet1, 0, sizeof(packet1));
@@ -327,6 +328,7 @@ static void mavlink_test_ivaq_rx_set_params_slave(uint8_t system_id, uint8_t com
         packet1.rx_set_chg_request = packet_in.rx_set_chg_request;
         packet1.rx_set_reset = packet_in.rx_set_reset;
         packet1.rx_set_anlg_en = packet_in.rx_set_anlg_en;
+        packet1.rx_set_stgs_operation = packet_in.rx_set_stgs_operation;
         packet1.rx_set_ant_states = packet_in.rx_set_ant_states;
         packet1.rx_set_stg_states = packet_in.rx_set_stg_states;
         packet1.rx_set_save_opt = packet_in.rx_set_save_opt;
@@ -344,12 +346,12 @@ static void mavlink_test_ivaq_rx_set_params_slave(uint8_t system_id, uint8_t com
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_ivaq_rx_set_params_slave_pack(system_id, component_id, &msg , packet1.rx_time_master_boot_ms , packet1.rx_set_chg_request , packet1.rx_set_reset , packet1.rx_set_anlg_en , packet1.rx_set_ant_states , packet1.rx_set_stg_states , packet1.rx_set_save_opt );
+    mavlink_msg_ivaq_rx_set_params_slave_pack(system_id, component_id, &msg , packet1.rx_time_master_boot_ms , packet1.rx_set_chg_request , packet1.rx_set_reset , packet1.rx_set_anlg_en , packet1.rx_set_stgs_operation , packet1.rx_set_ant_states , packet1.rx_set_stg_states , packet1.rx_set_save_opt );
     mavlink_msg_ivaq_rx_set_params_slave_decode(&msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_ivaq_rx_set_params_slave_pack_chan(system_id, component_id, MAVLINK_COMM_0, &msg , packet1.rx_time_master_boot_ms , packet1.rx_set_chg_request , packet1.rx_set_reset , packet1.rx_set_anlg_en , packet1.rx_set_ant_states , packet1.rx_set_stg_states , packet1.rx_set_save_opt );
+    mavlink_msg_ivaq_rx_set_params_slave_pack_chan(system_id, component_id, MAVLINK_COMM_0, &msg , packet1.rx_time_master_boot_ms , packet1.rx_set_chg_request , packet1.rx_set_reset , packet1.rx_set_anlg_en , packet1.rx_set_stgs_operation , packet1.rx_set_ant_states , packet1.rx_set_stg_states , packet1.rx_set_save_opt );
     mavlink_msg_ivaq_rx_set_params_slave_decode(&msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
@@ -362,7 +364,7 @@ static void mavlink_test_ivaq_rx_set_params_slave(uint8_t system_id, uint8_t com
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
         
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_ivaq_rx_set_params_slave_send(MAVLINK_COMM_1 , packet1.rx_time_master_boot_ms , packet1.rx_set_chg_request , packet1.rx_set_reset , packet1.rx_set_anlg_en , packet1.rx_set_ant_states , packet1.rx_set_stg_states , packet1.rx_set_save_opt );
+    mavlink_msg_ivaq_rx_set_params_slave_send(MAVLINK_COMM_1 , packet1.rx_time_master_boot_ms , packet1.rx_set_chg_request , packet1.rx_set_reset , packet1.rx_set_anlg_en , packet1.rx_set_stgs_operation , packet1.rx_set_ant_states , packet1.rx_set_stg_states , packet1.rx_set_save_opt );
     mavlink_msg_ivaq_rx_set_params_slave_decode(last_msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 

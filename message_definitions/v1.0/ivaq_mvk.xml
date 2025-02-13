@@ -55,6 +55,16 @@
       </entry>
     </enum>
 
+    <enum name="MVK_RX_STAGES_OPERATION">
+      <description>These values define the stages operation mode for all PCBs</description>
+      <entry value="0x00" name="MVK_STAGES_OPERATION_MANUAL">
+        <description>Stages change in manual mode according to user input</description>
+      </entry>
+      <entry value="0x01" name="MVK_STAGES_OPERATION_AUTO">
+        <description>Stages change in automatic mode according to automatic change strategy. See confluence</description>
+      </entry>
+    </enum>
+
     <enum name="MVK_STAGE_STATES">
       <description>These values define the stage states of each PCB</description>
       <entry value="0x00" name="MVK_STAGE_1_OFF_STAGE_2_OFF_STAGE_3_OFF_STAGE_4_OFF">
@@ -232,6 +242,7 @@
       <description>IVAQ Rx Target Parameters for all PCBs (X,Y,X) from Raspi to Master</description>
       <field type="uint8_t" name="rx_set_reset_x" enum="MVK_RX_RESET">Ivaq Rx X-ant Set Reset</field>
       <field type="uint8_t" name="rx_set_anlg_en_x" enum="MVK_RX_ANLG_EN">Ivaq Rx X-Ant Set Anlg Part Status</field>
+      <field type="uint8_t" name="rx_set_stgs_operation" enum="MVK_RX_STAGES_OPERATION">Ivaq Rx All ant Set Stages Operation (automatic/manual)</field>
       <field type="uint8_t" name="rx_set_ant_states_x" enum="MVK_ANT_STATES">Ivaq Rx X-Ant Set Antenna State</field>
       <field type="uint8_t" name="rx_set_stg_states_x" enum="MVK_STAGE_STATES">Ivaq Rx X-Ant Set Stage States</field>
       <field type="uint8_t" name="rx_set_save_opt_x" enum="MVK_SAVE_STATE">Ivaq Rx X-Ant Set Save State</field>
@@ -253,6 +264,7 @@
       <field type="uint8_t" name="rx_set_chg_request" enum="MVK_RX_CHG_REQ">Ivaq Rx Set Change Request</field>
       <field type="uint8_t" name="rx_set_reset" enum="MVK_RX_RESET">Ivaq Rx Set Reset</field>
       <field type="uint8_t" name="rx_set_anlg_en" enum="MVK_RX_ANLG_EN">Ivaq Rx Set Anlg Part Status</field>
+      <field type="uint8_t" name="rx_set_stgs_operation" enum="MVK_RX_STAGES_OPERATION">Ivaq Rx All ant Set Stages Operation (automatic/manual)</field>
       <field type="uint8_t" name="rx_set_ant_states" enum="MVK_ANT_STATES">Ivaq Rx Set Antenna State</field>
       <field type="uint8_t" name="rx_set_stg_states" enum="MVK_STAGE_STATES">Ivaq Rx Set Stage States</field>
       <field type="uint8_t" name="rx_set_save_opt" enum="MVK_SAVE_STATE">Ivaq Rx Set Save State</field>
