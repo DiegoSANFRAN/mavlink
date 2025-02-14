@@ -285,6 +285,7 @@
       <field type="float" name="rx_signal_det_module_corr">Ivaq Rx Detected Pulse Module value [V]</field>
       <field type="uint8_t" name="rx_saturation_flag_x" enum="MVK_SIGNAL_SAT">Ivaq Rx X-ant Saturation flag</field>
       <field type="uint8_t" name="rx_signal_det_flag_x" enum="MVK_SIGNAL_DET">Ivaq Rx X-ant Signal Detection flag</field>
+      <field type="uint8_t" name="rx_signal_det_sat_flag_x" enum="MVK_SIGNAL_SAT">Ivaq Rx X-ant Saturation flag for Detected Signal</field>
       <field type="uint32_t" name="rx_signal_det_time_x">Ivaq Rx X-ant Signal NoCorr value in detected pulse</field>
       <field type="float" name="rx_signal_det_val_nocorr_x">Ivaq Rx X-ant Signal NoCorr value in detected pulse</field>
       <field type="float" name="rx_signal_det_val_corr_x">Ivaq Rx X-ant Signal Corr value in detected pulse</field>
@@ -294,6 +295,7 @@
       <field type="float" name="rx_noise_std_corr_x">Ivaq Rx X-ant Noise Corr Demod std deviation</field>
       <field type="uint8_t" name="rx_saturation_flag_y" enum="MVK_SIGNAL_SAT">Ivaq Rx Y-ant Saturation flag</field>
       <field type="uint8_t" name="rx_signal_det_flag_y" enum="MVK_SIGNAL_DET">Ivaq Rx Y-ant Signal Detection flag</field>
+      <field type="uint8_t" name="rx_signal_det_sat_flag_y" enum="MVK_SIGNAL_SAT">Ivaq Rx Y-ant Saturation flag for Detected Signal</field>
       <field type="uint32_t" name="rx_signal_det_time_y">Ivaq Rx Y-ant Signal NoCorr value in detected pulse</field>
       <field type="float" name="rx_signal_det_val_nocorr_y">Ivaq Rx Y-ant Signal NoCorr value in detected pulse</field>
       <field type="float" name="rx_signal_det_val_corr_y">Ivaq Rx Y-ant Signal Corr value in detected pulse</field>
@@ -303,6 +305,7 @@
       <field type="float" name="rx_noise_std_corr_y">Ivaq Rx Y-ant Noise Corr Demod std deviation</field>
       <field type="uint8_t" name="rx_saturation_flag_z" enum="MVK_SIGNAL_SAT">Ivaq Rx Z-ant Saturation flag</field>
       <field type="uint8_t" name="rx_signal_det_flag_z" enum="MVK_SIGNAL_DET">Ivaq Rx Z-ant Signal Detection flag</field>
+      <field type="uint8_t" name="rx_signal_det_sat_flag_z" enum="MVK_SIGNAL_SAT">Ivaq Rx Z-ant Saturation flag for Detected Signal</field>
       <field type="uint32_t" name="rx_signal_det_time_z">Ivaq Rx Z-ant Signal NoCorr value in detected pulse</field>
       <field type="float" name="rx_signal_det_val_nocorr_z">Ivaq Rx Z-ant Signal NoCorr value in detected pulse</field>
       <field type="float" name="rx_signal_det_val_corr_z">Ivaq Rx Z-ant Signal Corr value in detected pulse</field>
@@ -316,6 +319,7 @@
     <description>Message with Signal from all antennas (X,Y,Z) in IVAQ Rx uploaded to Raspi</description>
       <field type="uint8_t" name="rx_saturation_flag" enum="MVK_SIGNAL_SAT">Ivaq Rx Saturation flag</field>
       <field type="uint8_t" name="rx_signal_det_flag" enum="MVK_SIGNAL_DET">Ivaq Rx Signal Detection flag</field>
+      <field type="uint8_t" name="rx_signal_det_sat_flag" enum="MVK_SIGNAL_SAT">Ivaq Rx Saturation flag for Detected Signal</field>
       <field type="uint8_t" name="rx_signal_det_to_send_flag" enum="MVK_SIGNAL_DET_SENT">Ivaq Rx Signal Detection flag</field>
       <field type="uint32_t" name="rx_signal_det_time">Ivaq Rx Signal NoCorr value in detected pulse</field>
       <field type="float" name="rx_signal_det_val_nocorr">Ivaq Rx Signal NoCorr value in detected pulse</field>
