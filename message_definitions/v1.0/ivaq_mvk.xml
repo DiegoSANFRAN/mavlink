@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <mavlink>
   <!-- MAVLink standard messages -->
-  <include>common.xml</include> <!-- common.xml for Python & minimal.xml for C -->
+  <include>minimal.xml</include> <!-- common.xml for Python & minimal.xml for C -->
   <dialect>100</dialect>
 
   <enums>
@@ -191,11 +191,11 @@
 
     <!-- SYSTEM TIME commented for Python libraries generation as it is already in the common.xml -->
 
-<!--     <message id="2" name="SYSTEM_TIME">
+    <message id="2" name="SYSTEM_TIME">
       <description>The system time is the time of the master clock, typically the computer clock of the main onboard computer.</description>
       <field type="uint64_t" name="time_unix_usec" units="us">Timestamp (UNIX epoch time).</field>
       <field type="uint32_t" name="time_boot_ms" units="ms">Timestamp (time since system boot).</field>
-    </message> -->
+    </message>
 
     <message id="200" name="IVAQ_RX_PARAMS_MASTER">
       <description>IVAQ Rx Current Parameters of all PCBs (X,Y,Z)</description>
@@ -280,7 +280,7 @@
     <description>Message with Signal from all antennas (X,Y,Z) in IVAQ Rx, uploaded to Raspi from Master</description>
       <field type="uint8_t" name="rx_signal_det_flag" enum="MVK_SIGNAL_MASTER_DET">Ivaq Rx X-ant Signal Detection flag</field>
       <field type="uint8_t" name="rx_signal_det_to_send_flag" enum="MVK_SIGNAL_DET_SENT">Ivaq Rx Signal Detected Sent flag</field>
-      <field type="uint32_t" name="rx_signal_det_time">Ivaq Rx Detected Pulse Overall Signal Time tag [ms]</field>
+      <field type="uint64_t" name="rx_signal_det_time">Ivaq Rx Detected Pulse Overall Signal Time tag [ms]</field>
       <field type="float" name="rx_signal_det_module_nocorr">Ivaq Rx Detected Pulse Module value [V]</field>
       <field type="float" name="rx_signal_det_module_corr">Ivaq Rx Detected Pulse Module value [V]</field>
       <field type="uint8_t" name="rx_saturation_flag_x" enum="MVK_SIGNAL_SAT">Ivaq Rx X-ant Saturation flag</field>
