@@ -326,11 +326,11 @@ static void mavlink_test_ivaq_rx_set_params_slave(uint8_t system_id, uint8_t com
         uint8_t buffer[MAVLINK_MAX_PACKET_LEN];
         uint16_t i;
     mavlink_ivaq_rx_set_params_slave_t packet_in = {
-        963497464,17,84,151,218,29,96,163
+        93372036854775807ULL,29,96,163,230,41,108,175
     };
     mavlink_ivaq_rx_set_params_slave_t packet1, packet2;
         memset(&packet1, 0, sizeof(packet1));
-        packet1.rx_time_master_boot_ms = packet_in.rx_time_master_boot_ms;
+        packet1.rx_time_px_unix_ms = packet_in.rx_time_px_unix_ms;
         packet1.rx_set_chg_request = packet_in.rx_set_chg_request;
         packet1.rx_set_reset = packet_in.rx_set_reset;
         packet1.rx_set_anlg_en = packet_in.rx_set_anlg_en;
@@ -352,12 +352,12 @@ static void mavlink_test_ivaq_rx_set_params_slave(uint8_t system_id, uint8_t com
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_ivaq_rx_set_params_slave_pack(system_id, component_id, &msg , packet1.rx_time_master_boot_ms , packet1.rx_set_chg_request , packet1.rx_set_reset , packet1.rx_set_anlg_en , packet1.rx_set_ant_states , packet1.rx_set_stgs_operation , packet1.rx_set_stg_states , packet1.rx_set_save_opt );
+    mavlink_msg_ivaq_rx_set_params_slave_pack(system_id, component_id, &msg , packet1.rx_time_px_unix_ms , packet1.rx_set_chg_request , packet1.rx_set_reset , packet1.rx_set_anlg_en , packet1.rx_set_ant_states , packet1.rx_set_stgs_operation , packet1.rx_set_stg_states , packet1.rx_set_save_opt );
     mavlink_msg_ivaq_rx_set_params_slave_decode(&msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_ivaq_rx_set_params_slave_pack_chan(system_id, component_id, MAVLINK_COMM_0, &msg , packet1.rx_time_master_boot_ms , packet1.rx_set_chg_request , packet1.rx_set_reset , packet1.rx_set_anlg_en , packet1.rx_set_ant_states , packet1.rx_set_stgs_operation , packet1.rx_set_stg_states , packet1.rx_set_save_opt );
+    mavlink_msg_ivaq_rx_set_params_slave_pack_chan(system_id, component_id, MAVLINK_COMM_0, &msg , packet1.rx_time_px_unix_ms , packet1.rx_set_chg_request , packet1.rx_set_reset , packet1.rx_set_anlg_en , packet1.rx_set_ant_states , packet1.rx_set_stgs_operation , packet1.rx_set_stg_states , packet1.rx_set_save_opt );
     mavlink_msg_ivaq_rx_set_params_slave_decode(&msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
@@ -370,7 +370,7 @@ static void mavlink_test_ivaq_rx_set_params_slave(uint8_t system_id, uint8_t com
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
         
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_ivaq_rx_set_params_slave_send(MAVLINK_COMM_1 , packet1.rx_time_master_boot_ms , packet1.rx_set_chg_request , packet1.rx_set_reset , packet1.rx_set_anlg_en , packet1.rx_set_ant_states , packet1.rx_set_stgs_operation , packet1.rx_set_stg_states , packet1.rx_set_save_opt );
+    mavlink_msg_ivaq_rx_set_params_slave_send(MAVLINK_COMM_1 , packet1.rx_time_px_unix_ms , packet1.rx_set_chg_request , packet1.rx_set_reset , packet1.rx_set_anlg_en , packet1.rx_set_ant_states , packet1.rx_set_stgs_operation , packet1.rx_set_stg_states , packet1.rx_set_save_opt );
     mavlink_msg_ivaq_rx_set_params_slave_decode(last_msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
@@ -392,28 +392,28 @@ static void mavlink_test_ivaq_rx_signal_master(uint8_t system_id, uint8_t compon
         uint8_t buffer[MAVLINK_MAX_PACKET_LEN];
         uint16_t i;
     mavlink_ivaq_rx_signal_master_t packet_in = {
-        93372036854775807ULL,73.0,101.0,963498296,157.0,185.0,213.0,241.0,269.0,297.0,963499752,353.0,381.0,409.0,437.0,465.0,493.0,963501208,549.0,577.0,605.0,633.0,661.0,689.0,49,116,183,250,61,128,195,6,73,140,207
+        93372036854775807ULL,93372036854776311ULL,93372036854776815ULL,93372036854777319ULL,241.0,269.0,297.0,325.0,353.0,381.0,409.0,437.0,465.0,493.0,521.0,549.0,577.0,605.0,633.0,661.0,689.0,717.0,745.0,773.0,85,152,219,30,97,164,231,42,109,176,243
     };
     mavlink_ivaq_rx_signal_master_t packet1, packet2;
         memset(&packet1, 0, sizeof(packet1));
         packet1.rx_signal_det_time = packet_in.rx_signal_det_time;
+        packet1.rx_signal_det_time_x = packet_in.rx_signal_det_time_x;
+        packet1.rx_signal_det_time_y = packet_in.rx_signal_det_time_y;
+        packet1.rx_signal_det_time_z = packet_in.rx_signal_det_time_z;
         packet1.rx_signal_det_module_nocorr = packet_in.rx_signal_det_module_nocorr;
         packet1.rx_signal_det_module_corr = packet_in.rx_signal_det_module_corr;
-        packet1.rx_signal_det_time_x = packet_in.rx_signal_det_time_x;
         packet1.rx_signal_det_val_nocorr_x = packet_in.rx_signal_det_val_nocorr_x;
         packet1.rx_signal_det_val_corr_x = packet_in.rx_signal_det_val_corr_x;
         packet1.rx_noise_val_nocorr_x = packet_in.rx_noise_val_nocorr_x;
         packet1.rx_noise_val_corr_x = packet_in.rx_noise_val_corr_x;
         packet1.rx_noise_std_nocorr_x = packet_in.rx_noise_std_nocorr_x;
         packet1.rx_noise_std_corr_x = packet_in.rx_noise_std_corr_x;
-        packet1.rx_signal_det_time_y = packet_in.rx_signal_det_time_y;
         packet1.rx_signal_det_val_nocorr_y = packet_in.rx_signal_det_val_nocorr_y;
         packet1.rx_signal_det_val_corr_y = packet_in.rx_signal_det_val_corr_y;
         packet1.rx_noise_val_nocorr_y = packet_in.rx_noise_val_nocorr_y;
         packet1.rx_noise_val_corr_y = packet_in.rx_noise_val_corr_y;
         packet1.rx_noise_std_nocorr_y = packet_in.rx_noise_std_nocorr_y;
         packet1.rx_noise_std_corr_y = packet_in.rx_noise_std_corr_y;
-        packet1.rx_signal_det_time_z = packet_in.rx_signal_det_time_z;
         packet1.rx_signal_det_val_nocorr_z = packet_in.rx_signal_det_val_nocorr_z;
         packet1.rx_signal_det_val_corr_z = packet_in.rx_signal_det_val_corr_z;
         packet1.rx_noise_val_nocorr_z = packet_in.rx_noise_val_nocorr_z;
@@ -485,7 +485,7 @@ static void mavlink_test_ivaq_rx_signal_slave(uint8_t system_id, uint8_t compone
         uint8_t buffer[MAVLINK_MAX_PACKET_LEN];
         uint16_t i;
     mavlink_ivaq_rx_signal_slave_t packet_in = {
-        963497464,45.0,73.0,101.0,129.0,157.0,185.0,89,156,223,34
+        93372036854775807ULL,73.0,101.0,129.0,157.0,185.0,213.0,101,168,235,46
     };
     mavlink_ivaq_rx_signal_slave_t packet1, packet2;
         memset(&packet1, 0, sizeof(packet1));
