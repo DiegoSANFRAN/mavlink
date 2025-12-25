@@ -1,0 +1,249 @@
+/** @file
+ *  @brief MAVLink comm protocol generated from ivaq_mvk_c.xml
+ *  @see http://mavlink.org
+ */
+#pragma once
+#ifndef MAVLINK_IVAQ_MVK_C_H
+#define MAVLINK_IVAQ_MVK_C_H
+
+#ifndef MAVLINK_H
+    #error Wrong include order: MAVLINK_IVAQ_MVK_C.H MUST NOT BE DIRECTLY USED. Include mavlink.h from the same directory instead or set ALL AND EVERY defines from MAVLINK.H manually accordingly, including the #define MAVLINK_H call.
+#endif
+
+#define MAVLINK_IVAQ_MVK_C_XML_HASH 6452985024649831316
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+// MESSAGE LENGTHS AND CRCS
+
+#ifndef MAVLINK_MESSAGE_LENGTHS
+#define MAVLINK_MESSAGE_LENGTHS {}
+#endif
+
+#ifndef MAVLINK_MESSAGE_CRCS
+#define MAVLINK_MESSAGE_CRCS {{0, 50, 9, 9, 0, 0, 0}, {2, 137, 12, 12, 0, 0, 0}, {200, 176, 36, 36, 0, 0, 0}, {201, 7, 16, 16, 0, 0, 0}, {202, 150, 21, 21, 0, 0, 0}, {203, 170, 16, 16, 0, 0, 0}, {204, 168, 123, 123, 0, 0, 0}, {205, 23, 36, 36, 0, 0, 0}, {300, 217, 22, 22, 0, 0, 0}}
+#endif
+
+#include "../protocol.h"
+
+#define MAVLINK_ENABLED_IVAQ_MVK_C
+
+// ENUM DEFINITIONS
+
+
+/** @brief These values define the status of the receiver. */
+#ifndef HAVE_ENUM_MVK_RX_MODE
+#define HAVE_ENUM_MVK_RX_MODE
+typedef enum MVK_RX_MODE
+{
+   MVK_MODE_1=0, /* PCB Mode 1 | */
+   MVK_MODE_2=1, /* PCB Mode 2 | */
+   MVK_MODE_3=2, /* PCB Mode 3 | */
+   MVK_RX_MODE_ENUM_END=3, /*  | */
+} MVK_RX_MODE;
+#endif
+
+/** @brief These values define the status of the receiver. */
+#ifndef HAVE_ENUM_MVK_RX_STATUS
+#define HAVE_ENUM_MVK_RX_STATUS
+typedef enum MVK_RX_STATUS
+{
+   MVK_POWER_OFF=0, /* Power off | */
+   MVK_POWER_ON=1, /* Power on | */
+   MVK_POWER_ON_LOW_BATT=2, /* Power on with low battery | */
+   MVK_POWER_ON_ERROR_COMMS=3, /* Power on with communication error | */
+   MVK_RX_STATUS_ENUM_END=4, /*  | */
+} MVK_RX_STATUS;
+#endif
+
+/** @brief These values define the power on/off of the analog part of the receiver. */
+#ifndef HAVE_ENUM_MVK_RX_ANLG_EN
+#define HAVE_ENUM_MVK_RX_ANLG_EN
+typedef enum MVK_RX_ANLG_EN
+{
+   MVK_VEN_FALSE=0, /* PCB Analog Part disable | */
+   MVK_VEN_TRUE=1, /* PCB Analog Part enable | */
+   MVK_RX_ANLG_EN_ENUM_END=2, /*  | */
+} MVK_RX_ANLG_EN;
+#endif
+
+/** @brief These values define the antenna state of each PCB */
+#ifndef HAVE_ENUM_MVK_ANT_STATES
+#define HAVE_ENUM_MVK_ANT_STATES
+typedef enum MVK_ANT_STATES
+{
+   MVK_ANT_1_OFF=0, /* Antenna 1 off | */
+   MVK_ANT_1_ON=1, /* Antenna 1 on | */
+   MVK_ANT_STATES_ENUM_END=2, /*  | */
+} MVK_ANT_STATES;
+#endif
+
+/** @brief These values define the stages operation mode for all PCBs */
+#ifndef HAVE_ENUM_MVK_RX_STAGES_OPERATION
+#define HAVE_ENUM_MVK_RX_STAGES_OPERATION
+typedef enum MVK_RX_STAGES_OPERATION
+{
+   MVK_STAGES_OPERATION_MANUAL=0, /* Stages change in manual mode according to user input | */
+   MVK_STAGES_OPERATION_AUTO=1, /* Stages change in automatic mode according to automatic change strategy. See confluence | */
+   MVK_RX_STAGES_OPERATION_ENUM_END=2, /*  | */
+} MVK_RX_STAGES_OPERATION;
+#endif
+
+/** @brief These values define the stage states of each PCB */
+#ifndef HAVE_ENUM_MVK_STAGE_STATES
+#define HAVE_ENUM_MVK_STAGE_STATES
+typedef enum MVK_STAGE_STATES
+{
+   MVK_STAGE_1_OFF_STAGE_2_OFF_STAGE_3_OFF_STAGE_4_OFF=0, /* Stage 1 off, Stage 2 off, Stage 3 off, Stage 4 off | */
+   MVK_STAGE_1_ON_STAGE_2_OFF_STAGE_3_OFF_STAGE_4_OFF=1, /* Stage 1 on, Stage 2 off, Stage 3 off, Stage 4 off | */
+   MVK_STAGE_1_ON_STAGE_2_ON_STAGE_3_OFF_STAGE_4_OFF=2, /* Stage 1 on, Stage 2 on, Stage 3 off, Stage 4 off | */
+   MVK_STAGE_1_ON_STAGE_2_ON_STAGE_3_ON_STAGE_4_OFF=3, /* Stage 1 on, Stage 2 on, Stage 3 on, Stage 4 off | */
+   MVK_STAGE_1_ON_STAGE_2_ON_STAGE_3_ON_STAGE_4_ON=4, /* Stage 1 on, Stage 2 on, Stage 3 on, Stage 4 on | */
+   MVK_STAGE_STATES_ENUM_END=5, /*  | */
+} MVK_STAGE_STATES;
+#endif
+
+/** @brief These values define the save states of the system. */
+#ifndef HAVE_ENUM_MVK_CARD_STATE
+#define HAVE_ENUM_MVK_CARD_STATE
+typedef enum MVK_CARD_STATE
+{
+   MVK_CARD_NOT_PRESENT=0, /* Save false | */
+   MVK_CARD_PRESENT=1, /* Save push button on | */
+   MVK_CARD_STATE_ENUM_END=2, /*  | */
+} MVK_CARD_STATE;
+#endif
+
+/** @brief These values define the save states of the system. */
+#ifndef HAVE_ENUM_MVK_SAVE_STATE
+#define HAVE_ENUM_MVK_SAVE_STATE
+typedef enum MVK_SAVE_STATE
+{
+   MVK_SAVE_FALSE=0, /* Save false | */
+   MVK_SAVE_ACQ=1, /* Save acquisition | */
+   MVK_SAVE_2_SD=2, /* Save to SD card | */
+   MVK_SAVE_STATE_ENUM_END=3, /*  | */
+} MVK_SAVE_STATE;
+#endif
+
+/** @brief These values define the boolean states. */
+#ifndef HAVE_ENUM_MVK_SIGNAL_SAT
+#define HAVE_ENUM_MVK_SIGNAL_SAT
+typedef enum MVK_SIGNAL_SAT
+{
+   MVK_SAT_FALSE=0, /* False | */
+   MVK_SAT_TRUE=1, /* True | */
+   MVK_SIGNAL_SAT_ENUM_END=2, /*  | */
+} MVK_SIGNAL_SAT;
+#endif
+
+/** @brief These values define the boolean states. */
+#ifndef HAVE_ENUM_MVK_SIGNAL_DET
+#define HAVE_ENUM_MVK_SIGNAL_DET
+typedef enum MVK_SIGNAL_DET
+{
+   MVK_DET_FALSE=0, /* False | */
+   MVK_DET_TRUE=1, /* True | */
+   MVK_SIGNAL_DET_ENUM_END=2, /*  | */
+} MVK_SIGNAL_DET;
+#endif
+
+/** @brief These values define the boolean states. */
+#ifndef HAVE_ENUM_MVK_SIGNAL_MASTER_DET
+#define HAVE_ENUM_MVK_SIGNAL_MASTER_DET
+typedef enum MVK_SIGNAL_MASTER_DET
+{
+   MVK_DET_X_Y_Z_FALSE=0, /* False | */
+   MVK_DET_X_TRUE=1, /* Signal detected in 1 Ant | */
+   MVK_DET_Y_TRUE=2, /* Signal detected in 1 Ant | */
+   MVK_DET_Z_TRUE=3, /* Signal detected in 1 Ant | */
+   MVK_DET_X_AND_Y_TRUE=4, /* Signal detected in 2 Ant | */
+   MVK_DET_X_AND_Z_TRUE=5, /* Signal detected in 2 Ant | */
+   MVK_DET_Y_AND_Z_TRUE=6, /* Signal detected in 2 Ant | */
+   MVK_DET_X_AND_Y_AND_Z_TRUE=7, /* Signal detected in 3 Ant | */
+   MVK_SIGNAL_MASTER_DET_ENUM_END=8, /*  | */
+} MVK_SIGNAL_MASTER_DET;
+#endif
+
+/** @brief These values define the boolean states. */
+#ifndef HAVE_ENUM_MVK_SIGNAL_DET_SENT
+#define HAVE_ENUM_MVK_SIGNAL_DET_SENT
+typedef enum MVK_SIGNAL_DET_SENT
+{
+   MVK_DET_SENT_FALSE=0, /* False | */
+   MVK_DET_SENT_TRUE=1, /* True | */
+   MVK_SIGNAL_DET_SENT_ENUM_END=2, /*  | */
+} MVK_SIGNAL_DET_SENT;
+#endif
+
+/** @brief These values define the boolean states. */
+#ifndef HAVE_ENUM_MVK_RX_RESET
+#define HAVE_ENUM_MVK_RX_RESET
+typedef enum MVK_RX_RESET
+{
+   MVK_RESET_FALSE=0, /* False | */
+   MVK_RESET_TRUE=1, /* True | */
+   MVK_RX_RESET_ENUM_END=2, /*  | */
+} MVK_RX_RESET;
+#endif
+
+/** @brief These values define if a change request has been demanded by the user. */
+#ifndef HAVE_ENUM_MVK_RX_CHG_REQ
+#define HAVE_ENUM_MVK_RX_CHG_REQ
+typedef enum MVK_RX_CHG_REQ
+{
+   MVK_CHG_REQ_FALSE=0, /* False | */
+   MVK_CHG_REQ_TRUE=1, /* True | */
+   MVK_RX_CHG_REQ_ENUM_END=2, /*  | */
+} MVK_RX_CHG_REQ;
+#endif
+
+/** @brief These values define the firmware update command states. */
+#ifndef HAVE_ENUM_MVK_RX_UPDATE
+#define HAVE_ENUM_MVK_RX_UPDATE
+typedef enum MVK_RX_UPDATE
+{
+   MVK_UPDATE_FALSE=0, /* No firmware update requested | */
+   MVK_UPDATE_TRUE=1, /* Firmware update requested - enter bootloader mode | */
+   MVK_RX_UPDATE_ENUM_END=2, /*  | */
+} MVK_RX_UPDATE;
+#endif
+
+// MAVLINK VERSION
+
+#ifndef MAVLINK_VERSION
+#define MAVLINK_VERSION 2
+#endif
+
+#if (MAVLINK_VERSION == 0)
+#undef MAVLINK_VERSION
+#define MAVLINK_VERSION 2
+#endif
+
+// MESSAGE DEFINITIONS
+#include "./mavlink_msg_system_time.h"
+#include "./mavlink_msg_ivaq_rx_params_master.h"
+#include "./mavlink_msg_ivaq_rx_params_slave.h"
+#include "./mavlink_msg_ivaq_rx_set_params_master.h"
+#include "./mavlink_msg_ivaq_rx_set_params_slave.h"
+#include "./mavlink_msg_ivaq_rx_signal_master.h"
+#include "./mavlink_msg_ivaq_rx_signal_slave.h"
+
+// base include
+#include "../minimal/minimal.h"
+
+
+#if MAVLINK_IVAQ_MVK_C_XML_HASH == MAVLINK_PRIMARY_XML_HASH
+# define MAVLINK_MESSAGE_INFO {MAVLINK_MESSAGE_INFO_HEARTBEAT, MAVLINK_MESSAGE_INFO_SYSTEM_TIME, MAVLINK_MESSAGE_INFO_IVAQ_RX_PARAMS_MASTER, MAVLINK_MESSAGE_INFO_IVAQ_RX_PARAMS_SLAVE, MAVLINK_MESSAGE_INFO_IVAQ_RX_SET_PARAMS_MASTER, MAVLINK_MESSAGE_INFO_IVAQ_RX_SET_PARAMS_SLAVE, MAVLINK_MESSAGE_INFO_IVAQ_RX_SIGNAL_MASTER, MAVLINK_MESSAGE_INFO_IVAQ_RX_SIGNAL_SLAVE, MAVLINK_MESSAGE_INFO_PROTOCOL_VERSION}
+# define MAVLINK_MESSAGE_NAMES {{ "HEARTBEAT", 0 }, { "IVAQ_RX_PARAMS_MASTER", 200 }, { "IVAQ_RX_PARAMS_SLAVE", 201 }, { "IVAQ_RX_SET_PARAMS_MASTER", 202 }, { "IVAQ_RX_SET_PARAMS_SLAVE", 203 }, { "IVAQ_RX_SIGNAL_MASTER", 204 }, { "IVAQ_RX_SIGNAL_SLAVE", 205 }, { "PROTOCOL_VERSION", 300 }, { "SYSTEM_TIME", 2 }}
+# if MAVLINK_COMMAND_24BIT
+#  include "../mavlink_get_info.h"
+# endif
+#endif
+
+#ifdef __cplusplus
+}
+#endif // __cplusplus
+#endif // MAVLINK_IVAQ_MVK_C_H

@@ -1,5 +1,5 @@
 /** @file
- *  @brief MAVLink comm protocol built from minimal.xml
+ *  @brief MAVLink comm protocol built from ivaq_mvk_c.xml
  *  @see http://mavlink.org
  */
 #pragma once
@@ -9,6 +9,6 @@
 
 #define MAVLINK_BUILD_DATE "Thu Dec 25 2025"
 #define MAVLINK_WIRE_PROTOCOL_VERSION "2.0"
-#define MAVLINK_MAX_DIALECT_PAYLOAD_SIZE 22
+#define MAVLINK_MAX_DIALECT_PAYLOAD_SIZE 123
  
 #endif // MAVLINK_VERSION_H
