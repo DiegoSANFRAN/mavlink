@@ -184,6 +184,16 @@
         <description>True</description>
       </entry>
     </enum>
+
+    <enum name="MVK_RX_UPDATE">
+      <description>These values define the firmware update command states.</description>
+      <entry value="0x00" name="MVK_UPDATE_FALSE">
+        <description>No firmware update requested</description>
+      </entry>
+      <entry value="0x01" name="MVK_UPDATE_TRUE">
+        <description>Firmware update requested - enter bootloader mode</description>
+      </entry>
+    </enum>
   </enums>
 
   <messages>
@@ -244,18 +254,21 @@
     
     <message id="202" name="IVAQ_RX_SET_PARAMS_MASTER">
       <description>IVAQ Rx Target Parameters for all PCBs (X,Y,X) from Raspi to Master</description>
+      <field type="uint8_t" name="rx_set_update_x" enum="MVK_RX_UPDATE">Ivaq Rx X-ant Set Update Firmware</field>
       <field type="uint8_t" name="rx_set_reset_x" enum="MVK_RX_RESET">Ivaq Rx X-ant Set Reset</field>
       <field type="uint8_t" name="rx_set_anlg_en_x" enum="MVK_RX_ANLG_EN">Ivaq Rx X-Ant Set Anlg Part Status</field>
       <field type="uint8_t" name="rx_set_ant_states_x" enum="MVK_ANT_STATES">Ivaq Rx X-Ant Set Antenna State</field>
       <field type="uint8_t" name="rx_set_stgs_operation_x" enum="MVK_RX_STAGES_OPERATION">Ivaq Rx X-Ant Set Stages Operation (automatic/manual)</field>
       <field type="uint8_t" name="rx_set_stg_states_x" enum="MVK_STAGE_STATES">Ivaq Rx X-Ant Set Stage States</field>
       <field type="uint8_t" name="rx_set_save_opt_x" enum="MVK_SAVE_STATE">Ivaq Rx X-Ant Set Save State</field>
+      <field type="uint8_t" name="rx_set_update_y" enum="MVK_RX_UPDATE">Ivaq Rx Y-ant Set Update Firmware</field>
       <field type="uint8_t" name="rx_set_reset_y" enum="MVK_RX_RESET">Ivaq Rx Y-ant Set Reset</field>
       <field type="uint8_t" name="rx_set_anlg_en_y" enum="MVK_RX_ANLG_EN">Ivaq Rx Y-Ant Anlg Part Status</field>
       <field type="uint8_t" name="rx_set_ant_states_y" enum="MVK_ANT_STATES">Ivaq Rx Y-Ant Set Antenna State</field>
       <field type="uint8_t" name="rx_set_stgs_operation_y" enum="MVK_RX_STAGES_OPERATION">Ivaq Rx Y-Ant Set Stages Operation (automatic/manual)</field>
       <field type="uint8_t" name="rx_set_stg_states_y" enum="MVK_STAGE_STATES">Ivaq Rx Y-Ant Set Stage States</field>
       <field type="uint8_t" name="rx_set_save_opt_y" enum="MVK_SAVE_STATE">Ivaq Rx Y-Ant Set Save State</field>
+      <field type="uint8_t" name="rx_set_update_z" enum="MVK_RX_UPDATE">Ivaq Rx Z-ant Set Update Firmware</field>
       <field type="uint8_t" name="rx_set_reset_z" enum="MVK_RX_RESET">Ivaq Rx Z-ant Set Reset</field>
       <field type="uint8_t" name="rx_set_anlg_en_z" enum="MVK_RX_ANLG_EN">Ivaq Rx Z-Ant Anlg Part Status</field>
       <field type="uint8_t" name="rx_set_ant_states_z" enum="MVK_ANT_STATES">Ivaq Rx Z-Ant Set Antenna State</field>
@@ -268,6 +281,7 @@
       <description>IVAQ Rx Target Parameters from Master PCB (X) to Slaves (Y,Z)</description>
       <field type="uint64_t" name="rx_time_px_unix_ms">IVAQ Rx Master time since boot in ms</field>
       <field type="uint8_t" name="rx_set_chg_request" enum="MVK_RX_CHG_REQ">Ivaq Rx Set Change Request</field>
+      <field type="uint8_t" name="rx_set_update" enum="MVK_RX_UPDATE">Ivaq Rx Set Update Firmware</field>
       <field type="uint8_t" name="rx_set_reset" enum="MVK_RX_RESET">Ivaq Rx Set Reset</field>
       <field type="uint8_t" name="rx_set_anlg_en" enum="MVK_RX_ANLG_EN">Ivaq Rx Set Anlg Part Status</field>
       <field type="uint8_t" name="rx_set_ant_states" enum="MVK_ANT_STATES">Ivaq Rx Set Antenna State</field>
