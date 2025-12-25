@@ -1,0 +1,342 @@
+<?xml version="1.0"?>
+<mavlink>
+  <!-- MAVLink standard messages -->
+  <include>common.xml</include> <!-- common.xml for Python & minimal.xml for C -->
+  <dialect>100</dialect>
+
+  <enums>
+    <!-- Custom Enums -->
+    <enum name="MVK_RX_MODE">
+      <description>These values define the status of the receiver.</description>
+      <entry value="0x00" name="MVK_MODE_1">
+        <description>PCB Mode 1</description>
+      </entry>
+      <entry value="0x01" name="MVK_MODE_2">
+        <description>PCB Mode 2</description>
+      </entry>
+      <entry value="0x02" name="MVK_MODE_3">
+        <description>PCB Mode 3</description>
+      </entry>
+    </enum>
+
+    <enum name="MVK_RX_STATUS">
+      <description>These values define the status of the receiver.</description>
+      <entry value="0x00" name="MVK_POWER_OFF">
+        <description>Power off</description>
+      </entry>
+      <entry value="0x01" name="MVK_POWER_ON">
+        <description>Power on</description>
+      </entry>
+      <entry value="0x02" name="MVK_POWER_ON_LOW_BATT">
+        <description>Power on with low battery</description>
+      </entry>
+      <entry value="0x03" name="MVK_POWER_ON_ERROR_COMMS">
+        <description>Power on with communication error</description>
+      </entry>
+    </enum>
+
+    <enum name="MVK_RX_ANLG_EN">
+      <description>These values define the power on/off of the analog part of the receiver.</description>
+      <entry value="0x00" name="MVK_VEN_FALSE">
+        <description>PCB Analog Part disable</description>
+      </entry>
+      <entry value="0x01" name="MVK_VEN_TRUE">
+        <description>PCB Analog Part enable</description>
+      </entry>
+    </enum>
+
+    <enum name="MVK_ANT_STATES">
+      <description>These values define the antenna state of each PCB</description>
+      <entry value="0x00" name="MVK_ANT_1_OFF">
+        <description>Antenna 1 off</description>
+      </entry>
+      <entry value="0x01" name="MVK_ANT_1_ON">
+        <description>Antenna 1 on</description>
+      </entry>
+    </enum>
+
+    <enum name="MVK_RX_STAGES_OPERATION">
+      <description>These values define the stages operation mode for all PCBs</description>
+      <entry value="0x00" name="MVK_STAGES_OPERATION_MANUAL">
+        <description>Stages change in manual mode according to user input</description>
+      </entry>
+      <entry value="0x01" name="MVK_STAGES_OPERATION_AUTO">
+        <description>Stages change in automatic mode according to automatic change strategy. See confluence</description>
+      </entry>
+    </enum>
+
+    <enum name="MVK_STAGE_STATES">
+      <description>These values define the stage states of each PCB</description>
+      <entry value="0x00" name="MVK_STAGE_1_OFF_STAGE_2_OFF_STAGE_3_OFF_STAGE_4_OFF">
+        <description>Stage 1 off, Stage 2 off, Stage 3 off, Stage 4 off</description>
+      </entry>
+      <entry value="0x01" name="MVK_STAGE_1_ON_STAGE_2_OFF_STAGE_3_OFF_STAGE_4_OFF">
+        <description>Stage 1 on, Stage 2 off, Stage 3 off, Stage 4 off</description>
+      </entry>
+      <entry value="0x02" name="MVK_STAGE_1_ON_STAGE_2_ON_STAGE_3_OFF_STAGE_4_OFF">
+        <description>Stage 1 on, Stage 2 on, Stage 3 off, Stage 4 off</description>
+      </entry>
+      <entry value="0x03" name="MVK_STAGE_1_ON_STAGE_2_ON_STAGE_3_ON_STAGE_4_OFF">
+        <description>Stage 1 on, Stage 2 on, Stage 3 on, Stage 4 off</description>
+      </entry>
+      <entry value="0x04" name="MVK_STAGE_1_ON_STAGE_2_ON_STAGE_3_ON_STAGE_4_ON">
+        <description>Stage 1 on, Stage 2 on, Stage 3 on, Stage 4 on</description>
+      </entry>
+    </enum>
+
+    <enum name="MVK_CARD_STATE">
+      <description>These values define the save states of the system.</description>
+      <entry value="0x00" name="MVK_CARD_NOT_PRESENT">
+        <description>Save false</description>
+      </entry>
+      <entry value="0x01" name="MVK_CARD_PRESENT">
+        <description>Save push button on</description>
+      </entry>
+    </enum>
+
+    <enum name="MVK_SAVE_STATE">
+      <description>These values define the save states of the system.</description>
+      <entry value="0x00" name="MVK_SAVE_FALSE">
+        <description>Save false</description>
+      </entry>
+      <entry value="0x01" name="MVK_SAVE_ACQ">
+        <description>Save acquisition</description>
+      </entry>
+      <entry value="0x02" name="MVK_SAVE_2_SD">
+        <description>Save to SD card</description>
+      </entry>
+    </enum>
+
+    <enum name="MVK_SIGNAL_SAT">
+      <description>These values define the boolean states.</description>
+      <entry value="0x00" name="MVK_SAT_FALSE">
+        <description>False</description>
+      </entry>
+      <entry value="0x01" name="MVK_SAT_TRUE">
+        <description>True</description>
+      </entry>
+    </enum>
+
+    <enum name="MVK_SIGNAL_DET">
+      <description>These values define the boolean states.</description>
+      <entry value="0x00" name="MVK_DET_FALSE">
+        <description>False</description>
+      </entry>
+      <entry value="0x01" name="MVK_DET_TRUE">
+        <description>True</description>
+      </entry>
+    </enum>
+
+    <enum name="MVK_SIGNAL_MASTER_DET">
+      <description>These values define the boolean states.</description>
+      <entry value="0x00" name="MVK_DET_X_Y_Z_FALSE">
+        <description>False</description>
+      </entry>
+      <entry value="0x01" name="MVK_DET_X_TRUE">
+        <description>Signal detected in 1 Ant</description>
+      </entry>
+      <entry value="0x02" name="MVK_DET_Y_TRUE">
+        <description>Signal detected in 1 Ant</description>
+      </entry>
+      <entry value="0x03" name="MVK_DET_Z_TRUE">
+        <description>Signal detected in 1 Ant</description>
+      </entry>
+      <entry value="0x04" name="MVK_DET_X_AND_Y_TRUE">
+        <description>Signal detected in 2 Ant</description>
+      </entry>
+      <entry value="0x05" name="MVK_DET_X_AND_Z_TRUE">
+        <description>Signal detected in 2 Ant</description>
+      </entry>
+      <entry value="0x06" name="MVK_DET_Y_AND_Z_TRUE">
+        <description>Signal detected in 2 Ant</description>
+      </entry>
+      <entry value="0x07" name="MVK_DET_X_AND_Y_AND_Z_TRUE">
+        <description>Signal detected in 3 Ant</description>
+      </entry>
+    </enum>
+
+    <enum name="MVK_SIGNAL_DET_SENT">
+      <description>These values define the boolean states.</description>
+      <entry value="0x00" name="MVK_DET_SENT_FALSE">
+        <description>False</description>
+      </entry>
+      <entry value="0x01" name="MVK_DET_SENT_TRUE">
+        <description>True</description>
+      </entry>
+    </enum>
+
+    <enum name="MVK_RX_RESET">
+      <description>These values define the boolean states.</description>
+      <entry value="0x00" name="MVK_RESET_FALSE">
+        <description>False</description>
+      </entry>
+      <entry value="0x01" name="MVK_RESET_TRUE">
+        <description>True</description>
+      </entry>
+    </enum>
+
+    <enum name="MVK_RX_CHG_REQ">
+      <description>These values define if a change request has been demanded by the user.</description>
+      <entry value="0x00" name="MVK_CHG_REQ_FALSE">
+        <description>False</description>
+      </entry>
+      <entry value="0x01" name="MVK_CHG_REQ_TRUE">
+        <description>True</description>
+      </entry>
+    </enum>
+
+    <enum name="MVK_RX_UPDATE">
+      <description>These values define the firmware update command states.</description>
+      <entry value="0x00" name="MVK_UPDATE_FALSE">
+        <description>No firmware update requested</description>
+      </entry>
+      <entry value="0x01" name="MVK_UPDATE_TRUE">
+        <description>Firmware update requested - enter bootloader mode</description>
+      </entry>
+    </enum>
+  </enums>
+
+  <messages>
+    <!-- Custom Message -->
+
+    <!-- SYSTEM TIME removed for Python libraries generation as it is already in the common.xml -->
+
+    <message id="200" name="IVAQ_RX_PARAMS_MASTER">
+      <description>IVAQ Rx Current Parameters of all PCBs (X,Y,Z)</description>
+      <field type="uint8_t" name="rx_mode_x" enum="MVK_RX_MODE">Ivaq Rx X-Ant Mode</field>
+      <field type="uint8_t" name="rx_status_x" enum="MVK_RX_STATUS">Ivaq Rx X-Ant Status</field>
+      <field type="uint8_t" name="rx_anlg_en_x" enum="MVK_RX_ANLG_EN">Ivaq Rx X-Ant Anlg Part Status</field>
+      <field type="float" name="rx_battery_voltage_x">Ivaq Rx X-Ant Battery Voltage</field>
+      <field type="uint8_t" name="rx_ant_states_x" enum="MVK_ANT_STATES">Ivaq Rx X-Ant Antenna States</field>
+      <field type="uint8_t" name="rx_stgs_operation_x" enum="MVK_RX_STAGES_OPERATION">Ivaq Rx X-Ant Stages Operation (automatic/manual)</field>
+      <field type="uint8_t" name="rx_stg_states_x" enum="MVK_STAGE_STATES">Ivaq Rx X-Ant Stage States</field>
+      <field type="uint8_t" name="rx_card_det_x" enum="MVK_CARD_STATE">Ivaq Rx X-Ant SD Card State</field>
+      <field type="uint8_t" name="rx_save_opt_x" enum="MVK_SAVE_STATE">Ivaq Rx X-Ant Save State</field>
+      <field type="uint8_t" name="rx_mode_y" enum="MVK_RX_MODE">Ivaq Rx Y-Ant Mode</field>
+      <field type="uint8_t" name="rx_status_y" enum="MVK_RX_STATUS">Ivaq Rx Y-Ant Status</field>
+      <field type="uint8_t" name="rx_anlg_en_y" enum="MVK_RX_ANLG_EN">Ivaq Rx Y-Ant Anlg Part Status</field>
+      <field type="float" name="rx_battery_voltage_y">Ivaq Rx Y-Ant Battery Voltage</field>
+      <field type="uint8_t" name="rx_ant_states_y" enum="MVK_ANT_STATES">Ivaq Rx Y-Ant Antenna States</field>
+      <field type="uint8_t" name="rx_stgs_operation_y" enum="MVK_RX_STAGES_OPERATION">Ivaq Rx Y-Ant Stages Operation (automatic/manual)</field>
+      <field type="uint8_t" name="rx_stg_states_y" enum="MVK_STAGE_STATES">Ivaq Rx Y-Ant Stage States</field>
+      <field type="uint8_t" name="rx_card_det_y" enum="MVK_CARD_STATE">Ivaq Rx Y-Ant SD Card State</field>
+      <field type="uint8_t" name="rx_save_opt_y" enum="MVK_SAVE_STATE">Ivaq Rx Y-Ant Save State</field>
+      <field type="uint8_t" name="rx_mode_z" enum="MVK_RX_MODE">Ivaq Rx Z-Ant Mode</field>
+      <field type="uint8_t" name="rx_status_z" enum="MVK_RX_STATUS">Ivaq Rx Z-Ant Status</field>
+      <field type="uint8_t" name="rx_anlg_en_z" enum="MVK_RX_ANLG_EN">Ivaq Rx Z-Ant Anlg Part Status</field>
+      <field type="float" name="rx_battery_voltage_z">Ivaq Rx Z-Ant Battery Voltage</field>
+      <field type="uint8_t" name="rx_ant_states_z" enum="MVK_ANT_STATES">Ivaq Rx Z-Ant Antenna States</field>
+      <field type="uint8_t" name="rx_stgs_operation_z" enum="MVK_RX_STAGES_OPERATION">Ivaq Rx Z-Ant Stages Operation (automatic/manual)</field>
+      <field type="uint8_t" name="rx_stg_states_z" enum="MVK_STAGE_STATES">Ivaq Rx Z-Ant Stage States</field>
+      <field type="uint8_t" name="rx_card_det_z" enum="MVK_CARD_STATE">Ivaq Rx Z-Ant SD Card State</field>
+      <field type="uint8_t" name="rx_save_opt_z" enum="MVK_SAVE_STATE">Ivaq Rx Z-Ant Save State</field>
+    </message>
+
+    <message id="201" name="IVAQ_RX_PARAMS_SLAVE">
+      <description>IVAQ Rx Current Parameters</description>
+      <field type="uint32_t" name="delta_t_master_slave">IVAQ Rx difference in time from boot between master and slave in ms</field>
+      <field type="uint8_t" name="rx_mode" enum="MVK_RX_MODE">Ivaq Rx Status</field>
+      <field type="uint8_t" name="rx_status" enum="MVK_RX_STATUS">Ivaq Rx Status</field>
+      <field type="uint8_t" name="rx_anlg_en" enum="MVK_RX_ANLG_EN">Ivaq Rx Anlg Part Status</field>
+      <field type="float" name="rx_battery_voltage">Ivaq Rx Battery Voltage</field>
+      <field type="uint8_t" name="rx_ant_states" enum="MVK_ANT_STATES">Ivaq Rx Antenna States</field>
+      <field type="uint8_t" name="rx_stgs_operation" enum="MVK_RX_STAGES_OPERATION">Ivaq Rx Currrent Stages Operation (automatic/manual)</field>
+      <field type="uint8_t" name="rx_stg_states" enum="MVK_STAGE_STATES">Ivaq Rx Stage States</field>
+      <field type="uint8_t" name="rx_card_det" enum="MVK_CARD_STATE">Ivaq Rx SD Card State</field>
+      <field type="uint8_t" name="rx_save_opt" enum="MVK_SAVE_STATE">Ivaq Rx Save State</field>
+    </message>
+    
+    <message id="202" name="IVAQ_RX_SET_PARAMS_MASTER">
+      <description>IVAQ Rx Target Parameters for all PCBs (X,Y,X) from Raspi to Master</description>
+      <field type="uint8_t" name="rx_set_update_x" enum="MVK_RX_UPDATE">Ivaq Rx X-ant Set Update Firmware</field>
+      <field type="uint8_t" name="rx_set_reset_x" enum="MVK_RX_RESET">Ivaq Rx X-ant Set Reset</field>
+      <field type="uint8_t" name="rx_set_anlg_en_x" enum="MVK_RX_ANLG_EN">Ivaq Rx X-Ant Set Anlg Part Status</field>
+      <field type="uint8_t" name="rx_set_ant_states_x" enum="MVK_ANT_STATES">Ivaq Rx X-Ant Set Antenna State</field>
+      <field type="uint8_t" name="rx_set_stgs_operation_x" enum="MVK_RX_STAGES_OPERATION">Ivaq Rx X-Ant Set Stages Operation (automatic/manual)</field>
+      <field type="uint8_t" name="rx_set_stg_states_x" enum="MVK_STAGE_STATES">Ivaq Rx X-Ant Set Stage States</field>
+      <field type="uint8_t" name="rx_set_save_opt_x" enum="MVK_SAVE_STATE">Ivaq Rx X-Ant Set Save State</field>
+      <field type="uint8_t" name="rx_set_update_y" enum="MVK_RX_UPDATE">Ivaq Rx Y-ant Set Update Firmware</field>
+      <field type="uint8_t" name="rx_set_reset_y" enum="MVK_RX_RESET">Ivaq Rx Y-ant Set Reset</field>
+      <field type="uint8_t" name="rx_set_anlg_en_y" enum="MVK_RX_ANLG_EN">Ivaq Rx Y-Ant Anlg Part Status</field>
+      <field type="uint8_t" name="rx_set_ant_states_y" enum="MVK_ANT_STATES">Ivaq Rx Y-Ant Set Antenna State</field>
+      <field type="uint8_t" name="rx_set_stgs_operation_y" enum="MVK_RX_STAGES_OPERATION">Ivaq Rx Y-Ant Set Stages Operation (automatic/manual)</field>
+      <field type="uint8_t" name="rx_set_stg_states_y" enum="MVK_STAGE_STATES">Ivaq Rx Y-Ant Set Stage States</field>
+      <field type="uint8_t" name="rx_set_save_opt_y" enum="MVK_SAVE_STATE">Ivaq Rx Y-Ant Set Save State</field>
+      <field type="uint8_t" name="rx_set_update_z" enum="MVK_RX_UPDATE">Ivaq Rx Z-ant Set Update Firmware</field>
+      <field type="uint8_t" name="rx_set_reset_z" enum="MVK_RX_RESET">Ivaq Rx Z-ant Set Reset</field>
+      <field type="uint8_t" name="rx_set_anlg_en_z" enum="MVK_RX_ANLG_EN">Ivaq Rx Z-Ant Anlg Part Status</field>
+      <field type="uint8_t" name="rx_set_ant_states_z" enum="MVK_ANT_STATES">Ivaq Rx Z-Ant Set Antenna State</field>
+      <field type="uint8_t" name="rx_set_stgs_operation_z" enum="MVK_RX_STAGES_OPERATION">Ivaq Rx Z-Ant Set Stages Operation (automatic/manual)</field>
+      <field type="uint8_t" name="rx_set_stg_states_z" enum="MVK_STAGE_STATES">Ivaq Rx Z-Ant Set Stage States</field>
+      <field type="uint8_t" name="rx_set_save_opt_z" enum="MVK_SAVE_STATE">Ivaq Rx Z-Ant Set Save State</field>
+    </message>
+
+    <message id="203" name="IVAQ_RX_SET_PARAMS_SLAVE">
+      <description>IVAQ Rx Target Parameters from Master PCB (X) to Slaves (Y,Z)</description>
+      <field type="uint64_t" name="rx_time_px_unix_ms">IVAQ Rx Master time since boot in ms</field>
+      <field type="uint8_t" name="rx_set_chg_request" enum="MVK_RX_CHG_REQ">Ivaq Rx Set Change Request</field>
+      <field type="uint8_t" name="rx_set_update" enum="MVK_RX_UPDATE">Ivaq Rx Set Update Firmware</field>
+      <field type="uint8_t" name="rx_set_reset" enum="MVK_RX_RESET">Ivaq Rx Set Reset</field>
+      <field type="uint8_t" name="rx_set_anlg_en" enum="MVK_RX_ANLG_EN">Ivaq Rx Set Anlg Part Status</field>
+      <field type="uint8_t" name="rx_set_ant_states" enum="MVK_ANT_STATES">Ivaq Rx Set Antenna State</field>
+      <field type="uint8_t" name="rx_set_stgs_operation" enum="MVK_RX_STAGES_OPERATION">Ivaq Rx Set Stages Operation (automatic/manual)</field>
+      <field type="uint8_t" name="rx_set_stg_states" enum="MVK_STAGE_STATES">Ivaq Rx Set Stage States</field>
+      <field type="uint8_t" name="rx_set_save_opt" enum="MVK_SAVE_STATE">Ivaq Rx Set Save State</field>
+    </message>
+
+    <message id="204" name="IVAQ_RX_SIGNAL_MASTER">
+    <description>Message with Signal from all antennas (X,Y,Z) in IVAQ Rx, uploaded to Raspi from Master</description>
+      <field type="uint8_t" name="rx_signal_det_flag" enum="MVK_SIGNAL_MASTER_DET">Ivaq Rx X-ant Signal Detection flag</field>
+      <field type="uint8_t" name="rx_signal_det_to_send_flag" enum="MVK_SIGNAL_DET_SENT">Ivaq Rx Signal Detected Sent flag</field>
+      <field type="uint64_t" name="rx_signal_det_time">Ivaq Rx Detected Pulse Overall Signal Time tag [ms]</field>
+      <field type="float" name="rx_signal_det_module_nocorr">Ivaq Rx Detected Pulse Module value [V]</field>
+      <field type="float" name="rx_signal_det_module_corr">Ivaq Rx Detected Pulse Module value [V]</field>
+      <field type="uint8_t" name="rx_saturation_flag_x" enum="MVK_SIGNAL_SAT">Ivaq Rx X-ant Saturation flag</field>
+      <field type="uint8_t" name="rx_signal_det_flag_x" enum="MVK_SIGNAL_DET">Ivaq Rx X-ant Signal Detection flag</field>
+      <field type="uint8_t" name="rx_signal_det_sat_flag_x" enum="MVK_SIGNAL_SAT">Ivaq Rx X-ant Saturation flag for Detected Signal</field>
+      <field type="uint64_t" name="rx_signal_det_time_x">Ivaq Rx X-ant Signal NoCorr value in detected pulse</field>
+      <field type="float" name="rx_signal_det_val_nocorr_x">Ivaq Rx X-ant Signal NoCorr value in detected pulse</field>
+      <field type="float" name="rx_signal_det_val_corr_x">Ivaq Rx X-ant Signal Corr value in detected pulse</field>
+      <field type="float" name="rx_noise_val_nocorr_x">Ivaq Rx X-ant Noise No Corr Demod value</field>
+      <field type="float" name="rx_noise_val_corr_x">Ivaq Rx X-ant Noise Corr Demod value</field>
+      <field type="float" name="rx_noise_std_nocorr_x">Ivaq Rx X-ant Noise No Corr Demod std deviation</field>
+      <field type="float" name="rx_noise_std_corr_x">Ivaq Rx X-ant Noise Corr Demod std deviation</field>
+      <field type="uint8_t" name="rx_saturation_flag_y" enum="MVK_SIGNAL_SAT">Ivaq Rx Y-ant Saturation flag</field>
+      <field type="uint8_t" name="rx_signal_det_flag_y" enum="MVK_SIGNAL_DET">Ivaq Rx Y-ant Signal Detection flag</field>
+      <field type="uint8_t" name="rx_signal_det_sat_flag_y" enum="MVK_SIGNAL_SAT">Ivaq Rx Y-ant Saturation flag for Detected Signal</field>
+      <field type="uint64_t" name="rx_signal_det_time_y">Ivaq Rx Y-ant Signal NoCorr value in detected pulse</field>
+      <field type="float" name="rx_signal_det_val_nocorr_y">Ivaq Rx Y-ant Signal NoCorr value in detected pulse</field>
+      <field type="float" name="rx_signal_det_val_corr_y">Ivaq Rx Y-ant Signal Corr value in detected pulse</field>
+      <field type="float" name="rx_noise_val_nocorr_y">Ivaq Rx Y-ant Noise No Corr Demod value</field>
+      <field type="float" name="rx_noise_val_corr_y">Ivaq Rx Y-ant Noise Corr Demod value</field>
+      <field type="float" name="rx_noise_std_nocorr_y">Ivaq Rx Y-ant Noise No Corr Demod std deviation</field>
+      <field type="float" name="rx_noise_std_corr_y">Ivaq Rx Y-ant Noise Corr Demod std deviation</field>
+      <field type="uint8_t" name="rx_saturation_flag_z" enum="MVK_SIGNAL_SAT">Ivaq Rx Z-ant Saturation flag</field>
+      <field type="uint8_t" name="rx_signal_det_flag_z" enum="MVK_SIGNAL_DET">Ivaq Rx Z-ant Signal Detection flag</field>
+      <field type="uint8_t" name="rx_signal_det_sat_flag_z" enum="MVK_SIGNAL_SAT">Ivaq Rx Z-ant Saturation flag for Detected Signal</field>
+      <field type="uint64_t" name="rx_signal_det_time_z">Ivaq Rx Z-ant Signal NoCorr value in detected pulse</field>
+      <field type="float" name="rx_signal_det_val_nocorr_z">Ivaq Rx Z-ant Signal NoCorr value in detected pulse</field>
+      <field type="float" name="rx_signal_det_val_corr_z">Ivaq Rx Z-ant Signal Corr value in detected pulse</field>
+      <field type="float" name="rx_noise_val_nocorr_z">Ivaq Rx Z-ant Noise No Corr Demod value</field>
+      <field type="float" name="rx_noise_val_corr_z">Ivaq Rx Z-ant Noise Corr Demod value</field>
+      <field type="float" name="rx_noise_std_nocorr_z">Ivaq Rx Z-ant Noise No Corr Demod std deviation</field>
+      <field type="float" name="rx_noise_std_corr_z">Ivaq Rx Z-ant Noise Corr Demod std deviation</field>
+    </message>
+
+    <message id="205" name="IVAQ_RX_SIGNAL_SLAVE">
+    <description>Message with Signal from all antennas (X,Y,Z) in IVAQ Rx uploaded to Raspi</description>
+      <field type="uint8_t" name="rx_saturation_flag" enum="MVK_SIGNAL_SAT">Ivaq Rx Saturation flag</field>
+      <field type="uint8_t" name="rx_signal_det_flag" enum="MVK_SIGNAL_DET">Ivaq Rx Signal Detection flag</field>
+      <field type="uint8_t" name="rx_signal_det_sat_flag" enum="MVK_SIGNAL_SAT">Ivaq Rx Saturation flag for Detected Signal</field>
+      <field type="uint8_t" name="rx_signal_det_to_send_flag" enum="MVK_SIGNAL_DET_SENT">Ivaq Rx Signal Detection flag</field>
+      <field type="uint64_t" name="rx_signal_det_time">Ivaq Rx Signal NoCorr value in detected pulse</field>
+      <field type="float" name="rx_signal_det_val_nocorr">Ivaq Rx Signal NoCorr value in detected pulse</field>
+      <field type="float" name="rx_signal_det_val_corr">Ivaq Rx Signal Corr value in detected pulse</field>
+      <field type="float" name="rx_noise_val_nocorr">Ivaq Rx Noise No Corr Demod value</field>
+      <field type="float" name="rx_noise_val_corr">Ivaq Rx Noise Corr Demod value</field>
+      <field type="float" name="rx_noise_std_nocorr">Ivaq Rx Noise No Corr Demod std deviation</field>
+      <field type="float" name="rx_noise_std_corr">Ivaq Rx Noise Corr Demod std deviation</field>
+    </message>
+
+  </messages>
+</mavlink>
