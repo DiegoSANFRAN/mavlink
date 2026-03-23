@@ -73,13 +73,46 @@
       <entry value="0x01" name="MVK_STAGE_1_ON_STAGE_2_OFF_STAGE_3_OFF_STAGE_4_OFF">
         <description>Stage 1 on, Stage 2 off, Stage 3 off, Stage 4 off</description>
       </entry>
-      <entry value="0x02" name="MVK_STAGE_1_ON_STAGE_2_ON_STAGE_3_OFF_STAGE_4_OFF">
+      <entry value="0x02" name="MVK_STAGE_1_OFF_STAGE_2_ON_STAGE_3_OFF_STAGE_4_OFF">
+        <description>Stage 1 off, Stage 2 on, Stage 3 off, Stage 4 off</description>
+      </entry>
+      <entry value="0x03" name="MVK_STAGE_1_ON_STAGE_2_ON_STAGE_3_OFF_STAGE_4_OFF">
         <description>Stage 1 on, Stage 2 on, Stage 3 off, Stage 4 off</description>
       </entry>
-      <entry value="0x03" name="MVK_STAGE_1_ON_STAGE_2_ON_STAGE_3_ON_STAGE_4_OFF">
+      <entry value="0x04" name="MVK_STAGE_1_OFF_STAGE_2_OFF_STAGE_3_ON_STAGE_4_OFF">
+        <description>Stage 1 off, Stage 2 off, Stage 3 on, Stage 4 off</description>
+      </entry>
+      <entry value="0x05" name="MVK_STAGE_1_ON_STAGE_2_OFF_STAGE_3_ON_STAGE_4_OFF">
+        <description>Stage 1 on, Stage 2 off, Stage 3 on, Stage 4 off</description>
+      </entry>
+      <entry value="0x06" name="MVK_STAGE_1_OFF_STAGE_2_ON_STAGE_3_ON_STAGE_4_OFF">
+        <description>Stage 1 off, Stage 2 on, Stage 3 on, Stage 4 off</description>
+      </entry>
+      <entry value="0x07" name="MVK_STAGE_1_ON_STAGE_2_ON_STAGE_3_ON_STAGE_4_OFF">
         <description>Stage 1 on, Stage 2 on, Stage 3 on, Stage 4 off</description>
       </entry>
-      <entry value="0x04" name="MVK_STAGE_1_ON_STAGE_2_ON_STAGE_3_ON_STAGE_4_ON">
+      <entry value="0x08" name="MVK_STAGE_1_OFF_STAGE_2_OFF_STAGE_3_OFF_STAGE_4_ON">
+        <description>Stage 1 off, Stage 2 off, Stage 3 off, Stage 4 on</description>
+      </entry>
+      <entry value="0x09" name="MVK_STAGE_1_ON_STAGE_2_OFF_STAGE_3_OFF_STAGE_4_ON">
+        <description>Stage 1 on, Stage 2 off, Stage 3 off, Stage 4 on</description>
+      </entry>
+      <entry value="0x0A" name="MVK_STAGE_1_OFF_STAGE_2_ON_STAGE_3_OFF_STAGE_4_ON">
+        <description>Stage 1 off, Stage 2 on, Stage 3 off, Stage 4 on</description>
+      </entry>
+      <entry value="0x0B" name="MVK_STAGE_1_ON_STAGE_2_ON_STAGE_3_OFF_STAGE_4_ON">
+        <description>Stage 1 on, Stage 2 on, Stage 3 off, Stage 4 on</description>
+      </entry>
+      <entry value="0x0C" name="MVK_STAGE_1_OFF_STAGE_2_OFF_STAGE_3_ON_STAGE_4_ON">
+        <description>Stage 1 off, Stage 2 off, Stage 3 on, Stage 4 on</description>
+      </entry>
+      <entry value="0x0D" name="MVK_STAGE_1_ON_STAGE_2_OFF_STAGE_3_ON_STAGE_4_ON">
+        <description>Stage 1 on, Stage 2 off, Stage 3 on, Stage 4 on</description>
+      </entry>
+      <entry value="0x0E" name="MVK_STAGE_1_OFF_STAGE_2_ON_STAGE_3_ON_STAGE_4_ON">
+        <description>Stage 1 off, Stage 2 on, Stage 3 on, Stage 4 on</description>
+      </entry>
+      <entry value="0x0F" name="MVK_STAGE_1_ON_STAGE_2_ON_STAGE_3_ON_STAGE_4_ON">
         <description>Stage 1 on, Stage 2 on, Stage 3 on, Stage 4 on</description>
       </entry>
     </enum>

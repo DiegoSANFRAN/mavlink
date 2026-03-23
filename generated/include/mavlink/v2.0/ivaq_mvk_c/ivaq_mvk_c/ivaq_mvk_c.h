@@ -10,7 +10,7 @@
     #error Wrong include order: MAVLINK_IVAQ_MVK_C.H MUST NOT BE DIRECTLY USED. Include mavlink.h from the same directory instead or set ALL AND EVERY defines from MAVLINK.H manually accordingly, including the #define MAVLINK_H call.
 #endif
 
-#define MAVLINK_IVAQ_MVK_C_XML_HASH 6452985024649831316
+#define MAVLINK_IVAQ_MVK_C_XML_HASH -9103605046287935463
 
 #ifdef __cplusplus
 extern "C" {
@@ -98,10 +98,21 @@ typedef enum MVK_STAGE_STATES
 {
    MVK_STAGE_1_OFF_STAGE_2_OFF_STAGE_3_OFF_STAGE_4_OFF=0, /* Stage 1 off, Stage 2 off, Stage 3 off, Stage 4 off | */
    MVK_STAGE_1_ON_STAGE_2_OFF_STAGE_3_OFF_STAGE_4_OFF=1, /* Stage 1 on, Stage 2 off, Stage 3 off, Stage 4 off | */
-   MVK_STAGE_1_ON_STAGE_2_ON_STAGE_3_OFF_STAGE_4_OFF=2, /* Stage 1 on, Stage 2 on, Stage 3 off, Stage 4 off | */
-   MVK_STAGE_1_ON_STAGE_2_ON_STAGE_3_ON_STAGE_4_OFF=3, /* Stage 1 on, Stage 2 on, Stage 3 on, Stage 4 off | */
-   MVK_STAGE_1_ON_STAGE_2_ON_STAGE_3_ON_STAGE_4_ON=4, /* Stage 1 on, Stage 2 on, Stage 3 on, Stage 4 on | */
-   MVK_STAGE_STATES_ENUM_END=5, /*  | */
+   MVK_STAGE_1_OFF_STAGE_2_ON_STAGE_3_OFF_STAGE_4_OFF=2, /* Stage 1 off, Stage 2 on, Stage 3 off, Stage 4 off | */
+   MVK_STAGE_1_ON_STAGE_2_ON_STAGE_3_OFF_STAGE_4_OFF=3, /* Stage 1 on, Stage 2 on, Stage 3 off, Stage 4 off | */
+   MVK_STAGE_1_OFF_STAGE_2_OFF_STAGE_3_ON_STAGE_4_OFF=4, /* Stage 1 off, Stage 2 off, Stage 3 on, Stage 4 off | */
+   MVK_STAGE_1_ON_STAGE_2_OFF_STAGE_3_ON_STAGE_4_OFF=5, /* Stage 1 on, Stage 2 off, Stage 3 on, Stage 4 off | */
+   MVK_STAGE_1_OFF_STAGE_2_ON_STAGE_3_ON_STAGE_4_OFF=6, /* Stage 1 off, Stage 2 on, Stage 3 on, Stage 4 off | */
+   MVK_STAGE_1_ON_STAGE_2_ON_STAGE_3_ON_STAGE_4_OFF=7, /* Stage 1 on, Stage 2 on, Stage 3 on, Stage 4 off | */
+   MVK_STAGE_1_OFF_STAGE_2_OFF_STAGE_3_OFF_STAGE_4_ON=8, /* Stage 1 off, Stage 2 off, Stage 3 off, Stage 4 on | */
+   MVK_STAGE_1_ON_STAGE_2_OFF_STAGE_3_OFF_STAGE_4_ON=9, /* Stage 1 on, Stage 2 off, Stage 3 off, Stage 4 on | */
+   MVK_STAGE_1_OFF_STAGE_2_ON_STAGE_3_OFF_STAGE_4_ON=10, /* Stage 1 off, Stage 2 on, Stage 3 off, Stage 4 on | */
+   MVK_STAGE_1_ON_STAGE_2_ON_STAGE_3_OFF_STAGE_4_ON=11, /* Stage 1 on, Stage 2 on, Stage 3 off, Stage 4 on | */
+   MVK_STAGE_1_OFF_STAGE_2_OFF_STAGE_3_ON_STAGE_4_ON=12, /* Stage 1 off, Stage 2 off, Stage 3 on, Stage 4 on | */
+   MVK_STAGE_1_ON_STAGE_2_OFF_STAGE_3_ON_STAGE_4_ON=13, /* Stage 1 on, Stage 2 off, Stage 3 on, Stage 4 on | */
+   MVK_STAGE_1_OFF_STAGE_2_ON_STAGE_3_ON_STAGE_4_ON=14, /* Stage 1 off, Stage 2 on, Stage 3 on, Stage 4 on | */
+   MVK_STAGE_1_ON_STAGE_2_ON_STAGE_3_ON_STAGE_4_ON=15, /* Stage 1 on, Stage 2 on, Stage 3 on, Stage 4 on | */
+   MVK_STAGE_STATES_ENUM_END=16, /*  | */
 } MVK_STAGE_STATES;
 #endif
 
