@@ -10,7 +10,7 @@
     #error Wrong include order: MAVLINK_IVAQ_MVK_C.H MUST NOT BE DIRECTLY USED. Include mavlink.h from the same directory instead or set ALL AND EVERY defines from MAVLINK.H manually accordingly, including the #define MAVLINK_H call.
 #endif
 
-#define MAVLINK_IVAQ_MVK_C_XML_HASH -9103605046287935463
+#define MAVLINK_IVAQ_MVK_C_XML_HASH 8622730066249339988
 
 #ifdef __cplusplus
 extern "C" {
@@ -135,7 +135,9 @@ typedef enum MVK_SAVE_STATE
    MVK_SAVE_FALSE=0, /* Save false | */
    MVK_SAVE_ACQ=1, /* Save acquisition | */
    MVK_SAVE_2_SD=2, /* Save to SD card | */
-   MVK_SAVE_STATE_ENUM_END=3, /*  | */
+   MVK_SAVE_2_UART=3, /* Save acquisition and send data through UART without SD write | */
+   MVK_SAVE_TX_UART=4, /* Binary UART file transfer in progress | */
+   MVK_SAVE_STATE_ENUM_END=5, /*  | */
 } MVK_SAVE_STATE;
 #endif
 

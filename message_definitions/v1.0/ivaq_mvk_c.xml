@@ -138,6 +138,12 @@
       <entry value="0x02" name="MVK_SAVE_2_SD">
         <description>Save to SD card</description>
       </entry>
+      <entry value="0x03" name="MVK_SAVE_2_UART">
+        <description>Save acquisition and send data through UART without SD write</description>
+      </entry>
+      <entry value="0x04" name="MVK_SAVE_TX_UART">
+        <description>Binary UART file transfer in progress</description>
+      </entry>
     </enum>
 
     <enum name="MVK_SIGNAL_SAT">
