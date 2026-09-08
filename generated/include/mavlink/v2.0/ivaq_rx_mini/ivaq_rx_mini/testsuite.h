@@ -97,13 +97,14 @@ static void mavlink_test_ivaq_rx_mini_params(uint8_t system_id, uint8_t componen
         uint8_t buffer[MAVLINK_MAX_PACKET_LEN];
         uint16_t i;
     mavlink_ivaq_rx_mini_params_t packet_in = {
-        5,72,139
+        5,72,139,206
     };
     mavlink_ivaq_rx_mini_params_t packet1, packet2;
         memset(&packet1, 0, sizeof(packet1));
         packet1.rx_status = packet_in.rx_status;
         packet1.rx_card_det = packet_in.rx_card_det;
         packet1.rx_capture_state = packet_in.rx_capture_state;
+        packet1.rx_stage_state = packet_in.rx_stage_state;
         
         
 #ifdef MAVLINK_STATUS_FLAG_OUT_MAVLINK1
@@ -118,12 +119,12 @@ static void mavlink_test_ivaq_rx_mini_params(uint8_t system_id, uint8_t componen
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_ivaq_rx_mini_params_pack(system_id, component_id, &msg , packet1.rx_status , packet1.rx_card_det , packet1.rx_capture_state );
+    mavlink_msg_ivaq_rx_mini_params_pack(system_id, component_id, &msg , packet1.rx_status , packet1.rx_card_det , packet1.rx_capture_state , packet1.rx_stage_state );
     mavlink_msg_ivaq_rx_mini_params_decode(&msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_ivaq_rx_mini_params_pack_chan(system_id, component_id, MAVLINK_COMM_0, &msg , packet1.rx_status , packet1.rx_card_det , packet1.rx_capture_state );
+    mavlink_msg_ivaq_rx_mini_params_pack_chan(system_id, component_id, MAVLINK_COMM_0, &msg , packet1.rx_status , packet1.rx_card_det , packet1.rx_capture_state , packet1.rx_stage_state );
     mavlink_msg_ivaq_rx_mini_params_decode(&msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 
@@ -136,7 +137,7 @@ static void mavlink_test_ivaq_rx_mini_params(uint8_t system_id, uint8_t componen
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
         
         memset(&packet2, 0, sizeof(packet2));
-    mavlink_msg_ivaq_rx_mini_params_send(MAVLINK_COMM_1 , packet1.rx_status , packet1.rx_card_det , packet1.rx_capture_state );
+    mavlink_msg_ivaq_rx_mini_params_send(MAVLINK_COMM_1 , packet1.rx_status , packet1.rx_card_det , packet1.rx_capture_state , packet1.rx_stage_state );
     mavlink_msg_ivaq_rx_mini_params_decode(last_msg, &packet2);
         MAVLINK_ASSERT(memcmp(&packet1, &packet2, sizeof(packet1)) == 0);
 

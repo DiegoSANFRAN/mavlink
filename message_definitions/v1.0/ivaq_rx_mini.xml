@@ -117,6 +117,13 @@
         <description>Milliseconds since UNIX epoch using host-synchronized time.</description>
       </entry>
     </enum>
+    <enum name="IVAQ_MINI_STAGE_MASK" bitmask="true">
+      <description>Locally selected amplification stages. Readback only; changed using the PCB button.</description>
+      <entry value="1" name="IVAQ_MINI_STAGE_1"><description>Stage 1 enabled.</description></entry>
+      <entry value="2" name="IVAQ_MINI_STAGE_2"><description>Stage 2 enabled.</description></entry>
+      <entry value="4" name="IVAQ_MINI_STAGE_3"><description>Stage 3 enabled.</description></entry>
+      <entry value="8" name="IVAQ_MINI_STAGE_4"><description>Stage 4 enabled.</description></entry>
+    </enum>
   </enums>
   <messages>
     <message id="2" name="SYSTEM_TIME">
@@ -129,6 +136,8 @@
       <field type="uint8_t" name="rx_status" enum="IVAQ_MINI_RX_STATUS">Ivaq Rx mini Status</field>
       <field type="uint8_t" name="rx_card_det" enum="IVAQ_MINI_CARD_STATE">Ivaq Rx mini SD Card State</field>
       <field type="uint8_t" name="rx_capture_state" enum="IVAQ_MINI_CAPTURE_STATE">Current acquisition/transfer state.</field>
+      <extensions/>
+      <field type="uint8_t" name="rx_stage_state" enum="IVAQ_MINI_STAGE_MASK">Selected amplification-stage mask; boot default is 3 (stages 1 and 2).</field>
     </message>
     <message id="61001" name="IVAQ_RX_MINI_SET_PARAMS">
       <description>Host command to IVAQ Rx mini. Send at most one action per message: update, reset, or a nonzero capture command. The receiver must reject conflicting actions and unsupported or busy requests. Zero-valued fields request no action.</description>

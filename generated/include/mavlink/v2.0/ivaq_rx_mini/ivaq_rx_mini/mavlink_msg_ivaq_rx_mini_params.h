@@ -8,11 +8,12 @@ typedef struct __mavlink_ivaq_rx_mini_params_t {
  uint8_t rx_status; /*<  Ivaq Rx mini Status*/
  uint8_t rx_card_det; /*<  Ivaq Rx mini SD Card State*/
  uint8_t rx_capture_state; /*<  Current acquisition/transfer state.*/
+ uint8_t rx_stage_state; /*<  Selected amplification-stage mask; boot default is 3 (stages 1 and 2).*/
 } mavlink_ivaq_rx_mini_params_t;
 
-#define MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS_LEN 3
+#define MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS_LEN 4
 #define MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS_MIN_LEN 3
-#define MAVLINK_MSG_ID_61000_LEN 3
+#define MAVLINK_MSG_ID_61000_LEN 4
 #define MAVLINK_MSG_ID_61000_MIN_LEN 3
 
 #define MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS_CRC 107
@@ -24,19 +25,21 @@ typedef struct __mavlink_ivaq_rx_mini_params_t {
 #define MAVLINK_MESSAGE_INFO_IVAQ_RX_MINI_PARAMS { \
     61000, \
     "IVAQ_RX_MINI_PARAMS", \
-    3, \
+    4, \
     {  { "rx_status", NULL, MAVLINK_TYPE_UINT8_T, 0, 0, offsetof(mavlink_ivaq_rx_mini_params_t, rx_status) }, \
          { "rx_card_det", NULL, MAVLINK_TYPE_UINT8_T, 0, 1, offsetof(mavlink_ivaq_rx_mini_params_t, rx_card_det) }, \
          { "rx_capture_state", NULL, MAVLINK_TYPE_UINT8_T, 0, 2, offsetof(mavlink_ivaq_rx_mini_params_t, rx_capture_state) }, \
+         { "rx_stage_state", NULL, MAVLINK_TYPE_UINT8_T, 0, 3, offsetof(mavlink_ivaq_rx_mini_params_t, rx_stage_state) }, \
          } \
 }
 #else
 #define MAVLINK_MESSAGE_INFO_IVAQ_RX_MINI_PARAMS { \
     "IVAQ_RX_MINI_PARAMS", \
-    3, \
+    4, \
     {  { "rx_status", NULL, MAVLINK_TYPE_UINT8_T, 0, 0, offsetof(mavlink_ivaq_rx_mini_params_t, rx_status) }, \
          { "rx_card_det", NULL, MAVLINK_TYPE_UINT8_T, 0, 1, offsetof(mavlink_ivaq_rx_mini_params_t, rx_card_det) }, \
          { "rx_capture_state", NULL, MAVLINK_TYPE_UINT8_T, 0, 2, offsetof(mavlink_ivaq_rx_mini_params_t, rx_capture_state) }, \
+         { "rx_stage_state", NULL, MAVLINK_TYPE_UINT8_T, 0, 3, offsetof(mavlink_ivaq_rx_mini_params_t, rx_stage_state) }, \
          } \
 }
 #endif
@@ -50,16 +53,18 @@ typedef struct __mavlink_ivaq_rx_mini_params_t {
  * @param rx_status  Ivaq Rx mini Status
  * @param rx_card_det  Ivaq Rx mini SD Card State
  * @param rx_capture_state  Current acquisition/transfer state.
+ * @param rx_stage_state  Selected amplification-stage mask; boot default is 3 (stages 1 and 2).
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_ivaq_rx_mini_params_pack(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg,
-                               uint8_t rx_status, uint8_t rx_card_det, uint8_t rx_capture_state)
+                               uint8_t rx_status, uint8_t rx_card_det, uint8_t rx_capture_state, uint8_t rx_stage_state)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS_LEN];
     _mav_put_uint8_t(buf, 0, rx_status);
     _mav_put_uint8_t(buf, 1, rx_card_det);
     _mav_put_uint8_t(buf, 2, rx_capture_state);
+    _mav_put_uint8_t(buf, 3, rx_stage_state);
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS_LEN);
 #else
@@ -67,6 +72,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_mini_params_pack(uint8_t system_id, u
     packet.rx_status = rx_status;
     packet.rx_card_det = rx_card_det;
     packet.rx_capture_state = rx_capture_state;
+    packet.rx_stage_state = rx_stage_state;
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS_LEN);
 #endif
@@ -85,16 +91,18 @@ static inline uint16_t mavlink_msg_ivaq_rx_mini_params_pack(uint8_t system_id, u
  * @param rx_status  Ivaq Rx mini Status
  * @param rx_card_det  Ivaq Rx mini SD Card State
  * @param rx_capture_state  Current acquisition/transfer state.
+ * @param rx_stage_state  Selected amplification-stage mask; boot default is 3 (stages 1 and 2).
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_ivaq_rx_mini_params_pack_status(uint8_t system_id, uint8_t component_id, mavlink_status_t *_status, mavlink_message_t* msg,
-                               uint8_t rx_status, uint8_t rx_card_det, uint8_t rx_capture_state)
+                               uint8_t rx_status, uint8_t rx_card_det, uint8_t rx_capture_state, uint8_t rx_stage_state)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS_LEN];
     _mav_put_uint8_t(buf, 0, rx_status);
     _mav_put_uint8_t(buf, 1, rx_card_det);
     _mav_put_uint8_t(buf, 2, rx_capture_state);
+    _mav_put_uint8_t(buf, 3, rx_stage_state);
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS_LEN);
 #else
@@ -102,6 +110,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_mini_params_pack_status(uint8_t syste
     packet.rx_status = rx_status;
     packet.rx_card_det = rx_card_det;
     packet.rx_capture_state = rx_capture_state;
+    packet.rx_stage_state = rx_stage_state;
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS_LEN);
 #endif
@@ -123,17 +132,19 @@ static inline uint16_t mavlink_msg_ivaq_rx_mini_params_pack_status(uint8_t syste
  * @param rx_status  Ivaq Rx mini Status
  * @param rx_card_det  Ivaq Rx mini SD Card State
  * @param rx_capture_state  Current acquisition/transfer state.
+ * @param rx_stage_state  Selected amplification-stage mask; boot default is 3 (stages 1 and 2).
  * @return length of the message in bytes (excluding serial stream start sign)
  */
 static inline uint16_t mavlink_msg_ivaq_rx_mini_params_pack_chan(uint8_t system_id, uint8_t component_id, uint8_t chan,
                                mavlink_message_t* msg,
-                                   uint8_t rx_status,uint8_t rx_card_det,uint8_t rx_capture_state)
+                                   uint8_t rx_status,uint8_t rx_card_det,uint8_t rx_capture_state,uint8_t rx_stage_state)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS_LEN];
     _mav_put_uint8_t(buf, 0, rx_status);
     _mav_put_uint8_t(buf, 1, rx_card_det);
     _mav_put_uint8_t(buf, 2, rx_capture_state);
+    _mav_put_uint8_t(buf, 3, rx_stage_state);
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), buf, MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS_LEN);
 #else
@@ -141,6 +152,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_mini_params_pack_chan(uint8_t system_
     packet.rx_status = rx_status;
     packet.rx_card_det = rx_card_det;
     packet.rx_capture_state = rx_capture_state;
+    packet.rx_stage_state = rx_stage_state;
 
         memcpy(_MAV_PAYLOAD_NON_CONST(msg), &packet, MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS_LEN);
 #endif
@@ -159,7 +171,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_mini_params_pack_chan(uint8_t system_
  */
 static inline uint16_t mavlink_msg_ivaq_rx_mini_params_encode(uint8_t system_id, uint8_t component_id, mavlink_message_t* msg, const mavlink_ivaq_rx_mini_params_t* ivaq_rx_mini_params)
 {
-    return mavlink_msg_ivaq_rx_mini_params_pack(system_id, component_id, msg, ivaq_rx_mini_params->rx_status, ivaq_rx_mini_params->rx_card_det, ivaq_rx_mini_params->rx_capture_state);
+    return mavlink_msg_ivaq_rx_mini_params_pack(system_id, component_id, msg, ivaq_rx_mini_params->rx_status, ivaq_rx_mini_params->rx_card_det, ivaq_rx_mini_params->rx_capture_state, ivaq_rx_mini_params->rx_stage_state);
 }
 
 /**
@@ -173,7 +185,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_mini_params_encode(uint8_t system_id,
  */
 static inline uint16_t mavlink_msg_ivaq_rx_mini_params_encode_chan(uint8_t system_id, uint8_t component_id, uint8_t chan, mavlink_message_t* msg, const mavlink_ivaq_rx_mini_params_t* ivaq_rx_mini_params)
 {
-    return mavlink_msg_ivaq_rx_mini_params_pack_chan(system_id, component_id, chan, msg, ivaq_rx_mini_params->rx_status, ivaq_rx_mini_params->rx_card_det, ivaq_rx_mini_params->rx_capture_state);
+    return mavlink_msg_ivaq_rx_mini_params_pack_chan(system_id, component_id, chan, msg, ivaq_rx_mini_params->rx_status, ivaq_rx_mini_params->rx_card_det, ivaq_rx_mini_params->rx_capture_state, ivaq_rx_mini_params->rx_stage_state);
 }
 
 /**
@@ -187,7 +199,7 @@ static inline uint16_t mavlink_msg_ivaq_rx_mini_params_encode_chan(uint8_t syste
  */
 static inline uint16_t mavlink_msg_ivaq_rx_mini_params_encode_status(uint8_t system_id, uint8_t component_id, mavlink_status_t* _status, mavlink_message_t* msg, const mavlink_ivaq_rx_mini_params_t* ivaq_rx_mini_params)
 {
-    return mavlink_msg_ivaq_rx_mini_params_pack_status(system_id, component_id, _status, msg,  ivaq_rx_mini_params->rx_status, ivaq_rx_mini_params->rx_card_det, ivaq_rx_mini_params->rx_capture_state);
+    return mavlink_msg_ivaq_rx_mini_params_pack_status(system_id, component_id, _status, msg,  ivaq_rx_mini_params->rx_status, ivaq_rx_mini_params->rx_card_det, ivaq_rx_mini_params->rx_capture_state, ivaq_rx_mini_params->rx_stage_state);
 }
 
 /**
@@ -197,16 +209,18 @@ static inline uint16_t mavlink_msg_ivaq_rx_mini_params_encode_status(uint8_t sys
  * @param rx_status  Ivaq Rx mini Status
  * @param rx_card_det  Ivaq Rx mini SD Card State
  * @param rx_capture_state  Current acquisition/transfer state.
+ * @param rx_stage_state  Selected amplification-stage mask; boot default is 3 (stages 1 and 2).
  */
 #ifdef MAVLINK_USE_CONVENIENCE_FUNCTIONS
 
-static inline void mavlink_msg_ivaq_rx_mini_params_send(mavlink_channel_t chan, uint8_t rx_status, uint8_t rx_card_det, uint8_t rx_capture_state)
+static inline void mavlink_msg_ivaq_rx_mini_params_send(mavlink_channel_t chan, uint8_t rx_status, uint8_t rx_card_det, uint8_t rx_capture_state, uint8_t rx_stage_state)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char buf[MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS_LEN];
     _mav_put_uint8_t(buf, 0, rx_status);
     _mav_put_uint8_t(buf, 1, rx_card_det);
     _mav_put_uint8_t(buf, 2, rx_capture_state);
+    _mav_put_uint8_t(buf, 3, rx_stage_state);
 
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS, buf, MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS_MIN_LEN, MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS_LEN, MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS_CRC);
 #else
@@ -214,6 +228,7 @@ static inline void mavlink_msg_ivaq_rx_mini_params_send(mavlink_channel_t chan, 
     packet.rx_status = rx_status;
     packet.rx_card_det = rx_card_det;
     packet.rx_capture_state = rx_capture_state;
+    packet.rx_stage_state = rx_stage_state;
 
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS, (const char *)&packet, MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS_MIN_LEN, MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS_LEN, MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS_CRC);
 #endif
@@ -227,7 +242,7 @@ static inline void mavlink_msg_ivaq_rx_mini_params_send(mavlink_channel_t chan, 
 static inline void mavlink_msg_ivaq_rx_mini_params_send_struct(mavlink_channel_t chan, const mavlink_ivaq_rx_mini_params_t* ivaq_rx_mini_params)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
-    mavlink_msg_ivaq_rx_mini_params_send(chan, ivaq_rx_mini_params->rx_status, ivaq_rx_mini_params->rx_card_det, ivaq_rx_mini_params->rx_capture_state);
+    mavlink_msg_ivaq_rx_mini_params_send(chan, ivaq_rx_mini_params->rx_status, ivaq_rx_mini_params->rx_card_det, ivaq_rx_mini_params->rx_capture_state, ivaq_rx_mini_params->rx_stage_state);
 #else
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS, (const char *)ivaq_rx_mini_params, MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS_MIN_LEN, MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS_LEN, MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS_CRC);
 #endif
@@ -241,13 +256,14 @@ static inline void mavlink_msg_ivaq_rx_mini_params_send_struct(mavlink_channel_t
   is usually the receive buffer for the channel, and allows a reply to an
   incoming message with minimum stack space usage.
  */
-static inline void mavlink_msg_ivaq_rx_mini_params_send_buf(mavlink_message_t *msgbuf, mavlink_channel_t chan,  uint8_t rx_status, uint8_t rx_card_det, uint8_t rx_capture_state)
+static inline void mavlink_msg_ivaq_rx_mini_params_send_buf(mavlink_message_t *msgbuf, mavlink_channel_t chan,  uint8_t rx_status, uint8_t rx_card_det, uint8_t rx_capture_state, uint8_t rx_stage_state)
 {
 #if MAVLINK_NEED_BYTE_SWAP || !MAVLINK_ALIGNED_FIELDS
     char *buf = (char *)msgbuf;
     _mav_put_uint8_t(buf, 0, rx_status);
     _mav_put_uint8_t(buf, 1, rx_card_det);
     _mav_put_uint8_t(buf, 2, rx_capture_state);
+    _mav_put_uint8_t(buf, 3, rx_stage_state);
 
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS, buf, MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS_MIN_LEN, MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS_LEN, MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS_CRC);
 #else
@@ -255,6 +271,7 @@ static inline void mavlink_msg_ivaq_rx_mini_params_send_buf(mavlink_message_t *m
     packet->rx_status = rx_status;
     packet->rx_card_det = rx_card_det;
     packet->rx_capture_state = rx_capture_state;
+    packet->rx_stage_state = rx_stage_state;
 
     _mav_finalize_message_chan_send(chan, MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS, (const char *)packet, MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS_MIN_LEN, MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS_LEN, MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS_CRC);
 #endif
@@ -297,6 +314,16 @@ static inline uint8_t mavlink_msg_ivaq_rx_mini_params_get_rx_capture_state(const
 }
 
 /**
+ * @brief Get field rx_stage_state from ivaq_rx_mini_params message
+ *
+ * @return  Selected amplification-stage mask; boot default is 3 (stages 1 and 2).
+ */
+static inline uint8_t mavlink_msg_ivaq_rx_mini_params_get_rx_stage_state(const mavlink_message_t* msg)
+{
+    return _MAV_RETURN_uint8_t(msg,  3);
+}
+
+/**
  * @brief Decode a ivaq_rx_mini_params message into a struct
  *
  * @param msg The message to decode
@@ -308,6 +335,7 @@ static inline void mavlink_msg_ivaq_rx_mini_params_decode(const mavlink_message_
     ivaq_rx_mini_params->rx_status = mavlink_msg_ivaq_rx_mini_params_get_rx_status(msg);
     ivaq_rx_mini_params->rx_card_det = mavlink_msg_ivaq_rx_mini_params_get_rx_card_det(msg);
     ivaq_rx_mini_params->rx_capture_state = mavlink_msg_ivaq_rx_mini_params_get_rx_capture_state(msg);
+    ivaq_rx_mini_params->rx_stage_state = mavlink_msg_ivaq_rx_mini_params_get_rx_stage_state(msg);
 #else
         uint8_t len = msg->len < MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS_LEN? msg->len : MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS_LEN;
         memset(ivaq_rx_mini_params, 0, MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS_LEN);

@@ -10,7 +10,7 @@
     #error Wrong include order: MAVLINK_IVAQ_RX_MINI.H MUST NOT BE DIRECTLY USED. Include mavlink.h from the same directory instead or set ALL AND EVERY defines from MAVLINK.H manually accordingly, including the #define MAVLINK_H call.
 #endif
 
-#define MAVLINK_IVAQ_RX_MINI_XML_HASH -3271533634171651004
+#define MAVLINK_IVAQ_RX_MINI_XML_HASH -261746921171139362
 
 #ifdef __cplusplus
 extern "C" {
@@ -23,7 +23,7 @@ extern "C" {
 #endif
 
 #ifndef MAVLINK_MESSAGE_CRCS
-#define MAVLINK_MESSAGE_CRCS {{0, 50, 9, 9, 0, 0, 0}, {2, 137, 12, 12, 0, 0, 0}, {300, 217, 22, 22, 0, 0, 0}, {61000, 107, 3, 3, 0, 0, 0}, {61001, 228, 3, 3, 0, 0, 0}, {61002, 33, 88, 88, 0, 0, 0}}
+#define MAVLINK_MESSAGE_CRCS {{0, 50, 9, 9, 0, 0, 0}, {2, 137, 12, 12, 0, 0, 0}, {300, 217, 22, 22, 0, 0, 0}, {61000, 107, 3, 4, 0, 0, 0}, {61001, 228, 3, 3, 0, 0, 0}, {61002, 33, 88, 88, 0, 0, 0}}
 #endif
 
 #include "../protocol.h"
@@ -149,6 +149,19 @@ typedef enum IVAQ_MINI_TIME_REFERENCE
    IVAQ_MINI_TIME_UNIX=1, /* Milliseconds since UNIX epoch using host-synchronized time. | */
    IVAQ_MINI_TIME_REFERENCE_ENUM_END=2, /*  | */
 } IVAQ_MINI_TIME_REFERENCE;
+#endif
+
+/** @brief Locally selected amplification stages. Readback only; changed using the PCB button. */
+#ifndef HAVE_ENUM_IVAQ_MINI_STAGE_MASK
+#define HAVE_ENUM_IVAQ_MINI_STAGE_MASK
+typedef enum IVAQ_MINI_STAGE_MASK
+{
+   IVAQ_MINI_STAGE_1=1, /* Stage 1 enabled. | */
+   IVAQ_MINI_STAGE_2=2, /* Stage 2 enabled. | */
+   IVAQ_MINI_STAGE_3=4, /* Stage 3 enabled. | */
+   IVAQ_MINI_STAGE_4=8, /* Stage 4 enabled. | */
+   IVAQ_MINI_STAGE_MASK_ENUM_END=9, /*  | */
+} IVAQ_MINI_STAGE_MASK;
 #endif
 
 // MAVLINK VERSION

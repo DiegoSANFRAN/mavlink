@@ -434,6 +434,19 @@ enums["IVAQ_MINI_TIME_REFERENCE"][1] = EnumEntry("IVAQ_MINI_TIME_UNIX", """Milli
 IVAQ_MINI_TIME_REFERENCE_ENUM_END = 2
 enums["IVAQ_MINI_TIME_REFERENCE"][2] = EnumEntry("IVAQ_MINI_TIME_REFERENCE_ENUM_END", """""")
 
+# IVAQ_MINI_STAGE_MASK
+enums["IVAQ_MINI_STAGE_MASK"] = {}
+IVAQ_MINI_STAGE_1 = 1
+enums["IVAQ_MINI_STAGE_MASK"][1] = EnumEntry("IVAQ_MINI_STAGE_1", """Stage 1 enabled.""")
+IVAQ_MINI_STAGE_2 = 2
+enums["IVAQ_MINI_STAGE_MASK"][2] = EnumEntry("IVAQ_MINI_STAGE_2", """Stage 2 enabled.""")
+IVAQ_MINI_STAGE_3 = 4
+enums["IVAQ_MINI_STAGE_MASK"][4] = EnumEntry("IVAQ_MINI_STAGE_3", """Stage 3 enabled.""")
+IVAQ_MINI_STAGE_4 = 8
+enums["IVAQ_MINI_STAGE_MASK"][8] = EnumEntry("IVAQ_MINI_STAGE_4", """Stage 4 enabled.""")
+IVAQ_MINI_STAGE_MASK_ENUM_END = 9
+enums["IVAQ_MINI_STAGE_MASK"][9] = EnumEntry("IVAQ_MINI_STAGE_MASK_ENUM_END", """""")
+
 # MAV_AUTOPILOT
 enums["MAV_AUTOPILOT"] = {}
 MAV_AUTOPILOT_GENERIC = 0
@@ -976,22 +989,22 @@ class MAVLink_ivaq_rx_mini_params_message(MAVLink_message):
 
     id = MAVLINK_MSG_ID_IVAQ_RX_MINI_PARAMS
     msgname = "IVAQ_RX_MINI_PARAMS"
-    fieldnames = ["rx_status", "rx_card_det", "rx_capture_state"]
-    ordered_fieldnames = ["rx_status", "rx_card_det", "rx_capture_state"]
-    fieldtypes = ["uint8_t", "uint8_t", "uint8_t"]
+    fieldnames = ["rx_status", "rx_card_det", "rx_capture_state", "rx_stage_state"]
+    ordered_fieldnames = ["rx_status", "rx_card_det", "rx_capture_state", "rx_stage_state"]
+    fieldtypes = ["uint8_t", "uint8_t", "uint8_t", "uint8_t"]
     fielddisplays_by_name: Dict[str, str] = {}
-    fieldenums_by_name: Dict[str, str] = {"rx_status": "IVAQ_MINI_RX_STATUS", "rx_card_det": "IVAQ_MINI_CARD_STATE", "rx_capture_state": "IVAQ_MINI_CAPTURE_STATE"}
+    fieldenums_by_name: Dict[str, str] = {"rx_status": "IVAQ_MINI_RX_STATUS", "rx_card_det": "IVAQ_MINI_CARD_STATE", "rx_capture_state": "IVAQ_MINI_CAPTURE_STATE", "rx_stage_state": "IVAQ_MINI_STAGE_MASK"}
     fieldunits_by_name: Dict[str, str] = {}
-    native_format = bytearray(b"<BBB")
-    orders = [0, 1, 2]
-    lengths = [1, 1, 1]
-    array_lengths = [0, 0, 0]
+    native_format = bytearray(b"<BBBB")
+    orders = [0, 1, 2, 3]
+    lengths = [1, 1, 1, 1]
+    array_lengths = [0, 0, 0, 0]
     crc_extra = 107
-    unpacker = struct.Struct("<BBB")
+    unpacker = struct.Struct("<BBBB")
     instance_field = None
     instance_offset = -1
 
-    def __init__(self, rx_status: int, rx_card_det: int, rx_capture_state: int):
+    def __init__(self, rx_status: int, rx_card_det: int, rx_capture_state: int, rx_stage_state: int = 0):
         MAVLink_message.__init__(self, MAVLink_ivaq_rx_mini_params_message.id, MAVLink_ivaq_rx_mini_params_message.msgname)
         self._fieldnames = MAVLink_ivaq_rx_mini_params_message.fieldnames
         self._instance_field = MAVLink_ivaq_rx_mini_params_message.instance_field
@@ -999,9 +1012,10 @@ class MAVLink_ivaq_rx_mini_params_message(MAVLink_message):
         self.rx_status = rx_status
         self.rx_card_det = rx_card_det
         self.rx_capture_state = rx_capture_state
+        self.rx_stage_state = rx_stage_state
 
     def pack(self, mav: "MAVLink", force_mavlink1: bool = False) -> bytes:
-        return self._pack(mav, self.crc_extra, self.unpacker.pack(self.rx_status, self.rx_card_det, self.rx_capture_state), force_mavlink1=force_mavlink1)
+        return self._pack(mav, self.crc_extra, self.unpacker.pack(self.rx_status, self.rx_card_det, self.rx_capture_state, self.rx_stage_state), force_mavlink1=force_mavlink1)
 
 
 # Define name on the class for backwards compatibility (it is now msgname).
@@ -1655,27 +1669,29 @@ class MAVLink(object):
         """
         self.send(self.system_time_encode(time_unix_usec, time_boot_ms), force_mavlink1=force_mavlink1)
 
-    def ivaq_rx_mini_params_encode(self, rx_status: int, rx_card_det: int, rx_capture_state: int) -> MAVLink_ivaq_rx_mini_params_message:
+    def ivaq_rx_mini_params_encode(self, rx_status: int, rx_card_det: int, rx_capture_state: int, rx_stage_state: int = 0) -> MAVLink_ivaq_rx_mini_params_message:
         """
         Board-level status of the single-PCB, two-antenna IVAQ Rx mini.
 
         rx_status                 : Ivaq Rx mini Status (type:uint8_t, values:IVAQ_MINI_RX_STATUS)
         rx_card_det               : Ivaq Rx mini SD Card State (type:uint8_t, values:IVAQ_MINI_CARD_STATE)
         rx_capture_state          : Current acquisition/transfer state. (type:uint8_t, values:IVAQ_MINI_CAPTURE_STATE)
+        rx_stage_state            : Selected amplification-stage mask; boot default is 3 (stages 1 and 2). (type:uint8_t, values:IVAQ_MINI_STAGE_MASK)
 
         """
-        return MAVLink_ivaq_rx_mini_params_message(rx_status, rx_card_det, rx_capture_state)
+        return MAVLink_ivaq_rx_mini_params_message(rx_status, rx_card_det, rx_capture_state, rx_stage_state)
 
-    def ivaq_rx_mini_params_send(self, rx_status: int, rx_card_det: int, rx_capture_state: int, force_mavlink1: bool = False) -> None:
+    def ivaq_rx_mini_params_send(self, rx_status: int, rx_card_det: int, rx_capture_state: int, rx_stage_state: int = 0, force_mavlink1: bool = False) -> None:
         """
         Board-level status of the single-PCB, two-antenna IVAQ Rx mini.
 
         rx_status                 : Ivaq Rx mini Status (type:uint8_t, values:IVAQ_MINI_RX_STATUS)
         rx_card_det               : Ivaq Rx mini SD Card State (type:uint8_t, values:IVAQ_MINI_CARD_STATE)
         rx_capture_state          : Current acquisition/transfer state. (type:uint8_t, values:IVAQ_MINI_CAPTURE_STATE)
+        rx_stage_state            : Selected amplification-stage mask; boot default is 3 (stages 1 and 2). (type:uint8_t, values:IVAQ_MINI_STAGE_MASK)
 
         """
-        self.send(self.ivaq_rx_mini_params_encode(rx_status, rx_card_det, rx_capture_state), force_mavlink1=force_mavlink1)
+        self.send(self.ivaq_rx_mini_params_encode(rx_status, rx_card_det, rx_capture_state, rx_stage_state), force_mavlink1=force_mavlink1)
 
     def ivaq_rx_mini_set_params_encode(self, rx_set_update: int, rx_set_reset: int, rx_capture_command: int) -> MAVLink_ivaq_rx_mini_set_params_message:
         """

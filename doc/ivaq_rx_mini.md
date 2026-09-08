@@ -1,7 +1,7 @@
 # IVAQ Rx mini MAVLink dialect
 
 `message_definitions/v1.0/ivaq_rx_mini.xml` is the single source for both C and
-Python. It describes one PCB with two fixed antennas, X and Y. It includes
+Python. It describes one PCB with two fixed antennas, X and Y. Amplification stages can be selected locally using the PCB button. It includes
 `minimal.xml` and defines the standard `SYSTEM_TIME` message, retaining a small
 firmware library without requiring separate C/Python XML copies.
 
@@ -26,7 +26,9 @@ definitions; the mini library alone does not decode legacy custom messages.
   Card presence does not imply that the filesystem is writable.
 - The detection mask is 0=none, 1=X, 2=Y, 3=both. It must agree with the
   per-antenna flags. Obsolete stage, antenna-switch, analog-enable, PCB-mode and
-  slave-link controls are absent. Internal "already sent" bookkeeping is absent.
+  slave-link controls are absent. Stage selection is local-only: the optional
+  `rx_stage_state` extension reports the four-bit mask (boot default 3), with
+  no remote stage command. Internal "already sent" bookkeeping is absent.
 - `rx_time_reference` identifies boot milliseconds or synchronized UNIX epoch
   milliseconds for all three timestamps. The overall timestamp is the earliest
   valid antenna timestamp. A timestamp is zero when its detection is invalid;
@@ -68,3 +70,6 @@ at the same time. Do not simply replace the legacy include directory: current
 firmware references master/slave messages and removed fields. Validate actual
 USB exchange, time synchronization, single/both-antenna detections, capture
 start/stop/failure, and firmware updates on hardware before deployment.
+
+The stage readback is a MAVLink 2 extension, preserving the original mini
+PARAMS base payload and CRC extra. Regenerate both C and Python from the XML.
