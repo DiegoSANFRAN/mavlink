@@ -75,18 +75,18 @@
         <description>Detection on Y.</description>
       </entry>
     </enum>
-    <enum name="IVAQ_MINI_CAPTURE_COMMAND">
+    <enum name="IVAQ_MINI_SET_CAPTURE">
       <description>Requested capture action. Zero leaves capture unchanged, including during reset/update commands.</description>
-      <entry value="0" name="IVAQ_MINI_CAPTURE_NO_CHANGE">
+      <entry value="0" name="IVAQ_MINI_SET_CAPTURE_NO_CHANGE">
         <description>Leave capture unchanged.</description>
       </entry>
-      <entry value="1" name="IVAQ_MINI_CAPTURE_START_SD">
+      <entry value="1" name="IVAQ_MINI_SET_CAPTURE_START_SD">
         <description>Start a capture and save to microSD.</description>
       </entry>
-      <entry value="2" name="IVAQ_MINI_CAPTURE_START_HOST">
+      <entry value="2" name="IVAQ_MINI_SET_CAPTURE_START_HOST">
         <description>Start a capture and transfer to the host without writing microSD; independent of USB/UART transport.</description>
       </entry>
-      <entry value="3" name="IVAQ_MINI_CAPTURE_STOP">
+      <entry value="3" name="IVAQ_MINI_SET_CAPTURE_STOP">
         <description>Request cancellation of the active acquisition or transfer.</description>
       </entry>
     </enum>
@@ -143,7 +143,7 @@
       <description>Host command to IVAQ Rx mini. Send at most one action per message: update, reset, or a nonzero capture command. The receiver must reject conflicting actions and unsupported or busy requests. Zero-valued fields request no action.</description>
       <field type="uint8_t" name="rx_set_update" enum="IVAQ_MINI_RX_UPDATE">Request receiver firmware update mode.</field>
       <field type="uint8_t" name="rx_set_reset" enum="IVAQ_MINI_RX_RESET">Request receiver reset.</field>
-      <field type="uint8_t" name="rx_capture_command" enum="IVAQ_MINI_CAPTURE_COMMAND">Requested acquisition/transfer action.</field>
+      <field type="uint8_t" name="rx_set_capture" enum="IVAQ_MINI_SET_CAPTURE">Requested acquisition/transfer action.</field>
     </message>
     <message id="61002" name="IVAQ_RX_MINI_SIGNAL">
       <description>X/Y signal measurements from the two antennas on one IVAQ Rx mini PCB. Per-antenna detected values and timestamps are valid only when that antenna detection flag is set. Combined magnitude is valid only for X/Y measurements associated with the same pulse; otherwise send NaN. Noise measurements describe the current estimator window.</description>

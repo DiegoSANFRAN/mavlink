@@ -38,7 +38,8 @@ definitions; the mini library alone does not decode legacy custom messages.
   remain available for single-antenna detections. Firmware must define and test
   its pulse-pairing tolerance and calibration before emitting combined values;
   sharing a PCB does not imply equal pulse timestamps.
-- Capture commands are separate from status. Commands are no-change, start to
+- `rx_set_capture` commands are separate from `rx_capture_state` status.
+  Commands are no-change, start to
   SD, start to host, and stop. States are idle, acquiring, writing SD,
   transferring, and error. Host transfer is independent of USB versus UART.
   This XML does not define the binary capture-file transport or sample format.

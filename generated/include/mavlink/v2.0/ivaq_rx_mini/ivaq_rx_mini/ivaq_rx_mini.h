@@ -10,7 +10,7 @@
     #error Wrong include order: MAVLINK_IVAQ_RX_MINI.H MUST NOT BE DIRECTLY USED. Include mavlink.h from the same directory instead or set ALL AND EVERY defines from MAVLINK.H manually accordingly, including the #define MAVLINK_H call.
 #endif
 
-#define MAVLINK_IVAQ_RX_MINI_XML_HASH -261746921171139362
+#define MAVLINK_IVAQ_RX_MINI_XML_HASH -2776332315764866165
 
 #ifdef __cplusplus
 extern "C" {
@@ -23,7 +23,7 @@ extern "C" {
 #endif
 
 #ifndef MAVLINK_MESSAGE_CRCS
-#define MAVLINK_MESSAGE_CRCS {{0, 50, 9, 9, 0, 0, 0}, {2, 137, 12, 12, 0, 0, 0}, {300, 217, 22, 22, 0, 0, 0}, {61000, 107, 3, 4, 0, 0, 0}, {61001, 228, 3, 3, 0, 0, 0}, {61002, 33, 88, 88, 0, 0, 0}}
+#define MAVLINK_MESSAGE_CRCS {{0, 50, 9, 9, 0, 0, 0}, {2, 137, 12, 12, 0, 0, 0}, {300, 217, 22, 22, 0, 0, 0}, {61000, 107, 3, 4, 0, 0, 0}, {61001, 24, 3, 3, 0, 0, 0}, {61002, 33, 88, 88, 0, 0, 0}}
 #endif
 
 #include "../protocol.h"
@@ -114,16 +114,16 @@ typedef enum IVAQ_MINI_DETECTION_MASK
 #endif
 
 /** @brief Requested capture action. Zero leaves capture unchanged, including during reset/update commands. */
-#ifndef HAVE_ENUM_IVAQ_MINI_CAPTURE_COMMAND
-#define HAVE_ENUM_IVAQ_MINI_CAPTURE_COMMAND
-typedef enum IVAQ_MINI_CAPTURE_COMMAND
+#ifndef HAVE_ENUM_IVAQ_MINI_SET_CAPTURE
+#define HAVE_ENUM_IVAQ_MINI_SET_CAPTURE
+typedef enum IVAQ_MINI_SET_CAPTURE
 {
-   IVAQ_MINI_CAPTURE_NO_CHANGE=0, /* Leave capture unchanged. | */
-   IVAQ_MINI_CAPTURE_START_SD=1, /* Start a capture and save to microSD. | */
-   IVAQ_MINI_CAPTURE_START_HOST=2, /* Start a capture and transfer to the host without writing microSD; independent of USB/UART transport. | */
-   IVAQ_MINI_CAPTURE_STOP=3, /* Request cancellation of the active acquisition or transfer. | */
-   IVAQ_MINI_CAPTURE_COMMAND_ENUM_END=4, /*  | */
-} IVAQ_MINI_CAPTURE_COMMAND;
+   IVAQ_MINI_SET_CAPTURE_NO_CHANGE=0, /* Leave capture unchanged. | */
+   IVAQ_MINI_SET_CAPTURE_START_SD=1, /* Start a capture and save to microSD. | */
+   IVAQ_MINI_SET_CAPTURE_START_HOST=2, /* Start a capture and transfer to the host without writing microSD; independent of USB/UART transport. | */
+   IVAQ_MINI_SET_CAPTURE_STOP=3, /* Request cancellation of the active acquisition or transfer. | */
+   IVAQ_MINI_SET_CAPTURE_ENUM_END=4, /*  | */
+} IVAQ_MINI_SET_CAPTURE;
 #endif
 
 /** @brief Reported acquisition/transfer state; these values are not commands. */

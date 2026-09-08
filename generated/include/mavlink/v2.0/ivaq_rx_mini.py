@@ -397,18 +397,18 @@ enums["IVAQ_MINI_DETECTION_MASK"][2] = EnumEntry("IVAQ_MINI_DETECTION_Y", """Det
 IVAQ_MINI_DETECTION_MASK_ENUM_END = 3
 enums["IVAQ_MINI_DETECTION_MASK"][3] = EnumEntry("IVAQ_MINI_DETECTION_MASK_ENUM_END", """""")
 
-# IVAQ_MINI_CAPTURE_COMMAND
-enums["IVAQ_MINI_CAPTURE_COMMAND"] = {}
-IVAQ_MINI_CAPTURE_NO_CHANGE = 0
-enums["IVAQ_MINI_CAPTURE_COMMAND"][0] = EnumEntry("IVAQ_MINI_CAPTURE_NO_CHANGE", """Leave capture unchanged.""")
-IVAQ_MINI_CAPTURE_START_SD = 1
-enums["IVAQ_MINI_CAPTURE_COMMAND"][1] = EnumEntry("IVAQ_MINI_CAPTURE_START_SD", """Start a capture and save to microSD.""")
-IVAQ_MINI_CAPTURE_START_HOST = 2
-enums["IVAQ_MINI_CAPTURE_COMMAND"][2] = EnumEntry("IVAQ_MINI_CAPTURE_START_HOST", """Start a capture and transfer to the host without writing microSD; independent of USB/UART transport.""")
-IVAQ_MINI_CAPTURE_STOP = 3
-enums["IVAQ_MINI_CAPTURE_COMMAND"][3] = EnumEntry("IVAQ_MINI_CAPTURE_STOP", """Request cancellation of the active acquisition or transfer.""")
-IVAQ_MINI_CAPTURE_COMMAND_ENUM_END = 4
-enums["IVAQ_MINI_CAPTURE_COMMAND"][4] = EnumEntry("IVAQ_MINI_CAPTURE_COMMAND_ENUM_END", """""")
+# IVAQ_MINI_SET_CAPTURE
+enums["IVAQ_MINI_SET_CAPTURE"] = {}
+IVAQ_MINI_SET_CAPTURE_NO_CHANGE = 0
+enums["IVAQ_MINI_SET_CAPTURE"][0] = EnumEntry("IVAQ_MINI_SET_CAPTURE_NO_CHANGE", """Leave capture unchanged.""")
+IVAQ_MINI_SET_CAPTURE_START_SD = 1
+enums["IVAQ_MINI_SET_CAPTURE"][1] = EnumEntry("IVAQ_MINI_SET_CAPTURE_START_SD", """Start a capture and save to microSD.""")
+IVAQ_MINI_SET_CAPTURE_START_HOST = 2
+enums["IVAQ_MINI_SET_CAPTURE"][2] = EnumEntry("IVAQ_MINI_SET_CAPTURE_START_HOST", """Start a capture and transfer to the host without writing microSD; independent of USB/UART transport.""")
+IVAQ_MINI_SET_CAPTURE_STOP = 3
+enums["IVAQ_MINI_SET_CAPTURE"][3] = EnumEntry("IVAQ_MINI_SET_CAPTURE_STOP", """Request cancellation of the active acquisition or transfer.""")
+IVAQ_MINI_SET_CAPTURE_ENUM_END = 4
+enums["IVAQ_MINI_SET_CAPTURE"][4] = EnumEntry("IVAQ_MINI_SET_CAPTURE_ENUM_END", """""")
 
 # IVAQ_MINI_CAPTURE_STATE
 enums["IVAQ_MINI_CAPTURE_STATE"] = {}
@@ -1033,32 +1033,32 @@ class MAVLink_ivaq_rx_mini_set_params_message(MAVLink_message):
 
     id = MAVLINK_MSG_ID_IVAQ_RX_MINI_SET_PARAMS
     msgname = "IVAQ_RX_MINI_SET_PARAMS"
-    fieldnames = ["rx_set_update", "rx_set_reset", "rx_capture_command"]
-    ordered_fieldnames = ["rx_set_update", "rx_set_reset", "rx_capture_command"]
+    fieldnames = ["rx_set_update", "rx_set_reset", "rx_set_capture"]
+    ordered_fieldnames = ["rx_set_update", "rx_set_reset", "rx_set_capture"]
     fieldtypes = ["uint8_t", "uint8_t", "uint8_t"]
     fielddisplays_by_name: Dict[str, str] = {}
-    fieldenums_by_name: Dict[str, str] = {"rx_set_update": "IVAQ_MINI_RX_UPDATE", "rx_set_reset": "IVAQ_MINI_RX_RESET", "rx_capture_command": "IVAQ_MINI_CAPTURE_COMMAND"}
+    fieldenums_by_name: Dict[str, str] = {"rx_set_update": "IVAQ_MINI_RX_UPDATE", "rx_set_reset": "IVAQ_MINI_RX_RESET", "rx_set_capture": "IVAQ_MINI_SET_CAPTURE"}
     fieldunits_by_name: Dict[str, str] = {}
     native_format = bytearray(b"<BBB")
     orders = [0, 1, 2]
     lengths = [1, 1, 1]
     array_lengths = [0, 0, 0]
-    crc_extra = 228
+    crc_extra = 24
     unpacker = struct.Struct("<BBB")
     instance_field = None
     instance_offset = -1
 
-    def __init__(self, rx_set_update: int, rx_set_reset: int, rx_capture_command: int):
+    def __init__(self, rx_set_update: int, rx_set_reset: int, rx_set_capture: int):
         MAVLink_message.__init__(self, MAVLink_ivaq_rx_mini_set_params_message.id, MAVLink_ivaq_rx_mini_set_params_message.msgname)
         self._fieldnames = MAVLink_ivaq_rx_mini_set_params_message.fieldnames
         self._instance_field = MAVLink_ivaq_rx_mini_set_params_message.instance_field
         self._instance_offset = MAVLink_ivaq_rx_mini_set_params_message.instance_offset
         self.rx_set_update = rx_set_update
         self.rx_set_reset = rx_set_reset
-        self.rx_capture_command = rx_capture_command
+        self.rx_set_capture = rx_set_capture
 
     def pack(self, mav: "MAVLink", force_mavlink1: bool = False) -> bytes:
-        return self._pack(mav, self.crc_extra, self.unpacker.pack(self.rx_set_update, self.rx_set_reset, self.rx_capture_command), force_mavlink1=force_mavlink1)
+        return self._pack(mav, self.crc_extra, self.unpacker.pack(self.rx_set_update, self.rx_set_reset, self.rx_set_capture), force_mavlink1=force_mavlink1)
 
 
 # Define name on the class for backwards compatibility (it is now msgname).
@@ -1693,7 +1693,7 @@ class MAVLink(object):
         """
         self.send(self.ivaq_rx_mini_params_encode(rx_status, rx_card_det, rx_capture_state, rx_stage_state), force_mavlink1=force_mavlink1)
 
-    def ivaq_rx_mini_set_params_encode(self, rx_set_update: int, rx_set_reset: int, rx_capture_command: int) -> MAVLink_ivaq_rx_mini_set_params_message:
+    def ivaq_rx_mini_set_params_encode(self, rx_set_update: int, rx_set_reset: int, rx_set_capture: int) -> MAVLink_ivaq_rx_mini_set_params_message:
         """
         Host command to IVAQ Rx mini. Send at most one action per message:
         update, reset, or a nonzero capture command. The receiver must
@@ -1702,12 +1702,12 @@ class MAVLink(object):
 
         rx_set_update             : Request receiver firmware update mode. (type:uint8_t, values:IVAQ_MINI_RX_UPDATE)
         rx_set_reset              : Request receiver reset. (type:uint8_t, values:IVAQ_MINI_RX_RESET)
-        rx_capture_command        : Requested acquisition/transfer action. (type:uint8_t, values:IVAQ_MINI_CAPTURE_COMMAND)
+        rx_set_capture            : Requested acquisition/transfer action. (type:uint8_t, values:IVAQ_MINI_SET_CAPTURE)
 
         """
-        return MAVLink_ivaq_rx_mini_set_params_message(rx_set_update, rx_set_reset, rx_capture_command)
+        return MAVLink_ivaq_rx_mini_set_params_message(rx_set_update, rx_set_reset, rx_set_capture)
 
-    def ivaq_rx_mini_set_params_send(self, rx_set_update: int, rx_set_reset: int, rx_capture_command: int, force_mavlink1: bool = False) -> None:
+    def ivaq_rx_mini_set_params_send(self, rx_set_update: int, rx_set_reset: int, rx_set_capture: int, force_mavlink1: bool = False) -> None:
         """
         Host command to IVAQ Rx mini. Send at most one action per message:
         update, reset, or a nonzero capture command. The receiver must
@@ -1716,10 +1716,10 @@ class MAVLink(object):
 
         rx_set_update             : Request receiver firmware update mode. (type:uint8_t, values:IVAQ_MINI_RX_UPDATE)
         rx_set_reset              : Request receiver reset. (type:uint8_t, values:IVAQ_MINI_RX_RESET)
-        rx_capture_command        : Requested acquisition/transfer action. (type:uint8_t, values:IVAQ_MINI_CAPTURE_COMMAND)
+        rx_set_capture            : Requested acquisition/transfer action. (type:uint8_t, values:IVAQ_MINI_SET_CAPTURE)
 
         """
-        self.send(self.ivaq_rx_mini_set_params_encode(rx_set_update, rx_set_reset, rx_capture_command), force_mavlink1=force_mavlink1)
+        self.send(self.ivaq_rx_mini_set_params_encode(rx_set_update, rx_set_reset, rx_set_capture), force_mavlink1=force_mavlink1)
 
     def ivaq_rx_mini_signal_encode(self, rx_signal_det_flag: int, rx_signal_det_time: int, rx_signal_det_module_nocorr: float, rx_signal_det_module_corr: float, rx_saturation_flag_x: int, rx_signal_det_flag_x: int, rx_signal_det_sat_flag_x: int, rx_signal_det_time_x: int, rx_signal_det_val_nocorr_x: float, rx_signal_det_val_corr_x: float, rx_noise_val_nocorr_x: float, rx_noise_val_corr_x: float, rx_noise_std_nocorr_x: float, rx_noise_std_corr_x: float, rx_saturation_flag_y: int, rx_signal_det_flag_y: int, rx_signal_det_sat_flag_y: int, rx_signal_det_time_y: int, rx_signal_det_val_nocorr_y: float, rx_signal_det_val_corr_y: float, rx_noise_val_nocorr_y: float, rx_noise_val_corr_y: float, rx_noise_std_nocorr_y: float, rx_noise_std_corr_y: float, rx_time_reference: int) -> MAVLink_ivaq_rx_mini_signal_message:
         """
